@@ -19,6 +19,10 @@ requirejs.config({
         'domain_list_controller': 'modules/domain/list/controller',
         'domain_entities':      'modules/domain/entities/domain',
 
+        'challenge_list_view'      : 'modules/challenge/list/view',
+        'challenge_list_controller': 'modules/challenge/list/controller',
+        'challenge_entity':      'modules/challenge/entities/challenge',
+
         /**===== yeoman hook =====**/
         /**This above hook is required for Mr.Yeoman, touch not it, nor it's indentation... please. **/
 
