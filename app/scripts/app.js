@@ -8,7 +8,7 @@ define([
         var App = new Backbone.Marionette.Application();
 
         App.addRegions({
-            pageRegion: '#page-region',
+            menuRegion: '#menu-region',
             mainRegion: '#main-region',
             // same as:
             // App.container = new Backbone.Marionette.Region({el:'#main'});
@@ -56,7 +56,7 @@ define([
         App.on('initialize:after', function() {
             if (Backbone.history) {
                 // note: this is async, so the rest of the init code here will run first
-                require(['modules/MODULENAME/app'], function () {
+                require(['modules/domain/app'], function () {
                     // Trigger the initial route and enable HTML5 History API support
                     // Backbone.history.start({
                     //     pushState: true,
@@ -67,7 +67,7 @@ define([
 
                     // set a default route
                     if (App.getCurrentRoute() === '') {
-                        App.trigger('MODULENAME:list');
+                        App.trigger('domain:list');
                     }
                     // App.switchApp('MyApp', {});
                 });
