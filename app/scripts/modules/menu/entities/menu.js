@@ -24,14 +24,17 @@ define(['app', 'backbone.picky'], function(App) {
                 {
                     name: 'Domains',
                     slug: 'domains',
+                    trigger: 'domain:list'
                 },
                 {
-                    name: 'Challange',
-                    slug: 'challange',
+                    name: 'Challanges',
+                    slug: 'challanges',
+                    trigger: 'challenge:list'
                 },
                 {
                     name: 'Profile',
                     slug: 'profile',
+                    trigger: 'user:profile'
                 },
             ]);
         };

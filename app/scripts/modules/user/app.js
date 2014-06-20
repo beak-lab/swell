@@ -3,7 +3,7 @@ define(function(require) {
     var App = require('app');
 
     // create a new module
-    App.module('App', {
+    App.module('User', {
         startWithParent: false,
         // only avaiable with object literal def of module;
         initialize: function(options, moduleName, App) { // on prototype chain thus inheritable
@@ -17,51 +17,48 @@ define(function(require) {
     });
 
     // create a new sub module
-    App.module('Routers.UserApp', function(UserAppRouter, App, Backbone, Marionette) { //, $, _) {
-        this.name = 'Routers.UserApp';
+    App.module('Routers.User', function(UserRouter, App, Backbone, Marionette) { //, $, _) {
+        this.name = 'Routers.User';
 
-        UserAppRouter.Router = Marionette.AppRouter.extend({
+        UserRouter.Router = Marionette.AppRouter.extend({
             initialize: function() {
                 // App.log('Before Router', UserAppRouter.name);
                 // start ourselves
                 // App.switchApp('UserApp', {});
             },
             appRoutes: {
-                '': 'listUser',
-                'user': 'listUser',
-                // 'user/create': 'createUser',
-                // 'user/:slug' : 'showUser'
+                'profile': 'profile',
             }
         });
 
         var executeAction = function(action, arg) {
-            App.switchApp('UserApp');
+            App.switchApp('User');
             action(arg);
-            // App.execute('set:active:page', 'user');
+            App.execute('set:active:page', 'profile');
         };
 
         var API = {
-            listUser : function() {
-                require(['user_list_controller'], function(ListController) {
-                    App.log('List user: Controller loaded, requesting user..', UserAppRouter.name, 2);
-                    executeAction(ListController.listUser);
+            profile : function() {
+                require(['user_controller'], function(Controller) {
+                    App.log('User: Controller loaded, requesting user..', UserRouter.name, 2);
+                    executeAction(Controller.show);
                 });
             },
         };
 
         // also watch for manual events:
-        App.on('user:list', function() {
-            App.navigate('/user');
-            API.listUser();
+        App.on('user:profile', function() {
+            App.navigate('/profile');
+            API.profile();
         });
 
         App.addInitializer(function() {
-            App.log('Initalizer running: Starting Router', UserAppRouter.name, 2);
-            new UserAppRouter.Router({
+            App.log('Initalizer running: Starting Router', UserRouter.name, 2);
+            new UserRouter.Router({
                 controller: API
             });
         });
     });
 
-    return App.UserAppRouter;
+    return App.UserRouter;
 });

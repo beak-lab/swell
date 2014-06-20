@@ -10,9 +10,9 @@ define(['app', 'templates', 'dust'], function(App) {
                 nav: '#glb-nav',
             },
 
-            events: {
-                // 'click #glb-sidebar-expander': 'sidebarExpanderClicked',
-            },
+            // events: {
+                // 'click .show': 'sidebarExpanderClicked',
+            // },
 
             // sidebarExpanderClicked: function(e) {
                 // $([this.$el, e.currentTarget]).toggleClass('is-expanded');
@@ -23,6 +23,15 @@ define(['app', 'templates', 'dust'], function(App) {
         View.Menu = Marionette.ItemView.extend({
             tagName: 'li',
             template: 'menu_item',
+
+            events: {
+                'click .menu': 'navigate',
+            },
+
+            navigate: function(e) {
+                e.preventDefault();
+                this.trigger('navigate', this.model);
+            }
         });
 
         View.Menus = Marionette.CompositeView.extend({

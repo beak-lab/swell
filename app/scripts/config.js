@@ -22,8 +22,8 @@ requirejs.config({
         'challenge_list_controller': 'modules/challenge/list/controller',
         'challenge_entity'         : 'modules/challenge/entities/challenge',
 
-        'user_list_view'           : 'modules/user/list/view',
-        'user_list_controller'     : 'modules/user/list/controller',
+        'user_view'                : 'modules/user/profile/view',
+        'user_controller'          : 'modules/user/profile/controller',
         'user_entity'              : 'modules/user/entities/user',
 
         'menu_view'                : 'modules/menu/show/view',
