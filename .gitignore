@@ -1,7 +1,7 @@
 node_modules
 temp
 dist
-build
+www
 .sass-cache
 app/bower_components
 app/scripts/common/templates.js
@@ -9,3 +9,8 @@ app/styles/*.css
 .tmp/
 *.sublime-*
 *compiled.js
+
+platforms/android/assets/www
+platforms/*/ant-*
+platforms/*/*/ant-*
+npm-debug.log
