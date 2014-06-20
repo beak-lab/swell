@@ -20,7 +20,6 @@ define(['app', 'menu_view', 'menu_entity'], function(App, View) {
             },
             setActivePage: function(page) {
                 var pageLinks = Show.Controller.menu.collection;
-                console.log(page);
                 var linkToSelect = pageLinks.find(function(link) {
                     return link.get('slug') === page;
                 });

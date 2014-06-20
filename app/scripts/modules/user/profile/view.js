@@ -7,8 +7,7 @@ define(['app', 'templates', 'dust'], function(App) {
             template: 'user_layout',
 
             regions: {
-                panelRegion: '#panel-region',
-                userRegion: '.content'
+                userRegion: '#userProfile'
             },
 
             flash: function(cssClass) { // fade in and out.

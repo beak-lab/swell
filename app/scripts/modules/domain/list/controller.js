@@ -15,26 +15,30 @@ define(['app', 'domain_list_view'], function(App, View) {
                     $.when(fetchingDomain).done(function(domain) {
                         // App.log('Fetched domain data', 'App', 1);
 
-                        var domainListView = new View.Domain({
+                        var view = new View.Domain({
                             collection: domain
+                        });
+
+                        view.on('itemview:domain:show', function(childView, model) {
+                            App.trigger('challenge:show', model.get('slug'));
                         });
 
                         // domainListLayout.on('show', function() {
                         //   domainListLayout.panelRegion.show(domainsListPanel);
-                        //   domainListLayout.domainRegion.show(domainListView);
+                        //   domainListLayout.domainRegion.show(view);
                         // });
 
-                        // domainListView.on('itemview:domain:show', function(childView, model) {
+                        // view.on('itemview:domain:show', function(childView, model) {
                         //   App.trigger('domain:show', model.get('id'));
                         // });
 
-                        domainListView.on('itemview:domain:delete', function(childView, model) {
+                        view.on('itemview:domain:delete', function(childView, model) {
                             // auto magically call's remove in the view.
                             model.destroy();
                         });
 
                         // when the data is here, show it in this region
-                        domainListLayout.domainRegion.show(domainListView);
+                        domainListLayout.domainRegion.show(view);
 
                     });
 

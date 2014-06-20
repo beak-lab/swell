@@ -3,7 +3,7 @@ define(['app', 'challenge_list_view'], function(App, View) {
     App.module('ChallengeApp.List', function (List, App, Backbone, Marionette, $) { // , _
         var contextName = 'ChallengeApp.List.Controller';
         List.Controller = {
-            listChallenge: function() {
+            list: function() {
 
                 require(['common_views', 'challenge_entity'], function(CommonViews) {
                     App.log('List Challenge called', contextName, 2);
@@ -44,6 +44,10 @@ define(['app', 'challenge_list_view'], function(App, View) {
                     App.mainRegion.show(challengeListLayout);
                 });
 
+            },
+
+            show: function(slug) {
+                console.log('Showing: ' + slug);
             }
         };
     });

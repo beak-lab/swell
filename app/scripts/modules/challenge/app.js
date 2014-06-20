@@ -2,33 +2,17 @@
 define(function(require) {
     var App = require('app');
 
-    // create a new module
     App.module('Challenge', {
         startWithParent: false,
-        // only avaiable with object literal def of module;
-        initialize: function(options, moduleName, App) { // on prototype chain thus inheritable
-            this.name = moduleName;
-            App.log('Initalize: ' + App.getCurrentRoute(), this.name, 2);
-        },
-        // define: function(Challenge, App, Backbone, Marionette, $, _) { // non inheritable
-            // temp stuff for logging
-            // TODO: find a better way to get module name
-        // }
     });
 
-    // create a new sub module
     App.module('Routers.Challenge', function(ChallengeRouter, App, Backbone, Marionette) { //, $, _) {
         this.name = 'Routers.Challenge';
 
         ChallengeRouter.Router = Marionette.AppRouter.extend({
-            initialize: function() {
-                // App.log('Before Router', ChallengeRouter.name);
-                // start ourselves
-                // App.switchApp('Challenge', {});
-            },
             appRoutes: {
-                'challenges': 'listChallenge',
-                // 'challenge/:slug' : 'showChallenge'
+                'challenges'      : 'list',
+                'challenge/:slug' : 'show'
             }
         });
 
@@ -39,18 +23,29 @@ define(function(require) {
         };
 
         var API = {
-            listChallenge : function() {
-                require(['challenge_list_controller'], function(ListController) {
-                    App.log('List challenge: Controller loaded, requesting challenge..', ChallengeRouter.name, 2);
-                    executeAction(ListController.listChallenge);
+            list: function() {
+                require(['challenge_list_controller'], function(Controller) {
+                    App.log('Challenge: Controller loaded, requesting challenge..', ChallengeRouter.name, 2);
+                    executeAction(Controller.list);
                 });
             },
+            show: function(slug) {
+                require(['challenge_list_controller'], function(Controller) {
+                    App.log('Challenge: Controller loaded, requesting challenge..', ChallengeRouter.name, 2);
+                    executeAction(Controller.show, slug);
+                });
+            }
         };
 
         // also watch for manual events:
         App.on('challenge:list', function() {
             App.navigate('/challenges');
-            API.listChallenge();
+            API.list();
+        });
+
+        App.on('challenge:show', function(slug) {
+            App.navigate('/challenge/' + slug);
+            API.show(slug);
         });
 
         App.addInitializer(function() {

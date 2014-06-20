@@ -1,12 +1,10 @@
 <div class='layout-template'>
 
     <header>
-        <h1>{title}</h1>
+        <h1>Welcome to the user profile page</h1>
     </header>
 
-    <section>
-        <nav class='menu'></nav>
-        <div class='content'></div>
-    </section>
+    <div id="panel-region">
+    </div>
 
 </div>

@@ -51,8 +51,7 @@ define(['app'], function(App) {
 
             events: {
                 'click': 'highlightName',
-                'click td a.js-show': 'showClicked',
-                'click button.js-delete': 'deleteClicked'
+                'click .domain': 'showClicked',
             },
 
             highlightName: function() {
