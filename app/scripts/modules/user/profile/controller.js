@@ -4,7 +4,6 @@ define(['app', 'user_view'], function(App, View) {
         var contextName = 'User.Profile.Controller';
         Profile.Controller = {
             show: function() {
-
                 require(['common_views', 'user_entity'], function(CommonViews) {
                     App.log('User profile requested', contextName, 2);
                     App.mainRegion.show(new CommonViews.Loading());

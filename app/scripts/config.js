@@ -10,6 +10,7 @@ requirejs.config({
         'backbone.picky': '../bower_components/backbone.picky/lib/amd/backbone.picky',
         'backbone.wreqr': '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
         'backbone.babysitter': '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
+        'common_views': 'common/views',
         templates: 'common/templates',
         spin: '../bower_components/spinjs/spin',
         'spin.jquery': '../bower_components/spinjs/jquery.spin',

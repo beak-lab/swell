@@ -1,6 +1,6 @@
 'use strict';
 define(['app', 'menu_view', 'menu_entity'], function(App, View) {
-    App.module('Menu.Show', function (Show, App, Backbone, Marionette) { // , _
+    App.module('Menu.Show', function (Show, App) { // , _, Backbone, Marionette
         var contextName = 'Menu.Show.Controller';
         Show.Controller = {
             setup: function() {
@@ -12,6 +12,7 @@ define(['app', 'menu_view', 'menu_entity'], function(App, View) {
                 });
 
                 menu.on('itemview:navigate', function(childView, model) {
+                    App.log('Navigating to: ' + model.get('trigger'), contextName, 1);
                     App.trigger(model.get('trigger'));
                 });
 

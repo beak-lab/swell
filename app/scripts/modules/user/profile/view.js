@@ -1,7 +1,7 @@
 'use strict';
 define(['app', 'templates', 'dust'], function(App) {
     App.module('User.Profile.View', function(View, App, Backbone, Marionette) { // , $, _
-        var contextName = 'User.Profile.View';
+        // var contextName = 'User.Profile.View';
 
         View.Layout = Marionette.Layout.extend({
             template: 'user_layout',

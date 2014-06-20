@@ -2,18 +2,8 @@
 define(function(require) {
     var App = require('app');
 
-    // create a new module
     App.module('User', {
         startWithParent: false,
-        // only avaiable with object literal def of module;
-        initialize: function(options, moduleName, App) { // on prototype chain thus inheritable
-            this.name = moduleName;
-            App.log('Initalize: ' + App.getCurrentRoute(), this.name, 2);
-        },
-        // define: function(UserApp, App, Backbone, Marionette, $, _) { // non inheritable
-            // temp stuff for logging
-            // TODO: find a better way to get module name
-        // }
     });
 
     // create a new sub module
@@ -21,11 +11,6 @@ define(function(require) {
         this.name = 'Routers.User';
 
         UserRouter.Router = Marionette.AppRouter.extend({
-            initialize: function() {
-                // App.log('Before Router', UserAppRouter.name);
-                // start ourselves
-                // App.switchApp('UserApp', {});
-            },
             appRoutes: {
                 'profile': 'profile',
             }
@@ -46,7 +31,6 @@ define(function(require) {
             },
         };
 
-        // also watch for manual events:
         App.on('user:profile', function() {
             App.navigate('/profile');
             API.profile();

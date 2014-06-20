@@ -58,13 +58,10 @@ define([
                 // note: this is async, so the rest of the init code here will run first
                 require([
                         'modules/domain/app',
-                        'modules/menu/app'
+                        'modules/menu/app',
+                        'modules/user/app',
+                        'modules/challenge/app'
                     ], function () {
-                    // Trigger the initial route and enable HTML5 History API support
-                    // Backbone.history.start({
-                    //     pushState: true,
-                    //     root: App.root
-                    // });
 
                     Backbone.history.start();
 
