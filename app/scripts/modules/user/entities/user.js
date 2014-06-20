@@ -1,7 +1,6 @@
 'use strict';
 define(['app'], function(App) {
     App.module('Entities', function(Entities, App, Backbone, Marionette, $, _) {
-        var contextName = 'User.Entity';
         Entities.User = Backbone.Model.extend({
             // urlRoot: 'user',
             url: function() {
@@ -29,8 +28,7 @@ define(['app'], function(App) {
 
         var API = {
             getUser: function() {
-                var model = new Entities.User(id);
-                App.log('Made new object: ' + id, contextName, 1);
+                var model = new Entities.User();
                 return model;
             },
         };

@@ -37,7 +37,7 @@ define(function(require) {
         var executeAction = function(action, arg) {
             App.switchApp('Domain');
             action(arg);
-            // App.execute('set:active:page', 'domain');
+            App.execute('set:active:page', 'domains');
         };
 
         var API = {

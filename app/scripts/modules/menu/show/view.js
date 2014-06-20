@@ -31,7 +31,14 @@ define(['app', 'templates', 'dust'], function(App) {
             navigate: function(e) {
                 e.preventDefault();
                 this.trigger('navigate', this.model);
+            },
+
+            onRender: function() {
+                if(this.model.selected) {
+                    this.$el.find('div').addClass('is-active');
+                }
             }
+
         });
 
         View.Menus = Marionette.CompositeView.extend({

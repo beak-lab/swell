@@ -8,11 +8,14 @@ define(['app', 'user_view'], function(App, View) {
                     App.log('User profile requested', contextName, 2);
                     App.mainRegion.show(new CommonViews.Loading());
 
-                    var fetchingUser = App.request('user:entities');
+                    var user = App.request('user:profile');
+
+                    // get the user information
+                    // var userModel = App.request('session:user');
 
                     var layout = new View.Layout();
 
-                    $.when(fetchingUser).done(function(user) {
+                    // $.when(fetchingUser).done(function(user) {
 
                         var view = new View.User({
                             model: user
@@ -21,7 +24,7 @@ define(['app', 'user_view'], function(App, View) {
                         // when the data is here, show it in this region
                         layout.userRegion.show(view);
 
-                    });
+                    // });
 
                     // show the whole layout
                     App.mainRegion.show(layout);

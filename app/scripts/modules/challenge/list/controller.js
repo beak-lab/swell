@@ -4,8 +4,8 @@ define(['app', 'challenge_list_view'], function(App, View) {
         var contextName = 'ChallengeApp.List.Controller';
         List.Controller = {
             listChallenge: function() {
-                
-                require(['common/views', 'challenge_entity'], function(CommonViews) {
+
+                require(['common_views', 'challenge_entity'], function(CommonViews) {
                     App.log('List Challenge called', contextName, 2);
                     App.mainRegion.show(new CommonViews.Loading());
 
@@ -43,7 +43,7 @@ define(['app', 'challenge_list_view'], function(App, View) {
                     // show the whole layout
                     App.mainRegion.show(challengeListLayout);
                 });
-                
+
             }
         };
     });

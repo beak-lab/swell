@@ -5,8 +5,7 @@ define(['app', 'backbone.picky'], function(App) {
 
         Entities.Menu = Backbone.Model.extend({
             initialize: function() {
-                var selectable = new Backbone.Picky.Selectable(this);
-                _.extend(this, selectable);
+                Backbone.Picky.Selectable.mixInto(this);
             }
         });
 
@@ -14,8 +13,7 @@ define(['app', 'backbone.picky'], function(App) {
             model: Entities.Menu,
 
             initialize: function() {
-                // var singleSelect = new Backbone.Picky.SingleSelect(this);
-                // _.extend(this, singleSelect);
+                // Backbone.Picky.SingleSelect.mixInto(this);
             }
         });
 
@@ -27,8 +25,8 @@ define(['app', 'backbone.picky'], function(App) {
                     trigger: 'domain:list'
                 },
                 {
-                    name: 'Challanges',
-                    slug: 'challanges',
+                    name: 'Challenges',
+                    slug: 'challenges',
                     trigger: 'challenge:list'
                 },
                 {

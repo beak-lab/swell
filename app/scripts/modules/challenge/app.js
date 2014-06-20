@@ -35,7 +35,7 @@ define(function(require) {
         var executeAction = function(action, arg) {
             App.switchApp('Challenge');
             action(arg);
-            App.execute('set:active:page', 'challenge');
+            App.execute('set:active:page', 'challenges');
         };
 
         var API = {
