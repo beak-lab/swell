@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'movie_list_view'], function(App, View) {
+define(['app', 'domain_list_view'], function(App, View) {
     App.module('DomainApp.List', function (List, App, Backbone, Marionette, $) { // , _
         List.Controller = {
             listDomain: function() {
