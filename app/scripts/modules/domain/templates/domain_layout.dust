@@ -5,8 +5,7 @@
   </header>
 
   <section>
-    <navigation id='menu'></navigation>
-    <article id='content'></article>
+    <article id='domain_content'></article>
   </section>
 
 </div>

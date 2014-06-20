@@ -6,16 +6,15 @@ define(function(require) {
     // create a new module
     App.module('Menu', {
         // only avaiable with object literal def of module;
-        initialize: function(options, moduleName, App) { // on prototype chain thus inheritable
-            this.name = moduleName;
-            App.log('Initalize: ' + App.getCurrentRoute(), this.name, 2);
-
-            Controller.setup();
-        },
-        // define: function(Menu, App, Backbone, Marionette, $, _) { // non inheritable
+        // initialize: function(options, moduleName, App) { // on prototype chain thus inheritable
+            // this.name = moduleName;
+            // App.log('Initalizing menu' , this.name, 2);
+        // },
+        define: function() {//Menu, App, Backbone, Marionette, $, _) { // non inheritable
             // temp stuff for logging
             // TODO: find a better way to get module name
-        // }
+            Controller.setup();
+        }
     });
 
 

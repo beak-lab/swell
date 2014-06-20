@@ -3,28 +3,28 @@ define(function(require) {
     var App = require('app');
 
     // create a new module
-    App.module('App', {
+    App.module('Domain', {
         startWithParent: false,
         // only avaiable with object literal def of module;
         initialize: function(options, moduleName, App) { // on prototype chain thus inheritable
             this.name = moduleName;
             App.log('Initalize: ' + App.getCurrentRoute(), this.name, 2);
         },
-        // define: function(DomainApp, App, Backbone, Marionette, $, _) { // non inheritable
+        // define: function(Domain, App, Backbone, Marionette, $, _) { // non inheritable
             // temp stuff for logging
             // TODO: find a better way to get module name
         // }
     });
 
     // create a new sub module
-    App.module('Routers.DomainApp', function(DomainAppRouter, App, Backbone, Marionette) { //, $, _) {
-        this.name = 'Routers.DomainApp';
+    App.module('Routers.Domain', function(DomainRouter, App, Backbone, Marionette) { //, $, _) {
+        this.name = 'Routers.Domain';
 
-        DomainAppRouter.Router = Marionette.AppRouter.extend({
+        DomainRouter.Router = Marionette.AppRouter.extend({
             initialize: function() {
-                // App.log('Before Router', DomainAppRouter.name);
+                // App.log('Before Router', DomainRouter.name);
                 // start ourselves
-                // App.switchApp('DomainApp', {});
+                // App.switchApp('Domain', {});
             },
             appRoutes: {
                 '': 'listDomain',
@@ -35,7 +35,7 @@ define(function(require) {
         });
 
         var executeAction = function(action, arg) {
-            App.switchApp('DomainApp');
+            App.switchApp('Domain');
             action(arg);
             // App.execute('set:active:page', 'domain');
         };
@@ -43,7 +43,7 @@ define(function(require) {
         var API = {
             listDomain : function() {
                 require(['domain_list_controller'], function(ListController) {
-                    App.log('List domain: Controller loaded, requesting domain..', DomainAppRouter.name, 2);
+                    App.log('List domain: Controller loaded, requesting domain..', DomainRouter.name, 2);
                     executeAction(ListController.listDomain);
                 });
             },
@@ -56,12 +56,12 @@ define(function(require) {
         });
 
         App.addInitializer(function() {
-            App.log('Initalizer running: Starting Router', DomainAppRouter.name, 2);
-            new DomainAppRouter.Router({
+            App.log('Initalizer running: Starting Router', DomainRouter.name, 2);
+            new DomainRouter.Router({
                 controller: API
             });
         });
     });
 
-    return App.DomainAppRouter;
+    return App.DomainRouter;
 });

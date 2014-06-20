@@ -9,7 +9,6 @@ requirejs.config({
         dustMarionette: '../bower_components/marionette-dust/src/amd/backbone.marionette.dust',
         'backbone.picky': '../bower_components/backbone.picky/lib/amd/backbone.picky',
         'backbone.wreqr': '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
-        'backbone.eventbinder': '../bower_components/backbone.eventbinder/lib/amd/backbone.eventbinder',
         'backbone.babysitter': '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
         templates: 'common/templates',
         spin: '../bower_components/spinjs/spin',
@@ -43,9 +42,8 @@ requirejs.config({
             deps: ['jquery', 'underscore', 'dust'],
             exports: 'Backbone'
         },
-        dustMarionette: {
-            deps: ['backbone']
-        },
+        dustMarionette: ['backbone'],
+        'backbone.picky': ['backbone'],
         dust: {
             exports: 'dust'
         },

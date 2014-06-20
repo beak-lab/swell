@@ -1,10 +1,10 @@
 'use strict';
-define(['app'], function(App) {
+define(['app', 'backbone.picky'], function(App) {
     App.module('Entities', function(Entities, App, Backbone, Marionette, $, _) {
         var contextName = 'Menu.Entity';
 
         Entities.Menu = Backbone.Model.extend({
-            initialize: function(){
+            initialize: function() {
                 var selectable = new Backbone.Picky.Selectable(this);
                 _.extend(this, selectable);
             }
@@ -13,9 +13,9 @@ define(['app'], function(App) {
         Entities.MenuCollection = Backbone.Collection.extend({
             model: Entities.Menu,
 
-            initialize: function(){
-                var singleSelect = new Backbone.Picky.SingleSelect(this);
-                _.extend(this, singleSelect);
+            initialize: function() {
+                // var singleSelect = new Backbone.Picky.SingleSelect(this);
+                // _.extend(this, singleSelect);
             }
         });
 

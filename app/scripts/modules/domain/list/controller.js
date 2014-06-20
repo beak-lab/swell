@@ -1,6 +1,6 @@
 'use strict';
 define(['app', 'domain_list_view'], function(App, View) {
-    App.module('DomainApp.List', function (List, App, Backbone, Marionette, $) { // , _
+    App.module('Domain.List', function (List, App, Backbone, Marionette, $) { // , _
         List.Controller = {
             listDomain: function() {
                 require(['common/views', 'domain_entities'], function(CommonViews) {
@@ -45,5 +45,5 @@ define(['app', 'domain_list_view'], function(App, View) {
             }
         };
     });
-    return App.DomainApp.List.Controller;
+    return App.Domain.List.Controller;
 });

@@ -1,12 +1,12 @@
 'use strict';
 define(['app'], function(App) {
-    App.module('DomainApp.List.View', function(View, App, Backbone, Marionette) { // , $, _
+    App.module('Domain.List.View', function(View, App, Backbone, Marionette) { // , $, _
         View.Layout = Marionette.Layout.extend({
             template: 'domain_layout',
 
             regions: {
                 panelRegion: '#panel-region',
-                domainRegion: '#content'
+                domainRegion: '#domain_content'
             },
 
             flash: function(cssClass) { // fade in and out.
@@ -94,7 +94,7 @@ define(['app'], function(App) {
 
             initialize: function() {
                 this.listenTo(this.collection, 'reset', function() {
-                    App.log('reset called', 'domain list view', 1);
+                    App.log('reset called', 'Domain list view', 1);
                     this.appendHtml = function(collectionView, itemView) { //, index) {
                         collectionView.$el.append(itemView.el);
                     };
@@ -102,7 +102,7 @@ define(['app'], function(App) {
             },
 
             onCompositeCollectionRendered: function() {
-                App.log('rendered called', 'domain list view', 1);
+                App.log('rendered called', 'Domain list view', 1);
                 this.appendHtml = function(collectionView, itemView) { //, index) {
                     collectionView.$el.prepend(itemView.el);
                 };
@@ -110,5 +110,5 @@ define(['app'], function(App) {
         });
     });
 
-    return App.DomainApp.List.View;
+    return App.Domain.List.View;
 });

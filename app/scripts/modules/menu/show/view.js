@@ -1,7 +1,7 @@
 'use strict';
 define(['app', 'templates', 'dust'], function(App) {
     App.module('Menu.View', function(View, App, Backbone, Marionette) { // , $, _
-        var contextName = 'Menu.Show.View';
+        var contextName = 'Menu.View';
 
         View.Layout = Marionette.Layout.extend({
             template: 'menu_layout',
@@ -20,9 +20,20 @@ define(['app', 'templates', 'dust'], function(App) {
             // },
         });
 
+        View.Menu = Marionette.ItemView.extend({
+            tagName: 'li',
+            template: 'menu_item',
+        });
 
+        View.Menus = Marionette.CompositeView.extend({
+            tagName: 'div',
+            className: 'menu',
+            template: 'menu_show',
+            itemView: View.Menu,
+            itemViewContainer: '#menuList',
+        });
 
     });
 
-    return App.Menu.List.View;
+    return App.Menu.View;
 });
