@@ -27,8 +27,8 @@ requirejs.config({
         'user_list_controller'     : 'modules/user/list/controller',
         'user_entity'              : 'modules/user/entities/user',
 
-        'menu_list_view'           : 'modules/menu/list/view',
-        'menu_list_controller'     : 'modules/menu/list/controller',
+        'menu_view'                : 'modules/menu/show/view',
+        'menu_controller'          : 'modules/menu/show/controller',
         'menu_entity'              : 'modules/menu/entities/menu',
 
         /**===== yeoman hook =====**/

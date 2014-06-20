@@ -25,6 +25,14 @@ define(['app'], function(App) {
                     name: 'Domains',
                     slug: 'domains',
                 },
+                {
+                    name: 'Challange',
+                    slug: 'challange',
+                },
+                {
+                    name: 'Profile',
+                    slug: 'profile',
+                },
             ]);
         };
 
