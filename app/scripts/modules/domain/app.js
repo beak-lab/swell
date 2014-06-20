@@ -28,7 +28,7 @@ define(function(require) {
             },
             appRoutes: {
                 '': 'listDomain',
-                'domain': 'listDomain',
+                'domains': 'listDomain',
                 // 'domain/create': 'createDomain',
                 // 'domain/:slug' : 'showDomain'
             }
@@ -51,7 +51,7 @@ define(function(require) {
 
         // also watch for manual events:
         App.on('domain:list', function() {
-            App.navigate('/domain');
+            App.navigate('/domains');
             API.listDomain();
         });
 

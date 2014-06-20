@@ -3,7 +3,7 @@ define(['app', 'domain_list_view'], function(App, View) {
     App.module('DomainApp.List', function (List, App, Backbone, Marionette, $) { // , _
         List.Controller = {
             listDomain: function() {
-                require(['common/views', 'entities_domain'], function(CommonViews) {
+                require(['common/views', 'domain_entities'], function(CommonViews) {
 
                     App.mainRegion.show(new CommonViews.Loading());
 

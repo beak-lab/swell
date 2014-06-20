@@ -30,7 +30,7 @@ define(['app'], function(App) {
         });
 
         Entities.DomainCollection = Backbone.Collection.extend({
-            url: '/',
+            url: '/domains',
             model: Entities.Domain
         });
 
@@ -38,8 +38,8 @@ define(['app'], function(App) {
             App.log('Initializing Fake Domains', contextName, 1);
 
             var fakeDomains = new Entities.DomainCollection([{
-                name: 'First Domain',
-                slug: 'page-1'
+                name: 'Employment',
+                slug: 'employment'
             }, {
                 name: 'Second Domain',
                 slug: 'page-2'
@@ -72,7 +72,7 @@ define(['app'], function(App) {
                             // App.trigger('page:register', models); // add each domain to the menu
                             // if we don't have any imageCollection yet, create some for convenience
                             domainCollection.reset(initializeDomains().models); // update the collection
-                        }, 2000);
+                        }, 1);
 
                     }
                 });
