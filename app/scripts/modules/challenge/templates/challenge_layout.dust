@@ -1,12 +1,7 @@
 <div class='layout-template'>
 
-  <header>
-    <h1>{title}</h1>
-  </header>
+    <h2>Challenges</h2>
 
-  <section>
-    <navigation class='menu'></navigation>
-    <div class='content'></div>
-  </section>
+    <div id='challengeRegion'></div>
 
 </div>

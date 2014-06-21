@@ -20,7 +20,7 @@ define(['app', 'domain_list_view'], function(App, View) {
                         });
 
                         view.on('itemview:domain:show', function(childView, model) {
-                            App.trigger('challenge:show', model.get('slug'));
+                            App.trigger('challenge:bydomain', model.get('id'));
                         });
 
                         // domainListLayout.on('show', function() {

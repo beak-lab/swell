@@ -5,7 +5,6 @@ define(['app'], function(App) {
             template: 'domain_layout',
 
             regions: {
-                panelRegion: '#panel-region',
                 domainRegion: '#domain_content'
             },
 
@@ -19,43 +18,12 @@ define(['app'], function(App) {
             }
         });
 
-        // View.Panel = Marionette.ItemView.extend({
-        //     template: panelTpl,
-
-        //     triggers: {
-        //         'click button.js-new': 'domain:new'
-        //     },
-
-        //     events: {
-        //         'submit #filter-form': 'filterDomains'
-        //     },
-
-        //     ui: {
-        //         criterion: 'input.js-filter-criterion'
-        //     },
-
-        //     filterDomains: function(e){
-        //         e.preventDefault();
-        //         var criterion = this.$('.js-filter-criterion').val();
-        //         this.trigger('domains:filter', criterion);
-        //     },
-
-        //     onSetFilterCriterion: function(criterion){
-        //         this.ui.criterion.val(criterion);
-        //     }
-        // });
-
         View.DomainOne = Marionette.ItemView.extend({
             tagName: 'div',
             template: 'domain_list_one',
 
             events: {
-                'click': 'highlightName',
                 'click .domain': 'showClicked',
-            },
-
-            highlightName: function() {
-                this.$el.toggleClass('warning');
             },
 
             showClicked: function(e) {
@@ -64,30 +32,12 @@ define(['app'], function(App) {
                 this.trigger('domain:show', this.model);
             },
 
-            deleteClicked: function(e) {
-                e.stopPropagation();
-                this.trigger('domain:delete', this.model);
-            },
-
-            remove: function() { // automatically called when this model is destroy() 'ed
-                var self = this;
-                this.$el.fadeOut(function() {
-                    Marionette.ItemView.prototype.remove.call(self);
-                });
-            }
-        });
-
-        var DomainEmpty = Marionette.ItemView.extend({
-            template: 'domain_none',
-            // tagName: 'div',
-            className: 'alert'
         });
 
         View.Domain = Marionette.CompositeView.extend({
             tagName: 'div',
             className: '',
             template: 'domain_list',
-            emptyView: DomainEmpty,
             itemView: View.DomainOne,
             itemViewContainer: '.domain_list',
 

@@ -3,7 +3,6 @@ define(['app'], function(App) {
     App.module('Entities', function(Entities, App, Backbone, Marionette, $, _) {
         var contextName = 'Challenge.Entity';
         Entities.Challenge = Backbone.Model.extend({
-            
             urlRoot: 'challenge',
 
             defaults: {
@@ -28,84 +27,88 @@ define(['app'], function(App) {
                     return errors;
                 }
             }
-            
         });
-        
 
         Entities.ChallengeCollection = Backbone.Collection.extend({
-            url: '/',
+            url: '/challanges',
             model: Entities.Challenge
         });
 
         var initializeChallenges = function() {
             App.log('Initializing Fake Challenges', contextName, 1);
 
-            var fakeChallenges = new Entities.ChallengeCollection([{
+            Entities.fakeChallenges = new Entities.ChallengeCollection([
+            {
+                id: 1,
                 name: 'First Challenge',
-                slug: 'page-1'
+                slug: 'page-1',
+                domain: 0
             }, {
+                id: 2,
                 name: 'Second Challenge',
-                slug: 'page-2'
-            }]);
+                slug: 'page-2',
+                domain: 0
+            }, {
+                id: 3,
+                name: 'Third Challenge',
+                slug: 'page-3',
+                domain: 1
+            }, {
+                id: 4,
+                name: 'Forth Challenge',
+                slug: 'page-4',
+                domain: 1
+            }
+            ]);
 
-            return fakeChallenges;
+            return Entities.fakeChallenges;
         };
-        
+
         var API = {
+            getChallengeEntities: function() {
+                if (undefined === Entities.fakeChallenges) {
+                    initializeChallenges();
+                }
+                return Entities.fakeChallenges;
+            },
+
             getChallengeEntity: function(id) {
-                var model = new Entities.Challenge(id);
-                App.log('Made new object: ' + id, contextName, 1);
+                if (undefined === Entities.fakeChallenges) {
+                    initializeChallenges();
+                }
+                var model = Entities.fakeChallenges.findWhere({
+                    id: id
+                });
+                // var model = new Entities.Challenge(id);
                 return model;
             },
 
-            
-            getChallengeEntities: function() {
-                App.log('challenge:entities event detected', contextName, 1);
-                var challengeCollection = new Entities.ChallengeCollection();
-                challengeCollection.reset(initializeChallenges().models); // update the collection
-                return challengeCollection;
-            },
+            getChallengeByDomain: function(domain) {
+                App.log('challenge:entities event detected', contextName, 2);
+                if (undefined === Entities.fakeChallenges) {
+                    initializeChallenges();
+                }
 
-            getChallengeEntitiesPromises: function() {
-                App.log('challenge:entities event detected', contextName, 1);
-                var challengeCollection = new Entities.ChallengeCollection();
-                var defer = $.Deferred();
-                challengeCollection.fetch({
-                    complete: function() {
-                        defer.resolve(challengeCollection); // send back the collection
-                    },
-                    // success: function(data){
-                    //     App.log('success data', contextName, 1);
-                    //     defer.resolve(data);
-                    // }
+                var models = Entities.fakeChallenges.where({
+                    domain: domain
                 });
-                // chain the above promise,
-                var promise = defer.promise();
-                $.when(promise).done(function(challengeCollection) {
-                    // check to see if it had content:
-                    if (challengeCollection.length === 0) { // if not, get defaults.
-                        // FAKE NETWORK LAG
-                        setTimeout(function() {
-                            // App.trigger('page:register', models); // add each challenge to the menu
-                            // if we don't have any imageCollection yet, create some for convenience
-                            challengeCollection.reset(initializeChallenges().models); // update the collection
-                        }, 2000);
 
-                    }
-                });
-                return promise;
+                return new Entities.ChallengeCollection(models);
             },
-            
         };
-        
-        App.reqres.setHandler('challenge:entities', function() {
+
+-        App.reqres.setHandler('challenge:entities', function() {
             return API.getChallengeEntities();
         });
 
-        App.reqres.setHandler('challenge:entity:new', function(id) {
+        App.reqres.setHandler('challenge:entity', function(id) {
             return API.getChallengeEntity(id);
         });
-        
+
+        App.reqres.setHandler('challenge:domain:entities', function(id) {
+            return API.getChallengeByDomain(id);
+        });
+
     });
 
     return;

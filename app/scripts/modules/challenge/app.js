@@ -11,8 +11,9 @@ define(function(require) {
 
         ChallengeRouter.Router = Marionette.AppRouter.extend({
             appRoutes: {
-                'challenges'      : 'list',
-                'challenge/:slug' : 'show'
+                'challenges'               : 'list',
+                'challenge/:slug'          : 'show',
+                'domain/:domain/challenges': 'byDomain',
             }
         });
 
@@ -34,7 +35,13 @@ define(function(require) {
                     App.log('Challenge: Controller loaded, requesting challenge..', ChallengeRouter.name, 2);
                     executeAction(Controller.show, slug);
                 });
-            }
+            },
+            byDomain: function(domain) {
+                require(['challenge_list_controller'], function(Controller) {
+                    App.log('Challenge: Controller loaded, requesting challenge..', ChallengeRouter.name, 2);
+                    executeAction(Controller.byDomain, domain);
+                });
+            },
         };
 
         // also watch for manual events:
@@ -46,6 +53,11 @@ define(function(require) {
         App.on('challenge:show', function(slug) {
             App.navigate('/challenge/' + slug);
             API.show(slug);
+        });
+
+        App.on('challenge:bydomain', function(domain) {
+            App.navigate('/domain/' + domain + '/challenges/');
+            API.byDomain(domain);
         });
 
         App.addInitializer(function() {

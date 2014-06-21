@@ -1,11 +1,11 @@
 'use strict';
-define(['app', 'challenge_list_view'], function(App, View) {
-    App.module('ChallengeApp.List', function (List, App, Backbone, Marionette, $) { // , _
-        var contextName = 'ChallengeApp.List.Controller';
+define(['app', 'challenge_list_view', 'challenge_entity'], function(App, View) {
+    App.module('Challenge.List', function (List, App, Backbone, Marionette, $) { // , _
+        var contextName = 'Challenge.List.Controller';
         List.Controller = {
             list: function() {
 
-                require(['common_views', 'challenge_entity'], function(CommonViews) {
+                require(['common_views'], function(CommonViews) {
                     App.log('List Challenge called', contextName, 2);
                     App.mainRegion.show(new CommonViews.Loading());
 
@@ -48,8 +48,26 @@ define(['app', 'challenge_list_view'], function(App, View) {
 
             show: function(slug) {
                 console.log('Showing: ' + slug);
+            },
+
+            byDomain: function(domain) {
+                var layout = new View.Layout();
+                App.mainRegion.show(layout);
+
+                var fetchingChallenges = App.request('challenge:domain:entities', domain);
+
+                $.when(fetchingChallenges).done(function(challenges) {
+
+                    var view = new View.Challenge({
+                        collection: challenges
+                    });
+
+                    layout.challengeRegion.show(view);
+
+                });
+
             }
         };
     });
-    return App.ChallengeApp.List.Controller;
+    return App.Challenge.List.Controller;
 });

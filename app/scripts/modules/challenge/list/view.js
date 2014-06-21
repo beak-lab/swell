@@ -1,14 +1,12 @@
 'use strict';
 define(['app', 'templates', 'dust'], function(App) {
-    App.module('ChallengeApp.List.View', function(View, App, Backbone, Marionette) { // , $, _
-        var contextName = 'ChallengeApp.List.View';
-        
+    App.module('Challenge.List.View', function(View, App, Backbone, Marionette) { // , $, _
         View.Layout = Marionette.Layout.extend({
             template: 'challenge_layout',
 
             regions: {
                 panelRegion: '#panel-region',
-                challengeRegion: '.content'
+                challengeRegion: '#challengeRegion'
             },
 
             flash: function(cssClass) { // fade in and out.
@@ -21,68 +19,17 @@ define(['app', 'templates', 'dust'], function(App) {
             }
         });
 
-        // View.Panel = Marionette.ItemView.extend({
-        //     template: panelTpl,
-
-        //     triggers: {
-        //         'click button.js-new': 'challenge:new'
-        //     },
-
-        //     events: {
-        //         'submit #filter-form': 'filterChallenges'
-        //     },
-
-        //     ui: {
-        //         criterion: 'input.js-filter-criterion'
-        //     },
-
-        //     filterChallenges: function(e){
-        //         e.preventDefault();
-        //         var criterion = this.$('.js-filter-criterion').val();
-        //         this.trigger('challenges:filter', criterion);
-        //     },
-
-        //     onSetFilterCriterion: function(criterion){
-        //         this.ui.criterion.val(criterion);
-        //     }
-        // });
-
         View.ChallengeOne = Marionette.ItemView.extend({
             tagName: 'div',
             template: 'challenge_list_one',
 
             events: {
-                'click': 'highlightName',
-                'click td a.js-show': 'showClicked',
-                'click button.js-delete': 'deleteClicked'
             },
 
-            highlightName: function() {
-                this.$el.toggleClass('warning');
-            },
-
-            showClicked: function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                this.trigger('challenge:show', this.model);
-            },
-
-            deleteClicked: function(e) {
-                e.stopPropagation();
-                this.trigger('challenge:delete', this.model);
-            },
-
-            remove: function() { // automatically called when this model is destroy() 'ed
-                var self = this;
-                this.$el.fadeOut(function() {
-                    Marionette.ItemView.prototype.remove.call(self);
-                });
-            }
         });
 
         var ChallengeEmpty = Marionette.ItemView.extend({
             template: 'challenge_none',
-            // tagName: 'div',
             className: 'alert'
         });
 
@@ -92,12 +39,12 @@ define(['app', 'templates', 'dust'], function(App) {
             template: 'challenge_list',
             emptyView: ChallengeEmpty,
             itemView: View.ChallengeOne,
-            itemViewContainer: '.challenge_list',
+            itemViewContainer: '#challengeList',
 
             initialize: function() {
-                App.log('init called', contextName, 1);
+                // App.log('init called', contextName, 1);
                 this.listenTo(this.collection, 'reset', function() {
-                    App.log('reset called', contextName, 1);
+                    // App.log('reset called', contextName, 1);
                     this.appendHtml = function(collectionView, itemView) { //, index) {
                         collectionView.$el.append(itemView.el);
                     };
@@ -105,14 +52,14 @@ define(['app', 'templates', 'dust'], function(App) {
             },
 
             onCompositeCollectionRendered: function() {
-                App.log('rendered called', contextName, 1);
+                // App.log('rendered called', contextName, 1);
                 this.appendHtml = function(collectionView, itemView) { //, index) {
                     collectionView.$el.prepend(itemView.el);
                 };
             }
         });
-        
+
     });
 
-    return App.ChallengeApp.List.View;
+    return App.Challenge.List.View;
 });

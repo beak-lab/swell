@@ -38,11 +38,13 @@ define(['app'], function(App) {
             App.log('Initializing Fake Domains', contextName, 1);
 
             var fakeDomains = new Entities.DomainCollection([{
+                id: 0,
                 name: 'Employment',
                 slug: 'employment'
             }, {
+                id: 1,
                 name: 'Second Domain',
-                slug: 'page-2'
+                slug: 'page-2',
             }]);
 
             return fakeDomains;
