@@ -1,7 +1,6 @@
 requirejs.config({
     paths: {
         jquery: '../bower_components/jquery/dist/jquery.min',
-        jquerymobile: '../bower_components/jquery-mobile/js/jquery.mobile',
         underscore: '../bower_components/lodash/dist/lodash',
         backbone: '../bower_components/backbone/backbone',
         marionette: '../bower_components/marionette/lib/core/amd/backbone.marionette',
@@ -11,10 +10,15 @@ requirejs.config({
         'backbone.picky': '../bower_components/backbone.picky.extended/lib/amd/backbone.picky',
         'backbone.wreqr': '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
         'backbone.babysitter': '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
-        'common_views': 'common/views',
-        templates: 'common/templates',
+        'common_views'             : 'common/views',
+        templates                  : 'common/templates',
+
         spin: '../bower_components/spinjs/spin',
         'spin.jquery': '../bower_components/spinjs/jquery.spin',
+
+        // jquerymobile: '../bower_components/jquery-mobile/js/jquery.mobile',
+        jquerymobile               : '../vendor/jquery.mobile/jquery.mobile.custom.min',
+        'jquery.touch.punch'       : '../vendor/jquery.ui.touch-punch.min',
 
         'domain_list_view'         : 'modules/domain/list/view',
         'domain_list_controller'   : 'modules/domain/list/controller',
@@ -38,19 +42,19 @@ requirejs.config({
     },
     shim: {
         underscore: {
-            exports: '_'
+            exports                : '_'
         },
         backbone: {
-            deps: ['jquery', 'underscore', 'dust'],
-            exports: 'Backbone'
+            deps                   : ['jquery', 'underscore', 'dust'],
+            exports                : 'Backbone'
         },
-        dustMarionette: ['backbone'],
-        'backbone.picky': ['backbone'],
+        dustMarionette             : ['backbone'],
+        'backbone.picky'           : ['backbone'],
         dust: {
-            exports: 'dust'
+            exports                : 'dust'
         },
-        dustHelpers: ['dust'],
-        templates: ['dust', 'dustMarionette'] // load dust before our compiled templates
+        dustHelpers                : ['dust'],
+        templates                  : ['dust', 'dustMarionette'] // load dust before our compiled templates
     },
-    deps: ['main'] // <-- run our app
+    deps                           : ['main'] // <-- run our app
 });

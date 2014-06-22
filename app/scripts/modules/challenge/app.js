@@ -37,6 +37,7 @@ define(function(require) {
                 });
             },
             byDomain: function(domain) {
+                console.log('byDomain matched');
                 require(['challenge_list_controller'], function(Controller) {
                     App.log('Challenge: Controller loaded, requesting challenge..', ChallengeRouter.name, 2);
                     executeAction(Controller.byDomain, domain);
@@ -56,7 +57,7 @@ define(function(require) {
         });
 
         App.on('challenge:bydomain', function(domain) {
-            App.navigate('/domain/' + domain + '/challenges/');
+            App.navigate('/domain/' + domain + '/challenges');
             API.byDomain(domain);
         });
 

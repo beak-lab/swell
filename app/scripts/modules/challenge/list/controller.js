@@ -46,10 +46,6 @@ define(['app', 'challenge_list_view', 'challenge_entity'], function(App, View) {
 
             },
 
-            show: function(slug) {
-                console.log('Showing: ' + slug);
-            },
-
             byDomain: function(domain) {
                 var layout = new View.Layout();
                 App.mainRegion.show(layout);
