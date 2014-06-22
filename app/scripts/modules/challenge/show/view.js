@@ -19,6 +19,20 @@ define(['app', 'templates', 'dust'], function(App) {
             }
         });
 
+        View.ChallengeMenu = Marionette.ItemView.extend({
+            tagName: 'div',
+            template: 'challenge_menu',
+
+            events: {
+                'click #challenge_menu li': 'clicked'
+            },
+
+            clicked: function(e) {
+                e.preventDefault();
+                this.trigger('menu:clicked', e.target.id);
+            }
+        });
+
         View.Challenge = Marionette.ItemView.extend({
             tagName: 'div',
             template: 'challenge',
