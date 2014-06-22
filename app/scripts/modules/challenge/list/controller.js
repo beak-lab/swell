@@ -58,6 +58,10 @@ define(['app', 'challenge_list_view', 'challenge_entity'], function(App, View) {
                         collection: challenges
                     });
 
+                    view.on('itemview:challenge:show', function(childView, model) {
+                        App.trigger('challenge:show', model.get('id'));
+                    });
+
                     layout.challengeRegion.show(view);
 
                 });

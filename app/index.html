@@ -3,23 +3,27 @@
 <head>
     <meta charset='utf-8'>
     <title>swell</title>
-    <meta name="format-detection" content="telephone=no" />
+    <meta name='format-detection' content='telephone=no' />
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name='viewport' content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height' />
+    <meta name='msapplication-tap-highlight' content='no' />
 
     <!-- build:css styles/main.min.css -->
-    <link href='styles/bootstrap.css' rel='stylesheet'>
-    <link href='styles/main.css' rel='stylesheet'>
+    <!-- <link href='styles/bootstrap.css' rel='stylesheet'> -->
+    <!-- <link href='styles/main.css' rel='stylesheet'> -->
+    <link href='vendor/jquery.mobile/jquery.mobile.custom.theme.css' rel='stylesheet'>
+    <link href='vendor/jquery.mobile/jquery.mobile.custom.structure.css' rel='stylesheet'>
     <!-- endbuild -->
 
     <script data-main='scripts/config' src='bower_components/requirejs/require.js'></script>
 </head>
 <body>
-    <div id='menu-region'></div>
+    <div data-role='page'>
+        <div id='menu-region'></div>
 
-    <div id='main-region' class='container'>
-      <p>Here is static content in the web page. You'll notice that it gets replaced by our app as soon as we start it.</p>
+        <div id='main-region' class='container' role='main' data-role='ui-content'>
+          <p>Here is static content in the web page. You'll notice that it gets replaced by our app as soon as we start it.</p>
+        </div>
     </div>
 
     <div id='dialog-region'></div>

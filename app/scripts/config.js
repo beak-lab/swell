@@ -13,11 +13,12 @@ requirejs.config({
         'common_views'             : 'common/views',
         templates                  : 'common/templates',
 
-        spin: '../bower_components/spinjs/spin',
-        'spin.jquery': '../bower_components/spinjs/jquery.spin',
+        spin                       : '../bower_components/spinjs/spin',
+        'spin.jquery'              : '../bower_components/spinjs/jquery.spin',
 
-        // jquerymobile: '../bower_components/jquery-mobile/js/jquery.mobile',
-        jquerymobile               : '../vendor/jquery.mobile/jquery.mobile.custom.min',
+        'jquery-ui/widget'             : '../bower_components/jquery-ui/ui/jquery.ui.widget',
+        'jquery-ui/mouse'              : '../bower_components/jquery-ui/ui/jquery.ui.mouse',
+        'jquery-ui/core'               : '../bower_components/jquery-ui/ui/jquery.ui.core',
         'jquery.touch.punch'       : '../vendor/jquery.ui.touch-punch.min',
 
         'domain_list_view'         : 'modules/domain/list/view',
@@ -27,6 +28,9 @@ requirejs.config({
         'challenge_list_view'      : 'modules/challenge/list/view',
         'challenge_list_controller': 'modules/challenge/list/controller',
         'challenge_entity'         : 'modules/challenge/entities/challenge',
+
+        'challenge_show_view'      : 'modules/challenge/show/view',
+        'challenge_show_controller': 'modules/challenge/show/controller',
 
         'user_view'                : 'modules/user/profile/view',
         'user_controller'          : 'modules/user/profile/controller',
@@ -50,6 +54,10 @@ requirejs.config({
         },
         dustMarionette             : ['backbone'],
         'backbone.picky'           : ['backbone'],
+        'jquery-ui/core'           : ['jquery'],
+        'jquery-ui/mouse'          : ['jquery-ui/core'],
+        'jquery-ui/widget'         : ['jquery-ui/core'],
+        'jquery.touch.punch'       : ['jquery'],
         dust: {
             exports                : 'dust'
         },

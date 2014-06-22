@@ -24,6 +24,13 @@ define(['app', 'templates', 'dust'], function(App) {
             template: 'challenge_list_one',
 
             events: {
+                'click .challenge': 'showClicked',
+            },
+
+            showClicked: function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.trigger('challenge:show', this.model);
             },
 
         });

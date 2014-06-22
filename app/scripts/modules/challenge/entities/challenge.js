@@ -97,7 +97,7 @@ define(['app'], function(App) {
             },
         };
 
--        App.reqres.setHandler('challenge:entities', function() {
+        App.reqres.setHandler('challenge:entities', function() {
             return API.getChallengeEntities();
         });
 

@@ -16,7 +16,7 @@ module.exports = {
     dust: {
         files: [
             '<%= settings.app %>/scripts/common/templates-raw/*.dust',
-            '<%= settings.app %>/scripts/modules/{,*/}templates/*.dust',
+            '<%= settings.app %>/scripts/modules/**/templates/*.dust',
         ],
         tasks: 'dustjs'
     },

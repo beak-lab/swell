@@ -25,6 +25,11 @@ define(['app', 'templates', 'dust'], function(App) {
 
             events: {
             },
+            onRender: function() {
+                // this.$el.trigger('refresh');
+                // this.$el.find(".ui-listview").trigger('create');
+                // this.$el.find("#category-list").listview('refresh');
+            }
 
         });
 

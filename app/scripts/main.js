@@ -7,6 +7,7 @@ require([
         'dust',
         'dustMarionette',
         'templates',
+        'jquery.touch.punch'
     ],
 
     function($, Backbone, App) {
