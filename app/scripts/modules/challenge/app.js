@@ -6,6 +6,18 @@ define(function(require) {
         startWithParent: false,
     });
 
+    App.Challenge.on('start', function() {
+        //$('body').addClass('is-domain-module');
+        console.log('Starting');
+
+    })
+
+    App.Challenge.on('stop', function() {
+        console.log('stop');
+
+        //$('body').removeClass('is-domain-module');
+    })
+
     App.module('Routers.Challenge', function(ChallengeRouter, App, Backbone, Marionette) { //, $, _) {
         this.name = 'Routers.Challenge';
 
@@ -42,6 +54,8 @@ define(function(require) {
                 });
             },
         };
+
+
 
         // also watch for manual events:
         App.on('challenge:list', function(domain) {

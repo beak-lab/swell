@@ -39,30 +39,54 @@ define(['app'], function(App) {
 
             Entities.fakeChallenges = new Entities.ChallengeCollection([
             {
-                id: 1,
-                name: 'First Challenge',
-                description: 'Test description',
-                slug: 'page-1',
-                domain: 0
-            }, {
-                id: 2,
-                name: 'Second Challenge',
-                description: '',
-                slug: 'page-2',
-                domain: 0
-            }, {
-                id: 3,
-                name: 'Third Challenge',
-                description: '',
-                slug: 'page-3',
-                domain: 1
-            }, {
-                id: 4,
-                name: 'Forth Challenge',
-                description: '',
-                slug: 'page-4',
-                domain: 1
-            }
+                id: 0, 
+                name: 'I want to discover and use my talents',
+                description: 'A very short description of the challenge. About this many words',
+                slug: 'work-talents',
+                domain: 4,
+            },{
+                id: 1, 
+                name: 'I want to start a business',
+                description: 'A very short description of the challenge. About this many words',
+                slug: 'work-business',
+                domain: 4,
+            },{
+                id: 2, 
+                name: 'I want to find ways to make a contribution to society',
+                description: 'A very short description of the challenge. About this many words',
+                slug: 'work-society',
+                domain: 4,
+            },{
+                id: 3, 
+                name: 'I want to continue my education',
+                description: 'A very short description of the challenge. About this many words',
+                slug: 'work-education',
+                domain: 4,
+            },{
+                id: 4, 
+                name: 'I want to get a job after a period of unemployment',
+                description: 'A very short description of the challenge. About this many words',
+                slug: 'work-unemployment',
+                domain: 4,
+            },{
+                id: 5, 
+                name: 'I want to know if and when to disclose',
+                description: 'A very short description of the challenge. About this many words',
+                slug: 'work-disclose',
+                domain: 4,
+            },{
+                id: 6, 
+                name: 'I want to negotiate my work conditions',
+                description: 'A very short description of the challenge. About this many words',
+                slug: 'work-negotiate',
+                domain: 4,
+            },{
+                name: 'I want to keep my job',
+                id: 7,
+                description: 'A very short description of the challenge. About this many words',
+                slug: 'work-keepmyjob',
+                domain: 4,
+            } 
             ]);
 
             return Entities.fakeChallenges;

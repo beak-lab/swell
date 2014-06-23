@@ -24,7 +24,7 @@ define(['app', 'templates', 'dust'], function(App) {
             template: 'challenge_list_one',
 
             events: {
-                'click .challenge': 'showClicked',
+                'click .challenge-list__item': 'showClicked',
             },
 
             showClicked: function(e) {
