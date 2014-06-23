@@ -1,4 +1,4 @@
-/*global location */
+/*global location, navigator */
 
 require([
         'jquery',
@@ -16,6 +16,20 @@ require([
     function($, Backbone, App) {
         'use strict';
 
+        var mobileFound = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        var unRequiredList = ['../cordova', '../cordova_plugins'];
+
+        if (mobileFound) {
+            require(unRequiredList, function() {
+                console.log('Init');
+                App.start();
+            });
+        } else {
+            console.log('Init Non Mobile');
+            App.start();
+            // libs.push('//localhost:35729/livereload.js');
+        }
+
         // any extras?
         App.on('initialize:after', function() {
             // if (Backbone.history){
@@ -25,7 +39,7 @@ require([
 
         // Define your master router on the application namespace and trigger all
         // navigation from this instance.
-        App.start();
+        // App.start();
 
         // All navigation that is relative should be passed through the navigate
         // method, to be processed by the router. If the link has a `data-bypass`
