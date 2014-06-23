@@ -15,7 +15,8 @@ module.exports = {
     postBuild: {
         src: [
             '<%= settings.dist %>/*.temp',
-            '<%= settings.dist %>/.*',
+            '<%= settings.dist %>/scripts/modules',
+            '<%= settings.dist %>/scripts/common',
         ]
     }
 };

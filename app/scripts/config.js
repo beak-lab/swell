@@ -1,3 +1,5 @@
+'use strict';
+
 requirejs.config({
     paths: {
         jquery                     : '../bower_components/jquery/dist/jquery.min',
@@ -76,3 +78,17 @@ requirejs.config({
     },
     deps                           : ['main'] // <-- run our app
 });
+
+/*globals navigator*/
+var mobileFound = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+if (mobileFound) {
+    require(['main', '../cordova'], function() {
+        console.log('Init');
+    });
+} else {
+    require(['main'], function() {
+        console.log('Init Non Mobile');
+    });
+    // libs.push('//localhost:35729/livereload.js');
+}
