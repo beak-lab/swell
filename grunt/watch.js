@@ -10,7 +10,7 @@ module.exports = {
         tasks: 'coffee'
     },
     less: {
-        files: '<%= settings.app %>/styles/less/*.less',
+        files: '<%= settings.app %>/styles/less/**/*.less',
         tasks: 'less:development'
     },
     dust: {
