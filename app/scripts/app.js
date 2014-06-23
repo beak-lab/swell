@@ -65,9 +65,12 @@ define([
 
                     Backbone.history.start();
 
-                    var snapper = new Snap({
-                        element: document.getElementById('page-region')
-                    });
+                    var wWidth = $(window).width(), 
+                        snapper = new Snap({
+                            element: document.getElementById('page-region'),
+                            maxPosition: wWidth * .9, // make the drawer width 90% of the screen size
+                            minPosition:  wWidth * -.9 
+                        });
 
                     // set a default route
                     if (App.getCurrentRoute() === '') {
