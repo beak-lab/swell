@@ -1,4 +1,7 @@
-/*global location */
+/*global location, navigator */
+
+var mobileFound = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 require([
         'jquery',
         'backbone',
@@ -13,6 +16,12 @@ require([
 
     function($, Backbone, App) {
         'use strict';
+
+        if (mobileFound) {
+            require('../cordova');
+        } else {
+            // libs.push('//localhost:35729/livereload.js');
+        }
 
         // any extras?
         App.on('initialize:after', function() {

@@ -13,6 +13,9 @@ module.exports = {
     },
     server: '.tmp',
     postBuild: {
-        src: '<%= settings.dist %>/*.temp',
+        src: [
+            '<%= settings.dist %>/*.temp',
+            '<%= settings.dist %>/.*',
+        ]
     }
 };
