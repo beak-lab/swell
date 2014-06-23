@@ -1,19 +1,20 @@
-/*globals window*/
+/*globals window, Snap*/
 define([
         'jquery',
         'snapjs',
         'marionette'
     ],
 
-    function($, Snap) {
+    function($) {
         'use strict';
 
         var App = new Backbone.Marionette.Application();
 
         App.addRegions({
-            sidebarRegion: '#left-region',
+            leftRegion   : '#left-region',
             menuRegion   : '#menu-region',
             mainRegion   : '#main-region',
+            rightRegion  : '#right-region',
             // same as:
             // App.container = new Backbone.Marionette.Region({el:'#main'});
         });
@@ -74,8 +75,8 @@ define([
 
                     new Snap({
                         element: document.getElementById('page-region'),
-                        maxPosition: wWidth * 0.9, // make the drawer width 90% of the screen size
-                        minPosition:  wWidth * -0.9
+                        maxPosition: wWidth *  0.9, // make the drawer width 90% of the screen size
+                        minPosition: wWidth * -0.9
                     });
 
                     // set a default route

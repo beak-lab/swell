@@ -1,0 +1,7 @@
+<div>
+    <div> header stuff </div>
+
+    <div id='sidebar-history'></div>
+
+    <div> footer stuff </div>
+</div>
