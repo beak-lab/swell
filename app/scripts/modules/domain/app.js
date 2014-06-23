@@ -16,6 +16,15 @@ define(function(require) {
         // }
     });
 
+    App.Domain.on('start', function() {
+        $('body').addClass('is-domain-module');
+
+    })
+
+    App.Domain.on('stop', function() {
+        $('body').removeClass('is-domain-module');
+    })
+
     // create a new sub module
     App.module('Routers.Domain', function(DomainRouter, App, Backbone, Marionette) { //, $, _) {
         this.name = 'Routers.Domain';
