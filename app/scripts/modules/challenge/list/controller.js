@@ -3,70 +3,56 @@ define(['app', 'challenge_list_view', 'challenge_entity'], function(App, View) {
     App.module('Challenge.List', function (List, App, Backbone, Marionette, $) { // , _
         var contextName = 'Challenge.List.Controller';
         List.Controller = {
-            list: function() {
-
+            list: function(domain) {
                 require(['common_views'], function(CommonViews) {
                     App.log('List Challenge called', contextName, 2);
                     App.mainRegion.show(new CommonViews.Loading());
 
-                    var fetchingChallenge = App.request('challenge:entities');
+                    var layout = new View.Layout();
+                    App.mainRegion.show(layout);
 
-                    var challengeListLayout = new View.Layout();
-                    // var challengeListPanel = new View.Panel();
+                    var fetchingChallenges = domain ?
+                        App.request('challenge:domain:entities', domain) :
+                        App.request('challenge:entities');
 
-                    $.when(fetchingChallenge).done(function(challenge) {
-                        // App.log('Fetched challenge data', 'App', 1);
-
-                        var challengeListView = new View.Challenge({
-                            collection: challenge
+                    $.when(fetchingChallenges).done(function(challenges) {
+                        var view = new View.Challenge({
+                            collection: challenges
                         });
 
-                        // challengeListLayout.on('show', function() {
-                        //   challengeListLayout.panelRegion.show(challengesListPanel);
-                        //   challengeListLayout.challengeRegion.show(challengeListView);
-                        // });
-
-                        // challengeListView.on('itemview:challenge:show', function(childView, model) {
-                        //   App.trigger('challenge:show', model.get('id'));
-                        // });
-
-                        challengeListView.on('itemview:challenge:delete', function(childView, model) {
-                            // auto magically call's remove in the view.
-                            model.destroy();
+                        view.on('itemview:challenge:show', function(childView, model) {
+                            App.trigger('challenge:show', model.get('id'));
                         });
 
                         // when the data is here, show it in this region
-                        challengeListLayout.challengeRegion.show(challengeListView);
-
+                        layout.regionManager.get('challengeRegion').show(view);
                     });
 
                     // show the whole layout
-                    App.mainRegion.show(challengeListLayout);
                 });
 
             },
 
-            byDomain: function(domain) {
-                var layout = new View.Layout();
-                App.mainRegion.show(layout);
+            // byDomain: function(domain) {
+            //     var layout = new View.Layout();
+            //     App.mainRegion.show(layout);
 
-                var fetchingChallenges = App.request('challenge:domain:entities', domain);
+            //     var fetchingChallenges = App.request('challenge:domain:entities', domain);
 
-                $.when(fetchingChallenges).done(function(challenges) {
+            //     $.when(fetchingChallenges).done(function(challenges) {
+            //         var view = new View.Challenge({
+            //             collection: challenges
+            //         });
 
-                    var view = new View.Challenge({
-                        collection: challenges
-                    });
+            //         view.on('itemview:challenge:show', function(childView, model) {
+            //             App.trigger('challenge:show', model.get('id'));
+            //         });
 
-                    view.on('itemview:challenge:show', function(childView, model) {
-                        App.trigger('challenge:show', model.get('id'));
-                    });
+            //         layout.challengeRegion.show(view);
 
-                    layout.challengeRegion.show(view);
+            //     });
 
-                });
-
-            }
+            // }
         };
     });
     return App.Challenge.List.Controller;

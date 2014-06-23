@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'templates', 'dust'], function(App) {
+define(['app', 'templates', 'dust', 'jquery-ui/sortable'], function(App) {
     App.module('Challenge.Show.View', function(View, App, Backbone, Marionette) { // , $, _
         View.Layout = Marionette.Layout.extend({
             template: 'challenge_show_layout',
@@ -33,17 +33,23 @@ define(['app', 'templates', 'dust'], function(App) {
             }
         });
 
-        View.Challenge = Marionette.ItemView.extend({
+        View.Activities = Marionette.ItemView.extend({
+            template: 'activities',
+
+            onRender: function() {
+                this.$el.find('#sortable').sortable();
+                this.$el.find('#sortable').disableSelection();
+            }
+        });
+        View.Resources = Marionette.ItemView.extend({
+            template: 'resources',
+        });
+        View.Stuff = Marionette.ItemView.extend({
             tagName: 'div',
-            template: 'challenge',
+            template: 'stuff',
 
             events: {
             },
-            onRender: function() {
-                // this.$el.trigger('refresh');
-                // this.$el.find(".ui-listview").trigger('create');
-                // this.$el.find("#category-list").listview('refresh');
-            }
 
         });
 

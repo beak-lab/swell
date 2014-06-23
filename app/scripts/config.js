@@ -16,9 +16,10 @@ requirejs.config({
         spin                       : '../bower_components/spinjs/spin',
         'spin.jquery'              : '../bower_components/spinjs/jquery.spin',
 
-        'jquery-ui/widget'             : '../bower_components/jquery-ui/ui/jquery.ui.widget',
-        'jquery-ui/mouse'              : '../bower_components/jquery-ui/ui/jquery.ui.mouse',
-        'jquery-ui/core'               : '../bower_components/jquery-ui/ui/jquery.ui.core',
+        'jquery-ui/widget'         : '../bower_components/jquery-ui/ui/jquery.ui.widget',
+        'jquery-ui/mouse'          : '../bower_components/jquery-ui/ui/jquery.ui.mouse',
+        'jquery-ui/sortable'       : '../bower_components/jquery-ui/ui/jquery.ui.sortable',
+        'jquery-ui/core'           : '../bower_components/jquery-ui/ui/jquery.ui.core',
         'jquery.touch.punch'       : '../vendor/jquery.ui.touch-punch.min',
 
         'domain_list_view'         : 'modules/domain/list/view',
@@ -55,8 +56,9 @@ requirejs.config({
         dustMarionette             : ['backbone'],
         'backbone.picky'           : ['backbone'],
         'jquery-ui/core'           : ['jquery'],
-        'jquery-ui/mouse'          : ['jquery-ui/core'],
+        'jquery-ui/mouse'          : ['jquery-ui/core', 'jquery-ui/widget'],
         'jquery-ui/widget'         : ['jquery-ui/core'],
+        'jquery-ui/sortable'       : ['jquery-ui/core', 'jquery-ui/widget'],
         'jquery.touch.punch'       : ['jquery'],
         dust: {
             exports                : 'dust'

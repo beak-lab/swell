@@ -84,7 +84,6 @@ define(['app'], function(App) {
             },
 
             getChallengeByDomain: function(domain) {
-                App.log('challenge:entities event detected', contextName, 2);
                 if (undefined === Entities.fakeChallenges) {
                     initializeChallenges();
                 }
