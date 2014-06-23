@@ -1,3 +1,4 @@
 <div class="challenge-list__item">
-  {name}
+	<h2 class="domain-list__item__title">{name}</h2>
+	<p class="domain-list__item__description">{desc}</p>
 </div>
