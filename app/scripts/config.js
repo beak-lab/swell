@@ -49,6 +49,10 @@ requirejs.config({
         'menu_controller'          : 'modules/menu/show/controller',
         'menu_entity'              : 'modules/menu/entities/menu',
 
+        'sidebar_view'             : 'modules/sidebar/show/view',
+        'sidebar_controller'       : 'modules/sidebar/show/controller',
+        'sidebar_entity'           : 'modules/sidebar/entities/sidebar',
+
         /**===== yeoman hook =====**/
         /**This above hook is required for Mr.Yeoman, touch not it, nor it's indentation... please. **/
 

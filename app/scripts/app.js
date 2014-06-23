@@ -1,15 +1,19 @@
+/*globals window*/
 define([
+        'jquery',
+        'snapjs',
         'marionette'
     ],
 
-    function() {
+    function($, Snap) {
         'use strict';
 
         var App = new Backbone.Marionette.Application();
 
         App.addRegions({
-            menuRegion: '#menu-region',
-            mainRegion: '#main-region',
+            sidebarRegion: '#left-region',
+            menuRegion   : '#menu-region',
+            mainRegion   : '#main-region',
             // same as:
             // App.container = new Backbone.Marionette.Region({el:'#main'});
         });
@@ -59,18 +63,20 @@ define([
                 require([
                         'modules/domain/app',
                         'modules/menu/app',
+                        'modules/sidebar/app',
                         'modules/user/app',
                         'modules/challenge/app'
                     ], function () {
 
                     Backbone.history.start();
 
-                    var wWidth = $(window).width(), 
-                        snapper = new Snap({
-                            element: document.getElementById('page-region'),
-                            maxPosition: wWidth * .9, // make the drawer width 90% of the screen size
-                            minPosition:  wWidth * -.9 
-                        });
+                    var wWidth = $(window).width();
+
+                    new Snap({
+                        element: document.getElementById('page-region'),
+                        maxPosition: wWidth * 0.9, // make the drawer width 90% of the screen size
+                        minPosition:  wWidth * -0.9
+                    });
 
                     // set a default route
                     if (App.getCurrentRoute() === '') {
