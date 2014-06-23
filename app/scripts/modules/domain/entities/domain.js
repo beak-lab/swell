@@ -41,18 +41,22 @@ define(['app'], function(App) {
             {
                 id: 0,
                 name: 'Employment',
+                description: 'Test description',
                 slug: 'employment'
             }, {
                 id: 1,
                 name: 'Personal meaning',
+                description: '',
                 slug: 'meaning',
             }, {
                 id: 2,
                 name: 'Lifestyle',
+                description: '',
                 slug: 'lifestyle',
             }, {
                 id: 3,
                 name: 'Services',
+                description: '',
                 slug: 'services',
             }
             ]);

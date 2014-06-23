@@ -41,21 +41,25 @@ define(['app'], function(App) {
             {
                 id: 1,
                 name: 'First Challenge',
+                description: 'Test description',
                 slug: 'page-1',
                 domain: 0
             }, {
                 id: 2,
                 name: 'Second Challenge',
+                description: '',
                 slug: 'page-2',
                 domain: 0
             }, {
                 id: 3,
                 name: 'Third Challenge',
+                description: '',
                 slug: 'page-3',
                 domain: 1
             }, {
                 id: 4,
                 name: 'Forth Challenge',
+                description: '',
                 slug: 'page-4',
                 domain: 1
             }
