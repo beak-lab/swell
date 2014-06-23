@@ -1,3 +1,4 @@
-<div class="domain-list__item">
+<div class="domain-list__item {cssClass}">
   <h1>{name}</h1>
+  <p>{desc}</p>
 </div>
