@@ -1,11 +1,1 @@
-<div id='layout-template'>
-
-  <header>
-    <h1>{title}</h1>
-  </header>
-
-  <section>
-    <article id='domain_content'></article>
-  </section>
-
-</div>
+<div id='domain_content'></div>
