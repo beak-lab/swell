@@ -5,7 +5,7 @@ www
 .sass-cache
 app/bower_components
 app/scripts/common/templates.js
-app/styles/*.css
+app/styles/css/*.css
 .tmp/
 *.sublime-*
 *compiled.js

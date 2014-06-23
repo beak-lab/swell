@@ -40,24 +40,46 @@ define(['app'], function(App) {
             var fakeDomains = new Entities.DomainCollection([
             {
                 id: 0,
-                name: 'Employment',
-                description: 'Test description',
-                slug: 'employment'
+                name: 'Personal meaning',
+                slug: 'personal-meaning',
+                desc: 'A very short description of the challenge. About this many words',
+                cssClass: 'personal-meaning',
             }, {
                 id: 1,
-                name: 'Personal meaning',
-                description: '',
-                slug: 'meaning',
+                name: 'Self-belief',
+                slug: 'self-belief',
+                desc: 'A very short description of the challenge. About this many words',
+                cssClass: 'self-belief',
             }, {
                 id: 2,
-                name: 'Lifestyle',
-                description: '',
-                slug: 'lifestyle',
+                name: 'Relationships',
+                slug: 'relationships',
+                desc: 'A very short description of the challenge. About this many words',
+                cssClass: 'relationships',
             }, {
                 id: 3,
+                name: 'Self-management',
+                slug: 'self-management',
+                desc: 'A very short description of the challenge. About this many words',
+                cssClass: 'self-management',
+            }, {
+                id: 4,
+                name: 'Work',
+                slug: 'work',
+                desc: 'A very short description of the challenge. About this many words',
+                cssClass: 'work',
+            }, {
+                id: 5,
+                name: 'Lifestyle',
+                slug: 'lifestyle',
+                desc: 'A very short description of the challenge. About this many words',
+                cssClass: 'lifestyle',
+            }, {
+                id: 6,
                 name: 'Services',
-                description: '',
                 slug: 'services',
+                desc: 'A very short description of the challenge. About this many words',
+                cssClass: 'services',
             }
             ]);
 

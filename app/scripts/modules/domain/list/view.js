@@ -39,7 +39,7 @@ define(['app'], function(App) {
             className: '',
             template: 'domain_list',
             itemView: View.DomainOne,
-            itemViewContainer: '.domain_list',
+            itemViewContainer: '#domain_list',
 
             initialize: function() {
                 this.listenTo(this.collection, 'reset', function() {

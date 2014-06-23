@@ -1,0 +1,64 @@
+
+.is-domain-module .glb-content{
+	.background-image(linear-gradient(to bottom, lighten(@aqua, 10%) 0%, @aqua 100%));
+	color: @oil;
+}
+
+// domain slats
+.domain-list__item{
+	&:extend(.slat);
+	position: relative;
+}
+.domain-list__item{
+	border-bottom-color: fade(@oil, 50%);
+}
+
+// color bars
+.domain-list__item{
+	
+	&:before{
+		background: red;
+		content: ' ';
+		position: absolute;
+		width: 5px;
+		height: 100%;
+		height: calc(100% + 1px);
+		top: 0;
+		left: -2em;
+	}
+
+	&.personal-meaning:before{
+		background : #00c8ff;
+
+	}
+
+	&.self-belief:before{
+		background : #ffd561;  // kinda light mustard :)
+
+	}
+
+	&.relationships:before{
+		background : #5c554c;
+
+	}
+
+	&.self-management:before{
+		background : #d685ff; //kinda pink
+
+	}
+
+	&.work:before{
+		background : #9bc962; // wouldnt be a grg project w/o grannysmith
+
+	}
+
+	&.lifestyle:before{
+		background : #00ffaa;
+
+	}
+
+	&.services:before{
+		background: #ff5959; //wierd orange.
+
+	}
+}

@@ -16,7 +16,8 @@
     "spinjs": "~1.3.3",
     "bootstrap": "~3.1.1",
     "backbone.syphon": "~0.4.1",
-    "snapjs": "~1.9.3"
+    "snapjs": "~1.9.3",
+    "lesshat": "~3.0.2"
   },
   "devDependencies": {
     "mocha": "~1.18.0",

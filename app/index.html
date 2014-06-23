@@ -9,32 +9,26 @@
     <meta name='msapplication-tap-highlight' content='no' />
 
     <!-- build:css styles/main.min.css -->
-    <link href='styles/bootstrap.css' rel='stylesheet'>
-    <link href='styles/main.css' rel='stylesheet'>
-    <link href='bower_components/snapjs/snap.css' rel='stylesheet'>
+    <link href='styles/css/main.css' rel='stylesheet'>
     <!-- endbuild -->
 
     <script data-main='scripts/config' src='bower_components/requirejs/require.js'></script>
 </head>
 <body>
-
-    <div class='snap-drawers'>
-        <div class='snap-drawer snap-drawer-left'>
-            left
+    <div class="glb-drawers">
+        <div class="glb-drawers__drawer is-lhs main-drawer">
+            <div id='menu-region'></div>
         </div>
-        <div class='snap-drawer snap-drawer-right'>
+        <div class="glb-drawers__drawer is-rhs goals-drawer">
             right
         </div>
+
     </div>
 
-    <div id='page-region' class='snap-content'>
-        <div id='menu-region'></div>
-
-        <div id='main-region' class='container'>
+    <div id='page-region' class='glb-content'>
+        <div id='main-region'>
           <p>Here is static content in the web page. You'll notice that it gets replaced by our app as soon as we start it.</p>
         </div>
-
-        <div id='dialog-region'></div>
     </div>
 
     <script>require(['//localhost:35729/livereload.js']);</script>
