@@ -23,7 +23,7 @@ define(['app'], function(App) {
             template: 'domain_list_one',
 
             events: {
-                'click .domain': 'showClicked',
+                'click .domain-list__item': 'showClicked',
             },
 
             showClicked: function(e) {
