@@ -1,3 +1,1 @@
-<h1>Domains</h1>
-
-<div class="domain_list"></div>
+<div id="domain_list" class="domain-list"></div>
