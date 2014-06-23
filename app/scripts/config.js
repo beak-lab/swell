@@ -11,6 +11,7 @@ requirejs.config({
         'backbone.wreqr': '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
         'backbone.syphon': '../bower_components/backbone.syphon/lib/amd/backbone.syphon.min',
         'backbone.babysitter': '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
+        'snapjs': '../bower_components/snapjs/snap.min',
 
         'common_views'             : 'common/views',
         'templates'                : 'common/templates',

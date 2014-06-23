@@ -65,6 +65,10 @@ define([
 
                     Backbone.history.start();
 
+                    var snapper = new Snap({
+                        element: document.getElementById('page-region')
+                    });
+
                     // set a default route
                     if (App.getCurrentRoute() === '') {
                         App.trigger('domain:list');

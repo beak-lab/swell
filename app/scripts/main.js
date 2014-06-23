@@ -7,7 +7,8 @@ require([
         'dust',
         'dustMarionette',
         'templates',
-        'jquery.touch.punch'
+        'jquery.touch.punch',
+        'snapjs'
     ],
 
     function($, Backbone, App) {

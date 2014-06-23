@@ -9,7 +9,7 @@ define(['app', 'domain_list_view'], function(App, View) {
 
                     var fetchingDomain = App.request('domain:entities');
 
-                    var domainListLayout = new View.Layout();
+                    var layout = new View.Layout();
                     // var domainListPanel = new View.Panel();
 
                     $.when(fetchingDomain).done(function(domain) {
@@ -23,9 +23,9 @@ define(['app', 'domain_list_view'], function(App, View) {
                             App.trigger('challenge:list', model.get('id'));
                         });
 
-                        // domainListLayout.on('show', function() {
-                        //   domainListLayout.panelRegion.show(domainsListPanel);
-                        //   domainListLayout.domainRegion.show(view);
+                        // layout.on('show', function() {
+                        //   layout.panelRegion.show(domainsListPanel);
+                        //   layout.domainRegion.show(view);
                         // });
 
                         // view.on('itemview:domain:show', function(childView, model) {
@@ -38,12 +38,12 @@ define(['app', 'domain_list_view'], function(App, View) {
                         });
 
                         // when the data is here, show it in this region
-                        domainListLayout.domainRegion.show(view);
+                        layout.domainRegion.show(view);
 
                     });
 
                     // show the whole layout
-                    App.mainRegion.show(domainListLayout);
+                    App.mainRegion.show(layout);
 
                 });
             }
