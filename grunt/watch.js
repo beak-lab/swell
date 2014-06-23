@@ -26,7 +26,7 @@ module.exports = {
     livereload: {
         files: [
             '<%= settings.app %>/*.html',
-            '{.tmp,<%= settings.app %>}/styles/{,*/}*.css',
+            '{.tmp,<%= settings.app %>}/styles/css/{,*/}*.css',
             '{.tmp,<%= settings.app %>}/scripts/modules/**/*.js',
             '{.tmp,<%= settings.app %>}/scripts/common/{,*/}*.js',
             '{.tmp,<%= settings.app %>}/scripts/*.js',

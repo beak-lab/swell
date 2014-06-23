@@ -19,7 +19,7 @@ module.exports = {
             // 'uglify', <- requirejs does these 2 better
         'copy:dist',       // copy any extra files we need
         'copy:requirejs',
-        'rev',             // rename them to bust cache
+        // 'rev',             // rename them to bust cache
         'requirejs',
         'usemin',
         'copy:index',
