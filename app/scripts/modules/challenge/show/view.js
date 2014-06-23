@@ -1,12 +1,12 @@
 'use strict';
-define(['app', 'templates', 'dust', 'jquery-ui/sortable'], function(App) {
-    App.module('Challenge.Show.View', function(View, App, Backbone, Marionette) { // , $, _
+define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable', 'backbone.syphon'], function(App) {
+    App.module('Challenge.Show.View', function(View, App, Backbone, Marionette, $) { // , $, _
         View.Layout = Marionette.Layout.extend({
             template: 'challenge_show_layout',
 
             regions: {
                 menuRegion: '#show_menu',
-                pageRegion: '#show_page'
+                // pageRegion: '#show_page'
             },
 
             flash: function(cssClass) { // fade in and out.
@@ -17,6 +17,7 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable'], function(App) {
                     }, 500);
                 });
             }
+
         });
 
         View.ChallengeMenu = Marionette.ItemView.extend({
@@ -33,17 +34,35 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable'], function(App) {
             }
         });
 
-        View.Activities = Marionette.ItemView.extend({
-            template: 'activities',
+        View.Sortable = Marionette.ItemView.extend({
+            template: 'sortable',
 
             onRender: function() {
                 this.$el.find('#sortable').sortable();
                 this.$el.find('#sortable').disableSelection();
             }
         });
+
+        View.Draggable = Marionette.ItemView.extend({
+            template: 'draggable',
+
+            onRender: function() {
+                this.$el.find('#draggable').draggable();
+                this.$el.find('#droppable').droppable({
+                    drop: function(event, ui) {
+                        $(this)
+                            .addClass('ui-state-highlight')
+                            .find('p')
+                            .html('Dropped!');
+                    }
+                });
+            }
+        });
+
         View.Resources = Marionette.ItemView.extend({
             template: 'resources',
         });
+
         View.Stuff = Marionette.ItemView.extend({
             tagName: 'div',
             template: 'stuff',

@@ -9,16 +9,20 @@ requirejs.config({
         dustMarionette: '../bower_components/marionette-dust/src/amd/backbone.marionette.dust',
         'backbone.picky': '../bower_components/backbone.picky.extended/lib/amd/backbone.picky',
         'backbone.wreqr': '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
+        'backbone.syphon': '../bower_components/backbone.syphon/lib/amd/backbone.syphon.min',
         'backbone.babysitter': '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
-        'common_views'             : 'common/views',
-        templates                  : 'common/templates',
 
-        spin                       : '../bower_components/spinjs/spin',
+        'common_views'             : 'common/views',
+        'templates'                : 'common/templates',
+
+        'spin'                     : '../bower_components/spinjs/spin',
         'spin.jquery'              : '../bower_components/spinjs/jquery.spin',
 
         'jquery-ui/widget'         : '../bower_components/jquery-ui/ui/jquery.ui.widget',
         'jquery-ui/mouse'          : '../bower_components/jquery-ui/ui/jquery.ui.mouse',
         'jquery-ui/sortable'       : '../bower_components/jquery-ui/ui/jquery.ui.sortable',
+        'jquery-ui/draggable'       : '../bower_components/jquery-ui/ui/jquery.ui.draggable',
+        'jquery-ui/droppable'       : '../bower_components/jquery-ui/ui/jquery.ui.droppable',
         'jquery-ui/core'           : '../bower_components/jquery-ui/ui/jquery.ui.core',
         'jquery.touch.punch'       : '../vendor/jquery.ui.touch-punch.min',
 
@@ -58,6 +62,8 @@ requirejs.config({
         'jquery-ui/core'           : ['jquery'],
         'jquery-ui/mouse'          : ['jquery-ui/core', 'jquery-ui/widget'],
         'jquery-ui/widget'         : ['jquery-ui/core'],
+        'jquery-ui/draggable'      : ['jquery-ui/mouse'],
+        'jquery-ui/droppable'      : ['jquery-ui/draggable'],
         'jquery-ui/sortable'       : ['jquery-ui/core', 'jquery-ui/widget'],
         'jquery.touch.punch'       : ['jquery'],
         dust: {
