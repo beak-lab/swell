@@ -53,9 +53,9 @@ requirejs.config({
         'sidebar_controller'       : 'modules/sidebar/show/controller',
         'sidebar_entity'           : 'modules/sidebar/entities/sidebar',
 
-        'activity_show_view'       : 'modules/activity/show/view',
-        'activity_show_controller' : 'modules/activity/show/controller',
-        'activity_entity'          : 'modules/activity/entities/activity',
+        'challenge_activity_view'       : 'modules/activity/challenge/view',
+        'challenge_activity_controller' : 'modules/activity/challenge/controller',
+        'activity_entity'               : 'modules/activity/challenge/activity',
 
         /**===== yeoman hook =====**/
         /**This above hook is required for Mr.Yeoman, touch not it, nor it's indentation... please. **/

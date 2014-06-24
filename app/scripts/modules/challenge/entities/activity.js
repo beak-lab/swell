@@ -14,7 +14,7 @@ define(['app'], function(App) {
         var initializeActivitys = function() {
             App.log('Initializing Fake Activitys', contextName, 1);
 
-            var fakeActivitys = new Entities.ActivityCollection([{
+            Entities.fakeActivitys = new Entities.ActivityCollection([{
                 id: 0,
                 type: 'sortable',
                 data: [
@@ -67,8 +67,6 @@ define(['app'], function(App) {
 
                 ]
             }]);
-
-            return fakeActivitys;
         };
 
         var API = {
@@ -84,10 +82,6 @@ define(['app'], function(App) {
                 return model;
             },
         };
-
-        // App.reqres.setHandler('activity:entities', function() {
-        //     return API.getActivityEntities();
-        // });
 
         App.reqres.setHandler('activity:entity', function(id) {
             return API.getActivityEntity(id);

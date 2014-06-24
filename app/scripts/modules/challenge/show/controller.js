@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'challenge_show_view', 'challenge_entity'], function(App, View) {
+define(['app', 'challenge_show_view', 'challenge_entity', 'activity_entity'], function(App, View) {
     App.module('Challenge.Show', function (Show, App, Backbone, Marionette, $) { // , _
         Show.Controller = {
             show: function(id) {
@@ -43,23 +43,33 @@ define(['app', 'challenge_show_view', 'challenge_entity'], function(App, View) {
                         page: 'Challenges'
                     });
 
-                    if(id === 1) {
-                        showViews.activities = new View.Draggable({
-                            model: challenge
-                        });
-                    } else {
-                        showViews.activities = new View.Sortable({
-                            model: challenge
-                        });
-                    }
+                    // var fetchingActivity = App.request('activity:entity', challenge.get('activity'));
+
+                    var fetchingActivity = App.request('activity:view', challenge.get('activity'));
+
+                    $.when(fetchingActivity).done(function(activity) {
+console.log(activity);
+                        // if(id === 1) {
+                        //     showViews.activities = new View.Draggable({
+                        //         model: challenge
+                        //     });
+                        // } else {
+                        //     showViews.activities = new View.Sortable({
+                        //         model: challenge
+                        //     });
+                        // }
+
+                        showViews.activities = activity;
+
+                        layout.pageRegion.show(showViews.activities);
+                    });
 
                     showViews.resources = new View.Resources({
+                        resources: challenge.get('resources')
                     });
 
                     showViews.stuff = new View.Stuff({
                     });
-
-                    layout.pageRegion.show(showViews.activities);
 
                 });
 

@@ -43,13 +43,20 @@ define(['app'], function(App) {
                 name: 'I want to discover and use my talents',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-talents',
+                resources: [
+                    {
+                        name: 'Document One'
+                    }
+                ],
                 domain: 1,
+                activity: 0
             },{
                 id: 1,
                 name: 'I want to start a business',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-business',
                 domain: 2,
+                activity: 1
             },{
                 id: 2,
                 name: 'I want to find ways to make a contribution to society',

@@ -1,8 +1,6 @@
 'use strict';
 define(['app', 'templates', 'dust'], function(App) {
-    App.module('Activity.Show.View', function(View, App, Backbone, Marionette) { // , $, _
-        var contextName = 'Activity.Show.View';
-
+    App.module('Challenge.Activity.View', function(View, App, Backbone, Marionette) { // , $, _
         View.Layout = Marionette.Layout.extend({
             template: 'activity_show_layout',
 
@@ -60,9 +58,7 @@ define(['app', 'templates', 'dust'], function(App) {
             itemViewContainer: '.activity_list',
 
             initialize: function() {
-                App.log('init called', contextName, 1);
                 this.listenTo(this.collection, 'reset', function() {
-                    App.log('reset called', contextName, 1);
                     this.appendHtml = function(collectionView, itemView) { //, index) {
                         collectionView.$el.append(itemView.el);
                     };
@@ -70,7 +66,6 @@ define(['app', 'templates', 'dust'], function(App) {
             },
 
             onCompositeCollectionRendered: function() {
-                App.log('rendered called', contextName, 1);
                 this.appendHtml = function(collectionView, itemView) { //, index) {
                     collectionView.$el.prepend(itemView.el);
                 };
@@ -79,5 +74,5 @@ define(['app', 'templates', 'dust'], function(App) {
 
     });
 
-    return App.Activity.Show.View;
+    return App.Challenge.Activity.View;
 });

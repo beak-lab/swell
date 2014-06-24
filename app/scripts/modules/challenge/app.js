@@ -50,6 +50,11 @@ define(function(require) {
                     executeAction(Controller.show, slug);
                 });
             },
+            activity: function(id) {
+                require(['challenge_activity_controller'], function(Controller) {
+                    executeAction(Controller.activity, id);
+                });
+            },
         };
 
 
@@ -68,6 +73,10 @@ define(function(require) {
         //     App.navigate('/domain/' + domain + '/challenges');
         //     API.byDomain(domain);
         // });
+
+        App.on('challenge:activity', function(id) {
+            return API.activity(id);
+        });
 
         App.on('challenge:show', function(slug) {
             App.navigate('/challenge/' + slug);
