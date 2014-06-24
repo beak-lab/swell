@@ -18,12 +18,6 @@ define(['app', 'challenge_show_view', 'challenge_entity'], function(App, View) {
                 App.mainRegion.show(layout);
                 // ---- End awesome slider region ----
 
-                // set bac button
-                App.execute('set:back', {
-                    route: 'domain/' + id + '/challenges',
-                    page: 'Challenges'
-                });
-
                 // make the custom menu for this challenge
                 var menu = new View.ChallengeMenu({
 
@@ -40,6 +34,13 @@ define(['app', 'challenge_show_view', 'challenge_entity'], function(App, View) {
                 var showViews = [];
 
                 $.when(fetchingChallenge).done(function(challenge) {
+
+                    // set back button
+                    App.execute('set:back', {
+                        route: 'domain/' + challenge.get('domain') + '/challenges',
+                        page: 'Challenges'
+                    });
+
                     if(id === 1) {
                         showViews.activities = new View.Draggable({
                             model: challenge
