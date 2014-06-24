@@ -1,4 +1,7 @@
 
 {#resources}
-    <p>{name}</p>
+    {#attributes}
+        <p>{title}</p>
+        <p>{data}</p>
+    {/attributes}
 {/resources}

@@ -39,43 +39,43 @@ define(['app'], function(App) {
 
             var fakeDomains = new Entities.DomainCollection([
             {
-                id: 0,
+                id: 1,
                 name: 'Personal meaning',
                 slug: 'personal-meaning',
                 desc: 'A very short description of the challenge. About this many words',
                 cssClass: 'personal-meaning',
             }, {
-                id: 1,
+                id: 2,
                 name: 'Self-belief',
                 slug: 'self-belief',
                 desc: 'A very short description of the challenge. About this many words',
                 cssClass: 'self-belief',
             }, {
-                id: 2,
+                id: 3,
                 name: 'Relationships',
                 slug: 'relationships',
                 desc: 'A very short description of the challenge. About this many words',
                 cssClass: 'relationships',
             }, {
-                id: 3,
+                id: 4,
                 name: 'Self-management',
                 slug: 'self-management',
                 desc: 'A very short description of the challenge. About this many words',
                 cssClass: 'self-management',
             }, {
-                id: 4,
+                id: 5,
                 name: 'Work',
                 slug: 'work',
                 desc: 'A very short description of the challenge. About this many words',
                 cssClass: 'work',
             }, {
-                id: 5,
+                id: 6,
                 name: 'Lifestyle',
                 slug: 'lifestyle',
                 desc: 'A very short description of the challenge. About this many words',
                 cssClass: 'lifestyle',
             }, {
-                id: 6,
+                id: 7,
                 name: 'Services',
                 slug: 'services',
                 desc: 'A very short description of the challenge. About this many words',
