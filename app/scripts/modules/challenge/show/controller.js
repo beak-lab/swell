@@ -1,9 +1,9 @@
 'use strict';
-define(['app', 'challenge_show_view', 'challenge_entity', 'activity_entity'], function(App, View) {
+define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_entity', 'activity_entity'], function(App, View, ActivityView) {
     App.module('Challenge.Show', function (Show, App, Backbone, Marionette, $) { // , _
         Show.Controller = {
             show: function(id) {
-                var layout = new View.Layout();
+                Show.Controller.layout = new View.Layout();
 
                 // ---- Make awesome slider region: ----
                 var PageRegion = Backbone.Marionette.Region.extend({
@@ -14,20 +14,20 @@ define(['app', 'challenge_show_view', 'challenge_entity', 'activity_entity'], fu
                     this.$el.html(view.el);
                     this.$el.slideDown('slow');
                 };
-                layout.pageRegion = new PageRegion();
-                App.mainRegion.show(layout);
+                Show.Controller.layout.pageRegion = new PageRegion();
+                App.mainRegion.show(Show.Controller.layout);
                 // ---- End awesome slider region ----
 
                 // make the custom menu for this challenge
                 var menu = new View.ChallengeMenu({
 
                 });
-                layout.menuRegion.show(menu);
+                Show.Controller.layout.menuRegion.show(menu);
 
                 // NOTE: without a model, you do not need itemview on the watch string
                 menu.on('menu:clicked', function(item) {
                     // show the view selected by the menu
-                    layout.pageRegion.show(showViews[item]);
+                    Show.Controller.layout.pageRegion.show(showViews[item]);
                 });
 
                 var fetchingChallenge = App.request('challenge:entity', id);
@@ -43,26 +43,25 @@ define(['app', 'challenge_show_view', 'challenge_entity', 'activity_entity'], fu
                         page: 'Challenges'
                     });
 
-                    // var fetchingActivity = App.request('activity:entity', challenge.get('activity'));
+                    $.when(App.request('activity:entity', challenge.get('activity'))).done(function(activity) {
+                        // var type = activity.get('type');
+                        // var ucType = type.charAt(0).toUpperCase() + type.slice(1);
+                        if (activity.get('type') === 'sortable') {
+                            showViews.activities = new ActivityView.Sortable({
+                                model: activity,
+                                challenge: challenge.get('desc')
+                            });
+                        } else {
+                            showViews.activities = new ActivityView.Draggable({
+                                model: activity,
+                                challenge: challenge.get('desc')
+                            });
+                        }
 
-                    var fetchingActivity = App.request('challenge:activity', challenge.get('activity'));
-
-                    $.when(fetchingActivity).done(function(activity) {
-console.log(activity);
-                        // if(id === 1) {
-                        //     showViews.activities = new View.Draggable({
-                        //         model: challenge
-                        //     });
-                        // } else {
-                        //     showViews.activities = new View.Sortable({
-                        //         model: challenge
-                        //     });
-                        // }
-
-                        showViews.activities = activity;
-
-                        layout.pageRegion.show(showViews.activities);
+                        Show.Controller.layout.pageRegion.show(showViews.activities);
                     });
+
+
 
                     showViews.resources = new View.Resources({
                         resources: challenge.get('resources')
@@ -73,7 +72,8 @@ console.log(activity);
 
                 });
 
-            }
+            },
+
         };
     });
     return App.Challenge.Show.Controller;
