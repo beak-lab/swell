@@ -1,6 +1,7 @@
 
 {#resources}
-    {$idx.title}
-    <p>{title}</p>
-    <p>{data}</p>
+    {#attributes}
+        <p>{title}</p>
+        <p>{data}</p>
+    {/attributes}
 {/resources}

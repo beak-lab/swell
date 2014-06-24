@@ -1,6 +1,6 @@
 'use strict';
 define(['app'], function(App) {
-    App.module('Entities', function(Entities, App, Backbone, Marionette, $, _) {
+    App.module('Entities', function(Entities, App, Backbone) {
         var contextName = 'Activity.Entity';
         Entities.Activity = Backbone.Model.extend({
             urlRoot: 'activity',
@@ -15,54 +15,46 @@ define(['app'], function(App) {
             App.log('Initializing Fake Activitys', contextName, 1);
 
             Entities.fakeActivitys = new Entities.ActivityCollection([{
-                id: 0,
-                type: 'sortable',
-                data: [
-                    {
-                        id: 0,
-                        name: 'Item 1',
-                    },
-                    {
-                        id: 1,
-                        name: 'Item 2',
-                    },
-                    {
-                        id: 2,
-                        name: 'Item 3',
-                    },
-                    {
-                        id: 3,
-                        name: 'Item 4',
-                    },
-                    {
-                        id: 4,
-                        name: 'Item 5',
-                    },
-
-                ]
-            }, {
                 id: 1,
                 type: 'sortable',
                 data: [
                     {
-                        id: 0,
-                        name: 'Item 1 test',
-                    },
-                    {
                         id: 1,
-                        name: 'Item 2',
+                        name: 'Item 1',
                     },
                     {
                         id: 2,
-                        name: 'Item 3',
+                        name: 'Item 2',
                     },
                     {
                         id: 3,
-                        name: 'Item 4',
+                        name: 'Item 3',
                     },
                     {
                         id: 4,
-                        name: 'Item 5',
+                        name: 'Item 4',
+                    },
+
+                ]
+            }, {
+                id: 2,
+                type: 'sortable',
+                data: [
+                    {
+                        id: 1,
+                        name: 'Item 1 second set',
+                    },
+                    {
+                        id: 2,
+                        name: 'Item 2',
+                    },
+                    {
+                        id: 3,
+                        name: 'Item 3',
+                    },
+                    {
+                        id: 4,
+                        name: 'Item 4',
                     },
 
                 ]

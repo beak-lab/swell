@@ -39,58 +39,59 @@ define(['app'], function(App) {
 
             Entities.fakeChallenges = new Entities.ChallengeCollection([
             {
-                id: 0,
+                id: 1,
                 name: 'I want to discover and use my talents',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-talents',
-                domain: 4,
-                resources: [0, 1],
-                activity: 0
-            },{
-                id: 1,
-                name: 'I want to start a business',
-                desc: 'A very short description of the challenge. About this many words',
-                slug: 'work-business',
-                domain: 4,
+                domain: 5,
                 resources: [1, 2],
                 activity: 1
             },{
                 id: 2,
+                name: 'I want to start a business',
+                desc: 'A very short description of the challenge. About this many words',
+                slug: 'work-business',
+                domain: 5,
+                resources: [2, 3],
+                activity: 1
+            },{
+                id: 3,
                 name: 'I want to find ways to make a contribution to society',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-society',
+                domain: 5,
                 resources: [1, 2, 3, 4],
-                domain: 4,
+                activity: 1
             },{
-                id: 3,
+                id: 4,
                 name: 'I want to continue my education',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-education',
-                domain: 4,
+                domain: 5,
             },{
-                id: 4,
+                id: 5,
                 name: 'I want to get a job after a period of unemployment',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-unemployment',
-                domain: 4,
+                domain: 5,
             },{
-                id: 5,
+                id: 6,
                 name: 'I want to know if and when to disclose',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-disclose',
-                domain: 4,
+                domain: 5,
             },{
-                id: 6,
+                id: 7,
                 name: 'I want to negotiate my work conditions',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-negotiate',
-                domain: 4,
+                domain: 5,
             },{
                 name: 'I want to keep my job',
-                id: 7,
+                id: 8,
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-keepmyjob',
-                domain: 4,
+                domain: 5,
             }
             ]);
 
