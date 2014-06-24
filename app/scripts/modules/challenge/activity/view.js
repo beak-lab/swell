@@ -15,6 +15,12 @@ define(['app', 'templates', 'dust'], function(App) {
             className: '',
             template: 'draggable',
 
+            serializeData: function() {
+                var data = this.model.toJSON();
+                data.challenge = this.options.challenge;
+                return data;
+            },
+
             onRender: function() {
                 this.$el.find('#draggable').draggable();
                 this.$el.find('#droppable').droppable({
@@ -32,6 +38,12 @@ define(['app', 'templates', 'dust'], function(App) {
             tagName: 'div',
             className: '',
             template: 'sortable',
+
+            serializeData: function() {
+                var data = this.model.toJSON();
+                data.challenge = this.options.challenge;
+                return data;
+            },
 
             onRender: function() {
                 this.$el.find('#sortable').sortable();

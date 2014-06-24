@@ -1,3 +1,5 @@
+{challenge}
+
 <ul id="sortable">
 
     {#data}

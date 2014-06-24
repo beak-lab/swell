@@ -43,7 +43,25 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                         page: 'Challenges'
                     });
 
-                    Show.Controller.showActivity(challenge.get('activity'), showViews);
+                    $.when(App.request('activity:entity', challenge.get('activity'))).done(function(activity) {
+                        // var type = activity.get('type');
+                        // var ucType = type.charAt(0).toUpperCase() + type.slice(1);
+                        if (activity.get('type') === 'sortable') {
+                            showViews.activities = new ActivityView.Sortable({
+                                model: activity,
+                                challenge: challenge.get('desc')
+                            });
+                        } else {
+                            showViews.activities = new ActivityView.Draggable({
+                                model: activity,
+                                challenge: challenge.get('desc')
+                            });
+                        }
+
+                        Show.Controller.layout.pageRegion.show(showViews.activities);
+                    });
+
+
 
                     showViews.resources = new View.Resources({
                         resources: challenge.get('resources')
@@ -56,23 +74,6 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
 
             },
 
-            showActivity: function(id, showViews) {
-                $.when(App.request('activity:entity', id)).done(function(activity) {
-                    // var type = activity.get('type');
-                    // var ucType = type.charAt(0).toUpperCase() + type.slice(1);
-                    if (activity.get('type') === 'sortable') {
-                        showViews.activities = new ActivityView.Sortable({
-                            model: activity
-                        });
-                    } else {
-                        showViews.activities = new ActivityView.Draggable({
-                            model: activity
-                        });
-                    }
-
-                    Show.Controller.layout.pageRegion.show(showViews.activities);
-                });
-            },
         };
     });
     return App.Challenge.Show.Controller;
