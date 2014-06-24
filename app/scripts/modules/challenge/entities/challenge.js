@@ -45,7 +45,7 @@ define(['app'], function(App) {
                 slug: 'work-talents',
                 domain: 5,
                 resources: [1, 2],
-                activity: 1
+                activities: [1, 2]
             },{
                 id: 2,
                 name: 'I want to start a business',
@@ -53,7 +53,7 @@ define(['app'], function(App) {
                 slug: 'work-business',
                 domain: 5,
                 resources: [2, 3],
-                activity: 1
+                activities: [3]
             },{
                 id: 3,
                 name: 'I want to find ways to make a contribution to society',
@@ -61,37 +61,42 @@ define(['app'], function(App) {
                 slug: 'work-society',
                 domain: 5,
                 resources: [1, 2, 3, 4],
-                activity: 1
+                activities: [4, 5, 6]
             },{
                 id: 4,
                 name: 'I want to continue my education',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-education',
                 domain: 5,
+                activities: [7]
             },{
                 id: 5,
                 name: 'I want to get a job after a period of unemployment',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-unemployment',
                 domain: 5,
+                activities: [8]
             },{
                 id: 6,
                 name: 'I want to know if and when to disclose',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-disclose',
                 domain: 5,
+                activities: []
             },{
                 id: 7,
                 name: 'I want to negotiate my work conditions',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-negotiate',
                 domain: 5,
+                activities: []
             },{
                 name: 'I want to keep my job',
                 id: 8,
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-keepmyjob',
                 domain: 5,
+                activities: []
             }
             ]);
 
