@@ -43,12 +43,8 @@ define(['app'], function(App) {
                 name: 'I want to discover and use my talents',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-talents',
-                resources: [
-                    {
-                        name: 'Document One'
-                    }
-                ],
                 domain: 4,
+                resources: [0, 1],
                 activity: 0
             },{
                 id: 1,
@@ -56,12 +52,14 @@ define(['app'], function(App) {
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-business',
                 domain: 4,
+                resources: [1, 2],
                 activity: 1
             },{
                 id: 2,
                 name: 'I want to find ways to make a contribution to society',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-society',
+                resources: [1, 2, 3, 4],
                 domain: 4,
             },{
                 id: 3,
