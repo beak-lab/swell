@@ -7,15 +7,12 @@ define(function(require) {
     });
 
     App.Challenge.on('start', function() {
-        //$('body').addClass('is-domain-module');
-        console.log('Starting');
+        $('body').addClass('is-challenge-module');
 
     })
 
     App.Challenge.on('stop', function() {
-        console.log('stop');
-
-        //$('body').removeClass('is-domain-module');
+        $('body').removeClass('is-challenge-module');
     })
 
     App.module('Routers.Challenge', function(ChallengeRouter, App, Backbone, Marionette) { //, $, _) {

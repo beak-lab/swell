@@ -79,6 +79,8 @@ define([
                         minPosition: wWidth * -0.9
                     });
 
+
+
                     // set a default route
                     if (App.getCurrentRoute() === '') {
                         App.trigger('domain:list');
