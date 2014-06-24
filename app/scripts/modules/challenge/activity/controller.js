@@ -1,18 +1,23 @@
 'use strict';
 define(['app', 'challenge_activity_view', 'activity_entity'], function(App, View) {
     App.module('Challenge.Activity', function (Activity, App, Backbone, Marionette, $) { // , _
-        var contextName = 'Activity.Activity.Controller';
+        var contextName = 'Challenge.Activity.Controller';
         Activity.Controller = {
             get: function(id) {
                 var fetchingActivity = App.request('activity:entity', id);
+                                console.log('13');
+
                 $.when(fetchingActivity).done(function(activity) {
 
                     var view = new View.Activity({
                         collection: activity
                     });
+                console.log('12');
 
                     return view;
                 });
+
+                console.log('1');
             },
             show: function(id) {
 
@@ -40,5 +45,5 @@ define(['app', 'challenge_activity_view', 'activity_entity'], function(App, View
             }
         };
     });
-    return App.Activity.Activity.Controller;
+    return App.Challenge.Activity.Controller;
 });

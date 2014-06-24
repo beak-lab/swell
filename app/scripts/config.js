@@ -36,10 +36,15 @@ requirejs.config({
 
         'challenge_list_view'      : 'modules/challenge/list/view',
         'challenge_list_controller': 'modules/challenge/list/controller',
-        'challenge_entity'         : 'modules/challenge/entities/challenge',
 
         'challenge_show_view'      : 'modules/challenge/show/view',
         'challenge_show_controller': 'modules/challenge/show/controller',
+
+        'challenge_activity_view'  : 'modules/challenge/activity/view',
+        'challenge_activity_controller' : 'modules/challenge/activity/controller',
+
+        'challenge_entity'         : 'modules/challenge/entities/challenge',
+        'activity_entity'          : 'modules/challenge/entities/activity',
 
         'user_view'                : 'modules/user/profile/view',
         'user_controller'          : 'modules/user/profile/controller',
@@ -52,10 +57,6 @@ requirejs.config({
         'sidebar_view'             : 'modules/sidebar/show/view',
         'sidebar_controller'       : 'modules/sidebar/show/controller',
         'sidebar_entity'           : 'modules/sidebar/entities/sidebar',
-
-        'challenge_activity_view'       : 'modules/activity/challenge/view',
-        'challenge_activity_controller' : 'modules/activity/challenge/controller',
-        'activity_entity'               : 'modules/activity/challenge/activity',
 
         /**===== yeoman hook =====**/
         /**This above hook is required for Mr.Yeoman, touch not it, nor it's indentation... please. **/

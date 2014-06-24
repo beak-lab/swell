@@ -45,7 +45,7 @@ define(['app', 'challenge_show_view', 'challenge_entity', 'activity_entity'], fu
 
                     // var fetchingActivity = App.request('activity:entity', challenge.get('activity'));
 
-                    var fetchingActivity = App.request('activity:view', challenge.get('activity'));
+                    var fetchingActivity = App.request('challenge:activity', challenge.get('activity'));
 
                     $.when(fetchingActivity).done(function(activity) {
 console.log(activity);

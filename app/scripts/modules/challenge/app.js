@@ -52,7 +52,7 @@ define(function(require) {
             },
             activity: function(id) {
                 require(['challenge_activity_controller'], function(Controller) {
-                    executeAction(Controller.activity, id);
+                    executeAction(Controller.get, id);
                 });
             },
         };
@@ -74,7 +74,8 @@ define(function(require) {
         //     API.byDomain(domain);
         // });
 
-        App.on('challenge:activity', function(id) {
+        // return an activity view
+        App.reqres.setHandler('challenge:activity', function(id) {
             return API.activity(id);
         });
 
