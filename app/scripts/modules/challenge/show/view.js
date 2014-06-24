@@ -61,6 +61,12 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
 
         View.Resources = Marionette.ItemView.extend({
             template: 'resources',
+
+            serializeData: function() {
+                var data = {};
+                data.resources = this.options.resources;
+                return data;
+            },
         });
 
         View.Stuff = Marionette.ItemView.extend({

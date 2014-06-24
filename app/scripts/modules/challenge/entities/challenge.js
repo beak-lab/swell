@@ -39,43 +39,50 @@ define(['app'], function(App) {
 
             Entities.fakeChallenges = new Entities.ChallengeCollection([
             {
-                id: 0, 
+                id: 0,
                 name: 'I want to discover and use my talents',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-talents',
-                domain: 4,
+                resources: [
+                    {
+                        name: 'Document One'
+                    }
+                ],
+                domain: 1,
+                activity: 0
             },{
-                id: 1, 
+                id: 1,
                 name: 'I want to start a business',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-business',
-                domain: 4,
+                domain: 2,
+                activity: 1
             },{
-                id: 2, 
+                id: 2,
                 name: 'I want to find ways to make a contribution to society',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-society',
-                domain: 4,
+                domain: 2,
             },{
-                id: 3, 
+                id: 3,
                 name: 'I want to continue my education',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-education',
-                domain: 4,
+                domain: 3,
             },{
-                id: 4, 
+                id: 4,
                 name: 'I want to get a job after a period of unemployment',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-unemployment',
-                domain: 4,
+                domain: 3,
             },{
-                id: 5, 
+                id: 5,
                 name: 'I want to know if and when to disclose',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-disclose',
-                domain: 4,
+                domain: 3,
             },{
-                id: 6, 
+                id: 6,
                 name: 'I want to negotiate my work conditions',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-negotiate',
@@ -86,7 +93,7 @@ define(['app'], function(App) {
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-keepmyjob',
                 domain: 4,
-            } 
+            }
             ]);
 
             return Entities.fakeChallenges;
@@ -104,10 +111,11 @@ define(['app'], function(App) {
                 if (undefined === Entities.fakeChallenges) {
                     initializeChallenges();
                 }
+
                 var model = Entities.fakeChallenges.findWhere({
-                    id: id
+                    id: parseInt(id)
                 });
-                // var model = new Entities.Challenge(id);
+
                 return model;
             },
 
@@ -117,7 +125,8 @@ define(['app'], function(App) {
                 }
 
                 var models = Entities.fakeChallenges.where({
-                    domain: domain
+                    // NOTE: this is a gotcha:
+                    domain: parseInt(domain)
                 });
 
                 return new Entities.ChallengeCollection(models);

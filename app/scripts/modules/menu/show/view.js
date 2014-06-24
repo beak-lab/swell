@@ -1,7 +1,6 @@
 'use strict';
 define(['app', 'templates', 'dust'], function(App) {
     App.module('Menu.View', function(View, App, Backbone, Marionette) { // , $, _
-        var contextName = 'Menu.View';
 
         View.Layout = Marionette.Layout.extend({
             template: 'menu_layout',
@@ -18,6 +17,16 @@ define(['app', 'templates', 'dust'], function(App) {
                 // $([this.$el, e.currentTarget]).toggleClass('is-expanded');
                 // $('body').toggleClass('has-expanded-sidebar');
             // },
+        });
+
+        View.Back = Marionette.ItemView.extend({
+            template: 'menu_back',
+            serializeData: function() {
+                var data = {};
+                data.route = this.options.route;
+                data.page = this.options.page;
+                return data;
+            },
         });
 
         View.Menu = Marionette.ItemView.extend({

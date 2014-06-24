@@ -1,12 +1,14 @@
 'use strict';
 define(function(require) {
     var App = require('app');
+    // var $ = require('jquery');
 
     App.module('Challenge', {
         startWithParent: false,
     });
 
     App.Challenge.on('start', function() {
+
         $('body').addClass('is-challenge-module');
 
     })
@@ -21,7 +23,7 @@ define(function(require) {
         ChallengeRouter.Router = Marionette.AppRouter.extend({
             appRoutes: {
                 'challenges'               : 'list',     // list all
-                'domain/:domain/challenges': 'list', // list all by domain
+                'domain/:domain/challenges': 'list',     // list all by domain
                 'challenge/:slug'          : 'show',     // show one
             }
         });
@@ -50,6 +52,11 @@ define(function(require) {
                     executeAction(Controller.show, slug);
                 });
             },
+            activity: function(id) {
+                require(['challenge_activity_controller'], function(Controller) {
+                    executeAction(Controller.get, id);
+                });
+            },
         };
 
 
@@ -68,6 +75,11 @@ define(function(require) {
         //     App.navigate('/domain/' + domain + '/challenges');
         //     API.byDomain(domain);
         // });
+
+        // return an activity view
+        App.reqres.setHandler('challenge:activity', function(id) {
+            return API.activity(id);
+        });
 
         App.on('challenge:show', function(slug) {
             App.navigate('/challenge/' + slug);

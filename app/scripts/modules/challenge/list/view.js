@@ -5,8 +5,8 @@ define(['app', 'templates', 'dust'], function(App) {
             template: 'challenge_layout',
 
             regions: {
-                panelRegion: '#panel-region',
-                challengeRegion: '#challengeRegion'
+                // panelRegion: '#panel-region',
+                // challengeRegion: '#challengeRegion'
             },
 
             flash: function(cssClass) { // fade in and out.
