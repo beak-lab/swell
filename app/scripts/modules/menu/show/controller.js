@@ -50,7 +50,7 @@ define(['app', 'menu_view', 'menu_entity'], function(App, View) {
                 var rm = Show.Controller.layout.regionManager;
 
                 if (undefined === data) {
-                    console.log(rm.get('nav'));
+                    // console.log(rm.get('nav'));
                     // if (rm.get('nav')) {
                         rm.get('nav').hide();
                     // }

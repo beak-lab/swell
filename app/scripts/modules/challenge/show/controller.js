@@ -12,7 +12,7 @@ define(['app', 'challenge_show_view', 'challenge_entity'], function(App, View) {
                 PageRegion.prototype.open = function(view) {
                     this.$el.hide();
                     this.$el.html(view.el);
-                    this.$el.slideDown('fast');
+                    this.$el.slideDown('slow');
                 };
                 layout.pageRegion = new PageRegion();
                 App.mainRegion.show(layout);
@@ -26,11 +26,13 @@ define(['app', 'challenge_show_view', 'challenge_entity'], function(App, View) {
 
                 // NOTE: without a model, you do not need itemview on the watch string
                 menu.on('menu:clicked', function(item) {
+                    // show the view selected by the menu
                     layout.pageRegion.show(showViews[item]);
                 });
 
                 var fetchingChallenge = App.request('challenge:entity', id);
 
+                // make a list of all the views
                 var showViews = [];
 
                 $.when(fetchingChallenge).done(function(challenge) {

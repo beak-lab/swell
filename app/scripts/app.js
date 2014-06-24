@@ -62,11 +62,12 @@ define([
             if (Backbone.history) {
                 // note: this is async, so the rest of the init code here will run first
                 require([
-                        'modules/domain/app',
                         'modules/menu/app',
                         'modules/sidebar/app',
                         'modules/user/app',
-                        'modules/challenge/app'
+                        'modules/domain/app',
+                        'modules/challenge/app',
+                        'modules/activity/app'
                     ], function () {
 
                     Backbone.history.start();

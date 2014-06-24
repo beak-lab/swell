@@ -106,7 +106,7 @@ define(['app'], function(App) {
                 }
 
                 var model = Entities.fakeChallenges.findWhere({
-                    id: id
+                    id: parseInt(id)
                 });
 
                 return model;
