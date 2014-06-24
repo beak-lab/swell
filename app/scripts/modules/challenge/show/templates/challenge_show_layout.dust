@@ -1,6 +1,8 @@
 <div class="challenge">
-	<h1>{title}</h1>
-	{desc}
+	<h1>{name}</h1>
+	<div class="challenge__description">
+		{desc}
+	</div>
 
 	<div id="show_menu" class="challenge__menu"></div>
 	<div id="show_page"></div>

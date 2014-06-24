@@ -25,11 +25,13 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             template: 'challenge_menu',
 
             events: {
-                'click #challenge_menu li': 'clicked'
+                'click #challenge_menu span': 'clicked'
             },
 
             clicked: function(e) {
                 e.preventDefault();
+                $(this.el).find('.challenge__menu__item').removeClass('is-active');
+                $(e.target).addClass('is-active');
                 this.trigger('menu:clicked', e.target.id);
             }
         });
