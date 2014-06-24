@@ -12,7 +12,7 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                 PageRegion.prototype.open = function(view) {
                     this.$el.hide();
                     this.$el.html(view.el);
-                    this.$el.slideDown('slow');
+                    this.$el.fadeIn('fast');
                 };
                 Show.Controller.layout.pageRegion = new PageRegion();
                 App.mainRegion.show(Show.Controller.layout);
