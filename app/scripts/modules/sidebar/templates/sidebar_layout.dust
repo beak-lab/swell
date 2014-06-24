@@ -1,7 +1,26 @@
 <div>
-    <div> header stuff </div>
+    <div class="user-avatar">
+    	<img src="images/avatar.jpg" class="user-avatar__image" />
+    	<h2 class="user-avatar__title">Hey! It's Maru O'Hagan</h2>
+    </div>
 
-    <div id='sidebar-history'></div>
+	<div class="user-history sidebar-user-history">
+		<h1 class="user-history__title">Recent Happenings</h1>
+	    <div class="user-history__list" id='sidebar-history'></div>
+	</div>
 
-    <div> footer stuff </div>
+    <div class="sidebar-menu">
+        <div class="sidebar-menu__item">
+            <img src="images/icon-help.svg" class="sidebar-menu__item__image">
+            <div class="sidebar-menu__item__text">Turn Tips On</div>
+        </div>
+        <div class="sidebar-menu__item">
+            <img src="images/icon-settings.svg" class="sidebar-menu__item__image">
+            <div class="sidebar-menu__item__text">Settings</div>
+        </div>
+    	<div class="sidebar-menu__item">
+            <img src="images/icon-logout.svg" class="sidebar-menu__item__image">
+            <div class="sidebar-menu__item__text">Log out</div>
+        </div>
+    </div>
 </div>

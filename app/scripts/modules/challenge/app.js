@@ -8,12 +8,14 @@ define(function(require) {
     });
 
     App.Challenge.on('start', function() {
-        //$('body').addClass('is-domain-module');
-    });
+
+        $('body').addClass('is-challenge-module');
+
+    })
 
     App.Challenge.on('stop', function() {
-        //$('body').removeClass('is-domain-module');
-    });
+        $('body').removeClass('is-challenge-module');
+    })
 
     App.module('Routers.Challenge', function(ChallengeRouter, App, Backbone, Marionette) { //, $, _) {
         this.name = 'Routers.Challenge';

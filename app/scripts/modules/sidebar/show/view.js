@@ -9,7 +9,7 @@ define(['app'], function(App) {
         });
 
         View.HistoryItem = Marionette.ItemView.extend({
-            tagName: 'li',
+            tagName: 'div',
             template: 'sidebar_history_item',
         });
 

@@ -1,3 +1,5 @@
-<div class="menu">
-    {name}
+<div class="user-history__list__item">
+	<img class="user-history__list__item__icon" src="images/{icon}" />
+    <h2 class="user-history__list__item__title">{title}</h2>
+    <div class="user-history__list__item__text">{text}</div>
 </div>

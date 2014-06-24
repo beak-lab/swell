@@ -1,0 +1,43 @@
+.user-history{
+    padding: 1em;
+    position: absolute;
+    bottom: @sidebar_menu-height;
+    top: 5em;
+    overflow-y: scroll;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    width: ~"calc(100% - 2em)";
+}
+
+.user-history__title{
+	color: #fff;
+}
+
+.user-history__list__item{
+	color: #fff;
+	padding: 1em 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.user-history__list__item__icon{
+  float: left;
+  width: 2.5rem;
+  height: 3rem;
+
+  svg{
+  	max-width: 100%;
+  	max-height: 100%;
+  }
+}
+
+.user-history__list__item__title,
+.user-history__list__item__text{
+	margin-left: 4rem;
+	color: #fff;
+}
+
+.user-history__list__item__title{
+	font-size: 1.3em;
+	font-weight: 500;
+	margin-bottom: 0;
+}
+.user-history__list__item__text{}

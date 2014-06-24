@@ -11,17 +11,39 @@ define(['app', 'backbone.picky'], function(App) {
         var initializeSidebars = function() {
             Entities.sidebar = new Entities.SidebarCollection([
                 {
-                    name: '324234',
-                    slug: 'domains',
-                },
-                {
-                    name: 'Cha23432424llenges',
-                    slug: 'challenges',
-                },
-                {
-                    name: '234324',
-                    slug: 'profile',
-                },
+                    title: 'Goal Set',
+                    text: 'Eat no sugar for a week',
+                    icon: 'icon-tick-empty.svg'
+                },{
+                    title: 'Challenge Completed',
+                    text: 'I want to sort out my sleep',
+                    icon: 'icon-challenge-complete.svg'
+                },{
+                    title: 'Story Added',
+                    text: 'How I beat the big black bear',
+                    icon: 'icon-story.svg'
+                },{
+                    title: 'Goal Scored',
+                    text: '\“Go for 5 swims\” got smashed out of the park',
+                    icon: 'icon-tick-full.svg'
+                },{
+                    title: 'New Comment',
+                    text: 'Felix the cat commented on one of your goals',
+                    icon: 'icon-comment.svg'
+                },{
+                    title: 'Goal Set',
+                    text: 'Go for 5 swims',
+                    icon: 'icon-tick-empty.svg'
+                },{
+                    title: 'Maru Buddied Up',
+                    text: 'Greg Swan is on the scene',
+                    icon: 'icon-buddy.svg'
+                },{
+                    title: 'Welcome Aboard',
+                    text: 'Maru O’Hagan got Swell',
+                    icon: 'icon-star.svg'
+                }
+
             ]);
         };
 
