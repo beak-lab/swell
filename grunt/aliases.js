@@ -22,6 +22,7 @@ module.exports = {
         // 'rev',             // rename them to bust cache
         'requirejs',
         'usemin',
+        'svgmin',
         'copy:index',
         'htmlmin:deploy',
         'clean:postBuild'

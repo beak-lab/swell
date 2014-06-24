@@ -1,1 +1,8 @@
-<a href="#{route}"><- {page}</a>
+<a class="glb-navbar__back" href="#{route}">
+	<span class="glb-navbar__back__arrow">
+		<img src="images/icon-back.svg" />
+	</span>
+	<span class="glb-navbar__back__text">
+		{page}
+	</span>
+</a>

@@ -1,4 +1,4 @@
 <div class="challenge-list__item">
-	<h2 class="challenge-list__item__title">{name}</h2>
+	<h3 class="challenge-list__item__title">{name}</h3>
 	<p class="challenge-list__item__description">{desc}</p>
 </div>

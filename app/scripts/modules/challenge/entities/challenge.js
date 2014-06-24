@@ -48,39 +48,39 @@ define(['app'], function(App) {
                         name: 'Document One'
                     }
                 ],
-                domain: 1,
+                domain: 4,
                 activity: 0
             },{
                 id: 1,
                 name: 'I want to start a business',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-business',
-                domain: 2,
+                domain: 4,
                 activity: 1
             },{
                 id: 2,
                 name: 'I want to find ways to make a contribution to society',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-society',
-                domain: 2,
+                domain: 4,
             },{
                 id: 3,
                 name: 'I want to continue my education',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-education',
-                domain: 3,
+                domain: 4,
             },{
                 id: 4,
                 name: 'I want to get a job after a period of unemployment',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-unemployment',
-                domain: 3,
+                domain: 4,
             },{
                 id: 5,
                 name: 'I want to know if and when to disclose',
                 desc: 'A very short description of the challenge. About this many words',
                 slug: 'work-disclose',
-                domain: 3,
+                domain: 4,
             },{
                 id: 6,
                 name: 'I want to negotiate my work conditions',

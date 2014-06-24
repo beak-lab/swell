@@ -35,27 +35,27 @@ define(['app'], function(App) {
         });
 
         View.Domain = Marionette.CompositeView.extend({
-            tagName: 'div',
-            className: '',
+            // tagName: 'div',
+            // className: '',
             template: 'domain_list',
             itemView: View.DomainOne,
             itemViewContainer: '#domain_list',
 
-            initialize: function() {
-                this.listenTo(this.collection, 'reset', function() {
-                    App.log('reset called', 'Domain list view', 1);
-                    this.appendHtml = function(collectionView, itemView) { //, index) {
-                        collectionView.$el.append(itemView.el);
-                    };
-                });
-            },
+            // initialize: function() {
+            //     this.listenTo(this.collection, 'reset', function() {
+            //         App.log('reset called', 'Domain list view', 1);
+            //         this.appendHtml = function(collectionView, itemView) { //, index) {
+            //             collectionView.$el.append(itemView.el);
+            //         };
+            //     });
+            // },
 
-            onCompositeCollectionRendered: function() {
-                App.log('rendered called', 'Domain list view', 1);
-                this.appendHtml = function(collectionView, itemView) { //, index) {
-                    collectionView.$el.prepend(itemView.el);
-                };
-            }
+            // onCompositeCollectionRendered: function() {
+            //     App.log('rendered called', 'Domain list view', 1);
+            //     this.appendHtml = function(collectionView, itemView) { //, index) {
+            //         collectionView.$el.prepend(itemView.el);
+            //     };
+            // }
         });
     });
 

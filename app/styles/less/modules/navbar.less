@@ -1,0 +1,26 @@
+.glb-navbar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: @glb-nav-height;
+}
+.glb-navbar{
+	background: #fff;
+	.is-domain-module &{
+		display: none;
+	}
+}
+
+
+.glb-navbar__back{
+	display: block;
+	height: @glb-nav-height;
+	padding: .5rem;
+	.glb-navbar__back__arrow{
+		img{
+			max-height: 100%;
+			width: 3rem;
+		}
+	}
+}

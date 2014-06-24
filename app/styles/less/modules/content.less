@@ -10,9 +10,16 @@
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 
-	.transform( translate3d(0, 0, 0) );
+	// .transform( translate3d(0, 0, 0) );
 }
 
 .glb-content{
 	background: #fff;
+}
+
+.glb-main-region{
+	padding-top: @glb-nav-height;
+	.is-domain-module &{
+		padding-top: 0;
+	}
 }
