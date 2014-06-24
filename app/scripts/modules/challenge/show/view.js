@@ -1,6 +1,6 @@
 'use strict';
 define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable', 'backbone.syphon'], function(App) {
-    App.module('Challenge.Show.View', function(View, App, Backbone, Marionette, $) { // , $, _
+    App.module('Challenge.Show.View', function(View, App, Backbone, Marionette) { // , $, _
         View.Layout = Marionette.Layout.extend({
             template: 'challenge_show_layout',
 
@@ -31,31 +31,6 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             clicked: function(e) {
                 e.preventDefault();
                 this.trigger('menu:clicked', e.target.id);
-            }
-        });
-
-        View.Sortable = Marionette.ItemView.extend({
-            template: 'sortable',
-
-            onRender: function() {
-                this.$el.find('#sortable').sortable();
-                this.$el.find('#sortable').disableSelection();
-            }
-        });
-
-        View.Draggable = Marionette.ItemView.extend({
-            template: 'draggable',
-
-            onRender: function() {
-                this.$el.find('#draggable').draggable();
-                this.$el.find('#droppable').droppable({
-                    drop: function(event, ui) {
-                        $(this)
-                            .addClass('ui-state-highlight')
-                            .find('p')
-                            .html('Dropped!');
-                    }
-                });
             }
         });
 

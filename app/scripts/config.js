@@ -41,7 +41,7 @@ requirejs.config({
         'challenge_show_controller': 'modules/challenge/show/controller',
 
         'challenge_activity_view'  : 'modules/challenge/activity/view',
-        'challenge_activity_controller' : 'modules/challenge/activity/controller',
+        // 'challenge_activity_controller' : 'modules/challenge/activity/controller',
 
         'challenge_entity'         : 'modules/challenge/entities/challenge',
         'activity_entity'          : 'modules/challenge/entities/activity',
