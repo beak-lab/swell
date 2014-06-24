@@ -1,6 +1,6 @@
 'use strict';
 define(['app'], function(App) { // resource_entity
-    App.module('Entities', function(Entities, App) {//, Backbone, Marionette, $, _) {
+    App.module('Entities', function(Entities, App, Backbone, Marionette, $, _) {
 
         var initializeFakes = function() {
 
@@ -37,7 +37,7 @@ define(['app'], function(App) { // resource_entity
                 }
 
                 return Entities.fakes.filter(function(model) {
-                    return undefined !== array[model.id];
+                    return _.contains(array, model.id);
                 });
             }
         };
