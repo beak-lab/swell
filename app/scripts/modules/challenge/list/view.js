@@ -2,7 +2,7 @@
 define(['app', 'templates', 'dust'], function(App) {
     App.module('Challenge.List.View', function(View, App, Backbone, Marionette) { // , $, _
         View.Layout = Marionette.Layout.extend({
-            template: 'challenge_layout',
+            template: 'challenge_list_layout',
 
             regions: {
                 // panelRegion: '#panel-region',
