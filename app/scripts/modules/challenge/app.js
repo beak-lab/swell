@@ -1,6 +1,7 @@
 'use strict';
 define(function(require) {
     var App = require('app');
+    // var $ = require('jquery');
 
     App.module('Challenge', {
         startWithParent: false,
@@ -8,15 +9,11 @@ define(function(require) {
 
     App.Challenge.on('start', function() {
         //$('body').addClass('is-domain-module');
-        console.log('Starting');
-
-    })
+    });
 
     App.Challenge.on('stop', function() {
-        console.log('stop');
-
         //$('body').removeClass('is-domain-module');
-    })
+    });
 
     App.module('Routers.Challenge', function(ChallengeRouter, App, Backbone, Marionette) { //, $, _) {
         this.name = 'Routers.Challenge';
@@ -24,7 +21,7 @@ define(function(require) {
         ChallengeRouter.Router = Marionette.AppRouter.extend({
             appRoutes: {
                 'challenges'               : 'list',     // list all
-                'domain/:domain/challenges': 'list', // list all by domain
+                'domain/:domain/challenges': 'list',     // list all by domain
                 'challenge/:slug'          : 'show',     // show one
             }
         });

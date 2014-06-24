@@ -3,7 +3,7 @@ define(['app', 'challenge_list_view', 'challenge_entity'], function(App, View) {
     App.module('Challenge.List', function (List, App, Backbone, Marionette, $) { // , _
         var contextName = 'Challenge.List.Controller';
         List.Controller = {
-            list: function(domain) {
+            list: function(domainId) {
                 require(['common_views'], function(CommonViews) {
                     App.log('List Challenge called', contextName, 2);
                     App.mainRegion.show(new CommonViews.Loading());
@@ -11,11 +11,21 @@ define(['app', 'challenge_list_view', 'challenge_entity'], function(App, View) {
                     var layout = new View.Layout();
                     App.mainRegion.show(layout);
 
-                    var fetchingChallenges = domain ?
-                        App.request('challenge:domain:entities', domain) :
+                    // if a domain is passed in
+                    var fetchingChallenges = domainId ?
+                        // then only list challenges from that domain
+                        App.request('challenge:domain:entities', domainId) :
+                        // else list all challenges
                         App.request('challenge:entities');
 
                     $.when(fetchingChallenges).done(function(challenges) {
+
+                        App.execute('set:back', {
+                            route: 'domains',
+                            // route: 'domain/' + domainId + '/challenges',
+                            page: 'Domains'
+                        });
+
                         var view = new View.Challenge({
                             collection: challenges
                         });
