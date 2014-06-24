@@ -7,7 +7,7 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                 $.when(fetchingChallenge).done(function(challenge) {
 
                     Show.Controller.layout = new View.Layout({
-                        challenge: challenge.get('desc')
+                        model: challenge
                     });
 
                     // ---- Make awesome slider region: ----
@@ -35,36 +35,47 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                         Show.Controller.layout.pageRegion.show(showViews[item]);
                     });
 
-
-                    // make a list of all the views
-                    var showViews = [];
-
-
                     // set back button
                     App.execute('set:back', {
                         route: 'domain/' + challenge.get('domain') + '/challenges',
                         page: 'Challenges'
                     });
 
-                    $.when(App.request('activity:entity', challenge.get('activity'))).done(function(activity) {
-                        // var type = activity.get('type');
-                        // var ucType = type.charAt(0).toUpperCase() + type.slice(1);
-                        if (activity.get('type') === 'sortable') {
-                            showViews.activities = new ActivityView.Sortable({
-                                model: activity,
-                            });
+                    // make a list of all the views, so the menu can cycle through them nicely
+                    var showViews = [];
+
+                    // NOTE: These call show after being made, so they act as the first selected
+                    // when this layout is initially rendered
+                    $.when(App.request('activity:entities', challenge.get('activities'))).done(function(activities) {
+                        // keep track, so we can use: next + prev
+                        Show.Controller.currentActivity = 0; // index
+
+                        if (activities.length === 0) {
+                            showViews.activities = new ActivityView.Empty();
+                            Show.Controller.layout.pageRegion.show(showViews.activities);
                         } else {
-                            showViews.activities = new ActivityView.Draggable({
+
+                            var activity = activities[Show.Controller.currentActivity];
+                            showViews.activities = new ActivityView[activity.get('type')]({
                                 model: activity,
                             });
+
+                            showViews.activities.on('itemview:next', function() {
+                                console.log('next');
+                            });
+
+                            showViews.activities.on('itemview:next', function() {
+                                console.log('prev');
+                            });
+
+                            Show.Controller.layout.pageRegion.show(showViews.activities);
                         }
 
-                        Show.Controller.layout.pageRegion.show(showViews.activities);
+
                     });
 
                     // prepare resources
                     $.when(App.request('resource:entities', challenge.get('resources'))).done(function(resources) {
-console.log(resources);
                         showViews.resources = new View.Resources({
                             resources: resources
                         });

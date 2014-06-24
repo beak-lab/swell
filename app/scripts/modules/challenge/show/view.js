@@ -18,11 +18,6 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                 });
             },
 
-            serializeData: function() {
-                var data = {};
-                data.challenge = this.options.challenge;
-                return data;
-            },
         });
 
         View.ChallengeMenu = Marionette.ItemView.extend({
