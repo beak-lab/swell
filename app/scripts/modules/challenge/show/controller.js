@@ -7,7 +7,7 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                 $.when(fetchingChallenge).done(function(challenge) {
 
                     Show.Controller.layout = new View.Layout({
-                        challenge: challenge.get('desc')
+                        model: challenge
                     });
 
                     // ---- Make awesome slider region: ----
@@ -17,7 +17,7 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     PageRegion.prototype.open = function(view) {
                         this.$el.hide();
                         this.$el.html(view.el);
-                        this.$el.slideDown('slow');
+                        this.$el.fadeIn('fast');
                     };
                     Show.Controller.layout.pageRegion = new PageRegion();
                     App.mainRegion.show(Show.Controller.layout);
@@ -64,7 +64,7 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
 
                     // prepare resources
                     $.when(App.request('resource:entities', challenge.get('resources'))).done(function(resources) {
-console.log(resources);
+                        console.log(resources);
                         showViews.resources = new View.Resources({
                             resources: resources
                         });

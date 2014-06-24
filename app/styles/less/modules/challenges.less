@@ -1,9 +1,11 @@
 .is-challenge-module{
 	.glb-content{
-		.background-image(linear-gradient(to bottom, lighten(@grannysmith, 10%) 0%, @grannysmith 100%));
+		//.background-image(linear-gradient(to bottom, lighten(@grannysmith, 10%) 0%, @grannysmith 100%));
+		background: @grannysmith;
 	}
 }
 
+// List view
 
 .challenge-list__item{
 	&:extend(.slat);
@@ -17,4 +19,10 @@
 
 .challenge-list__item__description{
 	display: none;
+}
+
+//challenge page
+
+.challenge{
+	padding: 1em;
 }
