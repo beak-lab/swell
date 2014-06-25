@@ -31,8 +31,14 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
 
                     // NOTE: without a model, you do not need itemview on the watch string
                     menu.on('menu:clicked', function(item) {
-                        // show the view selected by the menu
-                        Show.Controller.layout.pageRegion.show(Show.Controller.showViews[item]);
+                        if ('activities' === item) {
+                            // make a new view
+                            Show.Controller.showActivity();
+
+                        } else {
+                            // show the view selected by the menu, take it from cache
+                            Show.Controller.layout.pageRegion.show(Show.Controller.showViews[item]);
+                        }
                     });
 
                     // set back button
@@ -49,30 +55,11 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     $.when(App.request('activity:entities', challenge.get('activities'))).done(function(activities) {
                         // keep track, so we can use: next + prev
                         Show.Controller.currentActivity = 0; // index
-                        Show.Controller.activitytotal = activities.length;
+                        Show.Controller.activitytotal = activities.length - 1;
+                        Show.Controller.activityModels = activities;
 
-                        if (activities.length === 0) {
-                            Show.Controller.showViews.activities = new ActivityView.Empty();
-                            Show.Controller.layout.pageRegion.show(Show.Controller.showViews.activities);
-                        } else {
-
-                            Show.Controller.showActivity(activities);
-
-                            Show.Controller.showViews.activities.on('next', function() {
-            console.log(Show.Controller.currentActivity);
-                                Show.Controller.currentActivity++;
-                                Show.Controller.showActivity(activities);
-                            });
-
-                            Show.Controller.showViews.activities.on('prev', function() {
-            console.log(Show.Controller.currentActivity);
-                                if (Show.Controller.currentActivity !== 0) {
-                                    Show.Controller.currentActivity--;
-                                    Show.Controller.showActivity(activities);
-                                }
-                            });
-                        }
-
+                        // show the first one by default
+                        Show.Controller.showActivity();
                     });
 
                     // prepare resources
@@ -82,21 +69,46 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                         });
                     });
 
-                    Show.Controller.showViews.stuff = new View.Stuff({
-                    });
-
+                    Show.Controller.showViews.stuff = new View.Stuff();
                 });
 
             },
 
-            showActivity: function(activities) {
-                var activity = activities[Show.Controller.currentActivity];
-                console.log(activity);
-                Show.Controller.showViews.activities = new ActivityView[activity.get('type')]({
+            /**
+            * Show an activity
+            *
+            * Decide which one is current, and show that.
+            */
+            showActivity: function() {
+                // if there are no activities for this challange, then show the empty page
+                if (Show.Controller.activityModels.length === 0) {
+                    Show.Controller.layout.pageRegion.show(new ActivityView.Empty());
+                }
+
+                // get the current activity
+                var activity = Show.Controller.activityModels[Show.Controller.currentActivity];
+
+                // setup its view
+                var view = new ActivityView[activity.get('type')]({
                     model: activity,
                 });
-                Show.Controller.showViews.activities.delegateEvents();
-                Show.Controller.layout.pageRegion.show(Show.Controller.showViews.activities);
+
+                // watch the next and prev buttons
+                view.on('next', function() {
+                    if (Show.Controller.currentActivity < Show.Controller.activitytotal) {
+                        Show.Controller.currentActivity++;
+                        Show.Controller.showActivity();
+                    }
+                });
+
+                view.on('prev', function() {
+                    if (Show.Controller.currentActivity !== 0) {
+                        Show.Controller.currentActivity--;
+                        Show.Controller.showActivity();
+                    }
+                });
+
+                Show.Controller.layout.pageRegion.show(view);
             },
 
         };
