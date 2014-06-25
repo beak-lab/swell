@@ -44,8 +44,8 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 this.trigger('menu:clicked', e.target.id);
 
                 // also hide the description
-                $('#challenge-description').slideUp();
-                $('#challenge-description-expander').slideUp();
+                $('#challenge-description').hide();
+                $('#challenge-description-expander').hide();
             }
         });
 

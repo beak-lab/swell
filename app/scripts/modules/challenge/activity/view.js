@@ -25,8 +25,8 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             launched: function() {
                 this.trigger('launched');
                 // also smoke the top part
-                $('#challenge-description').slideUp();
-                $('#challenge-description-expander').slideUp();
+                $('#challenge-description').hide();
+                $('#challenge-description-expander').hide();
             },
         });
 
@@ -38,12 +38,12 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             template: 'draggable',
 
             onRender: function() {
-                this.$el.find('#draggable p').draggable();
+                this.$el.find('#draggable-container .draggable__item').draggable();
                 this.$el.find('#droppable').droppable({
                     activeClass: 'ui-state-default',
                     hoverClass: 'ui-state-hover',
                     drop: function(event, ui) {
-                        $('<li></li>').text(ui.draggable.text()).appendTo(this);
+                        $('<div/>').addClass('draggable__item is-dropped').text(ui.draggable.text()).appendTo(this);
                         ui.draggable.remove();
                     }
                 });

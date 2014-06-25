@@ -1,15 +1,14 @@
-{question}
+<h2 class="activity__title">{question}</h2>
+<div class="activity__question">
+	{description}
+</div>
 
-{description}
-
-<!-- <p>
-    <label for='title'>{label}</label>
-    <input type='text' id='title' />
-</p>
- -->
-
-{leftLabel}
-<div id='slider' data-snap-ignore='true'></div>
-{rightLabel}
+<div class="slideable">
+	<div class="slideable__labels">
+		<div class="slideable__label is-left-label">{leftLabel}</div>
+		<div class="slideable__label is-right-label">{rightLabel}</div>
+	</div>
+	<div id='slider' class="slideable__slider" data-snap-ignore='true'></div>
+</div>
 
 {>pagination /}

@@ -1,3 +1,22 @@
-.droppable__dropzone{
+.draggable__dropzone{
 	height: 20rem;
+	background: rgba(255, 255, 255, 0.5);
+	border: 2px dashed fade(@oil, 50%); 
+	border-radius: 1em;
+	padding: .5em;
+}
+
+.draggable__dragzone{}
+//individual fridge magnet
+.draggable__item{
+ 	&:extend(.fridge-magnet);
+
+ 	&.ui-draggable-dragging{
+ 		&:extend(.fridge-magnet.is-dragging);
+
+ 	}
+
+ 	&.is-dropped{
+ 		&:extend(.fridge-magnet.is-dropped);
+ 	}
 }
