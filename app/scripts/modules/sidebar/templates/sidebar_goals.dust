@@ -1,14 +1,14 @@
 <div class="goals">
     <h1 class="goals__title" ><img src="images/icon-goals-tick.svg"/>Goals</h1>
 
-    <ul class="goals_goalset">
-    	<li class="goals_goal"><label><input type="checkbox"><span>A goal</span></label></li>
-    	<li class="goals_goal"><label><input type="checkbox"><span>Another goal</span></label>
-			<ul class="goals_goalset">
-				<li class="goals_goal"><label><input type="checkbox"><span>A sub goal</span></label></li>
-				<li class="goals_goal"><label><input type="checkbox"><span>A sub goal</span></label></li>
-				<li class="goals_goal"><label><input type="checkbox"><span>A sub goal</span></label></li>
-				<li class="goals_goal"><label><input type="checkbox"><span>A sub goal</span></label></li>
+    <ul class="goals__goalset">
+    	<li class="goals__goal"><label><input type="checkbox" class="goals__goal__checkbox"><span>A goal</span></label></li>
+    	<li class="goals__goal"><label><input type="checkbox" class="goals__goal__checkbox"><span>Another goal</span></label>
+			<ul class="goals__goalset">
+				<li class="goals__goal"><label><input type="checkbox" class="goals__goal__checkbox"><span>A sub goal</span></label></li>
+				<li class="goals__goal"><label><input type="checkbox" class="goals__goal__checkbox"><span>A sub goal</span></label></li>
+				<li class="goals__goal"><label><input type="checkbox" class="goals__goal__checkbox"><span>A sub goal</span></label></li>
+				<li class="goals__goal"><label><input type="checkbox" class="goals__goal__checkbox"><span>A sub goal</span></label></li>
 			<ul>
     	</li>
     </ul>
