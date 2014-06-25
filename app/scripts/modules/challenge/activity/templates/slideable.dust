@@ -2,11 +2,14 @@
 
 {description}
 
-<p>
-    <label for='value'>{label}</label>
-    <input type='text' id='value' />
+<!-- <p>
+    <label for='title'>{label}</label>
+    <input type='text' id='title' />
 </p>
+ -->
 
-<div id='slider'>
+{leftLabel}
+<div id='slider' data-snap-ignore='true'></div>
+{rightLabel}
 
-</div>
+{>pagination /}

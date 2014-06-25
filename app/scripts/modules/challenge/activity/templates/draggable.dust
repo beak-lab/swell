@@ -6,4 +6,4 @@
   <p>Drop here</p>
 </div>
 
-<div class='prev'>Prev</div> - <div class='next'>Next</div>
+{>pagination /}
