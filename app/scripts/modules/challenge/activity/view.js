@@ -10,18 +10,19 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
 
         });
 
+        View.Activity = Marionette.ItemView.extend({
+            triggers: {
+                'click .next': 'next',
+                'click .prev': 'prev'
+            }
+        });
+
         View.Empty = Marionette.ItemView.extend({
             template: 'empty',
         });
 
-        View.Draggable = Marionette.ItemView.extend({
-            tagName: 'div',
-            className: '',
+        View.Draggable = View.Activity.extend({
             template: 'draggable',
-            triggers: {
-                'click .next': 'next',
-                'click .prev': 'prev'
-            },
 
             onRender: function() {
                 this.$el.find('#draggable').draggable();
@@ -36,19 +37,8 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             }
         });
 
-        View.Sortable = Marionette.ItemView.extend({
-            tagName: 'div',
-            className: '',
+        View.Sortable = View.Activity.extend({
             template: 'sortable',
-            triggers: {
-                'click .next': 'next',
-                'click .prev': 'prev'
-            },
-
-            defaults: {
-                description: '',
-                question: ''
-            },
 
             // serializeData: function() {
             //     var data = this.model.toJSON();
@@ -62,30 +52,29 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             }
         });
 
-        View.Slideable = Marionette.ItemView.extend({
+        View.Slideable = View.Activity.extend({
             template: 'slideable',
-
-            defaults: {
-                label: 'Default Label',
-                description: 'Default desc',
-                question: 'Default question'
-            },
 
             onRender: function() {
                 this.$el.find('#slider').slider({
-                    value: 100,
+                    value: 250,
                     min: 0,
                     max: 500,
                     step: 50,
-                    slide: function(event, ui) {
-                        this.$el.find('#value').val('$' + ui.value);
-                    }
+                    // slide: function(event, ui) {
+                    //     this.$el.find('#title').val('$' + ui.value);
+                    // }
                 });
-                this.$el.find('#value').val('$' + $('#slider').slider('value'));
+                // this.$el.find('#title').val('$' + $('#slider').slider('value'));
             }
         });
-        View.Voteable = Marionette.ItemView.extend({
+        View.Voteable = View.Activity.extend({
             template: 'voteable',
+
+            triggers: {
+                'click .next': 'next',
+                'click .prev': 'prev'
+            },
 
             onRender: function() {
             }

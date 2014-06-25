@@ -4,11 +4,20 @@ define(['app'], function(App) {
         var contextName = 'Activity.Entity';
         Entities.Activity = Backbone.Model.extend({
             urlRoot: 'activity',
+
+            defaults: {
+                label: 'Default Label',
+                description: 'Default description',
+                question: 'Default question',
+                leftLabel: 'Best',
+                rightLabel: 'Worst'
+            },
         });
 
         Entities.ActivityCollection = Backbone.Collection.extend({
             url: '/activity',
-            model: Entities.Activity
+            model: Entities.Activity,
+            comparator: 'weight'
         });
 
         var initializeFakes = function() {
@@ -17,6 +26,7 @@ define(['app'], function(App) {
             Entities.fakes = new Entities.ActivityCollection([
                 {
                     id: 1,
+                    weight: 10,
                     type: 'Sortable',
                     data: [
                         { name: 'Item 1' },
@@ -26,6 +36,7 @@ define(['app'], function(App) {
                     ]
                 }, {
                     id: 2,
+                    weight: 9,
                     type: 'Sortable',
                     data: [
                         { name: 'second set' },
@@ -35,6 +46,7 @@ define(['app'], function(App) {
                     ]
                 }, {
                     id: 3,
+                    weight: 10,
                     type: 'Draggable',
                     data: [
                         { name: 'first set' },
@@ -44,6 +56,7 @@ define(['app'], function(App) {
                     ]
                 }, {
                     id: 4,
+                    weight: 2,
                     type: 'Slideable',
                 }
             ]);

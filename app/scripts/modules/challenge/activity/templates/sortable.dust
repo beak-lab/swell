@@ -6,4 +6,4 @@
 
 </ul>
 
-<div class='prev'>Prev</div> - <div class='next'>Next</div>
+{>pagination /}
