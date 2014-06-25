@@ -45,7 +45,7 @@ define(['app'], function(App) {
                 slug: 'work-talents',
                 domain: 5,
                 resources: [1, 2],
-                activities: [1, 2]
+                activities: [4, 1, 2]
             },{
                 id: 2,
                 name: 'I want to start a business',
