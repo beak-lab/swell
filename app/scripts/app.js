@@ -79,7 +79,7 @@ define([
                         minPosition: wWidth * -0.9
                     });
 
-                    //snapper.open('right');
+                    snapper.open('right');
 
 
 
