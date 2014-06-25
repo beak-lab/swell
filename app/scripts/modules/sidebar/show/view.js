@@ -21,6 +21,16 @@ define(['app'], function(App) {
             itemViewContainer: '#sidebar-history-list',
         });
 
+        View.Right = Marionette.ItemView.extend({
+            tagName: 'div',
+            className: 'sidebar',
+            template: 'sidebar_goals',
+
+            events: {
+                
+            }
+        });
+
     });
 
     return App.Sidebar.View;

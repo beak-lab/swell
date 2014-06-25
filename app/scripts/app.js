@@ -73,12 +73,13 @@ define([
 
                     var wWidth = $(window).width();
 
-                    new Snap({
+                    var snapper = new Snap({
                         element: document.getElementById('page-region'),
                         maxPosition: wWidth *  0.9, // make the drawer width 90% of the screen size
                         minPosition: wWidth * -0.9
                     });
-                    //.open('right');
+
+                    snapper.open('right');
 
 
 

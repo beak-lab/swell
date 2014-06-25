@@ -10,6 +10,8 @@ define(['app', 'sidebar_view', 'sidebar_entity'], function(App, View) {
                     collection: App.request('sidebar:history')
                 });
 
+                App.rightRegion.show(new View.Right());
+                
                 // Sidebar.Controller.sidebar.on('itemview:navigate', function(childView, model) {
                 //     App.log('Navigating to: ' + model.get('trigger'), contextName, 1);
                 //     App.trigger(model.get('trigger'));
