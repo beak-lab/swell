@@ -4,7 +4,7 @@ define(['app'], function(App) { // resource_entity
 
         var initializeFakes = function() {
 
-            Entities.fakes = new Entities.ActivityCollection([{
+            Entities.fakeResources = new Entities.ActivityCollection([{
                 id: 1,
                 title: 'A nice title',
                 data: 'This is a resource'
@@ -21,22 +21,22 @@ define(['app'], function(App) { // resource_entity
 
         var API = {
             getEntity: function(id) {
-                if (undefined === Entities.fakes) {
+                if (undefined === Entities.fakeResources) {
                     initializeFakes();
                 }
 
-                var model = Entities.fakes.findWhere({
+                var model = Entities.fakeResources.findWhere({
                     id: parseInt(id)
                 });
 
                 return model;
             },
             getEntities: function(array) {
-                if (undefined === Entities.fakes) {
+                if (undefined === Entities.fakeResources) {
                     initializeFakes();
                 }
 
-                return Entities.fakes.filter(function(model) {
+                return Entities.fakeResources.filter(function(model) {
                     return _.contains(array, model.id);
                 });
             }

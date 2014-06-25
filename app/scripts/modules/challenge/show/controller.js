@@ -59,20 +59,19 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                             Show.Controller.showActivity(activities);
 
                             Show.Controller.showViews.activities.on('next', function() {
-                                    console.log(Show.Controller.currentActivity);
+            console.log(Show.Controller.currentActivity);
                                 Show.Controller.currentActivity++;
                                 Show.Controller.showActivity(activities);
                             });
 
                             Show.Controller.showViews.activities.on('prev', function() {
-                                    console.log(Show.Controller.currentActivity);
+            console.log(Show.Controller.currentActivity);
                                 if (Show.Controller.currentActivity !== 0) {
                                     Show.Controller.currentActivity--;
                                     Show.Controller.showActivity(activities);
                                 }
                             });
                         }
-
 
                     });
 
@@ -92,9 +91,11 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
 
             showActivity: function(activities) {
                 var activity = activities[Show.Controller.currentActivity];
+                console.log(activity);
                 Show.Controller.showViews.activities = new ActivityView[activity.get('type')]({
                     model: activity,
                 });
+                Show.Controller.showViews.activities.delegateEvents();
                 Show.Controller.layout.pageRegion.show(Show.Controller.showViews.activities);
             },
 
