@@ -55,8 +55,9 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                         // keep track, so we can use: next + prev
                         Show.Controller.currentActivity = 0; // index
                         Show.Controller.activityModels = activities;
-                        // show the first one by default
-                        Show.Controller.showActivity();
+
+                        // show the loading page first
+                        Show.Controller.layout.pageRegion.show(new ActivityView.Launcher());
                     });
 
                     // prepare resources
