@@ -9,6 +9,11 @@ module.exports = {
         'mocha_phantomjs',
     ],
 
+    'dev': [
+        'dustjs',    // dust -> js
+        'less:development', // less -> css
+    ],
+
     'build': [
         'clean:dist',
         'newer:dustjs',    // dust -> js
