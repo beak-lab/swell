@@ -14,34 +14,39 @@ define(['app'], function(App) {
         var initializeFakes = function() {
             App.log('Initializing Fake Activitys', contextName, 1);
 
-            Entities.fakes = new Entities.ActivityCollection([{
-                id: 1,
-                type: 'Sortable',
-                data: [
-                    { name: 'Item 1' },
-                    { name: 'Item 2' },
-                    { name: 'Item 3' },
-                    { name: 'Item 4' },
-                ]
-            }, {
-                id: 2,
-                type: 'Sortable',
-                data: [
-                    { name: 'second set' },
-                    { name: 'Item 23' },
-                    { name: 'Item 34' },
-                    { name: 'Item 4' },
-                ]
-            }, {
-                id: 3,
-                type: 'Draggable',
-                data: [
-                    { name: 'first set' },
-                    { name: 'Item 22' },
-                    { name: 'Item 33' },
-                    { name: 'Item 44' },
-                ]
-            }]);
+            Entities.fakes = new Entities.ActivityCollection([
+                {
+                    id: 1,
+                    type: 'Sortable',
+                    data: [
+                        { name: 'Item 1' },
+                        { name: 'Item 2' },
+                        { name: 'Item 3' },
+                        { name: 'Item 4' },
+                    ]
+                }, {
+                    id: 2,
+                    type: 'Sortable',
+                    data: [
+                        { name: 'second set' },
+                        { name: 'Item 23' },
+                        { name: 'Item 34' },
+                        { name: 'Item 4' },
+                    ]
+                }, {
+                    id: 3,
+                    type: 'Draggable',
+                    data: [
+                        { name: 'first set' },
+                        { name: 'Item 22' },
+                        { name: 'Item 33' },
+                        { name: 'Item 44' },
+                    ]
+                }, {
+                    id: 4,
+                    type: 'Slideable',
+                }
+            ]);
         };
 
         var API = {

@@ -1,6 +1,6 @@
 'use strict';
-define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable', 'backbone.syphon'], function(App) {
-    App.module('Challenge.Show.View', function(View, App, Backbone, Marionette) { // , $, _
+define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
+    App.module('Challenge.Show.View', function(View, App, Backbone, Marionette, $) {
         View.Layout = Marionette.Layout.extend({
             template: 'challenge_show_layout',
 

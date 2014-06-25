@@ -1,1 +1,12 @@
-slider guy
+{question}
+
+{description}
+
+<p>
+    <label for='value'>{label}</label>
+    <input type='text' id='value' />
+</p>
+
+<div id='slider'>
+
+</div>

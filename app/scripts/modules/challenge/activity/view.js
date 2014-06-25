@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'templates', 'dust'], function(App) {
+define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable', 'jquery-ui/slider'], function(App) {
     App.module('Challenge.Activity.View', function(View, App, Backbone, Marionette, $) { // , $, _
         View.Layout = Marionette.Layout.extend({
             template: 'activity_show_layout',
@@ -45,6 +45,11 @@ define(['app', 'templates', 'dust'], function(App) {
                 'click .prev': 'prev'
             },
 
+            defaults: {
+                description: '',
+                question: ''
+            },
+
             // serializeData: function() {
             //     var data = this.model.toJSON();
             //     data.challenge = this.options.challenge;
@@ -59,8 +64,32 @@ define(['app', 'templates', 'dust'], function(App) {
 
         View.Slideable = Marionette.ItemView.extend({
             template: 'slideable',
-        });
 
+            defaults: {
+                label: 'Default Label',
+                description: 'Default desc',
+                question: 'Default question'
+            },
+
+            onRender: function() {
+                this.$el.find('#slider').slider({
+                    value: 100,
+                    min: 0,
+                    max: 500,
+                    step: 50,
+                    slide: function(event, ui) {
+                        this.$el.find('#value').val('$' + ui.value);
+                    }
+                });
+                this.$el.find('#value').val('$' + $('#slider').slider('value'));
+            }
+        });
+        View.Voteable = Marionette.ItemView.extend({
+            template: 'voteable',
+
+            onRender: function() {
+            }
+        });
     });
 
     return App.Challenge.Activity.View;
