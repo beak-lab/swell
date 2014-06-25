@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable', 'jquery-ui/slider'], function(App) {
+define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable', 'jquery-ui/draggable', 'jquery-ui/slider'], function(App) {
     App.module('Challenge.Activity.View', function(View, App, Backbone, Marionette, $) { // , $, _
         View.Layout = Marionette.Layout.extend({
             template: 'activity_show_layout',

@@ -12,10 +12,10 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
             events: {
                 'click #challenge-description-expander': 'expanderclicked'
             },
+
             expanderclicked: function(e) {
                 e.preventDefault();
                 $('#challenge-description-expander, #challenge-description').toggleClass('is-expanded');
-
             },
 
             flash: function(cssClass) { // fade in and out.
@@ -67,8 +67,6 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
             },
 
         });
-
-
     });
 
     return App.Challenge.Show.View;
