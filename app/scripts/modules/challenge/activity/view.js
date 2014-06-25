@@ -27,11 +27,11 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             onRender: function() {
                 this.$el.find('#draggable p').draggable();
                 this.$el.find('#droppable').droppable({
+                    activeClass: 'ui-state-default',
+                    hoverClass: 'ui-state-hover',
                     drop: function(event, ui) {
-                        $(this)
-                            .addClass('ui-state-highlight')
-                            .find('p')
-                            .html('Dropped!');
+                        $('<li></li>').text(ui.draggable.text()).appendTo(this);
+                        ui.draggable.remove();
                     }
                 });
             }
@@ -77,8 +77,7 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                 'click .prev': 'prev'
             },
 
-            onRender: function() {
-            }
+            onRender: function() {}
         });
     });
 

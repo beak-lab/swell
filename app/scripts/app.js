@@ -81,16 +81,12 @@ define([
 
                     // snapper.open('right');
 
-
-
                     // set a default route
                     if (App.getCurrentRoute() === '') {
                         App.trigger('domain:list');
                     } else {
                         App.trigger(App.getCurrentRoute());
                     }
-
-                    // App.switchApp('MyApp', {});
                 });
             }
 
