@@ -26,17 +26,46 @@
 .challenge{
 	position: absolute;
 	height: calc( ~"100% - " @glb-nav-height );
-	padding: 1em;
+	padding: 2em;
 	color: @oil;
 	background: #e7ffd9;
 }
 
 .challenge__description{
-
+	.transition(all 0.2s ease);
 	overflow:hidden;
-	text-overflow:ellipsis;   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical; 
+	text-overflow:ellipsis;   
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; 
+	
+	&.is-expanded{
+		-webkit-line-clamp: 100;
+	}
+
+}
+.challenge__description__expander{
+	display: table;
+	width: 100%;
+	padding: 1em 0;
+}
+.challenge__description__expander__line{
+	display: table-cell;
+	vertical-align: middle;
+	hr{
+		margin: 0; 
+		border-top-color: @oil; 
+	}
+}
+.challenge__description__expander__icon{
+	.transition(all 0.5s ease);
+	display: table-cell;
+	width: 6rem;
+	padding: 0 1rem;
+
+	.is-expanded &{
+		.rotateX(180);
+	}
 }
 
 //page menu
