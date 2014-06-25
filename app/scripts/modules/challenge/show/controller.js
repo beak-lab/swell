@@ -34,7 +34,6 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                         if ('activities' === item) {
                             // make a new view
                             Show.Controller.showActivity();
-
                         } else {
                             // show the view selected by the menu, take it from cache
                             Show.Controller.layout.pageRegion.show(Show.Controller.showViews[item]);

@@ -1,5 +1,5 @@
 Drop zone
-<div id='droppable' class='ui-widget-header'></div>
+<div id='droppable' class='ui-widget-header droppable__dropzone'></div>
 
 <div id='draggable' class='ui-widget-content' data-snap-ignore='true'>
     {#data.draggable}
