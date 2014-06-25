@@ -1,1 +1,22 @@
-.slideable{}
+.slideable{
+	padding: 2em 0;
+	//border-top: 2px dashed fade(@oil, 50%);
+}
+
+.slideable__labels{
+	overflow: hidden;
+}
+
+.slideable__label{
+	font-weight: 500;
+	text-decoration: uppercase;
+	
+	&.is-left-label{
+		float: left;
+	}
+	&.is-right-label{
+		float: right;
+	}
+}
+
+.slideable__slider{}
