@@ -76,7 +76,6 @@
   text-transform: uppercase;
   text-align: center;
   font-weight: 500;
-  padding: 1em;
 }
 
 .challenge__menu__item{
@@ -86,9 +85,17 @@
 	color: lighten(desaturate(@oil, 30%), 30%);
 	&:first-child{
 		border-left: none;
+		padding-left: 0;
+	}
+	&:last-child{
+		padding-right: 0;
 	}
 
 	&.is-active{
 		color: @oil;
 	}
+}
+
+.challenge__activity{
+	margin-top: 1em;
 }

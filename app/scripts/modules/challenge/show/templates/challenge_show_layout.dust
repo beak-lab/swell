@@ -12,5 +12,5 @@
 	</div>
 
 	<div id="show_menu" class="challenge__menu"></div>
-	<div id="show_page"></div>
+	<div id="show_page" class="challenge__activity"></div>
 </div>
