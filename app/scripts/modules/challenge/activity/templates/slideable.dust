@@ -9,8 +9,7 @@
 		<div class="slideable__label is-right-label">{rightLabel}</div>
 	</div>
 
-	<input type="range"  data-snap-ignore='true'>
-	<!-- <div id='slider' class="slideable__slider" data-snap-ignore='true'></div> -->
+	<input type="range" class="slideable__slider" data-snap-ignore='true'>
 </div>
 
 {>pagination /}
