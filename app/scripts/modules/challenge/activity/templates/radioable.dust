@@ -9,7 +9,7 @@
 <div class="radioable">
 	{#options}
 		<div class="radioable__optionset">
-			<label> <input name="radioable-optionset" type="radio" value="{value}" > {text}</label>
+			<label> <input class="radioable__radiobutton" name="radioable-optionset" type="radio" value="{value}" > {text}</label>
 		</div>
 	{/options}
 </div>
