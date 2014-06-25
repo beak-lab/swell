@@ -6,11 +6,12 @@ define(['app'], function(App) {
             urlRoot: 'activity',
 
             defaults: {
+                title: 'Default title',
                 label: 'Default Label',
                 description: 'Default description',
                 question: 'Default question',
-                leftLabel: 'Best',
-                rightLabel: 'Worst'
+                leftLabel: 'Worst',
+                rightLabel: 'Best'
             },
         });
 
@@ -25,6 +26,15 @@ define(['app'], function(App) {
 
             Entities.fakes = new Entities.ActivityCollection([
                 {
+                    id: 4,
+                    weight: 1,
+                    type: 'Slideable',
+                    title: 'Activity 2: Why, When and How',
+                    question: 'Will the employer discriminate against me or not?',
+                    description: '<p>It\'s illegal for employers to refuse a job to someone because they have a diagnosis of mental illness but it is very hard to prove they have done this.</p><p>In your experience how much do employers discriminate against people with mental distress?</p>',
+                    leftLabel: 'Not Much',
+                    rightLabel: 'All the freaking time'
+                }, {
                     id: 1,
                     weight: 10,
                     type: 'Sortable',
@@ -56,11 +66,6 @@ define(['app'], function(App) {
                             { name: 'Item 4' },
                         ]
                     }
-                }, {
-                    id: 4,
-                    weight: 2,
-                    type: 'Slideable',
-                    question: 'How do you feel?'
                 }
             ]);
         };
@@ -72,7 +77,7 @@ define(['app'], function(App) {
                 }
 
                 var model = Entities.fakes.findWhere({
-                    id: parseInt(id)
+                    id: parseInt(id, 10)
                 });
 
                 return model;
