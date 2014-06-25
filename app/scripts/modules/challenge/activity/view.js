@@ -28,6 +28,8 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                 this.$el.find('#draggable p').draggable();
                 this.$el.find('#droppable').droppable({
                     drop: function(event, ui) {
+                        console.log(event);
+                        console.log(ui);
                         $(this)
                             .addClass('ui-state-highlight')
                             .find('p')

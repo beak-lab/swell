@@ -79,10 +79,6 @@ define([
                         minPosition: wWidth * -0.9
                     });
 
-                    snapper.open('right');
-
-
-
                     // set a default route
                     if (App.getCurrentRoute() === '') {
                         App.trigger('domain:list');
@@ -90,7 +86,6 @@ define([
                         App.trigger(App.getCurrentRoute());
                     }
 
-                    // App.switchApp('MyApp', {});
                 });
             }
 
