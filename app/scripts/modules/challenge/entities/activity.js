@@ -26,7 +26,7 @@ define(['app'], function(App) {
 
             Entities.fakes = new Entities.ActivityCollection([
                 {
-                    id: 4,
+                    id: 1,
                     weight: 1,
                     type: 'Slideable',
                     title: 'Activity 2: Why, When and How',
@@ -35,7 +35,24 @@ define(['app'], function(App) {
                     leftLabel: 'Not Much',
                     rightLabel: 'All the freaking time'
                 }, {
-                    id: 1,
+                    id: 2,
+                    weight: 0,
+                    type: 'Radioable',
+                    title: 'Activity 2: Why, When and How',
+                    question: 'Do I need to negotiate work conditions related to my distress',
+                    description: 'Like starting late, flexible sick leave, quiet work space',
+                    options: [
+                        {
+                            value : 'yes',
+                            text: 'Yes – it\'s probably a good idea to disclose',
+                        },
+                        {
+                            value : 'no',
+                            text: 'No – you probably don\'t need to disclose',
+                        }
+                    ]
+                }, {
+                    id: 3,
                     weight: 10,
                     type: 'Sortable',
                     data: [
@@ -45,7 +62,7 @@ define(['app'], function(App) {
                         { name: 'Item 4' },
                     ]
                 }, {
-                    id: 2,
+                    id: 4,
                     weight: 9,
                     type: 'Sortable',
                     data: [
@@ -55,7 +72,7 @@ define(['app'], function(App) {
                         { name: 'Item 4' },
                     ]
                 }, {
-                    id: 3,
+                    id: 5,
                     weight: 11,
                     type: 'Draggable',
                     data: {
