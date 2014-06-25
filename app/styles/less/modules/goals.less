@@ -13,14 +13,14 @@
 }
 
 
-.goals_goalset{
+.goals__goalset{
 	list-style: none;
 	margin:0;
 	padding: 0;
     font-size: 1.6rem;
     label{font-weight: 500;}
 
-	.goals_goalset{//sub goals
+	.goals__goalset{//sub goals
 		padding-left: 1em;
 		label{
 			font-weight: 100;
@@ -28,7 +28,7 @@
 	}
 }
 
-.goals_goal{
+.goals__goal{
 	label{
 		padding: .5rem;
 		display: block;
@@ -36,12 +36,12 @@
 	}
 }
 
-.goals_goal{
-	input[type=checkbox]{
+.goals__goal{
+	.goals__goal__checkbox{
 		opacity: 0;
 	}
 
-	input[type=checkbox]:checked {
+	.goals__goal__checkbox:checked {
 		& ~ span{
 			text-decoration: line-through;
 		}
@@ -49,8 +49,8 @@
 
 }
 
-.goals_goal{  // faux checkbox
-	input[type=checkbox]{
+.goals__goal{  // faux checkbox
+	.goals__goal__checkbox{
 		& ~ span{
 			&:before{
 				vertical-align: text-top;
@@ -65,7 +65,7 @@
 		}
 	}
 
-	input[type=checkbox]:checked {
+	.goals__goal__checkbox:checked {
 		& ~ span{
 			&:before{
 				background: url(../../images/icon-checkbox-checked.svg);

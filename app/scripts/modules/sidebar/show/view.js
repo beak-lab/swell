@@ -27,8 +27,19 @@ define(['app'], function(App) {
             template: 'sidebar_goals',
 
             events: {
-                
-            }
+                'change .goals__goal__checkbox': 'goalsCheckbox',
+            },
+
+            goalsCheckbox: function(e) {
+                if ($(e.target).is(':checked')){
+                    var parentgoalset = $(e.target).closest('.goals__goal');
+                    parentgoalset.find('.goals__goal__checkbox').each(function(){
+                        $(this).prop('checked', true);
+                    });
+                }
+
+
+            },
         });
 
     });
