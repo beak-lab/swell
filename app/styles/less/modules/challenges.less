@@ -24,11 +24,13 @@
 //challenge page
 
 .challenge{
-	position: absolute;
+	position: fixed;
 	height: calc( ~"100% - " @glb-nav-height );
 	padding: 2em;
 	color: @oil;
 	background: #e7ffd9;
+	bottom: 0;
+	overflow: auto;
 }
 
 .challenge__description{
@@ -58,13 +60,14 @@
 	}
 }
 .challenge__description__expander__icon{
-	.transition(all 0.5s ease);
+	.transition(all 0.4s ease);
 	display: table-cell;
 	width: 6rem;
 	padding: 0 1rem;
 
 	.is-expanded &{
-		.rotateX(180);
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
 	}
 }
 
