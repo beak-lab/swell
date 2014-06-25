@@ -9,6 +9,15 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                 // pageRegion: '#show_page'
             },
 
+            events: {
+                'click #challenge-description-expander': 'expanderclicked'
+            },
+            expanderclicked: function(e) {
+                e.preventDefault();
+                $('#challenge-description-expander, #challenge-description').toggleClass('is-expanded');
+
+            },
+
             flash: function(cssClass) { // fade in and out.
                 var $view = this.$el;
                 $view.hide().toggleClass(cssClass).fadeIn(800, function() {

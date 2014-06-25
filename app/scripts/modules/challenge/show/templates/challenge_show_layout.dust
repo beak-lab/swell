@@ -1,7 +1,14 @@
 <div class="challenge">
 	<h1>{name}</h1>
-	<div class="challenge__description">
+	<div class="challenge__description" id="challenge-description">
 		{desc}
+	</div>
+	<div class="challenge__description__expander" id="challenge-description-expander">
+		<div class="challenge__description__expander__line"><hr></div>
+			<div class="challenge__description__expander__icon">
+				<img src="images/icon-desc-expander.svg" alt="">
+			</div>
+		<div class="challenge__description__expander__line"><hr></div>
 	</div>
 
 	<div id="show_menu" class="challenge__menu"></div>

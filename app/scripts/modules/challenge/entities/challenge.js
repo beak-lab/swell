@@ -41,7 +41,7 @@ define(['app'], function(App) {
             {
                 id: 1,
                 name: 'I want to discover and use my talents',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                 slug: 'work-talents',
                 domain: 5,
                 resources: [1, 2],
@@ -49,7 +49,7 @@ define(['app'], function(App) {
             },{
                 id: 2,
                 name: 'I want to start a business',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                 slug: 'work-business',
                 domain: 5,
                 resources: [2, 3],
@@ -57,7 +57,7 @@ define(['app'], function(App) {
             },{
                 id: 3,
                 name: 'I want to find ways to make a contribution to society',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                 slug: 'work-society',
                 domain: 5,
                 resources: [1, 2, 3, 4],
@@ -65,35 +65,35 @@ define(['app'], function(App) {
             },{
                 id: 4,
                 name: 'I want to continue my education',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                 slug: 'work-education',
                 domain: 5,
                 activities: [7]
             },{
                 id: 5,
                 name: 'I want to get a job after a period of unemployment',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                 slug: 'work-unemployment',
                 domain: 5,
                 activities: [8]
             },{
                 id: 6,
                 name: 'I want to know if and when to disclose',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                 slug: 'work-disclose',
                 domain: 5,
                 activities: []
             },{
                 id: 7,
                 name: 'I want to negotiate my work conditions',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                 slug: 'work-negotiate',
                 domain: 5,
                 activities: []
             },{
                 name: 'I want to keep my job',
                 id: 8,
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                 slug: 'work-keepmyjob',
                 domain: 5,
                 activities: []
