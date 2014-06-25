@@ -56,6 +56,11 @@ define(['app', 'templates', 'dust'], function(App) {
                 this.$el.find('#sortable').disableSelection();
             }
         });
+
+        View.Slideable = Marionette.ItemView.extend({
+            template: 'slideable',
+        });
+
     });
 
     return App.Challenge.Activity.View;

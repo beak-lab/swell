@@ -1,9 +1,9 @@
-
-
-<ul id="sortable">
+<ul id='sortable'>
 
     {#data}
-        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>{name}</li>
+        <li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span>{name}</li>
     {/data}
 
 </ul>
+
+<div class='prev'>Prev</div> - <div class='next'>Next</div>
