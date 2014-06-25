@@ -55,9 +55,7 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     $.when(App.request('activity:entities', challenge.get('activities'))).done(function(activities) {
                         // keep track, so we can use: next + prev
                         Show.Controller.currentActivity = 0; // index
-                        Show.Controller.activitytotal = activities.length - 1;
                         Show.Controller.activityModels = activities;
-console.log(activities);
                         // show the first one by default
                         Show.Controller.showActivity();
                     });
@@ -95,7 +93,7 @@ console.log(activities);
 
                 // watch the next and prev buttons
                 view.on('next', function() {
-                    if (Show.Controller.currentActivity < Show.Controller.activitytotal) {
+                    if (Show.Controller.currentActivity < (Show.Controller.activityModels.length - 1)) {
                         Show.Controller.currentActivity++;
                         Show.Controller.showActivity();
                     }

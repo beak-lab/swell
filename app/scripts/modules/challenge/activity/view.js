@@ -25,7 +25,7 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             template: 'draggable',
 
             onRender: function() {
-                this.$el.find('#draggable').draggable();
+                this.$el.find('#draggable p').draggable();
                 this.$el.find('#droppable').droppable({
                     drop: function(event, ui) {
                         $(this)
@@ -68,6 +68,7 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                 // this.$el.find('#title').val('$' + $('#slider').slider('value'));
             }
         });
+
         View.Voteable = View.Activity.extend({
             template: 'voteable',
 

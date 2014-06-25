@@ -1,9 +1,11 @@
-<div id='draggable' class='ui-widget-content'>
-    <p>Drag me to my target</p>
+Drop zone
+<div id='droppable' class='ui-widget-header'></div>
+
+<div id='draggable' class='ui-widget-content' data-snap-ignore='true'>
+    {#data.draggable}
+        <p>{name}</p>
+    {/data.draggable}
 </div>
 
-<div id='droppable' class='ui-widget-header'>
-  <p>Drop here</p>
-</div>
 
 {>pagination /}
