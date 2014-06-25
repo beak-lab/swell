@@ -1,5 +1,5 @@
-<ul id="challenge_menu">
-  <li id="activities">Activities</li>
-  <li id="resources">Resources</li>
-  <li id="stuff">My Stuff</li>
-</ul>
+<div id="challenge_menu" class="challenge__menu">
+  <span class="challenge__menu__item is-active" id="activities">Activities</span>
+  <span class="challenge__menu__item" id="resources">Resources</span>
+  <span class="challenge__menu__item" id="stuff">My Stuff</span>
+</div>

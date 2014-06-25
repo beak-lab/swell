@@ -24,5 +24,39 @@
 //challenge page
 
 .challenge{
+	position: absolute;
+	height: calc( ~"100% - " @glb-nav-height );
 	padding: 1em;
+	color: @oil;
+	background: #e7ffd9;
+}
+
+.challenge__description{
+
+	overflow:hidden;
+	text-overflow:ellipsis;   display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
+}
+
+//page menu
+.challenge__menu{
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  padding: 1em;
+}
+
+.challenge__menu__item{
+	padding: .5em 1.25em;
+	display: inline-block;
+	border-left: 1px solid @oil;
+	color: lighten(desaturate(@oil, 30%), 30%);
+	&:first-child{
+		border-left: none;
+	}
+
+	&.is-active{
+		color: @oil;
+	}
 }
