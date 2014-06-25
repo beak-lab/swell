@@ -1,1 +1,1 @@
-<div id='activity-launcher'>Launch activities</div>
+<div id='activity-launcher' class="challenge__activity__launch"><span>Launch activity</span></div>
