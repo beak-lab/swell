@@ -1,6 +1,6 @@
 'use strict';
 define(['app'], function(App) {
-    App.module('Entities', function(Entities, App, Backbone) {
+    App.module('Entities', function(Entities, App, Backbone, Marionette, $, _) {
         var contextName = 'Activity.Entity';
         Entities.Activity = Backbone.Model.extend({
             urlRoot: 'activity',
@@ -11,69 +11,65 @@ define(['app'], function(App) {
             model: Entities.Activity
         });
 
-        var initializeActivitys = function() {
+        var initializeFakes = function() {
             App.log('Initializing Fake Activitys', contextName, 1);
 
-            Entities.fakeActivitys = new Entities.ActivityCollection([{
+            Entities.fakes = new Entities.ActivityCollection([{
                 id: 1,
-                type: 'sortable',
+                type: 'Sortable',
                 data: [
-                    {
-                        id: 1,
-                        name: 'Item 1',
-                    },
-                    {
-                        id: 2,
-                        name: 'Item 2',
-                    },
-                    {
-                        id: 3,
-                        name: 'Item 3',
-                    },
-                    {
-                        id: 4,
-                        name: 'Item 4',
-                    },
-
+                    { name: 'Item 1' },
+                    { name: 'Item 2' },
+                    { name: 'Item 3' },
+                    { name: 'Item 4' },
                 ]
             }, {
                 id: 2,
-                type: 'sortable',
+                type: 'Sortable',
                 data: [
-                    {
-                        id: 1,
-                        name: 'Item 1 second set',
-                    },
-                    {
-                        id: 2,
-                        name: 'Item 2',
-                    },
-                    {
-                        id: 3,
-                        name: 'Item 3',
-                    },
-                    {
-                        id: 4,
-                        name: 'Item 4',
-                    },
-
+                    { name: 'second set' },
+                    { name: 'Item 23' },
+                    { name: 'Item 34' },
+                    { name: 'Item 4' },
+                ]
+            }, {
+                id: 3,
+                type: 'Draggable',
+                data: [
+                    { name: 'first set' },
+                    { name: 'Item 22' },
+                    { name: 'Item 33' },
+                    { name: 'Item 44' },
                 ]
             }]);
         };
 
         var API = {
             getActivityEntity: function(id) {
-                if (undefined === Entities.fakeActivitys) {
-                    initializeActivitys();
+                if (undefined === Entities.fakes) {
+                    initializeFakes();
                 }
 
-                var model = Entities.fakeActivitys.findWhere({
+                var model = Entities.fakes.findWhere({
                     id: parseInt(id)
                 });
 
                 return model;
             },
+            getActivityEntities: function(array) {
+                if (undefined === Entities.fakes) {
+                    initializeFakes();
+                }
+
+                return Entities.fakes.filter(function(model) {
+                    return _.contains(array, model.id);
+                });
+            }
         };
+
+        App.reqres.setHandler('activity:entities', function(array) {
+            return API.getActivityEntities(array);
+        });
 
         App.reqres.setHandler('activity:entity', function(id) {
             return API.getActivityEntity(id);

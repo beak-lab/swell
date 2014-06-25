@@ -17,7 +17,7 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     PageRegion.prototype.open = function(view) {
                         this.$el.hide();
                         this.$el.html(view.el);
-                        this.$el.fadeIn('fast');
+                        this.$el.slideDown('slow');
                     };
                     Show.Controller.layout.pageRegion = new PageRegion();
                     App.mainRegion.show(Show.Controller.layout);
@@ -32,13 +32,8 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     // NOTE: without a model, you do not need itemview on the watch string
                     menu.on('menu:clicked', function(item) {
                         // show the view selected by the menu
-                        Show.Controller.layout.pageRegion.show(showViews[item]);
+                        Show.Controller.layout.pageRegion.show(Show.Controller.showViews[item]);
                     });
-
-
-                    // make a list of all the views
-                    var showViews = [];
-
 
                     // set back button
                     App.execute('set:back', {
@@ -46,35 +41,61 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                         page: 'Challenges'
                     });
 
-                    $.when(App.request('activity:entity', challenge.get('activity'))).done(function(activity) {
-                        // var type = activity.get('type');
-                        // var ucType = type.charAt(0).toUpperCase() + type.slice(1);
-                        if (activity.get('type') === 'sortable') {
-                            showViews.activities = new ActivityView.Sortable({
-                                model: activity,
-                            });
+                    // make a list of all the views, so the menu can cycle through them nicely
+                    Show.Controller.showViews = [];
+
+                    // NOTE: These call show after being made, so they act as the first selected
+                    // when this layout is initially rendered
+                    $.when(App.request('activity:entities', challenge.get('activities'))).done(function(activities) {
+                        // keep track, so we can use: next + prev
+                        Show.Controller.currentActivity = 0; // index
+                        Show.Controller.activitytotal = activities.length;
+
+                        if (activities.length === 0) {
+                            Show.Controller.showViews.activities = new ActivityView.Empty();
+                            Show.Controller.layout.pageRegion.show(Show.Controller.showViews.activities);
                         } else {
-                            showViews.activities = new ActivityView.Draggable({
-                                model: activity,
+
+                            Show.Controller.showActivity(activities);
+
+                            Show.Controller.showViews.activities.on('next', function() {
+                                    console.log(Show.Controller.currentActivity);
+                                Show.Controller.currentActivity++;
+                                Show.Controller.showActivity(activities);
+                            });
+
+                            Show.Controller.showViews.activities.on('prev', function() {
+                                    console.log(Show.Controller.currentActivity);
+                                if (Show.Controller.currentActivity !== 0) {
+                                    Show.Controller.currentActivity--;
+                                    Show.Controller.showActivity(activities);
+                                }
                             });
                         }
 
-                        Show.Controller.layout.pageRegion.show(showViews.activities);
+
                     });
 
                     // prepare resources
                     $.when(App.request('resource:entities', challenge.get('resources'))).done(function(resources) {
-                        console.log(resources);
-                        showViews.resources = new View.Resources({
+                        Show.Controller.showViews.resources = new View.Resources({
                             resources: resources
                         });
                     });
 
-                    showViews.stuff = new View.Stuff({
+                    Show.Controller.showViews.stuff = new View.Stuff({
                     });
 
                 });
 
+            },
+
+            showActivity: function(activities) {
+                var activity = activities[Show.Controller.currentActivity];
+                Show.Controller.showViews.activities = new ActivityView[activity.get('type')]({
+                    model: activity,
+                });
+                Show.Controller.layout.pageRegion.show(Show.Controller.showViews.activities);
             },
 
         };

@@ -10,10 +10,18 @@ define(['app', 'templates', 'dust'], function(App) {
 
         });
 
+        View.Empty = Marionette.ItemView.extend({
+            template: 'empty',
+        });
+
         View.Draggable = Marionette.ItemView.extend({
             tagName: 'div',
             className: '',
             template: 'draggable',
+            triggers: {
+                'click .next': 'next',
+                'click .prev': 'prev'
+            },
 
             onRender: function() {
                 this.$el.find('#draggable').draggable();
@@ -32,6 +40,10 @@ define(['app', 'templates', 'dust'], function(App) {
             tagName: 'div',
             className: '',
             template: 'sortable',
+            triggers: {
+                'click .next': 'next',
+                'click .prev': 'prev'
+            },
 
             // serializeData: function() {
             //     var data = this.model.toJSON();
@@ -44,6 +56,11 @@ define(['app', 'templates', 'dust'], function(App) {
                 this.$el.find('#sortable').disableSelection();
             }
         });
+
+        View.Slideable = Marionette.ItemView.extend({
+            template: 'slideable',
+        });
+
     });
 
     return App.Challenge.Activity.View;
