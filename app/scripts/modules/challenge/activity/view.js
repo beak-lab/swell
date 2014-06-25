@@ -14,14 +14,23 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             triggers: {
                 'click .next': 'next',
                 'click .prev': 'prev'
-            }
+            },
+
+            serializeData: function() {
+                var data = this.model.toJSON();
+                data.next = this.options.next;
+                data.prev = this.options.prev;
+                return data;
+            },
         });
 
         View.Launcher = Marionette.ItemView.extend({
             template: 'launch',
+
             events: {
                 'click #activity-launcher': 'launched'
             },
+
             launched: function() {
                 this.trigger('launched');
                 // also smoke the top part
