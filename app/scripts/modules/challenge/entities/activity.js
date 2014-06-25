@@ -46,7 +46,7 @@ define(['app'], function(App) {
                     ]
                 }, {
                     id: 3,
-                    weight: 1,
+                    weight: 11,
                     type: 'Draggable',
                     data: {
                         draggable: [
