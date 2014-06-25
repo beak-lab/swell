@@ -19,9 +19,15 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
 
         View.Launcher = Marionette.ItemView.extend({
             template: 'launch',
-            triggers: {
-                'click #activity-launcher': 'launch'
-            }
+            events: {
+                'click #activity-launcher': 'launched'
+            },
+            launched: function() {
+                this.trigger('launched');
+                // also smoke the top part
+                $('#challenge-description').slideUp();
+                $('#challenge-description-expander').slideUp();
+            },
         });
 
         View.Empty = Marionette.ItemView.extend({
