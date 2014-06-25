@@ -42,6 +42,10 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 $(this.el).find('.challenge__menu__item').removeClass('is-active');
                 $(e.target).addClass('is-active');
                 this.trigger('menu:clicked', e.target.id);
+
+                // also hide the description
+                $('#challenge-description').slideUp();
+                $('#challenge-description-expander').slideUp();
             }
         });
 
