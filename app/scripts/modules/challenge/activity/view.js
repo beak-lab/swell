@@ -68,18 +68,8 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
         View.Slideable = View.Activity.extend({
             template: 'slideable',
 
-            onRender: function() {
-                this.$el.find('#slider').slider({
-                    value: 250,
-                    min: 0,
-                    max: 500,
-                    step: 50,
-                    // slide: function(event, ui) {
-                    //     this.$el.find('#title').val('$' + ui.value);
-                    // }
-                });
-                // this.$el.find('#title').val('$' + $('#slider').slider('value'));
-            }
+            // onRender: function() {
+            // }
         });
 
         View.Voteable = View.Activity.extend({
