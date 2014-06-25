@@ -19,4 +19,21 @@
 	}
 }
 
-.slideable__slider{}
+.slideable__slider{
+	-webkit-appearance: none;
+	appearance: none;
+	border: 1px solid @oil;
+	border-radius: 1rem;
+	height: 2rem;
+	background: lighten(@oil, 50%);
+}
+
+.slideable__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid @oil;
+    background: @oil;
+    height: 3rem;
+    width: 2rem;
+    border-radius: 1rem;
+}

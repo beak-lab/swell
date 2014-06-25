@@ -91,6 +91,16 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
 
             onRender: function() {}
         });
+        View.Radioable = View.Activity.extend({
+            template: 'radioable',
+
+            triggers: {
+                'click .next': 'next',
+                'click .prev': 'prev'
+            },
+
+            onRender: function() {}
+        });
     });
 
     return App.Challenge.Activity.View;

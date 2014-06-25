@@ -1,0 +1,17 @@
+<h2 class="activity__title">{title}</h2>
+<div class="activity__question">
+	<h3>{question|s}</h3>
+</div>
+<div class="activity__description">
+	{description|s}
+</div>
+
+<div class="radioable">
+	{#options}
+		<div class="radioable__optionset">
+			<label> <input name="radioable-optionset" type="radio" value="{value}" > {text}</label>
+		</div>
+	{/options}
+</div>
+
+{>pagination /}
