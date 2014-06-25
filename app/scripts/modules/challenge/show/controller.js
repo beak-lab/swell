@@ -55,7 +55,7 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                         // keep track, so we can use: next + prev
                         Show.Controller.currentActivity = 0; // index
                         Show.Controller.activityModels = activities;
-                        // show the first one by default
+                        Show.Controller.launched = false;
                         Show.Controller.showActivity();
                     });
 
@@ -77,6 +77,17 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
             * Decide which one is current, and show that.
             */
             showActivity: function() {
+                if (!Show.Controller.launched) {
+                    var launcher = new ActivityView.Launcher();
+                    launcher.on('launched', function() {
+                        Show.Controller.launched = true;
+                        Show.Controller.showActivity();
+                    });
+                    // show the loading page first
+                    Show.Controller.layout.pageRegion.show(launcher);
+                    return true;
+                }
+
                 // if there are no activities for this challange, then show the empty page
                 if (Show.Controller.activityModels.length === 0) {
                     Show.Controller.layout.pageRegion.show(new ActivityView.Empty());
