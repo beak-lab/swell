@@ -1,1 +1,1 @@
-<div class='prev'>Prev</div> - <div class='next'>Next</div>
+{?prev}<div class='prev'>Prev</div>{/prev} - {?next}<div class='next'>Next</div>{/next}
