@@ -4,7 +4,12 @@ define(['app', 'goal_create_view'], function(App, View) {
         var contextName = 'Goal.Create.Controller';
         Create.Controller = {
             create: function() {
-                return new View.GoalAdd();
+                return new View.GoalAdd({
+                    autoGoals: [
+                        { name: 'Fix a car' },
+                        { name: 'Blow glass' }
+                    ]
+                });
             }
         };
     });

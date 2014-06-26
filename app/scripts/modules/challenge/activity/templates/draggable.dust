@@ -1,15 +1,15 @@
-<div class="activity__title">{title}</div>
-<div class="activity__question">
+<div class='activity__title'>{title}</div>
+<div class='activity__question'>
 	<h3>{question|s}</h3>
 </div>
-<div class="activity__description">
+<div class='activity__description'>
 	{description|s}
 </div>
 <div id='droppable' class='draggable__dropzone'></div>
 
 <div id='draggable-container' class='draggable__dragzone' data-snap-ignore='true'>
     {#data.draggable}
-        <div class="draggable__item">{name}</div>
+        <div class='draggable__item'>{name}</div>
     {/data.draggable}
 </div>
 

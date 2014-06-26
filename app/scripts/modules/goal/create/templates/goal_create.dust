@@ -1,5 +1,20 @@
+<div class='activity__title'>Good work!</div>
+
+<h2>Now lets set goals.</h2>
+
+<h3>Here are some recommended goals:<h3>
+
+<div>
+{#autoGoals}
+    <div class='auto_goal'>{name} - Add</div>
+{/autoGoals}
+</div>
+
 <form>
-    Goal: <input type='text' name='goal' />
+    Goal: <input id='goal_name' type='text' name='goal' />
 </form>
 
 <div id='add_goal'>Add</div>
+
+
+<div id='goals'></div>
