@@ -11,10 +11,32 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
         });
 
         View.Activity = Marionette.ItemView.extend({
+            initialize : function(){
+                var pagertimer, 
+                    pagerIsBack;
+            },
             triggers: {
-                'click .next': 'next',
-                'click .prev': 'prev',
-                'click .goals': 'goals'
+                // 'click .next': 'next',
+                // 'click .prev': 'prev',
+                // 'click .goals': 'goals'
+            },
+            events: {
+                'mousedown .next' : 'nextPressed',
+                'mouseup .next' : 'nextUnpressed',
+
+            },
+
+            nextPressed : function(){
+                pagerIsBack = false;
+                pagertimer = setTimeout(function() {
+                    pagerIsBack = true;
+                },1000);
+                return false; 
+            },
+            nextUnpressed : function(){
+                clearTimeout(pagertimer);
+                console.log(pagerIsBack);
+                return false;
             },
 
             serializeData: function() {
