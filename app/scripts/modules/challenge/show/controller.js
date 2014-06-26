@@ -49,14 +49,13 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     // make a list of all the views, so the menu can cycle through them nicely
                     Show.Controller.showViews = [];
 
-                    // NOTE: These call show after being made, so they act as the first selected
-                    // when this layout is initially rendered
+                    // get all the activities related to this challenge
                     $.when(App.request('activity:entities', challenge.get('activities'))).done(function(activities) {
-                        // keep track, so we can use: next + prev
+                        // keep track of which one is current, so we can use: next + prev
                         Show.Controller.currentActivity = 0; // index
-                        Show.Controller.activityModels = activities;
+                        Show.Controller.activityModels = activities; // attach to controller so we can use in function
                         Show.Controller.launched = false;
-                        Show.Controller.showActivity();
+                        Show.Controller.showActivity(); // show the first activity
                     });
 
                     // prepare resources
@@ -116,6 +115,15 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                         Show.Controller.currentActivity--;
                         Show.Controller.showActivity();
                     }
+                });
+
+                view.on('goals', function() {
+                    // show the goals setting screen
+                    require(['goal_create_controller'], function() {
+                        var view = App.request('goal:create');
+                        console.log(view);
+                        Show.Controller.layout.pageRegion.show(view);
+                    });
                 });
 
                 Show.Controller.layout.pageRegion.show(view);

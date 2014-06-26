@@ -13,7 +13,8 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
         View.Activity = Marionette.ItemView.extend({
             triggers: {
                 'click .next': 'next',
-                'click .prev': 'prev'
+                'click .prev': 'prev',
+                'click .goals': 'goals'
             },
 
             serializeData: function() {

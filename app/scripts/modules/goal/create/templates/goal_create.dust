@@ -1,0 +1,5 @@
+<form>
+    Goal: <input type='text' name='goal' />
+</form>
+
+<div id='add_goal'>Add</div>
