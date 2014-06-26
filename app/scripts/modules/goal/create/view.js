@@ -30,7 +30,5 @@ define(['app', 'templates', 'dust'], function(App) {
 
     });
 
-
-
     return App.Goal.Create.View;
 });
