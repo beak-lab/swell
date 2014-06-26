@@ -70,7 +70,9 @@ define([
                         'modules/goal/app',
                     ], function () {
 
-                    navigator.splashscreen.hide();
+                    if (navigator.splashscreen) { // if we are in mobile mode
+                        navigator.splashscreen.hide();
+                    }
 
                     Backbone.history.start();
 
