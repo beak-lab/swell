@@ -2,7 +2,7 @@
 
 <h2>Now lets set goals.</h2>
 
-<h3>Here are some recommended goals:<h3>
+<h3>Here are some recommended goals:</h3>
 
 <div>
 {#autoGoals}
