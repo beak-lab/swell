@@ -26,7 +26,7 @@ define(['app'], function(App) {
             App.log('Initializing Fake Activitys', contextName, 1);
 
             Entities.fakes = new Entities.ActivityCollection([
-                 {
+                {
                     id: 1,
                     weight: 11,
                     type: 'Slideable',
@@ -45,11 +45,13 @@ define(['app'], function(App) {
                     options: [
                         {
                             value : 'yes',
-                            text: 'Yes – it\'s probably a good idea to disclose',
+                            text: 'Yes',
+                            subtext: 'it\'s probably a good idea to disclose'
                         },
                         {
                             value : 'no',
-                            text: 'No – you probably don\'t need to disclose',
+                            text: 'No',
+                            subtext: 'you probably don\'t need to disclose'
                         }
                     ]
                 }, {

@@ -1,4 +1,4 @@
-<h2 class="activity__title">{title}</h2>
+<div class="activity__title">{title}</div>
 <div class="activity__question">
 	<h3>{question|s}</h3>
 </div>
@@ -9,7 +9,11 @@
 <div class="radioable">
 	{#options}
 		<div class="radioable__optionset">
-			<label> <input class="radioable__radiobutton" name="radioable-optionset" type="radio" value="{value}" > {text}</label>
+			<label> 
+				<input class="radioable__radiobutton" name="radioable-optionset" type="radio" value="{value}" > {text}
+				{?subtext}<div class="radioable__subtext subtext">{subtext}</div>{/subtext}
+
+			</label>
 		</div>
 	{/options}
 </div>

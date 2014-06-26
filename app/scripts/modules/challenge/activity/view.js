@@ -34,8 +34,9 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             launched: function() {
                 this.trigger('launched');
                 // also smoke the top part
-                $('#challenge-description').hide();
-                $('#challenge-description-expander').hide();
+                // $('#challenge-description').hide();
+                // $('#challenge-description-expander').hide();
+                $('.challenge').addClass('is-compacted');
             },
         });
 
@@ -92,7 +93,7 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                     drop: function(event, ui) {
                         if (event.target.id === 'bottom-droppable') {
                             $('<div/>').addClass('voteable__item is-dropped').text(ui.draggable.text()).appendTo(this);
-                        else {
+                        } else {
                             $('<div/>').addClass('voteable__item is-dropped').text(ui.draggable.text()).prependTo(this);
                         }
                         ui.draggable.remove();
@@ -110,10 +111,33 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
 
         View.Radioable = View.Activity.extend({
             template: 'radioable',
+
+            events: {
+                'change .radioable__radiobutton': 'changed'
+            },
+
+            changed: function(){
+                var  $radioable = $('.radioable'),
+                $checked = $radioable.find('.radioable__radiobutton:checked');
+                $radioable.find('.radioable__optionset').removeClass('is-active');
+                $checked.closest('.radioable__optionset').addClass('is-active');
+            },
         });
 
         View.Checkboxable = View.Activity.extend({
             template: 'checkboxable',
+
+            events: {
+                'change .checkboxable__checkbox': 'changed'
+            },
+
+            changed: function(){
+                var  $checkboxable = $('.checkboxable'),
+                $checked = $checkboxable.find('.checkboxable__checkbox:checked');
+                $checkboxable.find('.checkboxable__optionset').removeClass('is-active');
+                $checked.closest('.checkboxable__optionset').addClass('is-active');
+            },
+
         });
     });
 

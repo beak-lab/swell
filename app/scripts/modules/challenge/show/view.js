@@ -44,8 +44,12 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 this.trigger('menu:clicked', e.target.id);
 
                 // also hide the description
-                $('#challenge-description').hide();
-                $('#challenge-description-expander').hide();
+                // $('#challenge-description').hide();
+                // $('#challenge-description-expander').hide();
+                // actually, lets do it with css
+                $('.challenge').addClass('is-compacted');
+                
+
             }
         });
 

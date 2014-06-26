@@ -24,13 +24,24 @@
 //challenge page
 
 .challenge{
+	.transition(all 0.2s ease);
 	position: fixed;
 	height: calc( ~"100% - " @glb-nav-height );
 	padding: 2em;
 	color: @oil;
 	background: #e7ffd9;
 	bottom: 0;
-	overflow: auto;
+	overflow-y: auto;
+	width: 100%;
+	&.is-compacted{
+		padding-top: 1em;
+	}
+}
+
+.challenge__title{
+	.is-compacted &{
+		display: none;
+	}
 }
 
 .challenge__description{
@@ -45,11 +56,19 @@
 		-webkit-line-clamp: 100;
 	}
 
+	.is-compacted &{
+		display: none;
+	}
+
 }
 .challenge__description__expander{
 	display: table;
 	width: 100%;
 	padding: 1em 0;
+
+	.is-compacted &{
+		display: none;
+	}
 }
 .challenge__description__expander__line{
 	display: table-cell;

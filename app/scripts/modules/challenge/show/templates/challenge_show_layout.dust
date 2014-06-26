@@ -1,5 +1,5 @@
 <div class="challenge">
-	<h1>{name}</h1>
+	<h1 class="challenge__title">{name}</h1>
 
 	<div class="challenge__description" id="challenge-description">
 		{desc}
