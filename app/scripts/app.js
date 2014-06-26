@@ -70,10 +70,6 @@ define([
                         'modules/goal/app',
                     ], function () {
 
-                    if (navigator.splashscreen) { // if we are in mobile mode
-                        navigator.splashscreen.hide();
-                    }
-
                     Backbone.history.start();
 
                     var wWidth = $(window).width();
@@ -91,6 +87,10 @@ define([
                         App.trigger('domain:list');
                     } else {
                         App.trigger(App.getCurrentRoute());
+                    }
+
+                    if (navigator.splashscreen) { // if we are in mobile mode
+                        navigator.splashscreen.hide();
                     }
                 });
             }
