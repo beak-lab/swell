@@ -8,7 +8,6 @@ define(['app'], function(App) {
             defaults: {
                 title: 'Default title',
                 label: 'Default Label',
-                description: 'Default description',
                 question: 'Default question',
                 leftLabel: 'Worst',
                 rightLabel: 'Best'
@@ -27,7 +26,7 @@ define(['app'], function(App) {
             Entities.fakes = new Entities.ActivityCollection([
                  {
                     id: 1,
-                    weight: 110,
+                    weight: 1,
                     type: 'Slideable',
                     title: 'Activity 2: Why, When and How',
                     question: 'Will the employer discriminate against me or not?',
@@ -36,7 +35,7 @@ define(['app'], function(App) {
                     rightLabel: 'All the freaking time'
                 }, {
                     id: 2,
-                    weight: 150,
+                    weight: 2,
                     type: 'Radioable',
                     title: 'Activity 2: Why, When and How',
                     question: 'Do I need to negotiate work conditions related to my distress',
@@ -88,21 +87,54 @@ define(['app'], function(App) {
                     }
                 },{
                     id: 6,
-                    weight: 1,
+                    weight: 3,
                     type: 'Checkboxable',
                     title: 'Activity 2: Why, When and How',
-                    question: 'Do I need to negotiate work conditions related to my distress',
-                    description: 'Like starting late, flexible sick leave, quiet work space',
+                    question: 'When',
                     options: [
                         {
-                            value : 'yes',
-                            text: 'Yes – it\'s probably a good idea to disclose',
+                            text: 'Before they decide to employ me',
+                            subtext: 'if you think your distress will interfere with your ability to do the job'
+                        },{
+                            text: 'After they offer me the job',
+                            subtext: 'if you want to negotiate your work conditions'
+                        },{
+                            text: 'As part of everyday conversation',
+                            subtext: 'if you feel safe'
+                        },{
+                            text: 'When things go pear shaped',
+                            subtext: 'if you think they need to understand what\'s going on.'
                         },
-                        {
-                            value : 'no',
-                            text: 'No – you probably don\'t need to disclose',
-                        }
+
                     ]
+                }, {
+                    id: 7,
+                    weight: 4,
+                    type: 'Draggable',
+                    title: 'Activity 2: Why, When and How',
+                    description: 'Say what you have learnt from your experience that will help you manage your condition',
+                    question: 'How do you manage it?',
+                    data: {
+                        draggable: [
+                            { name: 'Healthy lifestyle' },
+                            { name: 'Managing routines' },
+                            { name: 'Managing stress' },
+                        ]
+                    }
+                }, {
+                    id: 8,
+                    weight: 5,
+                    type: 'Draggable',
+                    title: 'Activity 2: Why, When and How',
+                    description: 'Say what work conditions enable you to do your best',
+                    question: 'What working conditions are the most important?',
+                    data: {
+                        draggable: [
+                            { name: 'Sick leave' },
+                            { name: 'Work hours' },
+                            { name: 'Work space' },
+                        ]
+                    }
                 }
             ]);
         };

@@ -2,14 +2,19 @@
 <div class="activity__question">
 	<h3>{question|s}</h3>
 </div>
+{?description}
 <div class="activity__description">
 	{description|s}
 </div>
+{/description}
 
-<div class="radioable">
+<div class="checkboxable">
 	{#options}
-		<div class="radioable__optionset">
-			<label> <input class="tickable__checkbox" name="radioable-optionset" type="checkbox" value="{value}" > {text}</label>
+		<div class="checkboxable__optionset">
+			<label> 
+				<input class="checkboxable__checkbox" name="checkboxable-optionset" type="checkbox" value="{value}" > {text}
+				{?subtext}<div class="checkboxable__subtext subtext">{subtext}</div>{/subtext}
+			</label>
 		</div>
 	{/options}
 </div>
