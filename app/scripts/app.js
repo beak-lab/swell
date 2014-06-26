@@ -66,7 +66,8 @@ define([
                         'modules/sidebar/app',
                         'modules/user/app',
                         'modules/domain/app',
-                        'modules/challenge/app'
+                        'modules/challenge/app',
+                        'modules/goal/app'
                     ], function () {
 
                     Backbone.history.start();

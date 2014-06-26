@@ -6,11 +6,13 @@ define(['app'], function(App) {
             urlRoot: 'activity',
 
             defaults: {
-                title: 'Default title',
-                label: 'Default Label',
-                question: 'Default question',
-                leftLabel: 'Worst',
-                rightLabel: 'Best'
+                title      : 'Default title',
+                label      : 'Default Label',
+                question   : 'Default question',
+                leftLabel  : 'Worst',
+                rightLabel : 'Best',
+                topLabel   : 'Pro',
+                bottomLabel: 'Con'
             },
         });
 
@@ -26,7 +28,7 @@ define(['app'], function(App) {
             Entities.fakes = new Entities.ActivityCollection([
                  {
                     id: 1,
-                    weight: 1,
+                    weight: 11,
                     type: 'Slideable',
                     title: 'Activity 2: Why, When and How',
                     question: 'Will the employer discriminate against me or not?',
@@ -35,7 +37,7 @@ define(['app'], function(App) {
                     rightLabel: 'All the freaking time'
                 }, {
                     id: 2,
-                    weight: 2,
+                    weight: 20,
                     type: 'Radioable',
                     title: 'Activity 2: Why, When and How',
                     question: 'Do I need to negotiate work conditions related to my distress',
@@ -52,7 +54,7 @@ define(['app'], function(App) {
                     ]
                 }, {
                     id: 3,
-                    weight: 101,
+                    weight: 30,
                     type: 'Sortable',
                     data: [
                         { name: 'Item 1' },
@@ -62,7 +64,7 @@ define(['app'], function(App) {
                     ]
                 }, {
                     id: 4,
-                    weight: 90,
+                    weight: 40,
                     type: 'Sortable',
                     data: [
                         { name: 'Item 1' },
@@ -72,7 +74,7 @@ define(['app'], function(App) {
                     ]
                 }, {
                     id: 5,
-                    weight: 10,
+                    weight: 50,
                     type: 'Draggable',
                     title: 'Activity 2: Why, When and How',
                     description: 'Say what you have learnt from your experience that would help you do the job?',
@@ -87,7 +89,7 @@ define(['app'], function(App) {
                     }
                 },{
                     id: 6,
-                    weight: 3,
+                    weight: 60,
                     type: 'Checkboxable',
                     title: 'Activity 2: Why, When and How',
                     question: 'When',
@@ -109,7 +111,7 @@ define(['app'], function(App) {
                     ]
                 }, {
                     id: 7,
-                    weight: 4,
+                    weight: 70,
                     type: 'Draggable',
                     title: 'Activity 2: Why, When and How',
                     description: 'Say what you have learnt from your experience that will help you manage your condition',
@@ -123,7 +125,7 @@ define(['app'], function(App) {
                     }
                 }, {
                     id: 8,
-                    weight: 5,
+                    weight: 80,
                     type: 'Draggable',
                     title: 'Activity 2: Why, When and How',
                     description: 'Say what work conditions enable you to do your best',
@@ -135,6 +137,18 @@ define(['app'], function(App) {
                             { name: 'Work space' },
                         ]
                     }
+                }, {
+                    id: 9,
+                    weight: 1,
+                    type: 'Voteable',
+                    title: 'Now tell me...',
+                    description: '',
+                    question: 'what do you think about:',
+                    data: [
+                            { name: 'Sick leave' },
+                            { name: 'Work hours' },
+                            { name: 'Work space' },
+                    ]
                 }
             ]);
         };

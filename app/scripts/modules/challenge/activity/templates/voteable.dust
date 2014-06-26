@@ -1,5 +1,24 @@
-A list of things, showing one at a time.
+<h2 class='activity__title'>{title}</h2>
+<div class='activity__question'>
+    <h3>{question|s}</h3>
+</div>
+<div class='activity__description'>
+    {description|s}
+</div>
 
-You can drag them up to be a PRO and down to be a CON.
+<div class='voteable'>
+    <div class='voteableable__labels'>
+        <div id='top-droppable'></div>
+        <div class='voteable__label is-top-label'>{topLabel}</div>
+        <div class='voteable__label is-bottom-label'>{bottomLabel}</div>
+        <div id='bottom-droppable'></div>
+    </div>
+
+    <div id='voteable-container' class='voteable__dragzone' data-snap-ignore='true'>
+        {#data}
+            <div class='voteable__item'>{name}</div>
+        {/data}
+    </div>
+</div>
 
 {>pagination /}

@@ -1,18 +1,18 @@
-<h2 class="activity__title">{title}</h2>
-<div class="activity__description">
+<h2 class='activity__title'>{title}</h2>
+<div class='activity__description'>
 	{description|s}
 </div>
-<div class="activity__question">
+<div class='activity__question'>
 	<h3>{question|s}</h3>
 </div>
 
-<div class="slideable">
-	<div class="slideable__labels">
-		<div class="slideable__label is-left-label">{leftLabel}</div>
-		<div class="slideable__label is-right-label">{rightLabel}</div>
+<div class='slideable'>
+	<div class='slideable__labels'>
+		<div class='slideable__label is-left-label'>{leftLabel}</div>
+		<div class='slideable__label is-right-label'>{rightLabel}</div>
 	</div>
 
-	<input type="range" class="slideable__slider" data-snap-ignore='true'>
+	<input type='range' class='slideable__slider' data-snap-ignore='true'>
 </div>
 
 {>pagination /}

@@ -84,32 +84,28 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
         View.Voteable = View.Activity.extend({
             template: 'voteable',
 
-            triggers: {
-                'click .next': 'next',
-                'click .prev': 'prev'
-            },
+            onRender: function() {
+                this.$el.find('#voteable-container .voteable__item').draggable();
+                this.$el.find('#top-droppable, #bottom-droppable').droppable({
+                    activeClass: 'ui-state-default',
+                    hoverClass: 'ui-state-hover',
+                    drop: function(event, ui) {
+                        console.log(ui);
+                        $('<div/>').addClass('voteable__item is-dropped').text(ui.draggable.text()).appendTo(this);
+                        ui.draggable.remove();
+                        console.log($('voteable__item').first());
+                    }
+                });
+            }
 
-            onRender: function() {}
         });
+
         View.Radioable = View.Activity.extend({
             template: 'radioable',
-
-            triggers: {
-                'click .next': 'next',
-                'click .prev': 'prev'
-            },
-
-            onRender: function() {}
         });
+
         View.Checkboxable = View.Activity.extend({
             template: 'checkboxable',
-
-            triggers: {
-                'click .next': 'next',
-                'click .prev': 'prev'
-            },
-
-            onRender: function() {}
         });
     });
 
