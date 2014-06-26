@@ -1,7 +1,5 @@
 node_modules
-temp
-dist
-www
+/www
 .sass-cache
 app/bower_components
 app/scripts/common/templates.js
