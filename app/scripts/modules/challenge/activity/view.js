@@ -11,32 +11,32 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
         });
 
         View.Activity = Marionette.ItemView.extend({
-            initialize : function(){
-                var pagertimer, 
-                    pagerIsBack;
-            },
             triggers: {
                 // 'click .next': 'next',
                 // 'click .prev': 'prev',
                 // 'click .goals': 'goals'
             },
+
             events: {
-                'mousedown .next' : 'nextPressed',
-                'mouseup .next' : 'nextUnpressed',
-
+                'mousedown .next': 'nextPressed',
+                'mouseup .next': 'nextUnpressed',
             },
 
-            nextPressed : function(){
-                pagerIsBack = false;
-                pagertimer = setTimeout(function() {
-                    pagerIsBack = true;
-                },1000);
-                return false; 
+            nextPressed: function(e) {
+                e.preventDefault();
+                this.clickTime = new Date().getTime();
             },
-            nextUnpressed : function(){
-                clearTimeout(pagertimer);
-                console.log(pagerIsBack);
-                return false;
+
+            nextUnpressed: function(e) {
+                e.preventDefault();
+
+                if (new Date().getTime() - this.clickTime > 800) {
+                    console.log('long');
+                    this.$el.find('.next').addClass('prssedsome');
+                } else {
+                    console.log('short');
+                    this.$el.find('.next').addClass('prssedheaps');
+                }
             },
 
             serializeData: function() {
@@ -140,10 +140,10 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                 'change .radioable__radiobutton': 'changed'
             },
 
-            changed: function(){
+            changed: function() {
 
-                var  $radioable = $(this.el).find('.radioable'),
-                $checked = $radioable.find('.radioable__radiobutton:checked');
+                var $radioable = $(this.el).find('.radioable'),
+                    $checked = $radioable.find('.radioable__radiobutton:checked');
                 $radioable.find('.radioable__optionset').removeClass('is-active');
                 $checked.closest('.radioable__optionset').addClass('is-active');
             },
@@ -156,9 +156,9 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                 'change .checkboxable__checkbox': 'changed'
             },
 
-            changed: function(){
-                var  $checkboxable = $(this.el).find('.checkboxable'),
-                $checked = $checkboxable.find('.checkboxable__checkbox:checked');
+            changed: function() {
+                var $checkboxable = $(this.el).find('.checkboxable'),
+                    $checked = $checkboxable.find('.checkboxable__checkbox:checked');
                 $checkboxable.find('.checkboxable__optionset').removeClass('is-active');
                 $checked.closest('.checkboxable__optionset').addClass('is-active');
             },
