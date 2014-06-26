@@ -25,9 +25,9 @@ define(['app'], function(App) {
             App.log('Initializing Fake Activitys', contextName, 1);
 
             Entities.fakes = new Entities.ActivityCollection([
-                {
+                 {
                     id: 1,
-                    weight: 1,
+                    weight: 110,
                     type: 'Slideable',
                     title: 'Activity 2: Why, When and How',
                     question: 'Will the employer discriminate against me or not?',
@@ -36,7 +36,7 @@ define(['app'], function(App) {
                     rightLabel: 'All the freaking time'
                 }, {
                     id: 2,
-                    weight: 0,
+                    weight: 150,
                     type: 'Radioable',
                     title: 'Activity 2: Why, When and How',
                     question: 'Do I need to negotiate work conditions related to my distress',
@@ -53,7 +53,7 @@ define(['app'], function(App) {
                     ]
                 }, {
                     id: 3,
-                    weight: 10,
+                    weight: 101,
                     type: 'Sortable',
                     data: [
                         { name: 'Item 1' },
@@ -63,7 +63,7 @@ define(['app'], function(App) {
                     ]
                 }, {
                     id: 4,
-                    weight: 9,
+                    weight: 90,
                     type: 'Sortable',
                     data: [
                         { name: 'Item 1' },
@@ -73,16 +73,36 @@ define(['app'], function(App) {
                     ]
                 }, {
                     id: 5,
-                    weight: 11,
+                    weight: 10,
                     type: 'Draggable',
+                    title: 'Activity 2: Why, When and How',
+                    description: 'Say what you have learnt from your experience that would help you do the job?',
+                    question: 'What have you learnt?',
                     data: {
                         draggable: [
-                            { name: 'second set' },
-                            { name: 'Item 23' },
-                            { name: 'Item 34' },
-                            { name: 'Item 4' },
+                            { name: 'Resilience' },
+                            { name: 'Compassion' },
+                            { name: 'Patience' },
+                            { name: 'Gratitude' },
                         ]
                     }
+                },{
+                    id: 6,
+                    weight: 1,
+                    type: 'Checkboxable',
+                    title: 'Activity 2: Why, When and How',
+                    question: 'Do I need to negotiate work conditions related to my distress',
+                    description: 'Like starting late, flexible sick leave, quiet work space',
+                    options: [
+                        {
+                            value : 'yes',
+                            text: 'Yes – it\'s probably a good idea to disclose',
+                        },
+                        {
+                            value : 'no',
+                            text: 'No – you probably don\'t need to disclose',
+                        }
+                    ]
                 }
             ]);
         };

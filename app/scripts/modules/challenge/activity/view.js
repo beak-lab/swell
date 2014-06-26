@@ -101,6 +101,16 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
 
             onRender: function() {}
         });
+        View.Checkboxable = View.Activity.extend({
+            template: 'checkboxable',
+
+            triggers: {
+                'click .next': 'next',
+                'click .prev': 'prev'
+            },
+
+            onRender: function() {}
+        });
     });
 
     return App.Challenge.Activity.View;

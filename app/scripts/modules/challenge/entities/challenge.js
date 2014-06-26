@@ -45,7 +45,7 @@ define(['app'], function(App) {
                 slug: 'work-talents',
                 domain: 5,
                 resources: [1, 2],
-                activities: [1, 2, 3, 4]
+                activities: [1, 2, 3, 4, 5]
             },{
                 id: 2,
                 name: 'I want to start a business',
@@ -82,7 +82,7 @@ define(['app'], function(App) {
                 desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                 slug: 'work-disclose',
                 domain: 5,
-                activities: []
+                activities: [1, 2, 3, 4, 5, 6]
             },{
                 id: 7,
                 name: 'I want to negotiate my work conditions',
