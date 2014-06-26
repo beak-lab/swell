@@ -34,8 +34,9 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             launched: function() {
                 this.trigger('launched');
                 // also smoke the top part
-                $('#challenge-description').hide();
-                $('#challenge-description-expander').hide();
+                // $('#challenge-description').hide();
+                // $('#challenge-description-expander').hide();
+                $('.challenge').addClass('is-compacted');
             },
         });
 

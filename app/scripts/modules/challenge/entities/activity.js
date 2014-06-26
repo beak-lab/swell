@@ -24,7 +24,7 @@ define(['app'], function(App) {
             App.log('Initializing Fake Activitys', contextName, 1);
 
             Entities.fakes = new Entities.ActivityCollection([
-                 {
+                {
                     id: 1,
                     weight: 1,
                     type: 'Slideable',
