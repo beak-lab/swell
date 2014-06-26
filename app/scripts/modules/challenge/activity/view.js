@@ -105,6 +105,8 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                         }
                     }
                 });
+
+                $('.voteable__item').first().show();
             }
 
         });
