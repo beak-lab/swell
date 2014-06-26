@@ -1,8 +1,12 @@
-<div>
+<div class="activity__pagination">
     {?prev}<div class='prev'>Prev</div>{/prev}
 
     {?next}
-        <div class='next'>Next</div>
+        <div class='next'>
+        	<svg version="1.1" class="activity__pagination__arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" xml:space="preserve">
+				<path class="st0" d="M100,3.9c-53,0-96,43-96,96c0,53,43,96,96,96c53,0,96-43,96-96C196,46.9,153,3.9,100,3.9z M128.8,102.5 l-41.4,41.8l-5.1-5.2l37.7-39.2L82.4,60.8l5.1-5.2l41.4,41.8C130.3,98.8,130.3,101.1,128.8,102.5z"/>
+			</svg>
+		</div>
     {:else}
         <div class='goals'>Set Goals</div>
     {/next}

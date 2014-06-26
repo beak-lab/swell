@@ -21,6 +21,7 @@
 .voteable__dragzone{
 	text-align: center;
 	.voteable__item{
+		.transition( opacity .2s, transform .2s );
 		opacity: 0;
 		overflow: hidden;
 		height: 0;
@@ -33,16 +34,14 @@
 			height: auto;
 			width: auto;
 			&:extend(.fridge-magnet);
-			&:extend(.animated);
-			&:extend(.bounceIn );
 		}
 	}
 }
 
 .votable__dropzone{
 	&:extend(.draggable__dropzone);
-	height: 10em;
-
+	height: auto;
+	min-height: 10em;
 	&.is-votable-pro{
 		background: lighten(@grannysmith, 20%);
 		&.ui-state-hover{
@@ -54,6 +53,9 @@
 		&.ui-state-hover{
 			background: @fireengine;
 		}
+	}
+	.voteable__item{
+		font-size: .8em;
 	}
 
 }
