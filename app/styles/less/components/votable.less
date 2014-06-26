@@ -1,9 +1,44 @@
-.voteable__dragzone{}
+.voteable{}
+.voteable__item{
+	&:extend(.fridge-magnet);
+	display: inline-block;
+
+ 	&.ui-draggable-dragging{
+ 		&:extend(.fridge-magnet.is-dragging);
+ 	}
+
+ 	&.is-dropped{
+ 		&:extend(.fridge-magnet.is-dropped);
+ 	}
+}
 .voteable__dragzone{
+	height: 4em;
+	padding-top: .5em;
+}
+
+
+.voteable__dragzone{
+	text-align: center;
 	.voteable__item{
-		display: none;
+		opacity: 0;
+		overflow: hidden;
+		height: 0;
+		width: 0;
+		padding: 0;
+		margin: 0;
+
 		&:first-child{
-			display: block;
+			opacity: 1;
+			height: auto;
+			width: auto;
+			&:extend(.fridge-magnet);
+			&:extend(.animated);
+			&:extend(.bounceIn );
 		}
 	}
+}
+
+.votable__dropzone{
+	&:extend(.draggable__dropzone);
+	height: 10em;
 }

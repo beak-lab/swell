@@ -1,4 +1,4 @@
-<h2 class='activity__title'>{title}</h2>
+<div class='activity__title'>{title}</div>
 <div class='activity__question'>
     <h3>{question|s}</h3>
 </div>
@@ -9,18 +9,15 @@
 {/description}
 
 <div class='voteable'>
-    <div class='voteableable__labels'>
-        <div id='top-droppable' class='draggable__dropzone'></div>
-        <div class='voteable__label is-top-label'>{topLabel}</div>
-        <div class='voteable__label is-bottom-label'>{bottomLabel}</div>
-        <div id='bottom-droppable' class='draggable__dropzone'></div>
-    </div>
 
+    <div id='top-droppable' class='votable__dropzone is-votable-pro'></div>
+    <!-- <div class='voteable__label is-top-label'>{topLabel}</div> -->
     <div id='voteable-container' class='voteable__dragzone' data-snap-ignore='true'>
-        {#data}
-            <div class='voteable__item'>{name}</div>
-        {/data}
+        {#data}<div class='voteable__item'>{name}</div>{/data}
     </div>
+    <!-- <div class='voteable__label is-bottom-label'>{bottomLabel}</div> -->
+    <div id='bottom-droppable' class='votable__dropzone is-votable-con'></div>
+
 </div>
 
 {>pagination /}

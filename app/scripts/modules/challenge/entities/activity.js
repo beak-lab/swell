@@ -8,7 +8,6 @@ define(['app'], function(App) {
             defaults: {
                 title      : 'Default title',
                 label      : 'Default Label',
-                question   : 'Default question',
                 leftLabel  : 'Worst',
                 rightLabel : 'Best',
                 topLabel   : 'Pro',
@@ -143,8 +142,7 @@ define(['app'], function(App) {
                     id: 9,
                     weight: 1,
                     type: 'Voteable',
-                    title: 'Now tell me...',
-                    description: '',
+                    title: 'Activity 1: Pros and Cons',
                     question: 'what do you think about:',
                     data: [
                             { name: 'Sick leave' },
