@@ -16,7 +16,7 @@
 
     <div id='voteable-container' class='voteable__dragzone' data-snap-ignore='true'>
         {#data}
-            <div class='voteable__item'>{name}</div>
+            <div class='voteable__item' style='display:none'>{name}</div>
         {/data}
     </div>
 </div>

@@ -90,10 +90,18 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                     activeClass: 'ui-state-default',
                     hoverClass: 'ui-state-hover',
                     drop: function(event, ui) {
-                        console.log(ui);
-                        $('<div/>').addClass('voteable__item is-dropped').text(ui.draggable.text()).appendTo(this);
+                        if (event.target.id === 'bottom-droppable') {
+                            $('<div/>').addClass('voteable__item is-dropped').text(ui.draggable.text()).appendTo(this);
+                        else {
+                            $('<div/>').addClass('voteable__item is-dropped').text(ui.draggable.text()).prependTo(this);
+                        }
                         ui.draggable.remove();
-                        console.log($('voteable__item').first());
+
+                        if ($('.voteable__item')) {
+                            $('.voteable__item').first().show();
+                        } else {
+                            console.log('Show all done..');
+                        }
                     }
                 });
             }
