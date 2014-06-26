@@ -1,4 +1,4 @@
-<div class='activity__title'>{title}</h2>
+<div class='activity__title'>{title}</div>
 <div class='activity__description'>
 	{description|s}
 </div>

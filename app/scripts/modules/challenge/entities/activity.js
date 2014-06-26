@@ -145,9 +145,12 @@ define(['app'], function(App) {
                     title: 'Activity 1: Pros and Cons',
                     question: 'what do you think about:',
                     data: [
-                            { name: 'Sick leave' },
-                            { name: 'Work hours' },
-                            { name: 'Work space' },
+                            { name: 'I may not get the job' },
+                            { name: 'I don\'t have to hide my experience' },
+                            { name: 'I may be not be trusted to do the work' },
+                            { name: 'I can reduce stigma if I disclose with confidence' },
+                            { name: 'I may be treated differently by my workmates' },
+                            { name: 'I can negotiate work conditions related to my distress' },
                     ]
                 }
             ]);

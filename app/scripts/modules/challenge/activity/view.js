@@ -95,7 +95,7 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                         if (event.target.id === 'bottom-droppable') {
                             $('<div/>').addClass('voteable__item is-dropped').text(ui.draggable.text()).appendTo(this);
                         } else {
-                            $('<div/>').addClass('voteable__item is-dropped').text(ui.draggable.text()).prependTo(this);
+                            $('<div/>').addClass('voteable__item is-dropped').text(ui.draggable.text()).appendTo(this);
                         }
                         ui.draggable.remove();
 
@@ -119,7 +119,8 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             },
 
             changed: function(){
-                var  $radioable = $('.radioable'),
+
+                var  $radioable = $(this.el).find('.radioable'),
                 $checked = $radioable.find('.radioable__radiobutton:checked');
                 $radioable.find('.radioable__optionset').removeClass('is-active');
                 $checked.closest('.radioable__optionset').addClass('is-active');
@@ -134,7 +135,7 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             },
 
             changed: function(){
-                var  $checkboxable = $('.checkboxable'),
+                var  $checkboxable = $(this.el).find('.checkboxable'),
                 $checked = $checkboxable.find('.checkboxable__checkbox:checked');
                 $checkboxable.find('.checkboxable__optionset').removeClass('is-active');
                 $checked.closest('.checkboxable__optionset').addClass('is-active');

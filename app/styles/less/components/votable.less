@@ -9,6 +9,7 @@
 
  	&.is-dropped{
  		&:extend(.fridge-magnet.is-dropped);
+ 		.scale(.5);
  	}
 }
 .voteable__dragzone{
@@ -41,4 +42,18 @@
 .votable__dropzone{
 	&:extend(.draggable__dropzone);
 	height: 10em;
+
+	&.is-votable-pro{
+		background: lighten(@grannysmith, 20%);
+		&.ui-state-hover{
+			background: @grannysmith;
+		}
+	}
+	&.is-votable-con{
+		background: lighten(@fireengine, 20%);
+		&.ui-state-hover{
+			background: @fireengine;
+		}
+	}
+
 }
