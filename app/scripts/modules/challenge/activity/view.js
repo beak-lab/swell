@@ -94,9 +94,20 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
         View.Radioable = View.Activity.extend({
             template: 'radioable',
 
+            events: {
+                'change .radioable__radiobutton': 'changed'
+            },
+
             triggers: {
                 'click .next': 'next',
                 'click .prev': 'prev'
+            },
+
+            changed: function(){
+                var  $radioable = $('.radioable'),
+                $checked = $radioable.find('.radioable__radiobutton:checked');
+                $radioable.find('.radioable__optionset').removeClass('is-active');
+                $checked.closest('.radioable__optionset').addClass('is-active');
             },
 
             onRender: function() {}
@@ -104,9 +115,20 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
         View.Checkboxable = View.Activity.extend({
             template: 'checkboxable',
 
+            events: {
+                'change .checkboxable__checkbox': 'changed'
+            },
+
             triggers: {
                 'click .next': 'next',
                 'click .prev': 'prev'
+            },
+
+            changed: function(){
+                var  $checkboxable = $('.checkboxable'),
+                $checked = $checkboxable.find('.checkboxable__checkbox:checked');
+                $checkboxable.find('.checkboxable__optionset').removeClass('is-active');
+                $checked.closest('.checkboxable__optionset').addClass('is-active');
             },
 
             onRender: function() {}
