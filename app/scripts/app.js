@@ -1,4 +1,4 @@
-/*globals window, Snap*/
+/*globals navigator, window, Snap*/
 define([
         'jquery',
         'snapjs',
@@ -69,6 +69,8 @@ define([
                         'modules/challenge/app',
                         'modules/goal/app',
                     ], function () {
+
+                    navigator.splashscreen.hide();
 
                     Backbone.history.start();
 
