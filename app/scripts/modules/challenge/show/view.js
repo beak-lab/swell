@@ -55,12 +55,28 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
 
         View.Resources = Marionette.ItemView.extend({
             template: 'resources',
+            events: {
+                'click .resource__article__content-expander' : 'resourceExpanderClicked',
+            },
+
+            onRender : function(){
+                if (window.plugins) {
+                    window.plugins.html5Video.initialize({
+                        "id-2":"HowToAceaJobInterview",
+                    });
+                };
+            },
+
+            resourceExpanderClicked : function(e){
+                $(e.target).closest('.resource__article').toggleClass('is-expanded');
+            },
 
             serializeData: function() {
                 var data = {};
                 data.resources = this.options.resources;
                 return data;
             },
+
         });
 
         View.Stuff = Marionette.ItemView.extend({

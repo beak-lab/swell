@@ -11,6 +11,7 @@ module.exports = {
                 // '*.{ico,txt}',
                 '.htaccess',
                 'fonts/*.woff',
+                'vid/*.*',
                 // 'images/{,*/}*.{webp,gif,png,jpg}', // done in min img
                 // 'styles/*.css' // done in mincss
                 'bower_components/requirejs/require.js'

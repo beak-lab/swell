@@ -1,12 +1,35 @@
 <div class="resources">	
 {#resources}{#attributes}
     {@select key="{type}" type="string"}
-    	{@eq value="quote"}
+    	
+    	{@eq value="quote"}<!-- quote -->
 		<div class="resource resource__quote">
-	        <p class="resource__quote__quote">{title}</p>
-	        <p class="resource__quote__cite">{data}</p>
+	        <p class="resource__quote__quote">{text}</p>
+	        <p class="resource__quote__cite">&mdash; {cite}</p>
 		</div>
     	{/eq}
+
+    	{@eq value="video"}<!-- video -->
+		<div class="resource resource__video" data-snap-ignore="true">
+	        <p class="resource__video__title resource__title">{title}</p>
+			<video id="id-{id}"class="resource__video__video" controls="true" src="{url}" type="video/mp4"></video>
+	        {?description}<p class="resource__video__description">{description}</p>{/description}
+		</div>
+    	{/eq}
+
+		{@eq value="article"}<!-- artice -->
+
+		<div class="resource resource__article">
+	        <p class="resource__article__title">{title}</p>
+	        <p class="resource__article__authour">Written by {author}</p>
+	        <div class="resource__article__content">
+	        	{data|s}
+	        </div>
+        	<div class="resource__article__content-expander"><img src="images/icon-expander-arrow.svg" alt=""></div>
+		</div>
+    	{/eq}
+
+
     {/select}
 {/attributes}{/resources}
 </div>
