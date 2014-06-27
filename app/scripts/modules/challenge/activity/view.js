@@ -1,6 +1,6 @@
 'use strict';
 define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable', 'jquery-ui/draggable'], function(App) {
-    App.module('Challenge.Activity.View', function(View, App, Backbone, Marionette, $) { // , $, _
+    App.module('Challenge.Activity.View', function(View, App, Backbone, Marionette, $, _) {
         View.Layout = Marionette.Layout.extend({
             template: 'activity_show_layout',
 
@@ -11,29 +11,32 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
         });
 
         View.Activity = Marionette.ItemView.extend({
-            triggers: {
-                // 'click .next': 'next',
-                // 'click .prev': 'prev',
-                // 'click .goals': 'goals'
+            constructor: function() {
+                this.events = _.extend({
+                    'mousedown .next': 'nextPressed',
+                    'mouseup   .next': 'nextUnpressed',
+                }, this._events, this.events);
+                Marionette.ItemView.prototype.constructor.apply(this, arguments);
             },
 
-            events: {
-                'mousedown .next': 'nextPressed',
-                'mouseup .next': 'nextUnpressed',
+            triggers: {
+                'click .goals': 'goals'
             },
 
             nextPressed: function(e) {
                 e.preventDefault();
+                console.log('Click DOWN');
                 this.$el.find('.next').addClass('is-pressed');
                 this.clickTime = new Date().getTime();
             },
 
             nextUnpressed: function(e) {
                 e.preventDefault();
+                console.log('Click UP');
                 this.$el.find('.next').removeClass('is-pressed');
                 if (new Date().getTime() - this.clickTime > 800) {
                     this.trigger('prev');
-                    
+
                 } else {
                     this.trigger('next');
                 }
@@ -137,32 +140,31 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
             template: 'radioable',
 
             events: {
-                'change .radioable__radiobutton': 'changed'
+                'click .radioable__radiobutton': 'somethingChanged'
             },
 
-            changed: function() {
-
-                var $radioable = $(this.el).find('.radioable'),
-                    $checked = $radioable.find('.radioable__radiobutton:checked');
-                $radioable.find('.radioable__optionset').removeClass('is-active');
-                $checked.closest('.radioable__optionset').addClass('is-active');
-            },
+            somethingChanged: function() {
+                console.log('fired');
+                var radioable = this.$el.find('.radioable');
+                var checked = radioable.find('.radioable__radiobutton:checked');
+                radioable.find('.radioable__optionset').removeClass('is-active');
+                checked.closest('.radioable__optionset').addClass('is-active');
+            }
         });
 
         View.Checkboxable = View.Activity.extend({
             template: 'checkboxable',
 
             events: {
-                'change .checkboxable__checkbox': 'changed'
+                'click .checkboxable__checkbox': 'somethingChanged'
             },
 
-            changed: function() {
-                var $checkboxable = $(this.el).find('.checkboxable'),
-                    $checked = $checkboxable.find('.checkboxable__checkbox:checked');
-                $checkboxable.find('.checkboxable__optionset').removeClass('is-active');
-                $checked.closest('.checkboxable__optionset').addClass('is-active');
+            somethingChanged: function() {
+                var checkboxable = this.$el.find('.checkboxable');
+                var checked = checkboxable.find('.checkboxable__checkbox:checked');
+                checkboxable.find('.checkboxable__optionset').removeClass('is-active');
+                checked.closest('.checkboxable__optionset').addClass('is-active');
             },
-
         });
     });
 

@@ -9,14 +9,14 @@
 {/description}
 
 <div class="checkboxable">
-	{#options}
+	{#data}
 		<div class="checkboxable__optionset">
-			<label> 
+			<label>
 				<input class="checkboxable__checkbox" name="checkboxable-optionset" type="checkbox" value="{value}" > {text}
 				{?subtext}<div class="checkboxable__subtext subtext">{subtext}</div>{/subtext}
 			</label>
 		</div>
-	{/options}
+	{/data}
 </div>
 
 {>pagination /}

@@ -1,21 +1,21 @@
-<div class="activity__title">{title}</div>
-<div class="activity__question">
-	<h3>{question|s}</h3>
+<div class='activity__title'>{title}</div>
+<div class='activity__question'>
+	<h3>{question}</h3>
 </div>
-<div class="activity__description">
-	{description|s}
+<div class='activity__description'>
+	{description}
 </div>
 
-<div class="radioable">
-	{#options}
-		<div class="radioable__optionset">
-			<label> 
-				<input class="radioable__radiobutton" name="radioable-optionset" type="radio" value="{value}" > {text}
-				{?subtext}<div class="radioable__subtext subtext">{subtext}</div>{/subtext}
+<div class='radioable'>
+	{#data}
+		<div class='radioable__optionset'>
+			<label>
+				<input class='radioable__radiobutton' name='radioable-optionset' type='radio' value='{value}' />{text}
+				{?subtext}<div class='radioable__subtext subtext'>{subtext}</div>{/subtext}
 
 			</label>
 		</div>
-	{/options}
+	{/data}
 </div>
 
 {>pagination /}
