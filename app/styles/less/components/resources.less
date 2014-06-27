@@ -1,0 +1,23 @@
+.resource{}
+
+/********** Quotes **********/
+.resource__quote{
+	&:before,&:after{
+		display: block;
+		font-size: 8em;
+		font-family: @font-family-serif;
+	}
+	
+	&:before{
+		content: open-quote;
+	}
+	&:after{
+		content: close-quote;
+	}
+}
+
+.resource__quote__quote{
+	font-weight: 400;
+	font-style: italic;
+}
+.resource__quote__cite{}

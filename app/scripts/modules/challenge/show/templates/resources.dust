@@ -1,6 +1,12 @@
-{#resources}
-    {#attributes}
-        <p>{title}</p>
-        <p>{data}</p>
-    {/attributes}
-{/resources}
+<div class="resources">	
+{#resources}{#attributes}
+    {@select key="{type}" type="string"}
+    	{@eq value="quote"}
+		<div class="resource resource__quote">
+	        <p class="resource__quote__quote">{title}</p>
+	        <p class="resource__quote__cite">{data}</p>
+		</div>
+    	{/eq}
+    {/select}
+{/attributes}{/resources}
+</div>
