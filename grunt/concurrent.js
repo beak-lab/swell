@@ -14,8 +14,8 @@ module.exports = {
 
     ],
     dist: [
-        'newer:imagemin',
-        'newer:svgmin',
+        'newer:imagemin:dist',
+        'newer:svgmin:dist',
         'htmlmin:dist',
         'newer:cssmin'
     ]

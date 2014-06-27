@@ -10,27 +10,16 @@ module.exports = {
             src: [
                 // '*.{ico,txt}',
                 '.htaccess',
+                'fonts/*.woff',
                 // 'images/{,*/}*.{webp,gif,png,jpg}', // done in min img
                 // 'styles/*.css' // done in mincss
+                'bower_components/requirejs/require.js'
             ]
         }]
     },
     requirejs: {
         src: '<%= settings.app %>/bower_components/requirejs/require.js',
         dest: '<%= settings.dist %>/bower_components/requirejs/require.js'
-    },
-    fonts: {
-        files: [{
-            expand: true,
-            dot: true,
-            cwd: '<%= settings.app %>',
-            dest: '<%= settings.dist %>',
-            src: [
-                'fonts/*.woff',
-            ]
-        }]
-        // src: '<%= settings.app %>/fonts/*.woff',
-        // dest: '<%= settings.dist %>/fonts/'
     },
     index: { // remove the livereload script tag
         src: '<%= settings.dist %>/index.html.temp',
