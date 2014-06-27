@@ -3,10 +3,11 @@
 	padding: 1em;
 	
 	.next{
-		.transition(transform .3s);
+		.transition(all .3s);
 		.transition-delay(800);
 		&.prev.is-pressed{
-			.rotate(-180deg);
+			-webkit-transform: translate(-40px, 0) rotate(-180deg) scale(.6);
+			//.rotate(-180deg);
 			
 		}
 	}
