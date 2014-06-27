@@ -5,15 +5,14 @@ define(['app', 'domain_list_view'], function(App, View) {
             listDomain: function() {
                 require(['common_views', 'domain_entities'], function(CommonViews) {
 
-                    App.mainRegion.show(new CommonViews.Loading());
+                    // App.mainRegion.show(new CommonViews.Loading());
 
                     var fetchingDomain = App.request('domain:entities');
 
                     var layout = new View.Layout();
-                    // var domainListPanel = new View.Panel();
+                    App.mainRegion.show(layout);
 
                     $.when(fetchingDomain).done(function(domain) {
-                        // App.log('Fetched domain data', 'App', 1);
 
                         var view = new View.Domain({
                             collection: domain
@@ -23,28 +22,8 @@ define(['app', 'domain_list_view'], function(App, View) {
                             App.trigger('challenge:list', model.get('id'));
                         });
 
-                        // layout.on('show', function() {
-                        //   layout.panelRegion.show(domainsListPanel);
-                        //   layout.domainRegion.show(view);
-                        // });
-
-                        // view.on('itemview:domain:show', function(childView, model) {
-                        //   App.trigger('domain:show', model.get('id'));
-                        // });
-
-                        view.on('itemview:domain:delete', function(childView, model) {
-                            // auto magically call's remove in the view.
-                            model.destroy();
-                        });
-
-                        // when the data is here, show it in this region
                         layout.domainRegion.show(view);
-
                     });
-
-                    // show the whole layout
-                    App.mainRegion.show(layout);
-
                 });
             }
         };
