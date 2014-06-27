@@ -3,22 +3,29 @@
 	padding: 1em;
 	
 	.next{
+		max-width:5em; 
+		max-height:5em;
+		margin: 0 auto;
 		.transition(all .3s);
 		.transition-delay(800);
+		overflow: hidden;
 		&.prev.is-pressed{
-			-webkit-transform: translate(-40px, 0) rotate(-180deg) scale(.6);
-			//.rotate(-180deg);
-			
+			-webkit-transform: rotate(-180deg) scale(.6);
+			max-width:15em; 
+
 		}
 	}
 }
 
 .activity__pagination__arrow{
+	max-width:5em; 
+	max-height:5em;
 	.transition(all .3s);
 	.transition-delay(800);
 	fill: @sky;
-	max-width:5em; 
-	max-height:5em;
+
+	display: block;
+	float: right;
 	.prev.is-pressed &{
 		fill: #888;
 	}

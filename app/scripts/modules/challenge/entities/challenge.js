@@ -82,6 +82,7 @@ define(['app'], function(App) {
                 desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                 slug: 'work-disclose',
                 domain: 5,
+                resources: [1, 2, 3, 4],
                 activities: [1, 2, 3, 4, 5, 6, 9]
             },{
                 id: 7,
