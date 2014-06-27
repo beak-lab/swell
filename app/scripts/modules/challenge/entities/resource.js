@@ -6,14 +6,22 @@ define(['app'], function(App) { // resource_entity
 
             Entities.fakeResources = new Entities.ActivityCollection([{
                 id: 1,
+                type : 'quote',
                 title: 'A nice title',
                 data: 'This is a resource'
             }, {
                 id: 2,
+                type : 'audio',
                 title: 'A nice title 1',
                 data: 'This is a resource 1'
             }, {
                 id: 3,
+                type : 'article',
+                title: 'A nice title 2',
+                data: 'This is a resource 2'
+            }, {
+                id: 4,
+                type : 'image',
                 title: 'A nice title 2',
                 data: 'This is a resource 2'
             }]);

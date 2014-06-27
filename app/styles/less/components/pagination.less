@@ -1,14 +1,24 @@
 .activity__pagination{
 	text-align: center;
 	padding: 1em;
+	
+	.next{
+		.transition(transform .3s);
+		.transition-delay(800);
+		&.prev.is-pressed{
+			.rotate(-180deg);
+			
+		}
+	}
 }
 
 .activity__pagination__arrow{
-  fill: @sky;
-  max-width:5em; 
-  max-height:5em;
-  &:hover,
-  &:active{
-  	.scale(1.2);
-  }
+	.transition(all .3s);
+	.transition-delay(800);
+	fill: @sky;
+	max-width:5em; 
+	max-height:5em;
+	.prev.is-pressed &{
+		fill: #888;
+	}
 }

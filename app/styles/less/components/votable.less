@@ -40,18 +40,25 @@
 
 .votable__dropzone{
 	&:extend(.draggable__dropzone);
+	.transition(border-color .3s);
 	height: auto;
 	min-height: 10em;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 200px;
 	&.is-votable-pro{
-		background: lighten(@grannysmith, 20%);
+		// background: lighten(@grannysmith, 20%);
+		background-image: url(../../images/icon-goals-tick-white.svg); 
 		&.ui-state-hover{
-			background: @grannysmith;
+			border-color: @grannysmith;
+
 		}
 	}
 	&.is-votable-con{
-		background: lighten(@fireengine, 20%);
+		background-image: url(../../images/icon-goals-cross-white.svg); 
+		// background: lighten(@fireengine, 20%);
 		&.ui-state-hover{
-			background: @fireengine;
+			border-color: @fireengine;
 		}
 	}
 	.voteable__item{

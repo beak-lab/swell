@@ -24,18 +24,18 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
 
             nextPressed: function(e) {
                 e.preventDefault();
+                this.$el.find('.next').addClass('is-pressed');
                 this.clickTime = new Date().getTime();
             },
 
             nextUnpressed: function(e) {
                 e.preventDefault();
-
+                this.$el.find('.next').removeClass('is-pressed');
                 if (new Date().getTime() - this.clickTime > 800) {
-                    console.log('long');
-                    this.$el.find('.next').addClass('prssedsome');
+                    this.trigger('prev');
+                    
                 } else {
-                    console.log('short');
-                    this.$el.find('.next').addClass('prssedheaps');
+                    this.trigger('next');
                 }
             },
 
