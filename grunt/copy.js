@@ -13,6 +13,7 @@ module.exports = {
                 'fonts/*.woff',
                 // 'images/{,*/}*.{webp,gif,png,jpg}', // done in min img
                 // 'styles/*.css' // done in mincss
+                'bower_components/requirejs/require.js'
             ]
         }]
     },
