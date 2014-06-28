@@ -13,7 +13,7 @@ define(['app'], function(App) { // resource_entity
                 id: 2,
                 type : 'video',
                 title: 'How to ace a job interview',
-                url: 'howtoaceajobinterview.mp4',
+                url: 'vid/howtoaceajobinterview.mp4',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus voluptatum sunt harum maiores beatae dignissimos.',
             }, {
                 id: 3,

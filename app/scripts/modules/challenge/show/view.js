@@ -57,14 +57,22 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
             template: 'resources',
             events: {
                 'click .resource__article__content-expander' : 'resourceExpanderClicked',
+                'click .resource__video__video' : 'videoClicked'
             },
 
             onRender : function(){
-                if (window.plugins) {
-                    window.plugins.html5Video.initialize({
-                        "id-2":"HowToAceaJobInterview",
-                    });
-                };
+                // if (window.plugins) {
+                //     window.plugins.html5Video.initialize({
+                //         "id-2": "howtoaceajobinterview.mp4",
+                //     });
+
+                //     window.plugins.html5Video.play("id-2");
+                // }
+            },
+            videoClicked : function(e){
+                e.preventDefault();
+                console.log('file:///' + $(e.target).attr('src'));
+                VideoPlayer.play('file:///android_asset/www/' + $(e.target).attr('src'));
             },
 
             resourceExpanderClicked : function(e){

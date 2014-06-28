@@ -15,6 +15,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.dawsonloudon.videoplayer/www/VideoPlayer.js",
+        "id": "com.dawsonloudon.videoplayer.VideoPlayer",
+        "clobbers": [
+            "VideoPlayer"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.device/www/device.js",
         "id": "org.apache.cordova.device.device",
         "clobbers": [
@@ -27,6 +34,7 @@ module.exports.metadata =
 {
     "org.apache.cordova.splashscreen": "0.3.1",
     "jaeger.Html5Video": "1.2.1",
+    "com.dawsonloudon.videoplayer": "1.0.0",
     "org.apache.cordova.device": "0.2.11-dev"
 }
 // BOTTOM OF METADATA
