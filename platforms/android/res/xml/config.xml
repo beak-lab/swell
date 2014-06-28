@@ -8,12 +8,6 @@
     <feature name="SplashScreen">
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
     </feature>
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
-    <feature name="Html5Video">
-        <param name="android-package" value="org.apache.cordova.plugin.Html5Video" />
-    </feature>
     <feature name="VideoPlayer">
         <param name="android-package" value="com.dawsonloudon.videoplayer.VideoPlayer" />
     </feature>
