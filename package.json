@@ -2,7 +2,7 @@
     "private": true,
     "name": "swell",
     "author": "rekarnar",
-    "version": "0.2.6",
+    "version": "0.2.8",
     "repository": {
         "type": "git",
         "url": "https://github.com/rekarnar/swell.git"
