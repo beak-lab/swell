@@ -73,6 +73,16 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
         View.Draggable = View.Activity.extend({
             template: 'draggable',
 
+            events: {
+                'click .addNew': 'onAddNewMagnet'
+            },
+
+            onAddNewMagnet: function() {
+                var name = prompt('Name?');
+                var container = this.$el.find('#draggable-container').append('<div class="draggable__item">' + name + '</div>');
+                container.children().last().draggable();
+            },
+
             onRender: function() {
                 this.$el.find('#draggable-container .draggable__item').draggable();
                 this.$el.find('#droppable').droppable({
