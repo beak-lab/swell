@@ -31,13 +31,9 @@ define(['app', 'backbone.picky'], function(App) {
                     text: 'Starting looking for work in October 2014',
                     icon: 'icon-alarmclock.svg'
                 },{
-                    title: 'Story Added',
-                    text: 'How I beat the big black bear',
+                    title: 'New stuff',
+                    text: 'Gary\'s recovery story on disclosure',
                     icon: 'icon-story.svg'
-                },{
-                    title: 'Goal Set',
-                    text: 'Go for 5 swims',
-                    icon: 'icon-tick-empty.svg'
                 },{
                     title: 'Maru Buddied Up',
                     text: 'Greg Swan is on the scene',
@@ -47,7 +43,6 @@ define(['app', 'backbone.picky'], function(App) {
                     text: 'Maru O’Hagan got Swell',
                     icon: 'icon-star.svg'
                 }
-
             ]);
         };
 

@@ -12,8 +12,9 @@
     	{@eq value="video"}<!-- video -->
 		<div class="resource resource__video" data-snap-ignore="true">
 	        <p class="resource__video__title resource__title">{title}</p>
-			<video id="id-{id}" class="resource__video__video" controls="true" src="{url}" type="video/mp4"></video>
-	        {?description}<p class="resource__video__description">{description}</p>{/description}
+			<!-- <video id="id-{id}" class="resource__video__video" controls="true" src="{url}" type="video/mp4"></video> -->
+	        <img src="{poster}" class="resource__video__video" >
+	        <!-- {?description}<p class="resource__video__description">{description}</p>{/description} -->
 		</div>
     	{/eq}
 
