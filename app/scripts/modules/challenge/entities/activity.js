@@ -26,7 +26,7 @@ define(['app'], function(App) {
 
             Entities.fakes = new Entities.ActivityCollection([{
                 id: 1,
-                weight: 11,
+                weight: 15,
                 type: 'Slideable',
                 title: 'Activity 2: Why, When and How',
                 question: 'Will the employer discriminate against me or not?',
@@ -64,20 +64,7 @@ define(['app'], function(App) {
                 }, ]
             }, {
                 id: 4,
-                weight: 40,
-                type: 'Sortable',
-                data: [{
-                    name: 'Item 1'
-                }, {
-                    name: 'Item 2'
-                }, {
-                    name: 'Item 3'
-                }, {
-                    name: 'Item 4'
-                }, ]
-            }, {
-                id: 5,
-                weight: 50,
+                weight: 5,
                 type: 'Draggable',
                 title: 'Activity 2: Why, When and How',
                 description: 'Say what you have learnt from your experience that would help you do the job?',
@@ -94,7 +81,7 @@ define(['app'], function(App) {
                     }, ]
                 }
             }, {
-                id: 6,
+                id: 5,
                 weight: 60,
                 type: 'Checkboxable',
                 title: 'Activity 2: Why, When and How',
@@ -115,7 +102,7 @@ define(['app'], function(App) {
 
                 ]
             }, {
-                id: 7,
+                id: 6,
                 weight: 70,
                 type: 'Draggable',
                 title: 'Activity 2: Why, When and How',
@@ -131,7 +118,7 @@ define(['app'], function(App) {
                     }, ]
                 }
             }, {
-                id: 8,
+                id: 7,
                 weight: 80,
                 type: 'Draggable',
                 title: 'Activity 2: Why, When and How',
@@ -147,8 +134,8 @@ define(['app'], function(App) {
                     }, ]
                 }
             }, {
-                id: 9,
-                weight: 1,
+                id: 8,
+                weight: 10,
                 type: 'Voteable',
                 title: 'Activity 1: Pros and Cons',
                 question: 'what do you think about:',

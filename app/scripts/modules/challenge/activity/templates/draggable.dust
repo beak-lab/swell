@@ -13,5 +13,6 @@
     {/data.draggable}
 </div>
 
+<div class='draggable__item addNew'>+Add</div>
 
 {>pagination /}

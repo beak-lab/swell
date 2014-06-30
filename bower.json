@@ -1,6 +1,6 @@
 {
     "name": "swell",
-    "version": "0.2.6",
+    "version": "0.2.8",
     "dependencies": {
         "requirejs": "~2.1.4",
         "marionette": "~1.6.4",
@@ -9,7 +9,7 @@
         "backbone.picky.extended": "~0.2.2",
         "lodash": "^2.0.0",
         "jquery": "~1.11.0",
-        "jquery-mobile": "~1.4.2",
+        "jquery.ui": "~1.11.0",
         "dustjs-linkedin": "~2.0.0",
         "dustjs-linkedin-helpers": "~1.1.0",
         "marionette-dust": "~0.1.6",

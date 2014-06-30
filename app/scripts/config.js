@@ -17,12 +17,12 @@ requirejs.config({
         'spin'                     : '../bower_components/spinjs/spin',
         'spin.jquery'              : '../bower_components/spinjs/jquery.spin',
 
-        'jquery-ui/widget'         : '../bower_components/jquery-ui/ui/jquery.ui.widget',
-        'jquery-ui/mouse'          : '../bower_components/jquery-ui/ui/jquery.ui.mouse',
-        'jquery-ui/sortable'       : '../bower_components/jquery-ui/ui/jquery.ui.sortable',
-        'jquery-ui/draggable'      : '../bower_components/jquery-ui/ui/jquery.ui.draggable',
-        'jquery-ui/droppable'      : '../bower_components/jquery-ui/ui/jquery.ui.droppable',
-        'jquery-ui/core'           : '../bower_components/jquery-ui/ui/jquery.ui.core',
+        'jquery-ui/core'           : '../bower_components/jquery.ui/ui/core',
+        'jquery-ui/widget'         : '../bower_components/jquery.ui/ui/widget',
+        'jquery-ui/mouse'          : '../bower_components/jquery.ui/ui/mouse',
+        'jquery-ui/draggable'      : '../bower_components/jquery.ui/ui/draggable',
+        'jquery-ui/droppable'      : '../bower_components/jquery.ui/ui/droppable',
+        'jquery-ui/sortable'       : '../bower_components/jquery.ui/ui/sortable',
         'jquery.touch.punch'       : '../vendor/jquery.ui.touch-punch.min',
 
         'snapjs'                   : '../bower_components/snapjs/snap.min',
