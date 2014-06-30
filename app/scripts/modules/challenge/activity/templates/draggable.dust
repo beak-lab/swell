@@ -1,17 +1,14 @@
-<div class='activity__title'>{title}</div>
-<div class='activity__question'>
-	<h3>{question|s}</h3>
-</div>
-<div class='activity__description'>
-	{description|s}
-</div>
+{>header /}
+
 <div id='droppable' class='draggable__dropzone'></div>
 
-<div id='draggable-container' class='draggable__dragzone' data-snap-ignore='true'>
-    {#data.draggable}
-        <div class='draggable__item'>{name}</div>
-    {/data.draggable}
-</div>
+<form>
+    <div id='draggable-container' class='draggable__dragzone' data-snap-ignore='true'>
+        {#data.draggable}
+            <div class='draggable__item'>{name}</div>
+        {/data.draggable}
+    </div>
+</form>
 
 <div class='draggable__item addNew'>+Add</div>
 

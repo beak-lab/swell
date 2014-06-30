@@ -1,21 +1,16 @@
-<div class='activity__title'>{title}</div>
-<div class='activity__question'>
-	<h3>{question}</h3>
-</div>
-<div class='activity__description'>
-	{description}
-</div>
+{>header /}
 
-<div class='radioable'>
-	{#data}
-		<div class='radioable__optionset'>
-			<label>
-				<input class='radioable__radiobutton' name='radioable-optionset' type='radio' value='{value}' />{text}
-				{?subtext}<div class='radioable__subtext subtext'>{subtext}</div>{/subtext}
-
-			</label>
-		</div>
-	{/data}
-</div>
+<form>
+	<div class='radioable'>
+		{#data}
+			<div class='radioable__optionset'>
+				<label>
+					<input class='radioable__radiobutton' name='radioable-optionset' type='radio' value='{value}' />{text}
+					{?subtext}<div class='radioable__subtext subtext'>{subtext}</div>{/subtext}
+				</label>
+			</div>
+		{/data}
+	</div>
+</form>
 
 {>pagination /}
