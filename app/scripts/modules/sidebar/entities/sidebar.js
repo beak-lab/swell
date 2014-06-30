@@ -12,24 +12,28 @@ define(['app', 'backbone.picky'], function(App) {
             Entities.sidebar = new Entities.SidebarCollection([
                 {
                     title: 'Goal Set',
-                    text: 'Eat no sugar for a week',
+                    text: 'Apply for part time jobs in IT',
                     icon: 'icon-tick-empty.svg'
+                },{
+                    title: 'Goal Scored',
+                    text: 'Do what colour is your parachute online course',
+                    icon: 'icon-tick-full.svg'
+                },{
+                    title: 'New Comment',
+                    text: 'Moira Anau – congratulations on finishing the parachute course! You rock!!',
+                    icon: 'icon-comment.svg'
                 },{
                     title: 'Challenge Completed',
                     text: 'I want to sort out my sleep',
                     icon: 'icon-challenge-complete.svg'
                 },{
+                    title: 'Reminders',
+                    text: 'Starting looking for work in October 2014',
+                    icon: 'icon-alarmclock.svg'
+                },{
                     title: 'Story Added',
                     text: 'How I beat the big black bear',
                     icon: 'icon-story.svg'
-                },{
-                    title: 'Goal Scored',
-                    text: '\“Go for 5 swims\” got smashed out of the park',
-                    icon: 'icon-tick-full.svg'
-                },{
-                    title: 'New Comment',
-                    text: 'Felix the cat commented on one of your goals',
-                    icon: 'icon-comment.svg'
                 },{
                     title: 'Goal Set',
                     text: 'Go for 5 swims',

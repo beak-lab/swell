@@ -42,44 +42,50 @@ define(['app'], function(App) {
                 id: 1,
                 name: 'Personal meaning',
                 slug: 'personal-meaning',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'What’s the meaning and purpose of my life?',
                 cssClass: 'personal-meaning',
             }, {
                 id: 2,
                 name: 'Self-belief',
                 slug: 'self-belief',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'What’s the meaning and purpose of my life?',
                 cssClass: 'self-belief',
             }, {
                 id: 3,
                 name: 'Relationships',
                 slug: 'relationships',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'How can I develop better relationships?',
                 cssClass: 'relationships',
             }, {
                 id: 4,
                 name: 'Self-management',
                 slug: 'self-management',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'How can I develop better relationships?',
                 cssClass: 'self-management',
             }, {
                 id: 5,
                 name: 'Work',
                 slug: 'work',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'How can I manage or grow my income?',
                 cssClass: 'work',
             }, {
                 id: 6,
                 name: 'Lifestyle',
                 slug: 'lifestyle',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'How can I manage or grow my income?',
                 cssClass: 'lifestyle',
             }, {
                 id: 7,
                 name: 'Services',
                 slug: 'services',
-                desc: 'A very short description of the challenge. About this many words',
+                desc: 'How can I manage or grow my income?',
                 cssClass: 'services',
+            },{
+                id: 8,
+                name: 'Money',
+                slug: 'Money',
+                desc: 'How can I manage or grow my income?',
+                cssClass: 'money',
             }
             ]);
 
