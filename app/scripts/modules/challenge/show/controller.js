@@ -105,8 +105,10 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                 });
 
                 // watch the next and prev buttons
-                view.on('next', function() {
+                view.on('next', function(model) {
+                    // this should always success, but just incase:
                     if (Show.Controller.currentActivity < (Show.Controller.activityModels.length - 1)) {
+console.log(model);
                         Show.Controller.currentActivity++;
                         Show.Controller.showActivity();
                     }

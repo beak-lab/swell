@@ -17,16 +17,22 @@ require([
         'use strict';
 
         var mobileFound = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        // make a separate list, so that it will not get packaged into the main js file
+        // but the app can still require them after it starts
         var unRequiredList = ['../cordova', '../cordova_plugins'];
 
         if (mobileFound) {
             require(unRequiredList, function() {
                 console.log('Init');
-                App.start();
+                $(function() {
+                    App.start();
+                });
             });
         } else {
             console.log('Init Non Mobile');
-            App.start();
+            $(function() {
+                App.start();
+                });
             // libs.push('//localhost:35729/livereload.js');
         }
 

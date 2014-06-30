@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable', 'jquery-ui/draggable'], function(App) {
+define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jquery-ui/droppable', 'jquery-ui/draggable'], function(App) {
     App.module('Challenge.Activity.View', function(View, App, Backbone, Marionette, $, _) {
         View.Layout = Marionette.Layout.extend({
             template: 'activity_show_layout',
@@ -35,10 +35,10 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                 console.log('Click UP');
                 this.$el.find('.activity__pagination-next').removeClass('is-pressed');
                 if (new Date().getTime() - this.clickTime > 800) {
-                    this.trigger('prev');
+                    this.trigger('prev', Backbone.Syphon.serialize(this));
 
                 } else {
-                    this.trigger('next');
+                    this.trigger('next', Backbone.Syphon.serialize(this));
                 }
             },
 
