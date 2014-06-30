@@ -1,3 +1,22 @@
+.__activity-goal{
+	display: block;
+	background: #fff;
+	padding: .5em 1.5em;
+	border-bottom: 1px solid fade(@oil, 50%); 
+	height: 6rem;
+	&:before{
+		// &:extend(.checkboxable__checkbox);
+		font-size: 2em;
+		font-weight: 500;
+		content: ' ';
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 1rem;
+		width: 2rem;
+
+	}
+}
+
 .activity__title{
 	font-weight: 500;
 	border-bottom: 1px solid fade(@oil, 50%);
@@ -5,3 +24,36 @@
 }
 
 // Activity goals
+.activity__goals{}
+.activity__suggested-goals{}
+
+.activity__suggested-goal{
+	.__activity-goal;
+	&:before{
+		content: '+';
+	}
+}
+
+.activity__personal-goal__add{
+	margin-top: 1rem;
+	.__activity-goal;
+	&:before{
+		content: '+';
+	}
+	input{
+		border-width: 0 0 1px 0;
+		width: ~'calc(100% - 3rem)';
+		height: 4rem;
+	}
+}
+
+
+
+.activity__personal-goals{}
+.activity__personal-goals__goal{
+	.__activity-goal;
+	&:before{
+		&:extend(.checkboxable__checkbox);
+	}
+
+}
