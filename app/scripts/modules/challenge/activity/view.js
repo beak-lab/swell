@@ -13,27 +13,27 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
         View.Activity = Marionette.ItemView.extend({
             constructor: function() {
                 this.events = _.extend({
-                    'mousedown .next': 'nextPressed',
-                    'mouseup   .next': 'nextUnpressed',
+                    'mousedown .activity__pagination-next': 'nextPressed',
+                    'mouseup   .activity__pagination-next': 'nextUnpressed',
                 }, this._events, this.events);
                 Marionette.ItemView.prototype.constructor.apply(this, arguments);
             },
 
             triggers: {
-                'click .goals': 'goals'
+                'click .activity__pagination-goals': 'goals'
             },
 
             nextPressed: function(e) {
                 e.preventDefault();
                 console.log('Click DOWN');
-                this.$el.find('.next').addClass('is-pressed');
+                this.$el.find('.activity__pagination-next').addClass('is-pressed');
                 this.clickTime = new Date().getTime();
             },
 
             nextUnpressed: function(e) {
                 e.preventDefault();
                 console.log('Click UP');
-                this.$el.find('.next').removeClass('is-pressed');
+                this.$el.find('.activity__pagination-next').removeClass('is-pressed');
                 if (new Date().getTime() - this.clickTime > 800) {
                     this.trigger('prev');
 
