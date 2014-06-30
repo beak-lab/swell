@@ -11,7 +11,8 @@ define(['app'], function(App) {
                 leftLabel: 'Worst',
                 rightLabel: 'Best',
                 topLabel: 'Pro',
-                bottomLabel: 'Con'
+                bottomLabel: 'Con',
+                goal: false
             },
         });
 
@@ -89,10 +90,12 @@ define(['app'], function(App) {
                 question: 'When',
                 data: [{
                         text: 'Before they decide to employ me',
-                        subtext: 'if you think your distress will interfere with your ability to do the job'
+                        subtext: 'if you think your distress will interfere with your ability to do the job',
+                        goalText: 'test'
                     }, {
                         text: 'After they offer me the job',
-                        subtext: 'if you want to negotiate your work conditions'
+                        subtext: 'if you want to negotiate your work conditions',
+                        goalText: 'test 2'
                     }, {
                         text: 'As part of everyday conversation',
                         subtext: 'if you feel safe'
