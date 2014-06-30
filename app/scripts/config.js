@@ -13,6 +13,7 @@ requirejs.config({
         'backbone.wreqr'           : '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
         'backbone.syphon'          : '../bower_components/backbone.syphon/lib/amd/backbone.syphon.min',
         'backbone.babysitter'      : '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
+        'backbone.localstorage'    : '../bower_components/backbone.localstorage/backbone.localStorage-min',
 
         'spin'                     : '../bower_components/spinjs/spin',
         'spin.jquery'              : '../bower_components/spinjs/jquery.spin',

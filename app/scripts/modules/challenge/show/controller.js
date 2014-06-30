@@ -99,7 +99,9 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                 var view = new ActivityView[activity.get('type')]({
                     model: activity,
                     next: Show.Controller.currentActivity < (Show.Controller.activityModels.length - 1),
-                    prev: Show.Controller.currentActivity !== 0
+                    prev: Show.Controller.currentActivity !== 0,
+                    total: Show.Controller.activityModels.length,
+                    current: Show.Controller.currentActivity
                 });
 
                 // watch the next and prev buttons
