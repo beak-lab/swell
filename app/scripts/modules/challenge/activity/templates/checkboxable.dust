@@ -1,22 +1,15 @@
-<div class="activity__title">{title}</div>
-<div class="activity__question">
-	<h3>{question|s}</h3>
-</div>
-{?description}
-<div class="activity__description">
-	{description|s}
-</div>
-{/description}
+{>header /}
 
-<div class="checkboxable">
-	{#data}
-		<div class="checkboxable__optionset">
-			<label>
-				<input class="checkboxable__checkbox" name="checkboxable-optionset" type="checkbox" value="{value}" > {text}
-				{?subtext}<div class="checkboxable__subtext subtext">{subtext}</div>{/subtext}
-			</label>
-		</div>
-	{/data}
-</div>
-
+<form>
+	<div class="checkboxable">
+		{#data}
+			<div class="checkboxable__optionset">
+				<label>
+					<input class="checkboxable__checkbox" name="checkboxable-optionset" type="checkbox" value="{value}" > {text}
+					{?subtext}<div class="checkboxable__subtext subtext">{subtext}</div>{/subtext}
+				</label>
+			</div>
+		{/data}
+	</div>
+</form>
 {>pagination /}
