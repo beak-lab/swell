@@ -4,6 +4,7 @@
 	padding: .5em 1.5em;
 	border-bottom: 1px solid fade(@oil, 50%); 
 	height: 6rem;
+	padding-top: 2rem;
 	&:before{
 		// &:extend(.checkboxable__checkbox);
 		font-size: 2em;
@@ -13,6 +14,7 @@
 		vertical-align: middle;
 		margin-right: 1rem;
 		width: 2rem;
+		line-height: 0;
 
 	}
 }
@@ -36,6 +38,7 @@
 
 .activity__personal-goal__add{
 	margin-top: 1rem;
+	padding-top: 1rem !important;
 	.__activity-goal;
 	&:before{
 		content: '+';
@@ -49,7 +52,23 @@
 
 
 
-.activity__personal-goals{}
+.activity__personal-goals{
+	border-top: 2px dashed fade(@oil, 50%);
+	padding-top: 1em;
+	margin-top: 1em;
+
+}
+
+.activity__personal-goals__title{
+	.transition(all .2s);
+	max-height: 0em;
+	overflow: hidden;
+	.activity__personal-goals.has-goals &{
+		max-height: 2em;
+	}
+}
+
+
 .activity__personal-goals__goal{
 	.__activity-goal;
 	&:before{

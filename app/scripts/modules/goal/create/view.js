@@ -14,7 +14,7 @@ define(['app', 'templates', 'dust'], function(App) {
             appendGoal: function(content){
                 var newgoal = $('<div class="activity__personal-goals__goal">' + content + '</div>');
                 newgoal.hide();
-                this.$el.find('#goals').append(newgoal);
+                this.$el.find('#goals').addClass('has-goals').append(newgoal);
                 newgoal.slideDown();
             },
 

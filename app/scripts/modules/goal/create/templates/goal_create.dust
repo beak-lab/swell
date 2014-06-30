@@ -17,5 +17,8 @@
 
 
 
-	<div id='goals' class="activity__personal-goals"></div>
+	<div id='goals' class="activity__personal-goals">
+		<h2 class="activity__personal-goals__title">Goals set today</h2>
+		
+	</div>
 </div>
