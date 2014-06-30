@@ -70,10 +70,11 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 // }
             },
             videoClicked : function(e){
+                /*                
                 if (window.plugins) {
                     e.preventDefault();
                     VideoPlayer.play('file:///android_asset/www/' + $(e.target).attr('src'));
-                }
+                }*/
             },
 
             resourceExpanderClicked : function(e){

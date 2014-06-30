@@ -6,20 +6,12 @@ module.exports = [
         "clobbers": [
             "navigator.splashscreen"
         ]
-    },
-    {
-        "file": "plugins/com.dawsonloudon.videoplayer/www/VideoPlayer.js",
-        "id": "com.dawsonloudon.videoplayer.VideoPlayer",
-        "clobbers": [
-            "VideoPlayer"
-        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.splashscreen": "0.3.1",
-    "com.dawsonloudon.videoplayer": "1.0.0"
+    "org.apache.cordova.splashscreen": "0.3.1"
 }
 // BOTTOM OF METADATA
 });
