@@ -41,13 +41,13 @@ define(['app', 'templates', 'dust'], function(App) {
         });
 
         View.Challenge = Marionette.CompositeView.extend({
-            tagName: 'div',
-            className: '',
+     
             template: 'challenge_list',
             emptyView: ChallengeEmpty,
             itemView: View.ChallengeOne,
             itemViewContainer: '#challengeList',
 
+            /*            
             initialize: function() {
                 // App.log('init called', contextName, 1);
                 this.listenTo(this.collection, 'reset', function() {
@@ -56,13 +56,22 @@ define(['app', 'templates', 'dust'], function(App) {
                         collectionView.$el.append(itemView.el);
                     };
                 });
-            },
+            },*/
 
             onCompositeCollectionRendered: function() {
                 // App.log('rendered called', contextName, 1);
-                this.appendHtml = function(collectionView, itemView) { //, index) {
-                    collectionView.$el.prepend(itemView.el);
-                };
+                // this.appendHtml = function(collectionView, itemView) { //, index) {
+                //     collectionView.$el.prepend(itemView.el);
+                // };
+
+                var challenges = this.$el.find('.challenge-list__item');
+                challenges.each(function(i){
+                    var $this = $(this);
+                    setTimeout(function(){
+                        $this.addClass('is-ready');
+                    }, i * 50 + 50);
+                });
+
             }
         });
 

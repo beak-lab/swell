@@ -1,4 +1,5 @@
 <div class="challenge-list__item">
+	<img class="challenge-list__item__icon" src="images/challenge-icons/{icon}">
 	<div class="challenge-list__item__title">{name}</div>
 	<p class="challenge-list__item__description">{desc}</p>
 </div>

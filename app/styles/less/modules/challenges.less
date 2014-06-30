@@ -1,6 +1,6 @@
 .is-challenge-module{
 	.glb-content{
-		background-image: linear-gradient(to bottom, #92b82a 0%, @grannysmith 100%);
+		background-image: linear-gradient(to bottom, #ecff82 0%, @grannysmith 100%);
 		//background: @grannysmith;
 	}
 }
@@ -8,13 +8,28 @@
 // List view
 
 .challenge-list__item{
+	.transition(all .4s cubic-bezier(0.645, 0.045, 0.355, 1));
 	&:extend(.slat);
-	color: #fff;
-	border-bottom-color: rgba(255, 255, 255, 0.3);
+	.translateX(-110%);
+	color: @black;
+	border-bottom-color: rgba(0, 0, 0, 0.3);
+
+	&.is-ready{
+		.translateX(0);
+	}
+}
+
+.challenge-list__item__icon{
+	width: 50px;
+	display: inline-block;
 }
 
 .challenge-list__item__title{
-  margin: 0;
+	margin: 0 0 0 10px;
+	width: ~"calc(100% - 60px)";
+	display: inline-block;
+	font-weight: 500;
+	vertical-align: middle;
 }
 
 .challenge-list__item__description{

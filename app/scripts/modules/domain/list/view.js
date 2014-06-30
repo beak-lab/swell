@@ -29,6 +29,12 @@ define(['app'], function(App) {
             showClicked: function(e) {
                 e.preventDefault();
                 e.stopPropagation();
+                // var target = $(e.target);
+                // if (! target.is('.domain-list__item')) {
+                //     target = target.closest('.domain-list__item');
+                // }
+
+                // target.addClass('is-selected');
                 this.trigger('domain:show', this.model);
             },
 
