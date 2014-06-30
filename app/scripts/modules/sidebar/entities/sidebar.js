@@ -12,7 +12,7 @@ define(['app', 'backbone.picky'], function(App) {
             Entities.sidebar = new Entities.SidebarCollection([
                 {
                     title: 'Goal Set',
-                    text: 'Eat no sugar for a week',
+                    text: 'Eat no sugar for 1 week',
                     icon: 'icon-tick-empty.svg'
                 },{
                     title: 'Challenge Completed',

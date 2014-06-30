@@ -18,6 +18,7 @@ define(['app'], function(App) {
         Entities.ActivityCollection = Backbone.Collection.extend({
             url: '/activity',
             model: Entities.Activity,
+            localStorage: new Backbone.LocalStorage('ActivityCollection'),
             comparator: 'weight'
         });
 

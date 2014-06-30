@@ -10,6 +10,7 @@ require([
         'dustMarionette',
         'templates',
         'jquery.touch.punch',
+        'backbone.localstorage'
     ],
 
     function($, Backbone, App) {
