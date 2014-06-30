@@ -41,6 +41,16 @@ define(['app'], function(App) {
             itemView: View.DomainOne,
             itemViewContainer: '#domain_list',
 
+            onCompositeCollectionRendered: function(){
+                var domains = $('.domain-list__item');
+                domains.each(function(i){
+                    var $this = $(this);
+                    setTimeout(function(){
+                        $this.addClass('is-ready');
+                    }, i * 50 + 50);
+                });
+            }
+
             // initialize: function() {
             //     this.listenTo(this.collection, 'reset', function() {
             //         App.log('reset called', 'Domain list view', 1);
