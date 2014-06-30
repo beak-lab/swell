@@ -46,6 +46,8 @@ define(['app', 'templates', 'dust', 'jquery-ui/sortable', 'jquery-ui/droppable',
                 var data = this.model.toJSON();
                 data.next = this.options.next;
                 data.prev = this.options.prev;
+                data.total = this.options.total;
+                data.current = this.options.current;
                 return data;
             },
         });
