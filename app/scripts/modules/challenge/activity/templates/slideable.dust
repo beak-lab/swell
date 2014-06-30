@@ -2,6 +2,7 @@
 
 <form>
     <div class='slideable'>
+
     	<div class='slideable__labels'>
     		<div class='slideable__label is-left-label'>{leftLabel}</div>
     		<div class='slideable__label is-right-label'>{rightLabel}</div>
