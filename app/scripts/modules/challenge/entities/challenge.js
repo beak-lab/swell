@@ -45,7 +45,7 @@ define(['app'], function(App) {
                     slug: 'work-talents',
                     domain: 5,
                     resources: [1, 2],
-                    activities: [1, 2, 3, 4, 5, 9],
+                    activities: [5],
                     icon: 'icon-talents.svg',
                 }, {
                     id: 2,

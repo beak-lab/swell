@@ -3,11 +3,11 @@
 define(['app', 'goal_create_view', 'activity_entity'], function(App, View) {
     App.module('Goal.Create', function (Create, App, Backbone, Marionette, $, _) {
         Create.Controller = {
-            create: function() {
+            create: function(info) {
                 var goals = [];
-                // TODO: get these dynamically
-                var activityId = 5;
-                var challengeId = 2;
+                var activityId = 5; // only check the checkboxes for goals
+                // var activityId = info.activityId;
+                var challengeId = info.challengeId;
                 var key = 'checkboxable-optionset';
 
                 var data = JSON.parse(window.localStorage.getItem('challenge[' + challengeId + ']'));
@@ -16,17 +16,15 @@ define(['app', 'goal_create_view', 'activity_entity'], function(App, View) {
                     // get the activities that contribute to goals
                     $.when(App.request('activity:entity', activityId)).done(function(activity) {
                         var activityData = activity.get('data');
-
                         // take what has been selected in the activity
-                        for (var i = 0; i < _.size(data[activityId][key]); i++) {
+                        for (var i = 0; i < _.size(data[activityId].data[key]); i++) {
                             // and try and find its 'goal' value
-                            if (data[activityId][key][i]) {
+                            if (data[activityId].data[key][i]) {
                                 goals.push({name: activityData[i].goalText});
                             }
                         }
                     });
                 }
-
                 var view = new View.GoalAdd({
                     autoGoals: goals
                 });

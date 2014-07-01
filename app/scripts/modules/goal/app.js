@@ -24,16 +24,16 @@ define(function(require) {
         };
 
         var API = {
-            createGoals : function() {
+            createGoals : function(challengeId) {
                 require(['goal_create_controller'], function(Controller) {
-                    executeAction(Controller.create);
+                    executeAction(Controller.create, challengeId);
                 });
             },
         };
 
-        App.on('goal:create', function() {
+        App.on('goal:create', function(challengeId) {
             // App.navigate('/goal');
-            API.createGoals();
+            API.createGoals(challengeId);
         });
 
         App.addInitializer(function() {
