@@ -29,6 +29,9 @@ requirejs.config({
 
         'snapjs'                   : '../bower_components/snapjs/snap.min',
 
+        'bootstrap.tooltip'        : '../bower_components/bootstrap/js/tooltip',
+        'bootstrap.popover'        : '../bower_components/bootstrap/js/popover',
+
         'common_views'             : 'common/views',
         'templates'                : 'common/templates',
 
@@ -87,6 +90,8 @@ requirejs.config({
         'jquery-ui/droppable'      : ['jquery-ui/draggable'],
         'jquery-ui/sortable'       : ['jquery-ui/core', 'jquery-ui/widget'],
         'jquery.touch.punch'       : ['jquery'],
+        'bootstrap.tooltip'        : ['jquery'],
+        'bootstrap.popover'        : ['bootstrap.tooltip'],
         dust: {
             exports                : 'dust'
         },

@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate'], function(App) {
+define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap.popover'], function(App) {
     App.module('Challenge.Show.View', function(View, App, Backbone, Marionette, $) {
         View.Layout = Marionette.Layout.extend({
             template: 'challenge_show_layout',

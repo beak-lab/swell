@@ -114,7 +114,7 @@ define(['app'], function(App) {
                 id: 6,
                 weight: 14,
                 type: 'Draggable',
-                title: 'Activity 2: Why, When and How',
+                title: 'Activity 2: Positive disclosure',
                 // description: 'Say what you have learnt from your experience that will help you manage your condition',
                 question: 'What I have learnt about <strong>self-managing my condition</strong> that will help me do the job',
                 data: {
