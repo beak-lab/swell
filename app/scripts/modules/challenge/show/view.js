@@ -95,7 +95,8 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate'], function(
 
             serializeData: function() {
                 return {
-                    goals: this.options.goals
+                    goals: this.options.goals,
+                    activities: this.options.activities
                 };
             },
 

@@ -6,12 +6,13 @@ define(['app', 'goal_create_view', 'activity_entity'], function(App, View) {
             create: function() {
                 var goals = [];
                 var key = 'checkboxable-optionset';
-                var data = JSON.parse(window.localStorage.getItem('activity5'));
+                var data = JSON.parse(window.localStorage.getItem('challenge[2]'));
+                var activityId = 5;
 
-                $.when(App.request('activity:entity', 5)).done(function(activity) {
+                $.when(App.request('activity:entity', activityId)).done(function(activity) {
                     var activityData = activity.get('data');
-                    for (var i = 0; i < _.size(data[key]); i++) {
-                        if (data[key][i]) {
+                    for (var i = 0; i < _.size(data[activityId][key]); i++) {
+                        if (data[activityId][key][i]) {
                             goals.push({name: activityData[i].goalText});
                         }
                     }

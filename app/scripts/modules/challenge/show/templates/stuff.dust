@@ -13,10 +13,11 @@
 
 <div>
     <h3>Rate these activities</h3>
-    <output for='rater' id='raterOutput'></output>
-    <input type='range' name='range' id='rater' required class='slideable__slider' data-snap-ignore='true' value='1' max='5' step='1'>
+    Selection: <output for='rater' id='raterOutput'>Average</output>
+    <input type='range' name='range' id='rater' required class='slideable__slider' data-snap-ignore='true' value='3' max='5' step='1'>
 </div>
 
 <div>
     <h3>Activity History</h3>
+    {activities|js|s}
 </div>
