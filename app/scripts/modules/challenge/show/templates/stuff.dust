@@ -8,7 +8,11 @@
 </div>
 
 <div>
-    <h3>Invite a friend</h3>
+    <h3>Share progress with a buddy</h3>
+    <form class="form-inline" role="form">
+        <input class="form-control" type="text" placeholder="enter an email address or name" />
+        <button type="submit" class="btn btn-default">Sign in</button>
+    </form>
 </div>
 
 <div>

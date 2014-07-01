@@ -88,7 +88,7 @@ define(['app'], function(App) {
                     slug: 'work-disclose',
                     domain: 5,
                     resources: [1, 2, 3, 4, 5],
-                    activities: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                    activities: [1, 2, 4, 5, 6, 7, 8, 9],
                     icon: 'icon-flag.svg',
                 }, {
                     id: 7,

@@ -6,8 +6,8 @@
 			<div class="slideable__label is-left-label"><img src="images/icon-skull.svg" alt=""></div>
 			<div class="slideable__label is-right-label"><img src="images/icon-icecream.svg" alt=""></div>
 		</div>
-		<input type="range" class="slideable__slider" name="" id="">
-
+		<input type="range" class="slideable__slider">
+		<!-- <span id="slider-save" class="slideable__slider__save btn btn-sm btn-default">save</span> -->
 	</div>
 
 </div>
