@@ -34,7 +34,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
             nextUnpressed: function(e) {
                 e.preventDefault();
                 // console.log('Click UP');
-                this.saveGoals();
+                this.saveData();
                 this.$el.find('.activity__pagination-next').removeClass('is-pressed');
                 if (new Date().getTime() - this.clickTime > 800) {
                     this.trigger('prev');
@@ -44,12 +44,14 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
             },
 
             goals: function() {
-                // this.saveGoals();
+                // this.saveData();
                 this.trigger('goals');
             },
 
-            saveGoals: function() {
-                this.trigger('save:result', Backbone.Syphon.serialize(this));
+            saveData: function() {
+                if (this.template !== 'staticable') {
+                    this.trigger('save:result', Backbone.Syphon.serialize(this));
+                }
             },
 
             serializeData: function() {
@@ -91,8 +93,13 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
 
             onAddNewMagnet: function() {
                 var name = prompt('Name?');
-                var container = this.$el.find('#draggable-container').append('<div class="draggable__item">' + name + '</div>');
-                container.children().last().draggable();
+                if (name) {
+                    var container = this.$el.find('#draggable-container').prepend('<div class="draggable__item is-added">' + name + '</div>'),
+                    item = container.children().first().draggable();
+                    setTimeout(function(){
+                        item.removeClass('is-added');
+                    },1000);
+                };
             },
 
             onRender: function() {
@@ -187,6 +194,9 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                 checkboxable.find('.checkboxable__optionset').removeClass('is-active');
                 checked.closest('.checkboxable__optionset').addClass('is-active');
             },
+        });
+        View.Staticable = View.Activity.extend({
+            template: 'staticable',
         });
     });
 

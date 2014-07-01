@@ -7,9 +7,11 @@
         {#data.draggable}
             <div class='draggable__item'>{name}</div>
         {/data.draggable}
+        <div class='draggable__item-add-new addNew'>+Add something</div>
+
     </div>
 </form>
 
-<div class='draggable__item addNew'>+Add</div>
+<!-- <div class='draggable__item-add-new addNew'>+Add something</div> -->
 
 {>pagination /}
