@@ -1,0 +1,81 @@
+.sidebar-mystuff{}
+.sidebar-mystuff__title{
+	border-bottom: 1px solid fade(@oil, 50%);
+	padding: 1em 0;
+}
+
+
+.sidebar-mystuff__howswell{
+	padding: 1em;
+
+	h2{
+		font-weight: 500;
+	}
+
+	.slideable__label{
+		max-height: 3rem;
+		max-width: 3rem;
+		img{
+			max-height: 100%;
+			max-width: 100%; 
+		}
+	}
+}
+
+.sidebar-goals{
+	padding: 1em;
+}
+.sidebar-goals__title{
+	font-weight: 500;
+	border-bottom: 1px solid fade(@oil, 50%);
+	padding: 1em 0;
+	margin: 0;
+	img{
+		width: 3rem;
+		vertical-align: text-top;
+		margin-right: .5em;
+	}
+}
+
+
+.sidebar-goals__mygoals{
+	list-style: none;
+	margin: 0;
+	padding: 0; 
+}
+.sidebar-goals__mygoals__goal{
+	border-bottom: 1px solid fade(@oil, 20%);;
+	padding: 1em;
+	// margin: 0 2em;
+	background: 95% 50% no-repeat url(../../images/icon-sidebar-goals-forward.svg);
+	background-size: auto 60%;
+}
+
+.sidebar-goals__mygoals__goal__count{
+	// color: #fff;
+	font-weight: 500;
+	background: @oil;
+	display: inline-block;
+	border-radius: 1em;
+	width: 2em;
+	text-align: center;
+	margin-right: 1rem;
+	.domain-colors;
+}
+.sidebar-goals__share{
+	margin: 1em;
+	text-align: center;
+}
+.sidebar-goals__share__button{
+	background: @oil;
+	color: #fff; 
+	vertical-align: middle;
+	&:active, &:focus, &:hover{
+		color: #fff; 
+	}
+	img{
+		vertical-align: middle;
+		width: 1.5rem;
+		margin-right: .5rem;
+	}
+}
