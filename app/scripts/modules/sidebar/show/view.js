@@ -24,7 +24,7 @@ define(['app'], function(App) {
         View.Right = Marionette.ItemView.extend({
             tagName: 'div',
             className: 'sidebar',
-            template: 'sidebar_goals',
+            template: 'sidebar_mystuff',
 
             events: {
                 'change .goals__goal__checkbox': 'goalsCheckbox',
