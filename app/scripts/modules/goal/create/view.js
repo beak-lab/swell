@@ -42,15 +42,6 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 this.trigger('goals:next');
             },
 
-/*            added: function(e) {
-                console.log(e);
-                this.$el.find('#goals')
-                    .append('<div class="activity__personal-goals__goal">' + this.$el.find('#goal_name').val() + '</div>')
-                    .hide()
-                    .slideDown();
-                this.$el.find('form')[0].reset();
-            },*/
-
             serializeData: function() {
                 var data = {};
                 data.autoGoals = this.options.autoGoals;

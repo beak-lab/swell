@@ -1,15 +1,17 @@
 {>header /}
 
-<div class='voteable'>
+<form>
+    <div class='voteable'>
 
-    <div id='top-droppable' class='votable__dropzone is-votable-pro'></div>
-    <!-- <div class='voteable__label is-top-label'>{topLabel}</div> -->
-    <div id='voteable-container' class='voteable__dragzone' data-snap-ignore='true'>
-        {#data}<div class='voteable__item'>{name}</div>{/data}
+        <div id='top-droppable' class='votable__dropzone is-votable-pro'></div>
+        <!-- <div class='voteable__label is-top-label'>{topLabel}</div> -->
+        <div id='voteable-container' class='voteable__dragzone' data-snap-ignore='true'>
+            {#data}<div class='voteable__item'>{name}</div>{/data}
+        </div>
+        <!-- <div class='voteable__label is-bottom-label'>{bottomLabel}</div> -->
+        <div id='bottom-droppable' class='votable__dropzone is-votable-con'></div>
+
     </div>
-    <!-- <div class='voteable__label is-bottom-label'>{bottomLabel}</div> -->
-    <div id='bottom-droppable' class='votable__dropzone is-votable-con'></div>
-
-</div>
+</form>
 
 {>pagination /}
