@@ -28,16 +28,16 @@ define(['app'], function(App) {
 
             Entities.fakes = new Entities.ActivityCollection([{
                 id: 1,
-                weight: 15,
+                weight: 1,
                 type: 'Slideable',
                 title: 'Activity 2: Why, When and How',
                 question: 'Will the employer discriminate against me or not?',
                 description: '<p>It\'s illegal for employers to refuse a job to someone because they have a diagnosis of mental illness but it is very hard to prove they have done this.</p><p>In your experience how much do employers discriminate against people with mental distress?</p>',
                 leftLabel: 'Not Much',
-                rightLabel: 'All the freaking time'
+                rightLabel: 'All the time'
             }, {
                 id: 2,
-                weight: 20,
+                weight: 2,
                 type: 'Radioable',
                 title: 'Activity 2: Why, When and How',
                 question: 'Do I need to negotiate work conditions related to my distress',
@@ -66,11 +66,10 @@ define(['app'], function(App) {
                 }, ]
             }, {
                 id: 4,
-                weight: 50,
+                weight: 13,
                 type: 'Draggable',
-                title: 'Activity 2: Why, When and How',
-                description: 'Say what you have learnt from your experience that would help you do the job?',
-                question: 'What have you learnt?',
+                title: 'Activity 2: Positive disclosure',
+                question: 'What I learned from <strong>my lived experience</strong> that will help me do the job',
                 data: {
                     draggable: [{
                         name: 'Resilience'
@@ -84,36 +83,40 @@ define(['app'], function(App) {
                 }
             }, {
                 id: 5,
-                weight: 60,
+                weight: 11,
                 type: 'Checkboxable',
                 title: 'Activity 2: Why, When and How',
-                question: 'When',
+                upperDescription: 'Picking the right time to bring up your experience can make a big difference to how it\'s recieved as well as the headspace you\'re in. Deciding if and when to disclose ahead of time puts you in charge of the conversation',
+                question: 'When should I disclose? (if at all)',
                 data: [{
                         text: 'Before they decide to employ me',
                         subtext: 'if you think your distress will interfere with your ability to do the job',
-                        goalText: 'test'
+                        goalText: 'Disclose my experience before I\'m offered a job'
                     }, {
                         text: 'After they offer me the job',
                         subtext: 'if you want to negotiate your work conditions',
-                        goalText: 'test 2'
+                        goalText: 'Disclose my experience before I accept a job'
                     }, {
                         text: 'As part of everyday conversation',
                         subtext: 'if you feel safe',
-                        goalText: 'test 3'
+                        goalText: 'Disclose my experience when talking about my job prospects'
                     }, {
                         text: 'When things go pear shaped',
                         subtext: 'if you think they need to understand what\'s going on.',
-                        goalText: 'test 4'
+                        goalText: 'Disclose my experience when I feel like it\'s getting out of hand'
+                    },{
+                        text: 'Never',
+                        subtext: 'if you feel it\'s not and issue that they need to know about.',
+                        goalText: 'Keep my experience to myself'
                     },
-
                 ]
             }, {
                 id: 6,
-                weight: 70,
+                weight: 14,
                 type: 'Draggable',
                 title: 'Activity 2: Why, When and How',
-                description: 'Say what you have learnt from your experience that will help you manage your condition',
-                question: 'How do you manage it?',
+                // description: 'Say what you have learnt from your experience that will help you manage your condition',
+                question: 'What I have learnt about <strong>self-managing my condition</strong> that will help me do the job',
                 data: {
                     draggable: [{
                         name: 'Healthy lifestyle'
@@ -125,18 +128,17 @@ define(['app'], function(App) {
                 }
             }, {
                 id: 7,
-                weight: 80,
+                weight: 15,
                 type: 'Draggable',
-                title: 'Activity 2: Why, When and How',
-                description: 'Say what work conditions enable you to do your best',
-                question: 'What working conditions are the most important?',
+                title: 'Activity 2: Positive disclosure',
+                question: 'The work conditions I thrive under',
                 data: {
                     draggable: [{
-                        name: 'Sick leave'
+                        name: 'Flexible sick leave'
                     }, {
-                        name: 'Work hours'
+                        name: 'Flexible work hours'
                     }, {
-                        name: 'Work space'
+                        name: 'Quiet work spaces'
                     }, ]
                 }
             }, {
@@ -145,6 +147,7 @@ define(['app'], function(App) {
                 type: 'Voteable',
                 title: 'Activity 1: Pros and Cons',
                 question: 'What are the pros and cons of disclosing to employers?',
+                upperDescription: 'You don\'t have to disclose you have a diagnosis when you are applying for a job unless you think it will stop you from being able to do the job. There are pros and cons to disclosing.',
                 data: [{
                     name: 'I may not get the job'
                 }, {
@@ -158,6 +161,23 @@ define(['app'], function(App) {
                 }, {
                     name: 'I can negotiate work conditions related to my distress'
                 }, ]
+            },{
+                id: 9,
+                weight: 12,
+                type: 'Staticable',
+                title: 'Part 3: When I do disclose',
+                question: 'Make it positive by explaining:',
+                data: [
+                    {
+                        container: 'ol',
+                        cssClass: 'big-ol',
+                        content: '<li>What I learnt from my lived experience that would help me to the job</li><li>What I have learnt about self-managing my condition that will help me do the job.</li><li>The work conditions I thrive under.</li>'
+                    },{
+                        container: 'h3',
+                        cssClass: '',
+                        content: 'Lets go into more detail...'
+                    }
+                ]
             }]);
         };
 

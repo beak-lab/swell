@@ -8,7 +8,7 @@
 
 .draggable__dragzone{}
 //individual fridge magnet
-.draggable__item{
+.draggable__item, .draggable__item-add-new{
  	&:extend(.fridge-magnet);
 
  	&.ui-draggable-dragging{
@@ -19,4 +19,11 @@
  	&.is-dropped{
  		&:extend(.fridge-magnet.is-dropped);
  	}
+}
+
+.draggable__item{
+	&.is-added{
+   		-moz-animation: target-fade 1s 1;
+	    -webkit-animation: target-fade 1s 1;
+	}
 }
