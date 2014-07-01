@@ -1,14 +1,17 @@
 <div class="activity__goals">
-	
+
 	<div class='activity__goals__title activity__title'>Good work!</div>
 	<h2>Now lets set goals.</h2>
-	<h3>Here are some suggested goals:</h3>
 
-	<div class="activity__suggested-goals">
-	{#autoGoals}
-	    <div class='activity__suggested-goal auto_goal'>{name}</div>
+	{?autoGoals}
+		<h3>Here are some suggested goals:</h3>
+
+		<div class="activity__suggested-goals">
+		{#autoGoals}
+		    <div class='activity__suggested-goal auto_goal'>{name}</div>
+		{/autoGoals}
+		</div>
 	{/autoGoals}
-	</div>
 
 	<div class="activity__personal-goal__add" id="personal-goal-add-form">
 	    <input id='goal_name' placeholder="Add your own" type='text' name='goal' />
@@ -19,6 +22,6 @@
 
 	<div id='goals' class="activity__personal-goals">
 		<h2 class="activity__personal-goals__title">Goals set today</h2>
-		
+
 	</div>
 </div>
