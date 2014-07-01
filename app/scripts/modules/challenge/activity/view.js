@@ -62,6 +62,9 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                 data.current = this.options.current;
                 return data;
             },
+            onRender: function(){
+                $('body').scrollTop(0);
+            }
         });
 
         View.Launcher = Marionette.ItemView.extend({
