@@ -51,6 +51,10 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 data.autoGoals = this.options.autoGoals;
                 return data;
             },
+
+            onRender: function() {
+                $('body').scrollTop(0);
+            }
         });
 
     });
