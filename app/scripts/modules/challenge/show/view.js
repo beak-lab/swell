@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
+define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate'], function(App) {
     App.module('Challenge.Show.View', function(View, App, Backbone, Marionette, $) {
         View.Layout = Marionette.Layout.extend({
             template: 'challenge_show_layout',
@@ -95,9 +95,27 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
 
             serializeData: function() {
                 return {
-                    goals: this.options.goals
+                    goals: this.options.goals,
+                    activities: this.options.activities
                 };
             },
+
+            onRender: function() {
+                var rater = this.$el.find('#rater');
+                var self = this;
+                rater.on('change', function() {
+                    console.log();
+                    var status = 'test';
+                    switch (rater.val()) {
+                        case '1': status = 'Ok ish'; break;
+                        case '2': status = 'A bit nice'; break;
+                        case '3': status = 'Average'; break;
+                        case '4': status = 'Super good'; break;
+                        case '5': status = 'Awesome'; break;
+                    }
+                    self.$el.find('#raterOutput').val(status);
+                });
+            }
 
         });
     });

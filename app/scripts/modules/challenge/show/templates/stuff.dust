@@ -1,9 +1,23 @@
 <h2>{challange.name}</h2>
 
-<h3>Goals</h3>
+<div>
+    <h3>Goals</h3>
+    {@iterate key=goals.goal}
+        <p>{$value}</p>
+    {/iterate}
+</div>
 
-{goals|js|s}
+<div>
+    <h3>Invite a friend</h3>
+</div>
 
-{#goals}
-    {name}
-{/goals}
+<div>
+    <h3>Rate these activities</h3>
+    Selection: <output for='rater' id='raterOutput'>Average</output>
+    <input type='range' name='range' id='rater' required class='slideable__slider' data-snap-ignore='true' value='3' max='5' step='1'>
+</div>
+
+<div>
+    <h3>Activity History</h3>
+    {activities|js|s}
+</div>

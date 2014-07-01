@@ -1,10 +1,11 @@
 'use strict';
 /*global window*/
 define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_entity', 'activity_entity', 'resource_entity'], function(App, View, ActivityView) {
-    App.module('Challenge.Show', function (Show, App, Backbone, Marionette, $) { // , _
+    App.module('Challenge.Show', function (Show, App, Backbone, Marionette, $, _) {
         Show.Controller = {
             show: function(id) {
                 var fetchingChallenge = App.request('challenge:entity', id);
+                Show.Controller.challengeId = id;
                 $.when(fetchingChallenge).done(function(challenge) {
 
                     Show.Controller.layout = new View.Layout({
@@ -77,12 +78,42 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
             */
             myStuff: function() {
                 Show.Controller.showViews.stuff = new View.Stuff();
-                Show.Controller.myStuffSetup(1);
+                Show.Controller.myStuffSetup();
             },
 
-            myStuffSetup: function(challenge) {
-                var goals = JSON.parse(window.localStorage.getItem('goals[' + challenge + ']'));
+            myStuffSetup: function() {
+                // get all the saved data for the users goals
+                var goals = JSON.parse(window.localStorage.getItem('goals[' + Show.Controller.challengeId + ']'));
                 Show.Controller.showViews.stuff.options.goals = goals;
+
+                // the challenge array stores a list of all activity results
+                var data = JSON.parse(window.localStorage.getItem('challenge[' + Show.Controller.challengeId + ']'));
+                // make a list of the activities the user has done: (aka the keys set)
+                var activitiesDone = _.keys(data);
+                // the users processed data
+                var activities = [];
+                // get all the activities data (so we can access questions etc)
+                $.when(App.request('activity:entities', activitiesDone)).done(function(activities) {
+                    console.log(activities);
+                    // each activity
+                    _.each(activities, function(activity) {
+                        // var activityData = activity.get('data');
+                        activities[activity.id] = {
+                            object: activity,
+                            data: data[activity.id]
+                        };
+                    });
+                    // var activityData = activity.get('data');
+                    // for (var i = 0; i < _.size(data[key]); i++) {
+                    //     if (data[key][i]) {
+                    //         goals.push({name: activityData[i].goalText});
+                    //     }
+                    // }
+                });
+
+                Show.Controller.showViews.stuff.options.activities = activities;
+
+
             },
 
             /**
@@ -143,7 +174,7 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
 
                         view.on('goals:next', function() {
                             // get the new goals first
-                            Show.Controller.myStuffSetup(1);
+                            Show.Controller.myStuffSetup();
                             Show.Controller.menu.trigger('menu:clicked', 'stuff');
                         });
                     });
@@ -151,8 +182,15 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
 
                 view.on('save:result', function(data) {
                     console.log('Saving');
+                    // get the current data:
+                    var thisChallengeData = JSON.parse(window.localStorage.getItem('challenge[' + Show.Controller.challengeId + ']'));
+                    if (!thisChallengeData) {
+                        thisChallengeData = [];
+                    }
+                    // update this activity
+                    thisChallengeData[activity.id] = data;
                     // save the result in localstorage
-                    window.localStorage.setItem('activity' + activity.id, JSON.stringify(data));
+                    window.localStorage.setItem('challenge[' + Show.Controller.challengeId + ']', JSON.stringify(thisChallengeData));
                 });
 
                 Show.Controller.layout.pageRegion.show(view);
