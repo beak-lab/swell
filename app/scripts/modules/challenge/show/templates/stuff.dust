@@ -21,22 +21,17 @@
     <h3>Activity History</h3>
 
     <div>
-        {activities|js|s}
+        {_activities|js|s}
     </div>
------------------
+
     <div>
         {#activities}
-            {@iterate key=object}
-                {$value}
-                {$value|js|s}
-            {/iterate}
+            <div>
+                <h4>{title}</h4>
+                {@iterate key=data}
+                    <p>{$value}</p>
+                {/iterate}
+            </div>
         {/activities}
-        -
-        {@iterate key=activities}
-            {value|js|s}
-            {value.object|js}
-            {$value.object.type|js|s}
-            {$value.object.type|s}
-        {/iterate}
     </div>
 </div>

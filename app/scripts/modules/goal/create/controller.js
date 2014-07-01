@@ -10,14 +10,17 @@ define(['app', 'goal_create_view', 'activity_entity'], function(App, View) {
                 var key = 'checkboxable-optionset';
                 var data = JSON.parse(window.localStorage.getItem('challenge[' + challengeId + ']'));
 
-                $.when(App.request('activity:entity', activityId)).done(function(activity) {
-                    var activityData = activity.get('data');
-                    for (var i = 0; i < _.size(data[activityId][key]); i++) {
-                        if (data[activityId][key][i]) {
-                            goals.push({name: activityData[i].goalText});
+                // if there is data for this challenge, then lets process it:
+                if (data[activityId]) {
+                    $.when(App.request('activity:entity', activityId)).done(function(activity) {
+                        var activityData = activity.get('data');
+                        for (var i = 0; i < _.size(data[activityId][key]); i++) {
+                            if (data[activityId][key][i]) {
+                                goals.push({name: activityData[i].goalText});
+                            }
                         }
-                    }
-                });
+                    });
+                }
 
                 var view = new View.GoalAdd({
                     autoGoals: goals

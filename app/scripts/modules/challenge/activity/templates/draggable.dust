@@ -1,19 +1,16 @@
 {>header /}
 
-<div id='droppable' class='draggable__dropzone'></div>
-
 <form>
-    <div id='draggable-container' class='draggable__dragzone' data-snap-ignore='true'>
-        {#data.draggable}
-        <div class='draggable__item'>
-            <input type="hidden" value='{name}' />
-            {name}
-        </div>
-        {/data.draggable}
-        <div class='draggable__item-add-new addNew'>+Add something</div>
-
-    </div>
+    <div id='droppable' class='draggable__dropzone'></div>
 </form>
+
+<div id='draggable-container' class='draggable__dragzone' data-snap-ignore='true'>
+    {#data.draggable}
+        <div class='draggable__item'>{name}</div>
+    {/data.draggable}
+
+    <div class='draggable__item-add-new addNew'>+Add something</div>
+</div>
 
 <!-- <div class='draggable__item-add-new addNew'>+Add something</div> -->
 

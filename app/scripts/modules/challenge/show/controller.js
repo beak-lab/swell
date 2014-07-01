@@ -98,23 +98,27 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     // each activity
                     _.each(activities, function(activity) {
                         // var activityData = activity.get('data');
+                        var realData = activity.get('data');
 
+                        // process activity
                         switch (activity.get('type')) {
                             case 'Checkboxable' :
-                                // process activity
                                 processedActivities.push({
                                     title: activity.get('title'),
                                     data: data[activity.id]
                                 });
                             break;
                             case 'Draggable' :
-                                // process activity
+                                // var d = data[activity.id].data.draggable;
+                                // console.log(realData);
+                                // console.log(d);
+
                                 processedActivities.push({
                                     title: activity.get('title'),
-                                    data: data[activity.id]
+                                    data: data[activity.id].data.draggable
                                 });
                             break;
-                        };
+                        }
                     });
                     // var activityData = activity.get('data');
                     // for (var i = 0; i < _.size(data[key]); i++) {
