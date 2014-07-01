@@ -47,10 +47,12 @@
 	border-bottom: 1px solid fade(@oil, 20%);;
 	padding: 1em;
 	// margin: 0 2em;
+	background: 95% 50% no-repeat url(../../images/icon-sidebar-goals-forward.svg);
+	background-size: auto 60%;
 }
 
 .sidebar-goals__mygoals__goal__count{
-	color: #fff;
+	// color: #fff;
 	font-weight: 500;
 	background: @oil;
 	display: inline-block;
@@ -59,4 +61,21 @@
 	text-align: center;
 	margin-right: 1rem;
 	.domain-colors;
+}
+.sidebar-goals__share{
+	margin: 1em;
+	text-align: center;
+}
+.sidebar-goals__share__button{
+	background: @oil;
+	color: #fff; 
+	vertical-align: middle;
+	&:active, &:focus, &:hover{
+		color: #fff; 
+	}
+	img{
+		vertical-align: middle;
+		width: 1.5rem;
+		margin-right: .5rem;
+	}
 }

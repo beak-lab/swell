@@ -33,11 +33,11 @@
 			Self-management
 		</li>
 		<li class="sidebar-goals__mygoals__goal money">
-			<span class="sidebar-goals__mygoals__goal__count">1</span>
+			<span class="sidebar-goals__mygoals__goal__count money">1</span>
 			Money
 		</li>
 		<li class="sidebar-goals__mygoals__goal work">
-			<span class="sidebar-goals__mygoals__goal__count">7</span>
+			<span class="sidebar-goals__mygoals__goal__count work">7</span>
 			Work 
 		</li>
 		<li class="sidebar-goals__mygoals__goal">
@@ -50,6 +50,10 @@
 		</li>
     </ul>
 
+
+	<div class="sidebar-goals__share">
+		<span class=" sidebar-goals__share__button btn btn-sm"><img src="images/icon-goals-tick-white.svg"> Share goals with people</span>
+	</div>
 
     <!-- <ul class="goals__goalset">
     	<li class="goals__goal"><label><input type="checkbox" class="goals__goal__checkbox"><span>I want to get more exercise</span></label>
