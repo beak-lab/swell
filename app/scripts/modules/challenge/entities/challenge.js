@@ -40,7 +40,7 @@ define(['app'], function(App) {
             Entities.fakeChallenges = new Entities.ChallengeCollection([
                 {
                     id: 1,
-                    name: 'I want to discover and use my talents',
+                    name: 'Discovering and using my talents',
                     desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                     slug: 'work-talents',
                     domain: 5,
@@ -67,7 +67,7 @@ define(['app'], function(App) {
                     icon: 'icon-volunteer.svg',
                 }, {
                     id: 4,
-                    name: 'I want to continue my education',
+                    name: 'Continuing my education',
                     desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                     slug: 'work-education',
                     domain: 5,
@@ -75,7 +75,7 @@ define(['app'], function(App) {
                     icon: 'icon-degree.svg',
                 }, {
                     id: 5,
-                    name: 'I want to get a job after a period of unemployment',
+                    name: 'Finding a job after unemployment',
                     desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                     slug: 'work-unemployment',
                     domain: 5,
@@ -83,23 +83,23 @@ define(['app'], function(App) {
                     icon: 'icon-briefcase.svg',
                 }, {
                     id: 6,
-                    name: 'I want to know if and when to disclose',
-                    desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
+                    name: 'Disclosing my lived experience to an employer ',
+                    desc: 'You don’t have to disclose you have a diagnosis when you are applying for a job, unless you think it will stop you from being able to do the job – but it still might be a good idea... ',
                     slug: 'work-disclose',
                     domain: 5,
                     resources: [1, 2, 3, 4, 5],
-                    activities: [1, 2, 3, 4, 5, 6, 9],
+                    activities: [8, 1, 2, 3, 4, 5, 6, 9],
                     icon: 'icon-flag.svg',
                 }, {
                     id: 7,
-                    name: 'I want to negotiate my work conditions',
+                    name: 'Negotiating work conditions related to my distress ',
                     desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                     slug: 'work-negotiate',
                     domain: 5,
                     activities: [],
                     icon: 'icon-handshake.svg',
                 }, {
-                    name: 'I want to keep my job',
+                    name: 'Keeping my job',
                     id: 8,
                     desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                     slug: 'work-keepmyjob',

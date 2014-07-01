@@ -1,0 +1,22 @@
+.progressible{
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height:10px;
+
+	&::-webkit-progress-bar{
+		background: #fff;
+		padding: 2px;
+	}
+	&::-webkit-progress-value{
+		background: @grannysmith;
+		box-shadow: 0 0 10px @grannysmith;
+	}
+}
+
+.activity__progress{
+	.progressible;
+}
