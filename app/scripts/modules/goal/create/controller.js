@@ -5,9 +5,10 @@ define(['app', 'goal_create_view', 'activity_entity'], function(App, View) {
         Create.Controller = {
             create: function() {
                 var goals = [];
-                var key = 'checkboxable-optionset';
-                var data = JSON.parse(window.localStorage.getItem('challenge[2]'));
                 var activityId = 5;
+                var challengeId = 2;
+                var key = 'checkboxable-optionset';
+                var data = JSON.parse(window.localStorage.getItem('challenge[' + challengeId + ']'));
 
                 $.when(App.request('activity:entity', activityId)).done(function(activity) {
                     var activityData = activity.get('data');
@@ -36,8 +37,8 @@ define(['app', 'goal_create_view', 'activity_entity'], function(App, View) {
         };
     });
 
-    App.reqres.setHandler('goal:create', function() {
-        return App.Goal.Create.Controller.create();
+    App.reqres.setHandler('goal:create', function(activityId, challengeId) {
+        return App.Goal.Create.Controller.create(activityId, challengeId);
     });
 
     return App.Goal.Create.Controller;

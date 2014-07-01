@@ -78,6 +78,7 @@ requirejs.config({
             exports                : 'Backbone'
         },
         dustMarionette             : ['backbone'],
+        dustIterate                : ['dust'],
         'backbone.picky'           : ['backbone'],
         'jquery-ui/core'           : ['jquery'],
         'jquery-ui/mouse'          : ['jquery-ui/core', 'jquery-ui/widget'],

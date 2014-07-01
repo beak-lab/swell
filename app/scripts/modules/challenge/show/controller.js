@@ -89,18 +89,31 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                 // the challenge array stores a list of all activity results
                 var data = JSON.parse(window.localStorage.getItem('challenge[' + Show.Controller.challengeId + ']'));
                 // make a list of the activities the user has done: (aka the keys set)
-                var activitiesDone = _.keys(data);
+                var activitiesDone = _.pluck(data, 'id');
                 // the users processed data
-                var activities = [];
+                var processedActivities = [];
                 // get all the activities data (so we can access questions etc)
                 $.when(App.request('activity:entities', activitiesDone)).done(function(activities) {
-                    console.log(activities);
+                    // console.log(activities);
                     // each activity
                     _.each(activities, function(activity) {
                         // var activityData = activity.get('data');
-                        activities[activity.id] = {
-                            object: activity,
-                            data: data[activity.id]
+
+                        switch (activity.get('type')) {
+                            case 'Checkboxable' :
+                                // process activity
+                                processedActivities.push({
+                                    title: activity.get('title'),
+                                    data: data[activity.id]
+                                });
+                            break;
+                            case 'Draggable' :
+                                // process activity
+                                processedActivities.push({
+                                    title: activity.get('title'),
+                                    data: data[activity.id]
+                                });
+                            break;
                         };
                     });
                     // var activityData = activity.get('data');
@@ -110,8 +123,9 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     //     }
                     // }
                 });
+                // console.log(processedActivities);
 
-                Show.Controller.showViews.stuff.options.activities = activities;
+                Show.Controller.showViews.stuff.options.activities = processedActivities;
 
 
             },
@@ -185,10 +199,13 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     // get the current data:
                     var thisChallengeData = JSON.parse(window.localStorage.getItem('challenge[' + Show.Controller.challengeId + ']'));
                     if (!thisChallengeData) {
-                        thisChallengeData = [];
+                        thisChallengeData = {};
                     }
                     // update this activity
-                    thisChallengeData[activity.id] = data;
+                    thisChallengeData[activity.id] = {
+                        id: activity.id,
+                        data: data
+                    };
                     // save the result in localstorage
                     window.localStorage.setItem('challenge[' + Show.Controller.challengeId + ']', JSON.stringify(thisChallengeData));
                 });

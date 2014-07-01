@@ -5,7 +5,7 @@
 <form>
     <div id='draggable-container' class='draggable__dragzone' data-snap-ignore='true'>
         {#data.draggable}
-            <div class='draggable__item'>{name}</div>
+            <input class='draggable__item' value='{name}' />
         {/data.draggable}
     </div>
 </form>
