@@ -26,7 +26,6 @@ define(['app', 'goal_create_view', 'activity_entity'], function(App, View) {
 
                 // when the 'next' button is pressed
                 view.on('goals:save', function(data) {
-                    console.log('dd');
                     // save the goals for this challange
                     window.localStorage.setItem('goals[' + challenge + ']', JSON.stringify(data));
                 });

@@ -13,7 +13,8 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
             },
 
             appendGoal: function(content){
-                var newgoal = $('<div class="activity__personal-goals__goal">' + content + '</div>');
+                var total = this.$el.find('.activity__personal-goals__goal').length;
+                var newgoal = $('<input class="activity__personal-goals__goal" name="goal[' + total + ']" value="' + content + '"/>');
                 newgoal.hide();
                 this.$el.find('#goals').addClass('has-goals').prepend(newgoal);
                 newgoal.slideDown();

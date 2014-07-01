@@ -2,8 +2,10 @@
 
 <h3>Goals</h3>
 
-{goals|js|s}
+<div>
+{@iterate key=goals.goal}
 
-{#goals}
-    {name}
-{/goals}
+    <p>{$value}</p>
+
+{/iterate}
+<div>
