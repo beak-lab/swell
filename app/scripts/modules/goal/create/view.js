@@ -17,7 +17,8 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 var newgoalInput = $('<input type="hidden" name="goal[' + total + ']" value="' + text + '"/>');
                 var newgoalDiv = $('<div class="activity__personal-goals__goal">' + text + '</div>');
                 newgoalDiv.hide();
-                this.$el.find('#goals').addClass('has-goals').prepend(newgoalDiv).prepend(newgoalInput);
+                this.$el.find('#goals').addClass('has-goals').prepend(newgoalDiv);
+                this.$el.find('#goals').prepend(newgoalInput);
                 newgoalDiv.slideDown();
             },
 
@@ -50,6 +51,10 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 data.autoGoals = this.options.autoGoals;
                 return data;
             },
+
+            onRender: function() {
+                $('body').scrollTop(0);
+            }
         });
 
     });

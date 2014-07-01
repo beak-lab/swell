@@ -1,6 +1,6 @@
 {>header /}
 
-<form>
+<form id="voteableForm">
     <div class='voteable'>
 
         <div id='top-droppable' class='votable__dropzone is-votable-pro'></div>

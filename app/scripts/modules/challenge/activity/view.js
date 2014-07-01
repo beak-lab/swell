@@ -62,7 +62,8 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                 data.current = this.options.current;
                 return data;
             },
-            onRender: function(){
+
+            onRender: function() {
                 $('body').scrollTop(0);
             }
         });
@@ -98,7 +99,9 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                 var name = prompt('Name?');
                 if (name) {
                     var container = this.$el.find('#draggable-container').prepend('<div class="draggable__item is-added" >' + name +' </div>'),
-                        item = container.children().first().draggable();
+                        item = container.children().first().draggable({
+                            containment: '#draggableContainmentDiv'
+                        });
 
                     setTimeout(function() {
                         item.removeClass('is-added');
@@ -108,7 +111,11 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
 
             onRender: function() {
                 var self = this;
-                this.$el.find('#draggable-container .draggable__item').draggable();
+                View.Activity.prototype.onRender.call(this);
+
+                this.$el.find('#draggable-container .draggable__item').draggable({
+                    containment: '#draggableContainmentDiv'
+                });
                 this.$el.find('#droppable').droppable({
                     activeClass: 'ui-state-default',
                     hoverClass: 'ui-state-hover',
@@ -132,6 +139,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
             // },
 
             onRender: function() {
+                View.Activity.prototype.onRender.call(this);
                 this.$el.find('#sortable').sortable();
                 this.$el.find('#sortable').disableSelection();
             }
@@ -148,7 +156,11 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
             template: 'voteable',
 
             onRender: function() {
-                this.$el.find('#voteable-container .voteable__item').draggable();
+                View.Activity.prototype.onRender.call(this);
+                this.$el.find('#voteable-container .voteable__item').draggable({
+                    axis: 'y',
+                    containment: '#voteableForm'
+                });
                 this.$el.find('#top-droppable, #bottom-droppable').droppable({
                     activeClass: 'ui-state-default',
                     hoverClass: 'ui-state-hover',
@@ -160,10 +172,9 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                         }
                         ui.draggable.remove();
 
-                        if ($('.voteable__item')) {
-                            $('.voteable__item').first().show();
-                        } else {
-                            console.log('Show all done..');
+                        var selectContainer = $('#voteable-container .voteable__item');
+                        if (selectContainer.length === 0) {
+                            $('<div class="voteable__item">+Add button: Coming soon</div>').appendTo($('#voteable-container'));
                         }
                     }
                 });
@@ -176,11 +187,10 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
             template: 'radioable',
 
             events: {
-                'click .radioable__radiobutton': 'somethingChanged'
+                'click .radioable__radiobutton': 'radioClicked'
             },
 
-            somethingChanged: function() {
-                console.log('fired');
+            radioClicked: function() {
                 var radioable = this.$el.find('.radioable');
                 var checked = radioable.find('.radioable__radiobutton:checked');
                 radioable.find('.radioable__optionset').removeClass('is-active');
@@ -192,10 +202,10 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
             template: 'checkboxable',
 
             events: {
-                'click .checkboxable__checkbox': 'somethingChanged'
+                'click .checkboxable__checkbox': 'boxChecked'
             },
 
-            somethingChanged: function() {
+            boxChecked: function() {
                 var checkboxable = this.$el.find('.checkboxable');
                 var checked = checkboxable.find('.checkboxable__checkbox:checked');
                 checkboxable.find('.checkboxable__optionset').removeClass('is-active');

@@ -187,7 +187,10 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                 view.on('goals', function() {
                     // show the goals setting screen
                     require(['goal_create_controller'], function() {
-                        var view = App.request('goal:create');
+                        var view = App.request('goal:create', {
+                            activityId: activity.id,
+                            challengeId: Show.Controller.challengeId
+                        });
                         Show.Controller.layout.pageRegion.show(view);
 
                         view.on('goals:next', function() {
