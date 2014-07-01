@@ -66,7 +66,7 @@ define(['app'], function(App) {
                 }, ]
             }, {
                 id: 4,
-                weight: 5,
+                weight: 50,
                 type: 'Draggable',
                 title: 'Activity 2: Why, When and How',
                 description: 'Say what you have learnt from your experience that would help you do the job?',
@@ -144,7 +144,7 @@ define(['app'], function(App) {
                 weight: 10,
                 type: 'Voteable',
                 title: 'Activity 1: Pros and Cons',
-                question: 'what do you think about:',
+                question: 'What are the pros and cons of disclosing to employers?',
                 data: [{
                     name: 'I may not get the job'
                 }, {
