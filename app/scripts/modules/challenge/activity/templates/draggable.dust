@@ -5,7 +5,10 @@
 <form>
     <div id='draggable-container' class='draggable__dragzone' data-snap-ignore='true'>
         {#data.draggable}
-            <input class='draggable__item' value='{name}' />
+        <div class='draggable__item'>
+            <input type="hidden" value='{name}' />
+            {name}
+        </div>
         {/data.draggable}
         <div class='draggable__item-add-new addNew'>+Add something</div>
 
