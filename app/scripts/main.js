@@ -32,7 +32,7 @@ require([
             console.log('Init Non Mobile');
             $(function() {
                 App.start();
-                });
+            });
             // libs.push('//localhost:35729/livereload.js');
         }
 

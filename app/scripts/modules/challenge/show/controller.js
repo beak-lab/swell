@@ -1,4 +1,5 @@
 'use strict';
+/*global window*/
 define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_entity', 'activity_entity', 'resource_entity'], function(App, View, ActivityView) {
     App.module('Challenge.Show', function (Show, App, Backbone, Marionette, $) { // , _
         Show.Controller = {
@@ -105,10 +106,9 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                 });
 
                 // watch the next and prev buttons
-                view.on('next', function(model) {
+                view.on('next', function() {
                     // this should always success, but just incase:
                     if (Show.Controller.currentActivity < (Show.Controller.activityModels.length - 1)) {
-console.log(model);
                         Show.Controller.currentActivity++;
                         Show.Controller.showActivity();
                     }
@@ -127,6 +127,12 @@ console.log(model);
                         var view = App.request('goal:create');
                         Show.Controller.layout.pageRegion.show(view);
                     });
+                });
+
+                view.on('save:result', function(data) {
+                    console.log('Saving');
+                    // save the result in localstorage
+                    window.localStorage.setItem('activity' + activity.id, JSON.stringify(data));
                 });
 
                 Show.Controller.layout.pageRegion.show(view);
