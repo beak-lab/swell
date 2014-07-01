@@ -1,1 +1,9 @@
-stuff
+<h2>{challange.name}</h2>
+
+<h3>Goals</h3>
+
+{goals|js|s}
+
+{#goals}
+    {name}
+{/goals}

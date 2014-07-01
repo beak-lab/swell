@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'templates', 'dust'], function(App) {
+define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
     App.module('Goal.Create.View', function(View, App, Backbone, Marionette, $) { // , $, _
 
         View.GoalAdd = Marionette.ItemView.extend({
@@ -8,7 +8,8 @@ define(['app', 'templates', 'dust'], function(App) {
             events: {
                 // 'click #add_goal': 'added',
                 'click .auto_goal': 'addGoal',
-                'keyup #goal_name': 'addGoalform'
+                'keyup #goal_name': 'addGoalform',
+                'click #show_summary': 'next'
             },
 
             appendGoal: function(content){
@@ -30,6 +31,15 @@ define(['app', 'templates', 'dust'], function(App) {
                 this.appendGoal( click.target.innerText );
                 $(click.target).slideUp();
                 //.slideUp();
+            },
+
+            next: function() {
+                // TODO: remove this SUPEr hack
+                $('#challenge_menu .challenge__menu__item').removeClass('is-active');
+                $('#stuff').addClass('is-active');
+
+                this.trigger('goals:save', Backbone.Syphon.serialize(this));
+                this.trigger('goals:next');
             },
 
 /*            added: function(e) {

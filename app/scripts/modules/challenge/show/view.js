@@ -48,7 +48,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 // $('#challenge-description-expander').hide();
                 // actually, lets do it with css
                 $('.challenge').addClass('is-compacted');
-                
+
 
             }
         });
@@ -69,8 +69,8 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 //     window.plugins.html5Video.play("id-2");
                 // }
             },
-            videoClicked : function(e){
-                /*                
+            videoClicked : function(){
+                /*
                 if (window.plugins) {
                     e.preventDefault();
                     VideoPlayer.play('file:///android_asset/www/' + $(e.target).attr('src'));
@@ -93,7 +93,10 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
             tagName: 'div',
             template: 'stuff',
 
-            events: {
+            serializeData: function() {
+                return {
+                    goals: this.options.goals
+                };
             },
 
         });

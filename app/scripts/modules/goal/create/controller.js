@@ -17,9 +17,21 @@ define(['app', 'goal_create_view', 'activity_entity'], function(App, View) {
                     }
                 });
 
-                return new View.GoalAdd({
+                var view = new View.GoalAdd({
                     autoGoals: goals
                 });
+
+                // TODO: get this dynamically
+                var challenge = 1;
+
+                // when the 'next' button is pressed
+                view.on('goals:save', function(data) {
+                    console.log('dd');
+                    // save the goals for this challange
+                    window.localStorage.setItem('goals[' + challenge + ']', JSON.stringify(data));
+                });
+
+                return view;
             }
         };
     });

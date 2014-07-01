@@ -25,13 +25,11 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     // ---- End awesome slider region ----
 
                     // make the custom menu for this challenge
-                    var menu = new View.ChallengeMenu({
-
-                    });
-                    Show.Controller.layout.menuRegion.show(menu);
+                    Show.Controller.menu = new View.ChallengeMenu();
+                    Show.Controller.layout.menuRegion.show(Show.Controller.menu);
 
                     // NOTE: without a model, you do not need itemview on the watch string
-                    menu.on('menu:clicked', function(item) {
+                   Show.Controller.menu.on('menu:clicked', function(item) {
                         if ('activities' === item) {
                             // make a new view
                             Show.Controller.showActivity();
@@ -66,9 +64,25 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                         });
                     });
 
-                    Show.Controller.showViews.stuff = new View.Stuff();
+                    Show.Controller.myStuff();
                 });
 
+            },
+
+            /**
+            * Note: This is all contextual to this challange
+            *
+            * Goals
+            * Activity outcomes
+            */
+            myStuff: function() {
+                Show.Controller.showViews.stuff = new View.Stuff();
+                Show.Controller.myStuffSetup(1);
+            },
+
+            myStuffSetup: function(challenge) {
+                var goals = JSON.parse(window.localStorage.getItem('goals[' + challenge + ']'));
+                Show.Controller.showViews.stuff.options.goals = goals;
             },
 
             /**
@@ -126,6 +140,12 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     require(['goal_create_controller'], function() {
                         var view = App.request('goal:create');
                         Show.Controller.layout.pageRegion.show(view);
+
+                        view.on('goals:next', function() {
+                            // get the new goals first
+                            Show.Controller.myStuffSetup(1);
+                            Show.Controller.menu.trigger('menu:clicked', 'stuff');
+                        });
                     });
                 });
 

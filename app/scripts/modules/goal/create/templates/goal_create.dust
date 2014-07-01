@@ -18,10 +18,11 @@
 	    <!-- <input id="add_goal" type="submit" value='add'/> -->
 	</div>
 
-
-
-	<div id='goals' class="activity__personal-goals">
+	<div class="activity__personal-goals">
 		<h2 class="activity__personal-goals__title">Goals set today</h2>
-
+		<form id='goals'>
+		</form>
 	</div>
+
+	<div id='show_summary'>Ok done, show summary!</div>
 </div>
