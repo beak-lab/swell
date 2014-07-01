@@ -12,8 +12,9 @@ define(['app'], function(App) { // resource_entity
             }, {
                 id: 2,
                 type : 'video',
-                title: 'How to ace a job interview',
+                title: 'Gary\'s recovery story on disclosure',
                 url: 'vid/howtoaceajobinterview.mp4',
+                poster: 'images/posters/gary.jpg',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus voluptatum sunt harum maiores beatae dignissimos.',
             }, {
                 id: 3,

@@ -8,9 +8,6 @@
     <feature name="SplashScreen">
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
     </feature>
-    <feature name="VideoPlayer">
-        <param name="android-package" value="com.dawsonloudon.videoplayer.VideoPlayer" />
-    </feature>
     <name>Swell</name>
     <description>
         Online well-being platform

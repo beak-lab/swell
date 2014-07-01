@@ -11,31 +11,19 @@
                         {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /></feature>",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"VideoPlayer\"><param name=\"android-package\" value=\"com.dawsonloudon.videoplayer.VideoPlayer\" /></feature>",
-                            "count": 1
                         }
                     ]
                 }
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/*": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-                            "count": 1
-                        }
-                    ]
+                    "/*": []
                 }
             }
         }
     },
     "installed_plugins": {
         "org.apache.cordova.splashscreen": {
-            "PACKAGE_NAME": "nz.co.beak.swell"
-        },
-        "com.dawsonloudon.videoplayer": {
             "PACKAGE_NAME": "nz.co.beak.swell"
         }
     },

@@ -1,5 +1,5 @@
 <div class="goals">
-    <h1 class="goals__title" ><img src="images/icon-goals-tick.svg"/>Goals</h1>
+    <h1 class="goals__title" ><img src="images/icon-goals-tick.svg"/>My Goals</h1>
 
     <ul class="goals__goalset">
     	<li class="goals__goal"><label><input type="checkbox" class="goals__goal__checkbox"><span>I want to get more exercise</span></label>
