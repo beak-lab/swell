@@ -63,9 +63,7 @@
 	padding-bottom: 0;
 }
 
-.resource__article__title{
-	&:extend(.resource__title);
-}
+.resource__article__title{}
 .resource__article__authour{
 	font-style: italic;
 }
@@ -98,4 +96,31 @@
 		display: inline-block;
 		width: 2em;
 	}
+}
+
+/********** event **********/
+.resource__event{
+	&:extend(.is-resource-card);
+	margin-bottom: 2em;
+	overflow: hidden;
+}
+
+.resource__event__icon{
+	max-width: 8rem;
+	max-height: 8rem;
+	float: left;
+	*{
+		fill: @fireengine;
+	}
+}
+
+.resource__event__title,
+.resource__event__text,
+.resource__event__signup{
+  margin-left: 9rem;
+}
+
+.resource__event__signup{
+	border-top: 1px solid @grey;
+	padding: 1rem 0 0 0;
 }
