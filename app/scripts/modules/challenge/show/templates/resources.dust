@@ -1,7 +1,8 @@
-<div class="resources">	
+<div class="resources">
+{?resources}
 {#resources}{#attributes}
     {@select key="{type}" type="string"}
-    	
+
     	{@eq value="quote"}<!-- quote -->
 		<div class="resource resource__quote">
 	        <p class="resource__quote__quote">{text}</p>
@@ -33,4 +34,8 @@
 
     {/select}
 {/attributes}{/resources}
+
+{:else}
+    <h3>This is currently a DEMO. </h3>
+{/resources}
 </div>
