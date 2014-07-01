@@ -99,7 +99,9 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                 var name = prompt('Name?');
                 if (name) {
                     var container = this.$el.find('#draggable-container').prepend('<div class="draggable__item is-added" >' + name +' </div>'),
-                        item = container.children().first().draggable();
+                        item = container.children().first().draggable({
+                            containment: '#draggableContainmentDiv'
+                        });
 
                     setTimeout(function() {
                         item.removeClass('is-added');
@@ -109,10 +111,11 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
 
             onRender: function() {
                 var self = this;
-                // superProto.onRender.apply(this, arguments);
                 View.Activity.prototype.onRender.call(this);
 
-                this.$el.find('#draggable-container .draggable__item').draggable();
+                this.$el.find('#draggable-container .draggable__item').draggable({
+                    containment: '#draggableContainmentDiv'
+                });
                 this.$el.find('#droppable').droppable({
                     activeClass: 'ui-state-default',
                     hoverClass: 'ui-state-hover',
@@ -154,7 +157,10 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
 
             onRender: function() {
                 View.Activity.prototype.onRender.call(this);
-                this.$el.find('#voteable-container .voteable__item').draggable();
+                this.$el.find('#voteable-container .voteable__item').draggable({
+                    axis: 'y',
+                    containment: '#voteableForm'
+                });
                 this.$el.find('#top-droppable, #bottom-droppable').droppable({
                     activeClass: 'ui-state-default',
                     hoverClass: 'ui-state-hover',
@@ -166,10 +172,9 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                         }
                         ui.draggable.remove();
 
-                        if ($('.voteable__item')) {
-                            $('.voteable__item').first().show();
-                        } else {
-                            console.log('Show all done..');
+                        var selectContainer = $('#voteable-container .voteable__item');
+                        if (selectContainer.length === 0) {
+                            $('<div class="voteable__item">+Add button: Coming soon</div>').appendTo($('#voteable-container'));
                         }
                     }
                 });
