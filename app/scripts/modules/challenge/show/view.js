@@ -99,6 +99,23 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate'], function(
                 };
             },
 
+            onRender: function() {
+                var rater = this.$el.find('#rater');
+                var self = this;
+                rater.on('change', function() {
+                    console.log();
+                    var status = 'test';
+                    switch (rater.val()) {
+                        case '1': status = 'Ok ish'; break;
+                        case '2': status = 'A bit nice'; break;
+                        case '3': status = 'Average'; break;
+                        case '4': status = 'Super good'; break;
+                        case '5': status = 'Awesome'; break;
+                    }
+                    self.$el.find('#raterOutput').val(status);
+                });
+            }
+
         });
     });
 

@@ -76,10 +76,10 @@
           }
         }
       } else {
-        _console.log('Missing body block in the iter helper.');
+        console.log('Missing body block in the iter helper.');
       }
     } else {
-      _console.log('Missing parameter \'key\' in the iter helper.');
+      console.log('Missing parameter \'key\' in the iter helper.');
     }
     return chunk;
 
