@@ -202,7 +202,7 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     console.log('Saving');
                     // get the current data:
                     var thisChallengeData = JSON.parse(window.localStorage.getItem('challenge[' + Show.Controller.challengeId + ']'));
-                    if (!thisChallengeData) {
+                    if (!thisChallengeData) { // firs time, setup this challenges object
                         thisChallengeData = {};
                     }
                     // update this activity

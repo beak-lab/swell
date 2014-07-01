@@ -12,24 +12,26 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 'click #show_summary': 'next'
             },
 
-            appendGoal: function(content){
+            appendGoal: function(text) {
                 var total = this.$el.find('.activity__personal-goals__goal').length;
-                var newgoal = $('<input class="activity__personal-goals__goal" name="goal[' + total + ']" value="' + content + '"/>');
-                newgoal.hide();
-                this.$el.find('#goals').addClass('has-goals').prepend(newgoal);
-                newgoal.slideDown();
+                var newgoalInput = $('<input type="hidden" name="goal[' + total + ']" value="' + text + '"/>');
+                var newgoalDiv = $('<div class="activity__personal-goals__goal">' + text + '</div>');
+                newgoalDiv.hide();
+                this.$el.find('#goals').addClass('has-goals').prepend(newgoalDiv).prepend(newgoalInput);
+                newgoalDiv.slideDown();
             },
 
-            addGoalform: function(e){
+            addGoalform: function(e) {
                 e.preventDefault();
-                if(e.keyCode === 13 ){
-                    this.appendGoal( this.$el.find('#goal_name').val() );
-                    this.$el.find('input').val('');
+                if (e.keyCode === 13) {
+                    var input = this.$el.find('#goal_name');
+                    this.appendGoal(input.val());
+                    input.val('');
                 }
             },
 
             addGoal: function(click) {
-                this.appendGoal( click.target.innerText );
+                this.appendGoal(click.target.innerText);
                 $(click.target).slideUp();
                 //.slideUp();
             },

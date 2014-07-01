@@ -111,9 +111,8 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                     hoverClass: 'ui-state-hover',
                     drop: function(event, ui) {
                         ui.draggable.clone().appendTo(this).css({position: ''});
-                        var l = self.$el.find('#draggable-container .draggable__item').length;
-                        var newInput = $('<input type="hidden" name="draggable[' + l + ']" value="' + ui.draggable.text() + '" />');
-                        newInput.appendTo(this);
+                        var l = self.$el.find('#draggable-container .draggable__item').length + 1;
+                        $('<input type="hidden" name="draggable[' + l + ']" value="' + ui.draggable.text() + '" />').appendTo(this);
                         ui.draggable.remove();
                     }
                 });
