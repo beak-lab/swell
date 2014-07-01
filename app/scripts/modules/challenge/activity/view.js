@@ -94,7 +94,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
             onAddNewMagnet: function() {
                 var name = prompt('Name?');
                 if (name) {
-                    var container = this.$el.find('#draggable-container').prepend('<input class="draggable__item is-added" value="' + name + '">'),
+                    var container = this.$el.find('#draggable-container').prepend('<div class="draggable__item is-added" ><input type="hidden" value="' + name + '">' + name +' </div>'),
                         item = container.children().first().draggable();
 
                     setTimeout(function() {
