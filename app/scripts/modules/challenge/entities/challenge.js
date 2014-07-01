@@ -54,7 +54,7 @@ define(['app'], function(App) {
                     slug: 'work-business',
                     domain: 5,
                     resources: [1],
-                    activities: [3],
+                    activities: [5],
                     icon: 'icon-business.svg',
                 }, {
                     id: 3,

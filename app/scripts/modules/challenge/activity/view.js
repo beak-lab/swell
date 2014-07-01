@@ -1,4 +1,5 @@
 'use strict';
+/*global prompt*/
 define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jquery-ui/droppable', 'jquery-ui/draggable'], function(App) {
     App.module('Challenge.Activity.View', function(View, App, Backbone, Marionette, $, _) {
         View.Layout = Marionette.Layout.extend({
@@ -15,31 +16,40 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                 this.events = _.extend({
                     'mousedown .activity__pagination-next': 'nextPressed',
                     'mouseup   .activity__pagination-next': 'nextUnpressed',
+                    'click .activity__pagination-goals': 'goals'
                 }, this._events, this.events);
                 Marionette.ItemView.prototype.constructor.apply(this, arguments);
             },
 
             triggers: {
-                'click .activity__pagination-goals': 'goals'
             },
 
             nextPressed: function(e) {
                 e.preventDefault();
-                console.log('Click DOWN');
+                // console.log('Click DOWN');
                 this.$el.find('.activity__pagination-next').addClass('is-pressed');
                 this.clickTime = new Date().getTime();
             },
 
             nextUnpressed: function(e) {
                 e.preventDefault();
-                console.log('Click UP');
+                // console.log('Click UP');
+                this.saveGoals();
                 this.$el.find('.activity__pagination-next').removeClass('is-pressed');
                 if (new Date().getTime() - this.clickTime > 800) {
-                    this.trigger('prev', Backbone.Syphon.serialize(this));
-
+                    this.trigger('prev');
                 } else {
-                    this.trigger('next', Backbone.Syphon.serialize(this));
+                    this.trigger('next');
                 }
+            },
+
+            goals: function() {
+                // this.saveGoals();
+                this.trigger('goals');
+            },
+
+            saveGoals: function() {
+                this.trigger('save:result', Backbone.Syphon.serialize(this));
             },
 
             serializeData: function() {

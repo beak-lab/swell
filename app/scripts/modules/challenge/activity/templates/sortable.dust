@@ -1,12 +1,14 @@
 {leftLabel}
 
-<ul id='sortable' data-snap-ignore='true'>
+<form>
+    <ul id='sortable' data-snap-ignore='true'>
 
-    {#data}
-        <li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span>{name}</li>
-    {/data}
+        {#data}
+            <li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span>{name}</li>
+        {/data}
 
-</ul>
+    </ul>
+</form>
 
 {rightLabel}
 

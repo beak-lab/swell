@@ -98,10 +98,12 @@ define(['app'], function(App) {
                         goalText: 'test 2'
                     }, {
                         text: 'As part of everyday conversation',
-                        subtext: 'if you feel safe'
+                        subtext: 'if you feel safe',
+                        goalText: 'test 3'
                     }, {
                         text: 'When things go pear shaped',
-                        subtext: 'if you think they need to understand what\'s going on.'
+                        subtext: 'if you think they need to understand what\'s going on.',
+                        goalText: 'test 4'
                     },
 
                 ]
@@ -166,7 +168,7 @@ define(['app'], function(App) {
                 }
 
                 var model = Entities.fakes.findWhere({
-                    id: parseInt(id, 10)
+                    id: parseInt(id)
                 });
 
                 return model;
