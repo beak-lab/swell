@@ -74,14 +74,14 @@ define([
 
                     var wWidth = $(window).width();
 
-                    var snapper = new Snap({
+                    App.snapper = new Snap({
                         element: document.getElementById('page-region'),
                         maxPosition: wWidth *  0.9, // make the drawer width 90% of the screen size
                         minPosition: wWidth * -0.9,
                         minDragDistance: 10
                     });
 
-                    // snapper.open('right');
+                    // App.snapper.open('right');
 
                     // set a default route
                     if (App.getCurrentRoute() === '') {

@@ -8,6 +8,11 @@ define(['app', 'user_view'], function(App, View) {
                     App.log('User profile requested', contextName, 2);
                     App.mainRegion.show(new CommonViews.Loading());
 
+                    App.execute('set:back', {
+                        route: 'domains',
+                        page: 'Domains'
+                    });
+
                     var user = App.request('user:profile');
 
                     // get the user information

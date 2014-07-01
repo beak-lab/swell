@@ -14,7 +14,7 @@
             <img src="images/icon-help.svg" class="sidebar-menu__item__image">
             <div class="sidebar-menu__item__text">Turn Tips On</div>
         </div>
-        <div class="sidebar-menu__item">
+        <div class="sidebar-menu__item sidebar-settings">
             <img src="images/icon-settings.svg" class="sidebar-menu__item__image">
             <div class="sidebar-menu__item__text">Settings</div>
         </div>

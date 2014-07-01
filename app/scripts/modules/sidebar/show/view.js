@@ -1,11 +1,15 @@
 'use strict';
 define(['app'], function(App) {
-    App.module('Sidebar.View', function(View, App, Backbone, Marionette) { // , $, _
+    App.module('Sidebar.View', function(View, App, Backbone, Marionette, $) { // , $, _
         View.Layout = Marionette.Layout.extend({
             template: 'sidebar_layout',
             regions: {
                 history: '#sidebar-history',
             },
+
+            triggers: {
+                'click .sidebar-settings': 'user:settings'
+            }
         });
 
         View.HistoryItem = Marionette.ItemView.extend({
