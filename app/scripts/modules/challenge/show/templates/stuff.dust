@@ -2,12 +2,21 @@
 
 <div class="mystuff__goals">
     <h3>Recent Goals</h3>
-    {@iterate key=goals.goal}
 
-    <label class="mystuff__goals__goal">
-        <input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />{$value}
-    </label>
-    {/iterate}
+    <div class="activity__personal-goal__add" id="personal-goal-add-form">
+        <input id='goal_name' placeholder="Add your own" type='text' name='goal' />
+    </div>
+
+    <div id='goals'>
+        {?goals.goal}
+            <label class="mystuff__goals__goal">
+                {@iterate key=goals.goal}
+                    <input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />{$value}
+                {/iterate}
+            </label>
+        {/goals.goal}
+    </div>
+
 </div>
 
 <h3>Share progress with a buddy</h3>
@@ -16,64 +25,64 @@
         <input class="mystuff__share-form__input" type="text" placeholder="enter an email address or select below" />
     </div>
     <div class="mystuff__share-buddies">
-        <button 
-            class="mystuff__share-buddy" 
-            data-toggle="popover" 
-            data-placement="bottom" 
-            title="David Swann" 
+        <button
+            class="mystuff__share-buddy"
+            data-toggle="popover"
+            data-placement="bottom"
+            title="David Swann"
             data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
         >
-            
+
             <img src="images/avatars/av1.svg">
         </button>
-        <button 
-            class="mystuff__share-buddy" 
-            data-toggle="popover" 
-            data-placement="bottom" 
-            title="Gillian Davies" 
+        <button
+            class="mystuff__share-buddy"
+            data-toggle="popover"
+            data-placement="bottom"
+            title="Gillian Davies"
             data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
         >
-            
+
             <img src="images/avatars/av2.svg">
         </button>
-        <button 
-            class="mystuff__share-buddy" 
-            data-toggle="popover" 
-            data-placement="bottom" 
-            title="Ant Bennett" 
+        <button
+            class="mystuff__share-buddy"
+            data-toggle="popover"
+            data-placement="bottom"
+            title="Ant Bennett"
             data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
         >
-            
+
             <img src="images/avatars/av3.svg">
         </button>
-        <button 
-            class="mystuff__share-buddy" 
-            data-toggle="popover" 
-            data-placement="bottom" 
-            title="Sam Hogan" 
+        <button
+            class="mystuff__share-buddy"
+            data-toggle="popover"
+            data-placement="bottom"
+            title="Sam Hogan"
             data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
         >
-            
+
             <img src="images/avatars/av4.svg">
         </button>
-        <button 
-            class="mystuff__share-buddy" 
-            data-toggle="popover" 
-            data-placement="bottom" 
-            title="Leon Wong" 
+        <button
+            class="mystuff__share-buddy"
+            data-toggle="popover"
+            data-placement="bottom"
+            title="Leon Wong"
             data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
         >
-            
+
             <img src="images/avatars/av5.svg">
         </button>
-        <button 
-            class="mystuff__share-buddy" 
-            data-toggle="popover" 
-            data-placement="bottom" 
-            title="Jenny Boss" 
+        <button
+            class="mystuff__share-buddy"
+            data-toggle="popover"
+            data-placement="bottom"
+            title="Jenny Boss"
             data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
         >
-            
+
             <img src="images/avatars/av6.svg">
         </button>
     </div>
@@ -82,55 +91,80 @@
 
 <div class="mystuff__activity-history">
     <h3>Activity History</h3>
-    
+<!--
+    <div>
+        {_activities|js|s}
+    </div>
 
+  -->
     <div id='mystuff-history' class='swipe mystuff__activity-history__wrapper' data-snap-ignore="true">
         <div class="mystuff__activity-history__decks swipe-wrap">
             {#activities}
                 {@select key="{type}"}
-                        <div class="activity-history__deck">
                     {@eq value="Voteable"}
-                        <article class="activity-history__card is-votable">
-                            <h4 class="activity-history__card__title">{question|s}</h4>
-                            
-                            <h3>Pros:</h3>
-                            {@if cond="('{pros}'.length) > 1"}
-                            {@iterate key=pros}
-                                <p>{$value}</p>
-                            {/iterate}
-                            {:else}
-                                <p>Nothing to see here!</p>
-                            {/if}
+                        <div class="activity-history__deck">
+                            <!-- History  -->
+                            <article class="activity-history__card">
+                                <h4 class="activity-history__card__title">How did you feed?</h4>
+                                <h3>Pros:</h3>
+                                <p>Great</p>
 
-                            <h3>Cons:</h3>
-                            {@if cond="('{cons}'.length) > 1"}
-                            {@iterate key=cons}
-                                <p>{$value}</p>
-                            {/iterate}
-                            {:else}
-                                <p>Nothing to see here!</p>
-                            {/if}
-                        </article>
+                                <h3>Cons:</h3>
+                                <p>Not so</p>
+                            </article>
+                            <!-- Current -->
+                            <article class="activity-history__card">
+                                <!-- <h4>{title}</h4> -->
+                                <h4 class="activity-history__card__title">{question|s}</h4>
+
+                                <h3>Pros:</h3>
+                                {@iterate key=pros}
+                                    <p>{$value}</p>
+                                {/iterate}
+
+                                <h3>Cons:</h3>
+                                {@iterate key=cons}
+                                    <p>{$value}</p>
+                                {/iterate}
+                            </article>
+                        </div>
                     {/eq}
 
                     {@eq value="Checkboxable"}
-                        <article class="activity-history__card is-checkboxable">
-                           <h4 class="activity-history__card__title">{question|s}</h4>
-                            {@iterate key=data}
-                                <p class=''>{$value.text}</p>
-                            {/iterate}
-                        </article>
+                        <div class="activity-history__deck">
+                            <!-- History  -->
+                            <article class="activity-history__card">
+                               <h4 class="activity-history__card__title">A Question</h4>
+                                    <p>1</p>
+                                    <p>2</p>
+                            </article>
+                            <!-- Current -->
+                            <article class="activity-history__card">
+                               <h4 class="activity-history__card__title">{question|s}</h4>
+                                {@iterate key=data}
+                                    <p>{$value.text}</p>
+                                {/iterate}
+                            </article>
+                        </div>
                     {/eq}
 
                     {@eq value="Draggable"}
-                        <article class="activity-history__card is-draggable">
-                            <h4 class="activity-history__card__title">{question|s}</h4>
-                            {@iterate key=data}
-                                <p>{$value}</p>
-                            {/iterate}
-                        </article>
+                        <div class="activity-history__deck">
+                            <!-- History  -->
+                            <article class="activity-history__card">
+                                <h4 class="activity-history__card__title">Title</h4>
+                                    <p>One</p>
+                                    <p>Two</p>
+                            </article>
+                            <!-- Current -->
+                            <article class="activity-history__card">
+                                <h4 class="activity-history__card__title">{question|s}</h4>
+                                {@iterate key=data}
+                                    <p>{$value}</p>
+                                {/iterate}
+                            </article>
+                        </div>
                     {/eq}
-                    </div>
                 {/select}
             {/activities}
         </div>
