@@ -16,18 +16,26 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 var total = this.$el.find('.activity__personal-goals__goal').length;
                 var newgoalInput = $('<input type="hidden" name="goal[' + total + ']" value="' + text + '"/>');
                 var newgoalDiv = $('<div class="activity__personal-goals__goal">' + text + '</div>');
-                newgoalDiv.hide();
+                //newgoalDiv.hide();
+                newgoalDiv.css({'height' :  0, 'min-height' : 0});
+
                 this.$el.find('#goals').addClass('has-goals').prepend(newgoalDiv);
                 this.$el.find('#goals').prepend(newgoalInput);
-                newgoalDiv.slideDown();
+                //newgoalDiv.slideDown();
+                newgoalDiv.animate({
+                    'min-height' : '5rem'
+                }, 500);
             },
 
             addGoalform: function(e) {
                 e.preventDefault();
                 if (e.keyCode === 13) {
                     var input = this.$el.find('#goal_name');
-                    this.appendGoal(input.val());
-                    input.val('');
+
+                    if( input.val().trim() ) {
+                        this.appendGoal(input.val());
+                        input.val('');
+                    };
                 }
             },
 

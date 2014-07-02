@@ -1,11 +1,12 @@
 .__activity-goal{
 	display: block;
 	background: #fff;
-	padding: 2rem .5em 1.5em 3.5em;
+	padding: 0rem .5em 0em 3.5em;
 	border-bottom: 1px solid fade(@oil, 50%); 
-	min-height: 6rem;
-
+	min-height: 5rem;
+	overflow: hidden;
 	vertical-align: bottom;
+	line-height: 4.5rem;
 	&:before{
 		// &:extend(.checkboxable__checkbox);
 		font-size: 2em;
@@ -48,7 +49,8 @@
 
 .activity__personal-goal__add{
 	margin-top: 1rem;
-	padding-top: 1rem !important;
+	margin-bottom: 1rem;
+	padding-top: .5rem !important;
 	.__activity-goal;
 	&:before{
 		content: '+';
@@ -82,7 +84,7 @@
 .activity__personal-goals__goal{
 	.__activity-goal;
 
-	padding-bottom: 2rem;
+	// padding-bottom: 2rem;
 	&:before{
 		&:extend(.checkboxable__checkbox);
 	}
