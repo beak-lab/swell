@@ -103,6 +103,16 @@
                 {@select key="{type}"}
                     {@eq value="Voteable"}
                         <div class="activity-history__deck">
+                            <!-- History  -->
+                            <article class="activity-history__card">
+                                <h4 class="activity-history__card__title">How did you feed?</h4>
+                                <h3>Pros:</h3>
+                                <p>Great</p>
+
+                                <h3>Cons:</h3>
+                                <p>Not so</p>
+                            </article>
+                            <!-- Current -->
                             <article class="activity-history__card">
                                 <!-- <h4>{title}</h4> -->
                                 <h4 class="activity-history__card__title">{question|s}</h4>
@@ -122,6 +132,13 @@
 
                     {@eq value="Checkboxable"}
                         <div class="activity-history__deck">
+                            <!-- History  -->
+                            <article class="activity-history__card">
+                               <h4 class="activity-history__card__title">A Question</h4>
+                                    <p>1</p>
+                                    <p>2</p>
+                            </article>
+                            <!-- Current -->
                             <article class="activity-history__card">
                                <h4 class="activity-history__card__title">{question|s}</h4>
                                 {@iterate key=data}
@@ -133,6 +150,13 @@
 
                     {@eq value="Draggable"}
                         <div class="activity-history__deck">
+                            <!-- History  -->
+                            <article class="activity-history__card">
+                                <h4 class="activity-history__card__title">Title</h4>
+                                    <p>One</p>
+                                    <p>Two</p>
+                            </article>
+                            <!-- Current -->
                             <article class="activity-history__card">
                                 <h4 class="activity-history__card__title">{question|s}</h4>
                                 {@iterate key=data}
