@@ -13,24 +13,66 @@
         <input class="input-lg mystuff__share-form__input" type="text" placeholder="enter an email address or select below" />
     </div>
     <div class="mystuff__share-buddies">
-        <div class="mystuff__share-buddy">
+        <button 
+            class="mystuff__share-buddy" 
+            data-toggle="popover" 
+            data-placement="bottom" 
+            title="David Swann" 
+            data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
+        >
+            
             <img src="images/avatars/av1.svg">
-        </div>
-        <div class="mystuff__share-buddy">
+        </button>
+        <button 
+            class="mystuff__share-buddy" 
+            data-toggle="popover" 
+            data-placement="bottom" 
+            title="Gillian Davies" 
+            data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
+        >
+            
             <img src="images/avatars/av2.svg">
-        </div>
-        <div class="mystuff__share-buddy">
+        </button>
+        <button 
+            class="mystuff__share-buddy" 
+            data-toggle="popover" 
+            data-placement="bottom" 
+            title="Ant Bennett" 
+            data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
+        >
+            
             <img src="images/avatars/av3.svg">
-        </div>
-        <div class="mystuff__share-buddy">
+        </button>
+        <button 
+            class="mystuff__share-buddy" 
+            data-toggle="popover" 
+            data-placement="bottom" 
+            title="Sam Hogan" 
+            data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
+        >
+            
             <img src="images/avatars/av4.svg">
-        </div>
-        <div class="mystuff__share-buddy">
+        </button>
+        <button 
+            class="mystuff__share-buddy" 
+            data-toggle="popover" 
+            data-placement="bottom" 
+            title="Leon Wong" 
+            data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
+        >
+            
             <img src="images/avatars/av5.svg">
-        </div>
-        <div class="mystuff__share-buddy">
+        </button>
+        <button 
+            class="mystuff__share-buddy" 
+            data-toggle="popover" 
+            data-placement="bottom" 
+            title="Jenny Boss" 
+            data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
+        >
+            
             <img src="images/avatars/av6.svg">
-        </div>
+        </button>
     </div>
 </div>
 

@@ -22,10 +22,21 @@
 	
 }
 .mystuff__share-buddy{
+	-webkit-appearance: none; 
 	display: inline-block;
 	width: 15%;
-	padding: 1%;
+	padding: 0;
+	border: 0;
+	margin: .5%;
+	background: transparent;
+	&:focus{
+		outline: none;
+	}
 	img{
 		max-width: 100%; 
 	}
+}
+
+.mystuff__share-buddy__button{
+	width: 100%;
 }

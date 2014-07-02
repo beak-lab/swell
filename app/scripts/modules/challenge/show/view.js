@@ -100,6 +100,17 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 };
             },
 
+            // events : {
+            //     'click .mystuff__share-buddy' : 'popover',
+            // },
+
+            // popover: function(e){
+            //     var target = $(e.target);
+            //     if (!target.hasClass('mystuff__share-buddy')) {
+            //         target = target.closest('.mystuff__share-buddy');
+            //     }
+            // },
+
             onRender: function() {
                 var rater = this.$el.find('#rater');
                 var self = this;
@@ -114,6 +125,11 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                         case '5': status = 'Awesome'; break;
                     }
                     self.$el.find('#raterOutput').val(status);
+                });
+
+                this.$el.find('.mystuff__share-buddy').popover({
+                    trigger: 'focus',
+                    html: true,
                 });
             }
 
