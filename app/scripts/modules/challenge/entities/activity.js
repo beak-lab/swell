@@ -166,15 +166,18 @@ define(['app'], function(App) {
                 weight: 12,
                 type: 'Staticable',
                 title: 'Part 3: When I do disclose',
-                question: 'Make it positive by explaining:',
+                // question: 'Make it positive by explaining:',
                 data: [
+                    {   
+                        container: 'h2',
+                        content : 'Make it positive by explaining:',
+                    },
                     {
                         container: 'ol',
                         cssClass: 'big-ol',
                         content: '<li>What I learnt from my lived experience that would help me to the job</li><li>What I have learnt about self-managing my condition that will help me do the job.</li><li>The work conditions I thrive under.</li>'
                     },{
                         container: 'h3',
-                        cssClass: '',
                         content: 'Lets go into more detail...'
                     }
                 ]

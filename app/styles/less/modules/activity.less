@@ -1,10 +1,10 @@
 .__activity-goal{
 	display: block;
 	background: #fff;
-	padding: .5em 1.5em;
+	padding: 2rem .5em 1.5em 3.5em;
 	border-bottom: 1px solid fade(@oil, 50%); 
 	min-height: 6rem;
-	padding-top: 2rem;
+
 	vertical-align: bottom;
 	&:before{
 		// &:extend(.checkboxable__checkbox);
@@ -14,6 +14,7 @@
 		display: inline-block;
 		vertical-align: middle;
 		margin-right: 1rem;
+		margin-left: -1em;
 		width: 2rem;
 		line-height: 0;
 
@@ -39,6 +40,7 @@
 
 .activity__suggested-goal{
 	.__activity-goal;
+
 	&:before{
 		content: '+';
 	}
@@ -79,7 +81,7 @@
 
 .activity__personal-goals__goal{
 	.__activity-goal;
-	padding-left: 3.5em;
+
 	padding-bottom: 2rem;
 	&:before{
 		&:extend(.checkboxable__checkbox);

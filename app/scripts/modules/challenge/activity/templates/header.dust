@@ -1,14 +1,18 @@
+{?title}
 <div class='activity__title'>{title}</div>
+{/title}
 
 {?upperDescription}
 <div class='activity__description is-upper'>
     {upperDescription|s}
 </div>
-{/upperDescription}
 
+{/upperDescription}
+{?question}
 <div class='activity__question'>
     <h3>{question|s}</h3>
 </div>
+{/question}
 
 {?description}
 <div class='activity__description is-lower'>
