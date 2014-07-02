@@ -100,7 +100,8 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                         var realData = activity.get('data');
                         var processedActivity = {
                             title: activity.get('title'),
-                            type: activity.get('type')
+                            type: activity.get('type'),
+                            question: activity.get('question')
                         };
 
                         // process activity

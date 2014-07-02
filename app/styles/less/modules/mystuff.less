@@ -29,6 +29,7 @@
 	width: 100%;
 	border-bottom: 2px dotted @grey;
 	border-radius: 0;
+	padding: .5em;
 
 }
 .mystuff__share-form__submit{}
@@ -55,4 +56,47 @@
 
 .mystuff__share-buddy__button{
 	width: 100%;
+}
+
+.mystuff__activity-history__wrapper{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	padding-bottom: 1em;
+}
+
+// Activity historymy
+.mystuff__activity-history__decks{}
+.mystuff__activity-history__deck{}
+
+.activity-history__card{
+	&:extend(.card);
+	margin: 0 1em 1em;
+}
+
+.activity-history__card__title{
+	font-weight: 500;
+	font-size: 1.5rem;
+	border-bottom: 1px solid @grey;
+	padding: 0 0 1rem 0;
+	margin-bottom: 1rem;
+}
+
+.mystuff__activity-history__pager{
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+.mystuff__activity-history__pager-item{
+	-webkit-transition: all .2s;
+	display: inline-block;
+	border: 1px solid fade(@oil, 30%);
+	width: 1rem;
+	height: 1rem;
+	border-radius: 100%;
+	margin: 0 .5rem;
+
+	&.is-active{
+		background: fade(@oil, 30%);
+	}
 }

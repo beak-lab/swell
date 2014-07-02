@@ -10,10 +10,10 @@
     {/iterate}
 </div>
 
+<h3>Share progress with a buddy</h3>
 <div class="mystuff__share">
-    <h3>Share progress with a buddy</h3>
     <div class="mystuff__share-form">
-        <input class="input-lg mystuff__share-form__input" type="text" placeholder="enter an email address or select below" />
+        <input class="mystuff__share-form__input" type="text" placeholder="enter an email address or select below" />
     </div>
     <div class="mystuff__share-buddies">
         <button 
@@ -88,41 +88,48 @@
     </div>
 
   -->   
-    <div id='mystuff-history' class='swipe' data-snap-ignore="true">
+    <div id='mystuff-history' class='swipe mystuff__activity-history__wrapper' data-snap-ignore="true">
         <div class="mystuff__activity-history__decks swipe-wrap">
             {#activities}
                 {@select key="{type}"}
                     {@eq value="Voteable"}
-                        <div class="mystuff__activity-history__deck">
-                            <h4>{title}</h4>
+                        <div class="activity-history__deck">
+                            <article class="activity-history__card">
+                                <!-- <h4>{title}</h4> -->
+                                <h4 class="activity-history__card__title">{question|s}</h4>
 
-                            <h3>Pros:</h3>
-                            {@iterate key=pros}
-                                <p>{$value}</p>
-                            {/iterate}
+                                <h3>Pros:</h3>
+                                {@iterate key=pros}
+                                    <p>{$value}</p>
+                                {/iterate}
 
-                            <h3>Cons:</h3>
-                            {@iterate key=cons}
-                                <p>{$value}</p>
-                            {/iterate}
+                                <h3>Cons:</h3>
+                                {@iterate key=cons}
+                                    <p>{$value}</p>
+                                {/iterate}
+                            </article>
                         </div>
                     {/eq}
 
                     {@eq value="Checkboxable"}
-                        <div class="mystuff__activity-history__deck">
-                            <h4>{title}</h4>
-                            {@iterate key=data}
-                                <p>{$value.text}</p>
-                            {/iterate}
+                        <div class="activity-history__deck">
+                            <article class="activity-history__card">
+                               <h4 class="activity-history__card__title">{question|s}</h4>
+                                {@iterate key=data}
+                                    <p>{$value.text}</p>
+                                {/iterate}
+                            </article>
                         </div>
                     {/eq}
 
                     {@eq value="Draggable"}
-                        <div class="mystuff__activity-history__deck">
-                            <h4>{title}</h4>
-                            {@iterate key=data}
-                                <p>{$value}</p>
-                            {/iterate}
+                        <div class="activity-history__deck">
+                            <article class="activity-history__card">
+                                <h4 class="activity-history__card__title">{question|s}</h4>
+                                {@iterate key=data}
+                                    <p>{$value}</p>
+                                {/iterate}
+                            </article>
                         </div>
                     {/eq}
                 {/select}
