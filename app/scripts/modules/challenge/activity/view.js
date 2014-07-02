@@ -155,6 +155,25 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
         View.Voteable = View.Activity.extend({
             template: 'voteable',
 
+            events: {
+                'click .add_button': 'onAddNewMagnet'
+            },
+
+            onAddNewMagnet: function() {
+                var name = prompt('Name?');
+                if (name) {
+                    var container = this.$el.find('#voteable-container').prepend('<div class="voteable__item is-added" >' + name +' </div>'),
+                        item = container.children().first().draggable({
+                            axis: 'y',
+                            containment: '#voteableForm'
+                        });
+
+                    setTimeout(function() {
+                        item.removeClass('is-added');
+                    }, 1000);
+                }
+            },
+
             onRender: function() {
                 View.Activity.prototype.onRender.call(this);
                 this.$el.find('#voteable-container .voteable__item').draggable({
@@ -168,13 +187,13 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                     drop: function(event, ui) {
                         if (event.target.id === 'bottom-droppable') {
                             // add the hidden form field
-                            var l = self.$el.find('#bottom-droppable .draggable__item').length;
+                            var l = self.$el.find('#bottom-droppable .voteable__item').length;
                             $('<input type="hidden" name="cons[' + l + ']" value="' + ui.draggable.text() + '" />').appendTo(this);
                             $('<div/>').addClass('voteable__item is-dropped').text(ui.draggable.text()).appendTo(this);
                         } else {
                             // add the hidden form field
-                            var l = self.$el.find('#top-droppable .draggable__item').length;
-                            $('<input type="hidden" name="pros[' + l + ']" value="' + ui.draggable.text() + '" />').appendTo(this);
+                            var le = self.$el.find('#top-droppable .voteable__item').length;
+                            $('<input type="hidden" name="pros[' + le + ']" value="' + ui.draggable.text() + '" />').appendTo(this);
                             $('<div/>').addClass('voteable__item is-dropped').text(ui.draggable.text()).appendTo(this);
                         }
                         // remove the dragged item
@@ -182,7 +201,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                         // check to see if there are any left
                         var selectContainer = $('#voteable-container .voteable__item');
                         if (selectContainer.length === 0) {
-                            $('<div class="voteable__item">+Add button: Coming soon</div>').appendTo($('#voteable-container'));
+                            $('<div class="voteable__item add_button">+Add another</div>').appendTo($('#voteable-container'));
                         }
                     }
                 });
