@@ -10,7 +10,8 @@ require([
         'dustMarionette',
         'templates',
         'jquery.touch.punch',
-        'backbone.localstorage'
+        'backbone.localstorage',
+        'bootstrap.tooltip'
     ],
 
     function($, Backbone, App) {
