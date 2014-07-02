@@ -1,9 +1,12 @@
 <h2>{challange.name}</h2>
 
-<div>
-    <h3>Goals</h3>
+<div class="mystuff__goals">
+    <h3>Recent Goals</h3>
     {@iterate key=goals.goal}
-        <p>{$value}</p>
+
+    <label class="mystuff__goals__goal">
+        <input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />{$value}
+    </label>
     {/iterate}
 </div>
 
@@ -76,11 +79,6 @@
     </div>
 </div>
 
-<div>
-    <h3>Rate these activities</h3>
-    Selection: <output for='rater' id='raterOutput'>Average</output>
-    <input type='range' name='range' id='rater' required class='slideable__slider' data-snap-ignore='true' value='3' max='5' step='1'>
-</div>
 
 <div>
     <h3>Activity History</h3>
@@ -99,4 +97,10 @@
             </div>
         {/activities}
     </div>
+</div>
+
+<div>
+    <h3>Rate these activities</h3>
+    Selection: <output for='rater' id='raterOutput'>Average</output>
+    <input type='range' name='range' id='rater' required class='slideable__slider' data-snap-ignore='true' value='3' max='5' step='1'>
 </div>
