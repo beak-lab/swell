@@ -97,41 +97,40 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                     // console.log(activities);
                     // each activity
                     _.each(activities, function(activity) {
-                        // var activityData = activity.get('data');
                         var realData = activity.get('data');
+                        var processedActivity = {
+                            title: activity.get('title'),
+                            type: activity.get('type')
+                        };
 
                         // process activity
                         switch (activity.get('type')) {
                             case 'Checkboxable' :
-                                processedActivities.push({
-                                    title: activity.get('title'),
-                                    data: data[activity.id]
+                                var datas = [];
+                                _.each(data[activity.id].data['checkboxable-optionset'], function(on, value) {
+                                    if (on) {
+                                        datas.push(realData[value]);
+                                    }
                                 });
+                                processedActivity.data = datas;
                             break;
                             case 'Draggable' :
-                                // var d = data[activity.id].data.draggable;
-                                // console.log(realData);
-                                // console.log(d);
-
-                                processedActivities.push({
-                                    title: activity.get('title'),
-                                    data: data[activity.id].data.draggable
-                                });
+                                processedActivity.data = data[activity.id].data.draggable;
                             break;
+                            case 'Voteable' :
+                                processedActivity.pros = data[activity.id].data.pros;
+                                processedActivity.cons = data[activity.id].data.cons;
+                            break;
+                            // case 'Radioable' :
+                            // break;
                         }
+
+                        processedActivities.push(processedActivity);
                     });
-                    // var activityData = activity.get('data');
-                    // for (var i = 0; i < _.size(data[key]); i++) {
-                    //     if (data[key][i]) {
-                    //         goals.push({name: activityData[i].goalText});
-                    //     }
-                    // }
                 });
                 // console.log(processedActivities);
 
                 Show.Controller.showViews.stuff.options.activities = processedActivities;
-
-
             },
 
             /**
@@ -158,6 +157,9 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
 
                 // get the current activity
                 var activity = Show.Controller.activityModels[Show.Controller.currentActivity];
+                if (!activity) {
+                    return false;
+                }
 
                 // setup its view
                 var view = new ActivityView[activity.get('type')]({

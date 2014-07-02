@@ -49,12 +49,41 @@
 
     <div>
         {#activities}
-            <div>
-                <h4>{title}</h4>
-                {@iterate key=data}
-                    <p>{$value}</p>
-                {/iterate}
-            </div>
+            {@select key="{type}"}
+                {@eq value="Voteable"}
+                    <div>
+                        <h4>{title}</h4>
+
+                        <h3>Pros:</h3>
+                        {@iterate key=pros}
+                            <p>{$value}</p>
+                        {/iterate}
+
+                        <h3>Cons:</h3>
+                        {@iterate key=cons}
+                            <p>{$value}</p>
+                        {/iterate}
+                    </div>
+                {/eq}
+
+                {@eq value="Checkboxable"}
+                    <div>
+                        <h4>{title}</h4>
+                        {@iterate key=data}
+                            <p>{$value.text}</p>
+                        {/iterate}
+                    </div>
+                {/eq}
+
+                {@eq value="Draggable"}
+                    <div>
+                        <h4>{title}</h4>
+                        {@iterate key=data}
+                            <p>{$value}</p>
+                        {/iterate}
+                    </div>
+                {/eq}
+            {/select}
         {/activities}
     </div>
 </div>
