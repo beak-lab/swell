@@ -48,19 +48,17 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 // $('#challenge-description-expander').hide();
                 // actually, lets do it with css
                 $('.challenge').addClass('is-compacted');
-
-
             }
         });
 
         View.Resources = Marionette.ItemView.extend({
             template: 'resources',
             events: {
-                'click .resource__article__content-expander' : 'resourceExpanderClicked',
-                'click .resource__video__video' : 'videoClicked'
+                'click .resource__article__content-expander': 'resourceExpanderClicked',
+                'click .resource__video__video': 'videoClicked'
             },
 
-            onRender : function(){
+            // onRender: function() {
                 // if (window.plugins) {
                 //     window.plugins.html5Video.initialize({
                 //         "id-2": "howtoaceajobinterview.mp4",
@@ -68,16 +66,16 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
 
                 //     window.plugins.html5Video.play("id-2");
                 // }
-            },
-            videoClicked : function(){
+            // },
+            // videoClicked: function() {
                 /*
                 if (window.plugins) {
                     e.preventDefault();
                     VideoPlayer.play('file:///android_asset/www/' + $(e.target).attr('src'));
                 }*/
-            },
+            // },
 
-            resourceExpanderClicked : function(e){
+            resourceExpanderClicked: function(e) {
                 $(e.target).closest('.resource__article').toggleClass('is-expanded');
             },
 
@@ -93,6 +91,28 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
             tagName: 'div',
             template: 'stuff',
 
+            events: {
+                'keyup #goal_name': 'addGoalform',
+            },
+
+            appendGoal: function(text) {
+                var total = this.$el.find('.activity__personal-goals__goal').length;
+                var newgoalInput = $('<input type="hidden" name="goal[' + total + ']" value="' + text + '"/>');
+                var newgoalDiv = $('<div class="activity__personal-goals__goal">' + text + '</div>');
+                newgoalDiv.hide();
+                this.$el.find('#goals').addClass('has-goals').prepend(newgoalDiv);
+                this.$el.find('#goals').prepend(newgoalInput);
+                newgoalDiv.slideDown();
+            },
+
+            addGoalform: function(e) {
+                e.preventDefault();
+                if (e.keyCode === 13) {
+                    var input = this.$el.find('#goal_name');
+                    this.appendGoal(input.val());
+                    input.val('');
+                }
+            },
 
             serializeData: function() {
                 return {
@@ -102,21 +122,28 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
             },
 
             onRender: function() {
-                
                 var rater = this.$el.find('#rater'),
                     self = this;
-
-
 
                 rater.on('change', function() {
                     console.log();
                     var status = 'test';
                     switch (rater.val()) {
-                        case '1': status = 'Ok ish'; break;
-                        case '2': status = 'A bit nice'; break;
-                        case '3': status = 'Average'; break;
-                        case '4': status = 'Super good'; break;
-                        case '5': status = 'Awesome'; break;
+                        case '1':
+                            status = 'Ok ish';
+                            break;
+                        case '2':
+                            status = 'A bit nice';
+                            break;
+                        case '3':
+                            status = 'Average';
+                            break;
+                        case '4':
+                            status = 'Super good';
+                            break;
+                        case '5':
+                            status = 'Awesome';
+                            break;
                     }
                     self.$el.find('#raterOutput').val(status);
                 });
@@ -127,42 +154,40 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 });
             },
 
-            onShow: function(){
+            onShow: function() {
                 var historyEl = this.$el.find('#mystuff-history');
                 var cards = this.$el.find('.activity-history__card');
-                var historySwipe = new Swipe(historyEl[0],{
+                var historySwipe = new Swipe(historyEl[0], {
                     continuous: true,
-                    callback: function(){
+                    callback: function() {
                         var pagers = historyEl.find('.mystuff__activity-history__pager-item').removeClass('is-active');
-                        pagers.filter(function(){  
-                             return $(this).data('idx') === historySwipe.getPos();
+                        pagers.filter(function() {
+                            return $(this).data('idx') === historySwipe.getPos();
                         }).addClass('is-active');
                     }
                 });
 
                 this.buildHistoryPager(historySwipe);
 
-                var maxHeight = Math.max.apply(null, cards.map( function () {
-                    return $( this ).outerHeight();
+                var maxHeight = Math.max.apply(null, cards.map(function() {
+                    return $(this).outerHeight();
                 }));
 
-               cards.outerHeight(maxHeight);
-
+                cards.outerHeight(maxHeight);
             },
 
-
-            buildHistoryPager : function(swipe){
+            buildHistoryPager: function(swipe) {
                 var historyEl = this.$el.find('#mystuff-history');
                 var decks = historyEl.find('.activity-history__deck');
                 var pager = $('<ul/>').addClass('mystuff__activity-history__pager');
 
                 //console.log(decks);
 
-                decks.each(function(i){
+                decks.each(function(i) {
                     var li = $('<li/>')
-                            .addClass('mystuff__activity-history__pager-item')
-                            .data('idx', i)
-                    li.click(function(){
+                        .addClass('mystuff__activity-history__pager-item')
+                        .data('idx', i)
+                    li.click(function() {
                         swipe.slide(i)
                     });
                     if (i === 0) {
@@ -172,7 +197,6 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 });
                 historyEl.append(pager);
             }
-
 
         });
     });
