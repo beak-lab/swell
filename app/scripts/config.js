@@ -29,6 +29,8 @@ requirejs.config({
 
         'snapjs'                   : '../bower_components/snapjs/snap.min',
 
+        'swipejs'                  : '../bower_components/swipejs/swipe',
+
         'bootstrap.tooltip'        : '../bower_components/bootstrap/js/tooltip',
         'bootstrap.popover'        : '../bower_components/bootstrap/js/popover',
 
@@ -76,6 +78,7 @@ requirejs.config({
         underscore: {
             exports                : '_'
         },
+
         backbone: {
             deps                   : ['jquery', 'underscore', 'dust'],
             exports                : 'Backbone'

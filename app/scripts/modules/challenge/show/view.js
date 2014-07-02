@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap.popover'], function(App) {
+define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap.popover', 'swipejs'], function(App) {
     App.module('Challenge.Show.View', function(View, App, Backbone, Marionette, $) {
         View.Layout = Marionette.Layout.extend({
             template: 'challenge_show_layout',
@@ -93,6 +93,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
             tagName: 'div',
             template: 'stuff',
 
+
             serializeData: function() {
                 return {
                     goals: this.options.goals,
@@ -100,20 +101,13 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 };
             },
 
-            // events : {
-            //     'click .mystuff__share-buddy' : 'popover',
-            // },
-
-            // popover: function(e){
-            //     var target = $(e.target);
-            //     if (!target.hasClass('mystuff__share-buddy')) {
-            //         target = target.closest('.mystuff__share-buddy');
-            //     }
-            // },
-
             onRender: function() {
-                var rater = this.$el.find('#rater');
-                var self = this;
+                
+                var rater = this.$el.find('#rater'),
+                    self = this;
+
+
+
                 rater.on('change', function() {
                     console.log();
                     var status = 'test';
@@ -131,7 +125,13 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                     trigger: 'focus',
                     html: true,
                 });
-            }
+            },
+
+            onShow: function(){
+                var historySwipe = new Swipe(this.$el.find('#mystuff-history')[0]);
+                
+            },
+
 
         });
     });

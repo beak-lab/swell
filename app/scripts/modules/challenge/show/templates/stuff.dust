@@ -80,56 +80,60 @@
 </div>
 
 
-<div>
+<div class="mystuff__activity-history">
     <h3>Activity History</h3>
-
+<!-- 
     <div>
         {_activities|js|s}
     </div>
 
-    <div>
-        {#activities}
-            {@select key="{type}"}
-                {@eq value="Voteable"}
-                    <div>
-                        <h4>{title}</h4>
+  -->   
+    <div id='mystuff-history' class='swipe' data-snap-ignore="true">
+        <div class="mystuff__activity-history__decks swipe-wrap">
+            {#activities}
+                {@select key="{type}"}
+                    {@eq value="Voteable"}
+                        <div class="mystuff__activity-history__deck">
+                            <h4>{title}</h4>
 
-                        <h3>Pros:</h3>
-                        {@iterate key=pros}
-                            <p>{$value}</p>
-                        {/iterate}
+                            <h3>Pros:</h3>
+                            {@iterate key=pros}
+                                <p>{$value}</p>
+                            {/iterate}
 
-                        <h3>Cons:</h3>
-                        {@iterate key=cons}
-                            <p>{$value}</p>
-                        {/iterate}
-                    </div>
-                {/eq}
+                            <h3>Cons:</h3>
+                            {@iterate key=cons}
+                                <p>{$value}</p>
+                            {/iterate}
+                        </div>
+                    {/eq}
 
-                {@eq value="Checkboxable"}
-                    <div>
-                        <h4>{title}</h4>
-                        {@iterate key=data}
-                            <p>{$value.text}</p>
-                        {/iterate}
-                    </div>
-                {/eq}
+                    {@eq value="Checkboxable"}
+                        <div class="mystuff__activity-history__deck">
+                            <h4>{title}</h4>
+                            {@iterate key=data}
+                                <p>{$value.text}</p>
+                            {/iterate}
+                        </div>
+                    {/eq}
 
-                {@eq value="Draggable"}
-                    <div>
-                        <h4>{title}</h4>
-                        {@iterate key=data}
-                            <p>{$value}</p>
-                        {/iterate}
-                    </div>
-                {/eq}
-            {/select}
-        {/activities}
+                    {@eq value="Draggable"}
+                        <div class="mystuff__activity-history__deck">
+                            <h4>{title}</h4>
+                            {@iterate key=data}
+                                <p>{$value}</p>
+                            {/iterate}
+                        </div>
+                    {/eq}
+                {/select}
+            {/activities}
+        </div>
     </div>
 </div>
 
-<div>
+<!-- <div>
     <h3>Rate these activities</h3>
     Selection: <output for='rater' id='raterOutput'>Average</output>
     <input type='range' name='range' id='rater' required class='slideable__slider' data-snap-ignore='true' value='3' max='5' step='1'>
 </div>
+ -->
