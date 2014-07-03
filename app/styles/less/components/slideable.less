@@ -23,18 +23,21 @@
 .slideable__slider{
 	-webkit-appearance: none;
 	appearance: none;
-	border: 1px solid @oil;
+	// border: 1px solid @ocean;
 	border-radius: .5rem;
-	height: 2rem;
-	background: lighten(@oil, 50%);
+	height: .5rem;
+	// background: darken(@sky, 20%);
+	background: @grey;
+	// box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 .slideable__slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    border: 1px solid @oil;
-    background: @oil;
-    height: 3rem;
+    border: 1px solid @sky;
+    background: @sky;
+    height: 2rem;
     width: 2rem;
-    border-radius: .5rem;
+    border-radius: 100%;
+    box-shadow: 0 1px 3px fade(@oil, 50%)
 }

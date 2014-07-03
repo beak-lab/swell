@@ -1,7 +1,21 @@
+.activity-history__wrapper{
+	width: ~"calc(100% + 2em)";
+	left: 0;
+	padding-bottom: 1em;
+	margin-left: -1em;
+}
+
 .activity-history__deck{
 	position: relative;
 	margin-top: 1em;
 }
+
+.activity-history__card{
+	&:extend(.card);
+	margin: 0 1em 1em;
+}
+
+
 .activity-history__card{
 	&:last-child{
 		position: absolute;

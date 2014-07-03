@@ -98,7 +98,7 @@
     </div>
 
   -->
-    <div id='mystuff-history' class='swipe mystuff__activity-history__wrapper' data-snap-ignore="true">
+    <div id='mystuff-history' class='swipe activity-history__wrapper' data-snap-ignore="true">
         <div class="mystuff__activity-history__decks swipe-wrap">
             {#activities}
                 {@select key="{type}"}
@@ -202,16 +202,20 @@
 <div class="mystuff__related-challenges">
     <h3>Try these related work challenges:</h3>
     <div class="mystuff__related-challenge">
-        <div class="mystuff__related-challenge__icon">
-            <img src="images/challenge-icons/icon-handshake.svg">
+        <div class="mystuff__related-challenge__icon-wrapper">
+            <div class="mystuff__related-challenge__icon">
+                <img src="images/challenge-icons/icon-handshake.svg">
+            </div>
         </div>
         <div class="mystuff__related-challenge__text">
             Negotiating work conditions related to my distress 
         </div>
     </div>
     <div class="mystuff__related-challenge">
-        <div class="mystuff__related-challenge__icon">
-            <img src="images/challenge-icons/icon-percieved.svg">
+        <div class="mystuff__related-challenge__icon-wrapper">
+            <div class="mystuff__related-challenge__icon">
+                <img src="images/challenge-icons/icon-percieved.svg">
+            </div>
         </div>
         <div class="mystuff__related-challenge__text">
             Dealing with anticipated discrimination
