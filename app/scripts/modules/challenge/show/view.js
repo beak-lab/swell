@@ -98,14 +98,13 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
             },
 
             appendGoal: function(text) {
-                var total = this.$el.find('.activity__personal-goals__goal').length;
-                var newgoalInput = $('<input type="hidden" name="goal[' + total + ']" value="' + text + '"/>');
+                var total = this.$el.find('.mystuff__goals__goal').length;
                 var newgoalDiv = $('<label class="mystuff__goals__goal"><input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />' + text + '</label>');
                 //newgoalDiv.hide();
                 newgoalDiv.css({'height' :  0, 'min-height' : 0});
 
                 // this.$el.find('.activity__personal-goals').addClass('has-goals').prepend(newgoalDiv);
-                this.$el.find('#goals').prepend(newgoalInput);
+                this.$el.find('#goals').prepend(newgoalDiv);
                 newgoalDiv.animate({
                     'min-height' : '5rem'
                 }, 500).promise().done(function(){

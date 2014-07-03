@@ -149,15 +149,16 @@
                             <!-- History  -->
                             <article class="activity-history__card">
                                <h4 class="activity-history__card__title">{question|s}</h4>
-                                    <p>1</p>
-                                    <p>2</p>
+                                    <p>Disclose before they decide to employ me</p>
+                                    <p>Disclose just after they offer you the job</p>
+                                
                             </article>
                             <!-- Current -->
                             <article class="activity-history__card">
                                <h4 class="activity-history__card__title">{question|s}</h4>
                                 {@if cond=" '{data}'.length " }
                                     {@iterate key=data}
-                                        <p>{$value.text}</p>
+                                        <p>{$value.subtext}</p>
                                     {/iterate}
                                 {:else}
                                     <p>Nothing to see here</p>
@@ -171,8 +172,9 @@
                             <!-- History  -->
                             <article class="activity-history__card">
                                 <h4 class="activity-history__card__title">{question|s}</h4>
-                                    <p>One</p>
-                                    <p>Two</p>
+                                    <p>Resilience</p>
+                                    <p>Patience</p>
+                                    <p>Gratitude</p>
                             </article>
                             <!-- Current -->
                             <article class="activity-history__card">
