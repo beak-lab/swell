@@ -98,10 +98,10 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
             onAddNewMagnet: function() {
                 var name = prompt('Name?');
                 if (name) {
-                    var container = this.$el.find('#draggable-container').prepend('<div class="draggable__item is-added" >' + name +' </div>'),
-                        item = container.children().first().draggable({
-                            containment: '#draggableContainmentDiv'
-                        });
+                    this.$el.find('#draggable-container').prepend('<div class="draggable__item is-added" >' + name +' </div>');
+                    var item = this.$el.find('#draggable-container div.draggable__item').first().draggable({
+                        containment: '#draggableContainmentDiv'
+                    });
 
                     setTimeout(function() {
                         item.removeClass('is-added');
@@ -120,7 +120,10 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                     activeClass: 'ui-state-default',
                     hoverClass: 'ui-state-hover',
                     drop: function(event, ui) {
-                        ui.draggable.clone().appendTo(this).css({position: ''});
+                        // ui.draggable.clone().appendTo(this).css({position: ''});
+                        var newDopped = $('<div class="draggable__item is-added" >' + ui.draggable.text() +' </div>');
+                        newDopped.appendTo(this);
+
                         var l = self.$el.find('#draggable-container .draggable__item').length + 1;
                         $('<input type="hidden" name="draggable[' + l + ']" value="' + ui.draggable.text() + '" />').appendTo(this);
                         ui.draggable.remove();
