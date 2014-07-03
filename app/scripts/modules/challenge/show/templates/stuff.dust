@@ -3,7 +3,7 @@
 <div class="mystuff__goals">
     <h3>Recent Goals</h3>
 
-    <div class="activity__personal-goal__add" id="personal-goal-add-form">
+    <div class="activity__personal-goal__add" id="personal-goal-add-form" data-snap-ignore='true'>
         <div class="activity-goal__icon">+</div>
         <input id='goal_name' placeholder="Add your own" type='text' name='goal' />
     </div>

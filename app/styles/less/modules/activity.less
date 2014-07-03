@@ -5,8 +5,16 @@
 	border-bottom: 1px solid fade(@oil, 50%); 
 	min-height: 5rem;
 	overflow: hidden;
-	vertical-align: bottom;
-	line-height: 4.5rem;
+	vertical-align: baseline;
+	// line-height: 4.5rem;
+	&:before{
+		display: inline-block;
+		content: ' ';
+		// background: red;
+		width: 1px;
+		height: 5rem;
+		vertical-align: middle;
+	}
 	
 	.activity-goal__icon{
 		// &:extend(.checkboxable__checkbox);
@@ -60,7 +68,7 @@
 	}
 	input{
 		border-width: 0 0 1px 0;
-		width: ~'calc(100% - 3rem)';
+		width: ~'calc(100% - 1rem)';
 		height: 4rem;
 	}
 }
