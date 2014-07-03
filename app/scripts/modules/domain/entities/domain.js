@@ -48,7 +48,7 @@ define(['app'], function(App) {
                 id: 2,
                 name: 'Self-belief',
                 slug: 'self-belief',
-                desc: 'What’s the meaning and purpose of my life?',
+                desc: 'How can I feel better about myself?',
                 cssClass: 'self-belief',
             }, {
                 id: 3,
@@ -60,25 +60,25 @@ define(['app'], function(App) {
                 id: 4,
                 name: 'Self-management',
                 slug: 'self-management',
-                desc: 'How can I develop better relationships?',
+                desc: 'How can I self-manage my distress?',
                 cssClass: 'self-management',
             }, {
                 id: 5,
                 name: 'Work',
                 slug: 'work',
-                desc: 'How can I manage or grow my income?',
+                desc: 'How can I make a contribution to society?',
                 cssClass: 'work',
             }, {
                 id: 6,
                 name: 'Lifestyle',
                 slug: 'lifestyle',
-                desc: 'How can I manage or grow my income?',
+                desc: 'How can I lead a healthy lifestyle?',
                 cssClass: 'lifestyle',
             }, {
                 id: 7,
                 name: 'Services',
                 slug: 'services',
-                desc: 'How can I manage or grow my income?',
+                desc: 'How can I get what I need from services?',
                 cssClass: 'services',
             },{
                 id: 8,
