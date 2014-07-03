@@ -84,7 +84,7 @@ define(['app'], function(App) {
                 }, {
                     id: 6,
                     name: 'Disclosing my lived experience to an employer ',
-                    desc: 'You don\'t have to disclose you have a diagnosis when you are applying for a job, unless you think it will stop you from being able to do the job - but it still might be a good idea. Disclosing your mental distress can be risky and scary so it\'s important we make good decisions about if, when and how to',
+                    desc: 'You don\'t have to disclose you have a diagnosis when you are applying for a job, unless you think it will stop you from being able to do the job - but it still might be a good idea. Disclosing your mental distress can be risky and scary so it\'s important we make good decisions about if, when and how to.',
                     slug: 'work-disclose',
                     domain: 5,
                     resources: [1, 2, 3, 4, 5],
