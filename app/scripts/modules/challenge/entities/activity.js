@@ -151,7 +151,7 @@ define(['app'], function(App) {
                 }, {
                     name: 'I may be not be trusted to do the work'
                 }, {
-                    name: ''
+                    name: 'I can reduce stigma if I disclose with confidence'
                 }, {
                     name: 'I may be treated differently by my workmates'
                 }, {
