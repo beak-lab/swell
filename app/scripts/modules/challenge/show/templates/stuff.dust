@@ -140,6 +140,7 @@
                                 {:else}
                                  <p>Nothing to see here{@if cond=" '{pros}'.length " }{:else} either{/if}</p>
                                 {/if}
+                                <div class="activity-history__card__edit">Change my answers</div>
                             </article>
                         </div>
                     {/eq}
@@ -163,6 +164,8 @@
                                 {:else}
                                     <p>Nothing to see here</p>
                                 {/if}
+                                <div class="activity-history__card__edit">Change my answers</div>
+
                             </article>
                         </div>
                     {/eq}
@@ -186,6 +189,8 @@
                                 {:else}
                                     <p>Nothing to see here</p>
                                 {/if}
+                                <div class="activity-history__card__edit">Change my answers</div>
+                                
                             </article>
                         </div>
                     {/eq}
