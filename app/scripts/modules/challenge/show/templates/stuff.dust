@@ -193,8 +193,28 @@
     </div>
 </div>
 
-<div>
-    <h3>Rate these activities</h3>
+<div class="mystuff__rate-challenge">
+    <h3>Rate this challenge's activities</h3>
     <output for='rater' id='raterOutput'>Average</output>
-    <input type='range' name='range' id='rater' required class='slideable__slider' data-snap-ignore='true' value='3' max='6' >
+    <input type='range' name='range' id='rater' required class='slideable__slider' data-snap-ignore='true'  max='60' >
+</div>
+
+<div class="mystuff__related-challenges">
+    <h3>Try these related work challenges:</h3>
+    <div class="mystuff__related-challenge">
+        <div class="mystuff__related-challenge__icon">
+            <img src="images/challenge-icons/icon-handshake.svg">
+        </div>
+        <div class="mystuff__related-challenge__text">
+            Negotiating work conditions related to my distress 
+        </div>
+    </div>
+    <div class="mystuff__related-challenge">
+        <div class="mystuff__related-challenge__icon">
+            <img src="images/challenge-icons/icon-percieved.svg">
+        </div>
+        <div class="mystuff__related-challenge__text">
+            Dealing with anticipated discrimination
+        </div>
+    </div>
 </div>

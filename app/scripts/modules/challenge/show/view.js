@@ -139,6 +139,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 this.$el.find('.activity-history__card:last-child').draggable({
                     axis: 'y',
                     revert: true,
+                    revertDuration: 100,
                     create : function(evt, ui){
                         initCardPos = $(this).position().top;
                         $(this).css('position', 'absolute');
@@ -155,31 +156,33 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                     self = this;
 
                 rater.on('change', function() {
-                    console.log();
-                    var status = 'Average';
-                    switch (rater.val()) {
-                        case '':
+                    var status;
+                    var rounded = Math.round( rater.val() / 10 );
+                    // console.log( rater.val() );
+                    switch (rounded) {
+                        case 0:
                             status = 'Rubbish';
                             break;
-                        case '1':
+                        case 1:
                             status = 'Ok ish';
                             break;
-                        case '2':
+                        case 2:
                             status = 'A bit nice';
                             break;
-                        case '3':
+                        case 3:
                             status = 'Average';
                             break;
-                        case '4':
+                        case 4:
                             status = 'Pretty good';
                             break;
-                        case '5':
+                        case 5:
                             status = 'Awesome';
                             break;
-                        case '6':
+                        case 6:
                             status = 'Life Changing';
                             break;
                     }
+
                     self.$el.find('#raterOutput').val(status);
                 });
 

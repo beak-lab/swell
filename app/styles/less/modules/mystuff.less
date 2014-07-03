@@ -73,3 +73,43 @@
 	&:extend(.card);
 	margin: 0 1em 1em;
 }
+
+
+.mystuff__rate-challenge{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding-bottom: 1em;
+	margin-bottom: 2em;
+}
+
+// related challenges
+
+.mystuff__related-challenges{}
+
+.mystuff__related-challenge{
+	&:extend(.card);
+	overflow: hidden;
+	border-bottom: 1px solid fade(@oil, 30%);
+	margin: .5em 0;
+	padding-bottom: .5em;
+}
+.mystuff__related-challenge__icon{
+	background: @grannysmith;
+	width: 3em;
+	height: 3em;
+	border-radius: 100%;
+	padding: 1rem;
+	text-align: center;
+	// display: inline-block;
+	float: left;
+
+	img{
+		max-width: 100%;
+		max-height: 100%;
+		display: inline-block;
+	}
+}
+.mystuff__related-challenge__text{
+	// display: inline-block;
+	margin-left: 3.5em;
+	font-weight: 400;
+}
