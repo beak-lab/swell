@@ -205,7 +205,7 @@ define(['app', 'challenge_show_view', 'challenge_activity_view', 'challenge_enti
                 });
 
                 view.on('save:result', function(data) {
-                    console.log('Saving');
+                    // console.log('Saving');
                     // get the current data:
                     var thisChallengeData = JSON.parse(window.localStorage.getItem('challenge[' + Show.Controller.challengeId + ']'));
                     if (!thisChallengeData) { // firs time, setup this challenges object
