@@ -96,13 +96,14 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
             },
 
             onAddNewMagnet: function() {
-                var name = prompt('Name?');
+                var name = prompt('Enter something:');
                 if (name) {
+                    // make and add a new magnet
                     this.$el.find('#draggable-container').prepend('<div class="draggable__item is-added" >' + name +' </div>');
-                    var item = this.$el.find('#draggable-container div.draggable__item').first().draggable({
-                        containment: '#draggableContainmentDiv'
-                    });
-
+                    // find that magnet, and make it draggable
+                    var item = this.$el.find('#draggable-container div.draggable__item').first();
+                    this.makeDraggable(item);
+                    // make it flash
                     setTimeout(function() {
                         item.removeClass('is-added');
                     }, 1000);
@@ -111,25 +112,49 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
 
             onRender: function() {
                 var self = this;
+                // scrolls' up on page load
                 View.Activity.prototype.onRender.call(this);
+                // make all magnets draggable
+                this.makeDraggable(this.$el.find('#draggable-container .draggable__item'));
 
-                this.$el.find('#draggable-container .draggable__item').draggable({
-                    containment: '#draggableContainmentDiv'
+                // make the main container droppable. so we can drag magnets out
+                this.$el.find('#draggable-container').droppable({
+                    accept: '.is-dropped',
+                    // when dropped back to the bottom
+                    drop: function(event, ui) {
+                        var newDopped = $('<div class="draggable__item is-added" >' + ui.draggable.text() + '</div>');
+                        newDopped.appendTo(this);
+
+                        self.makeDraggable(newDopped);
+
+                        // also remove any input if there is one in the correct box
+                        $('input[value="' + ui.draggable.text() + '"]').remove();
+                        ui.draggable.remove();
+                    }
                 });
+
                 this.$el.find('#droppable').droppable({
                     activeClass: 'ui-state-default',
                     hoverClass: 'ui-state-hover',
+                    // when dropped at the top
                     drop: function(event, ui) {
-                        // ui.draggable.clone().appendTo(this).css({position: ''});
-                        var newDopped = $('<div class="draggable__item is-added" >' + ui.draggable.text() +' </div>');
+                        var newDopped = $('<div class="draggable__item is-added is-dropped" >' + ui.draggable.text() + '</div>');
                         newDopped.appendTo(this);
+
+                        self.makeDraggable(newDopped);
 
                         var l = self.$el.find('#draggable-container .draggable__item').length + 1;
                         $('<input type="hidden" name="draggable[' + l + ']" value="' + ui.draggable.text() + '" />').appendTo(this);
                         ui.draggable.remove();
                     }
                 });
-            }
+            },
+
+            makeDraggable: function(el) {
+                el.draggable({
+                    containment: '#draggableContainmentDiv'
+                });
+            },
         });
 
         View.Sortable = View.Activity.extend({
