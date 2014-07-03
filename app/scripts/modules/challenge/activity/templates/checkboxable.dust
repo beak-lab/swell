@@ -8,7 +8,7 @@
 					<input class="checkboxable__checkbox" name="checkboxable-optionset[{$idx}]" type="checkbox" value="{value}" />{text}
 
 					{?subtext}
-					<div class="checkboxable__subtext subtext">{subtext}</div>
+					<div class="checkboxable__subtext">{subtext}</div>
 					{/subtext}
 				</label>
 			</div>

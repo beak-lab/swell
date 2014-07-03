@@ -86,11 +86,11 @@ define(['app'], function(App) {
                 weight: 11,
                 type: 'Checkboxable',
                 title: 'Activity 3: When to disclose',
-                upperDescription: 'Picking the right time to bring up your experience can make a big difference to how it\'s recieved as well as the headspace you\'re in. Deciding if and when to disclose ahead of time puts you in charge of the conversation',
+                upperDescription: 'Picking the right time to bring up your experience can make a big difference to how it\'s recieved. Deciding if and when to disclose ahead of time puts you in charge of the conversation.',
                 question: 'When should I disclose (if at all)?',
                 data: [{
                         text: 'I believe my distress will interfere with my ability to do the job',
-                        subtext: 'Disclose before they decide to employ me',
+                        subtext: 'Disclose before they decide to employ you',
                         goalText: 'Disclose before they decide to employ you'
                     }, {
                         text: 'I want to negotiate work conditions related to my distress',
