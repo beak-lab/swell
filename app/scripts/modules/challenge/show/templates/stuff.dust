@@ -4,16 +4,17 @@
     <h3>Recent Goals</h3>
 
     <div class="activity__personal-goal__add" id="personal-goal-add-form">
+        <div class="activity-goal__icon">+</div>
         <input id='goal_name' placeholder="Add your own" type='text' name='goal' />
     </div>
 
     <div id='goals'>
         {?goals.goal}
-            <label class="mystuff__goals__goal">
                 {@iterate key=goals.goal}
-                    <input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />{$value}
+                <label class="mystuff__goals__goal">
+                        <input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />{$value}
+                </label>
                 {/iterate}
-            </label>
         {/goals.goal}
     </div>
 

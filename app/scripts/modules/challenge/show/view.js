@@ -93,12 +93,14 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
 
             events: {
                 'keyup #goal_name': 'addGoalform',
+                'click #personal-goal-add-form' : 'addGoalform',
+
             },
 
             appendGoal: function(text) {
                 var total = this.$el.find('.activity__personal-goals__goal').length;
                 var newgoalInput = $('<input type="hidden" name="goal[' + total + ']" value="' + text + '"/>');
-                var newgoalDiv = $('<div class="activity__personal-goals__goal">' + text + '</div>');
+                var newgoalDiv = $('<label class="mystuff__goals__goal"><input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />' + text + '</label>');
                 //newgoalDiv.hide();
                 newgoalDiv.css({'height' :  0, 'min-height' : 0});
                 this.$el.find('#goals').addClass('has-goals').prepend(newgoalDiv);
@@ -111,7 +113,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
 
             addGoalform: function(e) {
                 e.preventDefault();
-                if (e.keyCode === 13) {
+                if (e.keyCode === 13 || $(e.target).hasClass('activity-goal__icon')) {
                     var input = this.$el.find('#goal_name');
                     if( input.val().trim() ) {
                         this.appendGoal(input.val());

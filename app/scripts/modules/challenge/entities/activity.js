@@ -68,7 +68,7 @@ define(['app'], function(App) {
                 id: 4,
                 weight: 13,
                 type: 'Draggable',
-                title: 'Activity 2: Positive disclosure',
+                title: 'Activity 3: Positive disclosure',
                 question: 'What I learned from <strong>my lived experience</strong> that will help me do the job',
                 data: {
                     draggable: [{
@@ -85,36 +85,32 @@ define(['app'], function(App) {
                 id: 5,
                 weight: 11,
                 type: 'Checkboxable',
-                title: 'Activity 2: Why, When and How',
+                title: 'Activity 3: When to disclose',
                 upperDescription: 'Picking the right time to bring up your experience can make a big difference to how it\'s recieved as well as the headspace you\'re in. Deciding if and when to disclose ahead of time puts you in charge of the conversation',
-                question: 'When should I disclose? (if at all)',
+                question: 'When should I disclose (if at all)?',
                 data: [{
-                        text: 'Before they decide to employ me',
-                        subtext: 'if you think your distress will interfere with your ability to do the job',
-                        goalText: 'Disclose my experience before I\'m offered a job'
+                        text: 'I believe my distress will interfere with my ability to do the job',
+                        subtext: 'Before they decide to employ me',
+                        goalText: 'Disclose before they decide to employ you'
                     }, {
-                        text: 'After they offer me the job',
-                        subtext: 'if you want to negotiate your work conditions',
+                        text: 'I want to negotiate work conditions related to my distress',
+                        subtext: 'Disclose just after they offer you the job',
                         goalText: 'Disclose my experience before I accept a job'
                     }, {
-                        text: 'As part of everyday conversation',
-                        subtext: 'if you feel safe',
-                        goalText: 'Disclose my experience when talking about my job prospects'
+                        text: 'I want to let my employer know when I\'m struggling',
+                        subtext: 'Disclose when you start struggling - don\'t wait too long',
+                        goalText: 'Disclose my experience when I feel like it\'s affecting my work'
                     }, {
-                        text: 'When things go pear shaped',
-                        subtext: 'if you think they need to understand what\'s going on.',
-                        goalText: 'Disclose my experience when I feel like it\'s getting out of hand'
-                    },{
-                        text: 'Never',
-                        subtext: 'if you feel it\'s not and issue that they need to know about.',
-                        goalText: 'Keep my experience to myself'
-                    },
+                        text: 'My lived experience has no impact on my work',
+                        subtext: 'No need to disclose',
+                        goalText: 'Don\'t disclose my experience to my employer (unless I want to)'
+                    }
                 ]
             }, {
                 id: 6,
                 weight: 14,
                 type: 'Draggable',
-                title: 'Activity 2: Positive disclosure',
+                title: 'Activity 3: Positive disclosure',
                 // description: 'Say what you have learnt from your experience that will help you manage your condition',
                 question: 'What I have learnt about <strong>self-managing my condition</strong> that will help me do the job',
                 data: {
@@ -130,7 +126,7 @@ define(['app'], function(App) {
                 id: 7,
                 weight: 15,
                 type: 'Draggable',
-                title: 'Activity 2: Positive disclosure',
+                title: 'Activity 3: Positive disclosure',
                 question: 'The work conditions I thrive under',
                 data: {
                     draggable: [{
@@ -147,7 +143,7 @@ define(['app'], function(App) {
                 type: 'Voteable',
                 title: 'Activity 1: Pros and Cons',
                 question: 'What are the pros and cons of disclosing to employers?',
-                upperDescription: 'You don\'t have to disclose you have a diagnosis when you are applying for a job unless you think it will stop you from being able to do the job. There are pros and cons to disclosing.',
+                // upperDescription: 'You don\'t have to disclose you have a diagnosis when you are applying for a job unless you think it will stop you from being able to do the job. There are pros and cons to disclosing.',
                 data: [{
                     name: 'I may not get the job'
                 }, {
@@ -165,8 +161,8 @@ define(['app'], function(App) {
                 id: 9,
                 weight: 12,
                 type: 'Staticable',
-                title: 'Part 3: When I do disclose',
-                // question: 'Make it positive by explaining:',
+                title: 'Activity 3: When I do disclose',
+                upperDescription: 'When you disclose don\'t be negative or apologetic. Turn it into an opportunity to sell your strengths.',
                 data: [
                     {   
                         container: 'h2',
