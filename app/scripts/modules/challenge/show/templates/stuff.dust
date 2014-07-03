@@ -30,7 +30,7 @@
             class="mystuff__share-buddy"
             data-toggle="popover"
             data-placement="bottom"
-            title="David Swann"
+            title="Moira Anau"
             data-content="<button class='mystuff__share-buddy__button btn btn-primary'>Share</button>"
         >
 
@@ -190,7 +190,7 @@
                                     <p>Nothing to see here</p>
                                 {/if}
                                 <div class="activity-history__card__edit">Change my answers</div>
-                                
+
                             </article>
                         </div>
                     {/eq}
