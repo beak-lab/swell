@@ -20,12 +20,15 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
                 //newgoalDiv.hide();
                 newgoalDiv.css({'height' :  0, 'min-height' : 0});
 
+                this.$el.find('.activity__personal-goals').addClass('has-goals');
                 this.$el.find('#goals').addClass('has-goals').prepend(newgoalDiv);
                 this.$el.find('#goals').prepend(newgoalInput);
                 //newgoalDiv.slideDown();
                 newgoalDiv.animate({
                     'min-height' : '5rem'
-                }, 500);
+                }, 500).promise().done(function(){
+                    newgoalDiv.css({'height' :  '', 'min-height' : ''});
+                });
             },
 
             addGoalform: function(e) {

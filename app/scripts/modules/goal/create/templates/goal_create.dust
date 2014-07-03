@@ -18,13 +18,15 @@
 
 	<div class="activity__personal-goal__add" id="personal-goal-add-form">
 		<div class="activity-goal__icon">+</div>
-	    <input id='goal_name' placeholder="Add your own" type='text' name='goal' />
+	    <input id='goal_name' placeholder="Add your own goal or decision" type='text' name='goal' />
 	    <!-- <input id="add_goal" type="submit" value='add'/> -->
 	</div>
-
+	<p class="activity__goals__subtext subtext">This will be added to your work goals page.</p>
+	
 	<div class="activity__personal-goals">
 		<h2 class="activity__personal-goals__title">Goals set today</h2>
 		<form id='goals'>
+
 		</form>
 	</div>
 

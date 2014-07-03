@@ -103,11 +103,14 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 var newgoalDiv = $('<label class="mystuff__goals__goal"><input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />' + text + '</label>');
                 //newgoalDiv.hide();
                 newgoalDiv.css({'height' :  0, 'min-height' : 0});
-                this.$el.find('#goals').addClass('has-goals').prepend(newgoalDiv);
+
+                // this.$el.find('.activity__personal-goals').addClass('has-goals').prepend(newgoalDiv);
                 this.$el.find('#goals').prepend(newgoalInput);
                 newgoalDiv.animate({
                     'min-height' : '5rem'
-                }, 500);
+                }, 500).promise().done(function(){
+                    newgoalDiv.css({'height' :  '', 'min-height' : ''});
+                });
                 //newgoalDiv.slideDown();
             },
 
@@ -135,8 +138,11 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
 
                 rater.on('change', function() {
                     console.log();
-                    var status = 'test';
+                    var status = 'Average';
                     switch (rater.val()) {
+                        case '':
+                            status = 'Rubbish';
+                            break;
                         case '1':
                             status = 'Ok ish';
                             break;
@@ -147,10 +153,13 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                             status = 'Average';
                             break;
                         case '4':
-                            status = 'Super good';
+                            status = 'Pretty good';
                             break;
                         case '5':
                             status = 'Awesome';
+                            break;
+                        case '6':
+                            status = 'Life Changing';
                             break;
                     }
                     self.$el.find('#raterOutput').val(status);

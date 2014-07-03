@@ -172,9 +172,8 @@
     </div>
 </div>
 
-<!-- <div>
+<div>
     <h3>Rate these activities</h3>
-    Selection: <output for='rater' id='raterOutput'>Average</output>
-    <input type='range' name='range' id='rater' required class='slideable__slider' data-snap-ignore='true' value='3' max='5' step='1'>
+    <output for='rater' id='raterOutput'>Average</output>
+    <input type='range' name='range' id='rater' required class='slideable__slider' data-snap-ignore='true' value='3' max='6' >
 </div>
- -->
