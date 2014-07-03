@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap.popover', 'swipejs'], function(App) {
+define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap.popover', 'swipejs', 'jquery.velocity'], function(App) {
     App.module('Challenge.Show.View', function(View, App, Backbone, Marionette, $) {
         View.Layout = Marionette.Layout.extend({
             template: 'challenge_show_layout',
@@ -58,22 +58,6 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 'click .resource__video__video': 'videoClicked'
             },
 
-            // onRender: function() {
-                // if (window.plugins) {
-                //     window.plugins.html5Video.initialize({
-                //         "id-2": "howtoaceajobinterview.mp4",
-                //     });
-
-                //     window.plugins.html5Video.play("id-2");
-                // }
-            // },
-            // videoClicked: function() {
-                /*
-                if (window.plugins) {
-                    e.preventDefault();
-                    VideoPlayer.play('file:///android_asset/www/' + $(e.target).attr('src'));
-                }*/
-            // },
 
             resourceExpanderClicked: function(e) {
                 $(e.target).closest('.resource__article').toggleClass('is-expanded');
@@ -98,14 +82,13 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
             },
 
             appendGoal: function(text) {
-                var total = this.$el.find('.mystuff__goals__goal').length;
                 var newgoalDiv = $('<label class="mystuff__goals__goal"><input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />' + text + '</label>');
                 //newgoalDiv.hide();
                 newgoalDiv.css({'height' :  0, 'min-height' : 0});
 
                 // this.$el.find('.activity__personal-goals').addClass('has-goals').prepend(newgoalDiv);
                 this.$el.find('#goals').prepend(newgoalDiv);
-                newgoalDiv.animate({
+                newgoalDiv.velocity({
                     'min-height' : '5rem'
                 }, 500).promise().done(function(){
                     newgoalDiv.css({'height' :  '', 'min-height' : ''});
@@ -120,7 +103,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                     if( input.val().trim() ) {
                         this.appendGoal(input.val());
                         input.val('');
-                    }        
+                    }
                 }
             },
 
@@ -139,14 +122,14 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                     axis: 'y',
                     revert: true,
                     revertDuration: 100,
-                    create : function(evt, ui){
+                    create : function(){
                         initCardPos = $(this).position().top;
                         $(this).css('position', 'absolute');
                     },
-                    drag: function(evt, ui){
+                    drag: function(){
                         if( $(this).position().top <  initCardPos ){
                             return false;
-                        };
+                        }
                     },
                 });
 
@@ -192,25 +175,54 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
             },
 
             onShow: function() {
+                var decks = this.$el.find('.activity-history__deck');
+                var biggestHeight = 0;
+                decks.each(function(){
+                    var cards = $(this).find('.activity-history__card');
+                    var maxHeight = Math.max.apply(null, cards.map(function() {
+                        return $(this).outerHeight();
+                    }));
+                    cards.outerHeight(maxHeight);
+                    biggestHeight = maxHeight > biggestHeight ? maxHeight : biggestHeight;
+                });
+
+                // console.log(decks);
+
+                // decks.outerHeight(biggestHeight);
+
+
+                
+                var _this = this;
                 var historyEl = this.$el.find('#mystuff-history');
-                var cards = this.$el.find('.activity-history__card');
+                var decksContainer = historyEl.find('.activity-history__decks');
+                
                 var historySwipe = new Swipe(historyEl[0], {
                     continuous: true,
                     callback: function() {
+                        //changes the pager
+                        console.log(this);
                         var pagers = historyEl.find('.activity-history__pager-item').removeClass('is-active');
                         pagers.filter(function() {
                             return $(this).data('idx') === historySwipe.getPos();
                         }).addClass('is-active');
+
+                        // set the height of the slider
+                        _this.setDeckHeight(historySwipe, decksContainer);
+
+
                     }
                 });
 
+                this.setDeckHeight(historySwipe, decksContainer);
                 this.buildHistoryPager(historySwipe);
 
-                var maxHeight = Math.max.apply(null, cards.map(function() {
-                    return $(this).outerHeight();
-                }));
-
-                cards.outerHeight(maxHeight);
+            },
+            setDeckHeight: function(historySwipe, decksContainer){
+                var currentDeck = decksContainer.find('.activity-history__deck:eq(' + historySwipe.getPos() + ')');
+                console.log(currentDeck);
+                decksContainer.velocity({
+                    'height' : currentDeck.outerHeight(),
+                 }, 300 );
             },
 
             buildHistoryPager: function(swipe) {

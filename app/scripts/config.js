@@ -30,6 +30,7 @@ requirejs.config({
         'snapjs'                   : '../bower_components/snapjs/snap.min',
 
         'swipejs'                  : '../bower_components/swipejs/swipe',
+        'jquery.velocity'          : '../bower_components/velocity/jquery.velocity.min',
 
         'bootstrap.tooltip'        : '../bower_components/bootstrap/js/tooltip',
         'bootstrap.popover'        : '../bower_components/bootstrap/js/popover',
@@ -95,6 +96,7 @@ requirejs.config({
         'jquery.touch.punch'       : ['jquery'],
         'bootstrap.tooltip'        : ['jquery'],
         'bootstrap.popover'        : ['bootstrap.tooltip'],
+        'jquery.velocity'          : ['jquery'],
         dust: {
             exports                : 'dust'
         },

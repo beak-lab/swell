@@ -19,7 +19,8 @@
     "snapjs": "~1.9.3",
     "lesshat": "~3.0.2",
     "backbone.localstorage": "~1.1.9",
-    "swipejs": "~2.0.0"
+    "swipejs": "~2.0.0",
+    "velocity": "~0.4.1"
   },
   "devDependencies": {
     "mocha": "~1.18.0",
