@@ -1,5 +1,5 @@
 <div id="challenge_menu" class="challenge__menu">
   <span class="challenge__menu__item is-active" id="activities">Activity</span>
   <span class="challenge__menu__item" id="resources">Resources</span>
-  <span class="challenge__menu__item" id="stuff">My Stuff</span>
+  <span class="challenge__menu__item" id="stuff">Progress</span>
 </div>

@@ -1,7 +1,7 @@
 <div>
     <div class="user-avatar">
     	<img src="images/avatar.jpg" class="user-avatar__image" />
-    	<h2 class="user-avatar__title">Hey! It's Maru O'Hagan</h2>
+    	<h2 class="user-avatar__title">Hey! It's Maru George</h2>
     </div>
 
 	<div class="user-history sidebar-user-history">
