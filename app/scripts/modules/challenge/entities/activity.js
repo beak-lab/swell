@@ -112,10 +112,10 @@ define(['app'], function(App) {
                 type: 'Draggable',
                 title: 'Activity 3: Positive disclosure',
                 // description: 'Say what you have learnt from your experience that will help you manage your condition',
-                question: 'What I have learnt about <strong>self-managing my condition</strong> that will help me do the job',
+                question: 'What I have learnt about <strong>self-managing my condition</strong> that will help me in the job',
                 data: {
                     draggable: [{
-                        name: 'Healthy lifestyle'
+                        name: 'Looking after my health'
                     }, {
                         name: 'Managing routines'
                     }, {
