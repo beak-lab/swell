@@ -133,6 +133,24 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
             },
 
             onRender: function() {
+                // draggable on cards
+                var initCardPos;
+
+                this.$el.find('.activity-history__card:last-child').draggable({
+                    axis: 'y',
+                    revert: true,
+                    create : function(evt, ui){
+                        initCardPos = $(this).position().top;
+                        $(this).css('position', 'absolute');
+                    },
+                    drag: function(evt, ui){
+                        if( $(this).position().top <  initCardPos ){
+                            return false;
+                        };
+                    },
+                });
+
+
                 var rater = this.$el.find('#rater'),
                     self = this;
 
@@ -177,7 +195,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 var historySwipe = new Swipe(historyEl[0], {
                     continuous: true,
                     callback: function() {
-                        var pagers = historyEl.find('.mystuff__activity-history__pager-item').removeClass('is-active');
+                        var pagers = historyEl.find('.activity-history__pager-item').removeClass('is-active');
                         pagers.filter(function() {
                             return $(this).data('idx') === historySwipe.getPos();
                         }).addClass('is-active');
@@ -196,13 +214,13 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
             buildHistoryPager: function(swipe) {
                 var historyEl = this.$el.find('#mystuff-history');
                 var decks = historyEl.find('.activity-history__deck');
-                var pager = $('<ul/>').addClass('mystuff__activity-history__pager');
+                var pager = $('<ul/>').addClass('activity-history__pager');
 
                 //console.log(decks);
 
                 decks.each(function(i) {
                     var li = $('<li/>')
-                        .addClass('mystuff__activity-history__pager-item')
+                        .addClass('activity-history__pager-item')
                         .data('idx', i)
                     li.click(function() {
                         swipe.slide(i)

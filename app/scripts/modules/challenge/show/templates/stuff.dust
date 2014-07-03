@@ -106,27 +106,40 @@
                         <div class="activity-history__deck">
                             <!-- History  -->
                             <article class="activity-history__card">
-                                <h4 class="activity-history__card__title">How did you feed?</h4>
+                                <h4 class="activity-history__card__title">{question|s}</h4>
                                 <h3>Pros:</h3>
-                                <p>Great</p>
+                                    <p>I don't have to hide my experience</p>
+                                    <p>I can reduce stigma if I disclose with confidence</p>
 
                                 <h3>Cons:</h3>
-                                <p>Not so</p>
+                                    <p>I may not get the job</p>
+                                    <p>I may be not be trusted to do the work</p>
+                                    
                             </article>
                             <!-- Current -->
-                            <article class="activity-history__card">
+                            <article class="activity-history__card is-current">
                                 <!-- <h4>{title}</h4> -->
                                 <h4 class="activity-history__card__title">{question|s}</h4>
 
                                 <h3>Pros:</h3>
-                                {@iterate key=pros}
-                                    <p>{$value}</p>
-                                {/iterate}
+                                {@if cond=" '{pros}'.length " }
+                                    {@iterate key=pros}
+                                        <p>{$value}</p>
+                                    {/iterate}
+                                {:else}
+                                 <p>Nothing to see here</p>
+                                {/if}
+
+
 
                                 <h3>Cons:</h3>
-                                {@iterate key=cons}
-                                    <p>{$value}</p>
-                                {/iterate}
+                                {@if cond=" '{cons}'.length " }
+                                    {@iterate key=pros}
+                                        <p>{$value}</p>
+                                    {/iterate}
+                                {:else}
+                                 <p>Nothing to see here{@if cond=" '{pros}'.length " }{:else} either{/if}</p>
+                                {/if}
                             </article>
                         </div>
                     {/eq}
@@ -135,16 +148,20 @@
                         <div class="activity-history__deck">
                             <!-- History  -->
                             <article class="activity-history__card">
-                               <h4 class="activity-history__card__title">A Question</h4>
+                               <h4 class="activity-history__card__title">{question|s}</h4>
                                     <p>1</p>
                                     <p>2</p>
                             </article>
                             <!-- Current -->
                             <article class="activity-history__card">
                                <h4 class="activity-history__card__title">{question|s}</h4>
-                                {@iterate key=data}
-                                    <p>{$value.text}</p>
-                                {/iterate}
+                                {@if cond=" '{data}'.length " }
+                                    {@iterate key=data}
+                                        <p>{$value.text}</p>
+                                    {/iterate}
+                                {:else}
+                                    <p>Nothing to see here</p>
+                                {/if}
                             </article>
                         </div>
                     {/eq}
@@ -153,16 +170,20 @@
                         <div class="activity-history__deck">
                             <!-- History  -->
                             <article class="activity-history__card">
-                                <h4 class="activity-history__card__title">Title</h4>
+                                <h4 class="activity-history__card__title">{question|s}</h4>
                                     <p>One</p>
                                     <p>Two</p>
                             </article>
                             <!-- Current -->
                             <article class="activity-history__card">
                                 <h4 class="activity-history__card__title">{question|s}</h4>
-                                {@iterate key=data}
-                                    <p>{$value}</p>
-                                {/iterate}
+                                {@if cond=" '{data}'.length " }
+                                    {@iterate key=data}
+                                        <p>{$value}</p>
+                                    {/iterate}
+                                {:else}
+                                    <p>Nothing to see here</p>
+                                {/if}
                             </article>
                         </div>
                     {/eq}
