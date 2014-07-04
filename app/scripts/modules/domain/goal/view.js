@@ -18,12 +18,15 @@ define(['app', 'templates', 'dust', 'dustIterate', 'jquery.velocity'], function(
                 'click #personal-goal-add-form': 'addGoalform',
             },
 
+            onDestroy: function() {
+                // custom destroying and cleanup goes here
+            },
+
             initialize : function(){
                 $('body').removeClass('is-domain-list-view');
             },
 
             appendGoal: function(text) {
-
                 var newgoalDiv = $('<label class="mystuff__goals__goal"><input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" /><div class="activity-goal__text">' + text + '</div></label>');
                 //newgoalDiv.hide();
                 newgoalDiv.css({
@@ -45,7 +48,6 @@ define(['app', 'templates', 'dust', 'dustIterate', 'jquery.velocity'], function(
             },
 
             addGoalform: function(e) {
-
                 e.preventDefault();
                 if (e.keyCode === 13 || $(e.target).hasClass('activity-goal__icon')) {
                     var input = this.$el.find('#goal_name');

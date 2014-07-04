@@ -33,8 +33,8 @@ define(['app', 'domain_goal_view', 'domain_entity', 'challenge_entity'], functio
                         console.log(goals);
 
                         App.execute('set:back', {
-                            route: 'domains',
-                            page: 'Domains'
+                            route: false,
+                            page: 'Back'
                         });
 
                         var view = new View.Goals({
