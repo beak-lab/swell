@@ -41,8 +41,12 @@ define(['app'], function(App) {
                         $(this).prop('checked', true);
                     });
                 }
+            },
 
-
+            serializeData: function() {
+                return {
+                    domains: this.options.domains
+                };
             },
         });
 

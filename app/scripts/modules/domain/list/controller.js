@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'domain_list_view', 'domain_entities'], function(App, View) {
+define(['app', 'domain_list_view', 'domain_entity'], function(App, View) {
     App.module('Domain.List', function (List, App, Backbone, Marionette, $) { // , _
         List.Controller = {
             listDomain: function() {
@@ -8,7 +8,6 @@ define(['app', 'domain_list_view', 'domain_entities'], function(App, View) {
 
                 var layout = new View.Layout();
                 App.mainRegion.show(layout);
-
                 $.when(fetchingDomain).done(function(domain) {
 
                     var view = new View.Domain({
@@ -19,7 +18,7 @@ define(['app', 'domain_list_view', 'domain_entities'], function(App, View) {
                         App.trigger('challenge:list', model.get('id'));
                     });
 
-                    layout.domainRegion.show(view);
+                    layout.regionManager.get('domainRegion').show(view);
                 });
             }
         };
