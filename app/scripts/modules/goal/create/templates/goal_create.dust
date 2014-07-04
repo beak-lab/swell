@@ -21,7 +21,7 @@
 	    <input id='goal_name' placeholder="Add your own goal or decision" type='text' name='goal' />
 	    <!-- <input id="add_goal" type="submit" value='add'/> -->
 	</div>
-	<p class="activity__goals__subtext subtext">This will be added to your work goals page.</p>
+	<p class="activity__goals__subtext">This will be added to your work goals page.</p>
 	
 	<div class="activity__personal-goals">
 		<h2 class="activity__personal-goals__title">Goals set today</h2>

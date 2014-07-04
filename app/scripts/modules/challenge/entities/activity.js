@@ -85,7 +85,7 @@ define(['app'], function(App) {
                 id: 5,
                 weight: 11,
                 type: 'Checkboxable',
-                title: 'Activity 3: When to disclose',
+                title: 'Activity 2: When to disclose',
                 upperDescription: 'Picking the right time to bring up your experience can make a big difference to how it\'s recieved. Deciding if and when to disclose ahead of time puts you in charge of the conversation.',
                 question: 'When should I disclose (if at all)?',
                 data: [{
