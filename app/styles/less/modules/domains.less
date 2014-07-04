@@ -12,6 +12,7 @@
 	-ms-perspective: 800px;
 	perspective: 800px;
 	-webkit-perspective-origin: 0% 50%;
+	position: relative;
 }
 // domain slats
 .domain-list__item{
@@ -21,12 +22,13 @@
 }
 
 .domain-list__item{
-	.transition(all .5s);
+	.transition(all .3s);
 	border-bottom-color: fade(@oil, 50%);
 	.rotateY(-90deg);
 	opacity: 0;
 	-webkit-transform-origin: left 50%;
 	position: relative;
+	width: 100%;
 	
 	&.is-ready{
 		opacity: 1;
