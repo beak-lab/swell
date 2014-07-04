@@ -45,8 +45,17 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
             },
 
             addGoal: function(click) {
-                this.appendGoal(click.target.innerText);
-                $(click.target).slideUp();
+
+                var targetGoal = $(click.target);
+                if( !targetGoal.hasClass('.auto_goal')){
+                    targetGoal = targetGoal.closest('.auto_goal');
+                }
+
+
+                console.log(targetGoal.find('.activity-goal__text').text());
+
+                this.appendGoal(targetGoal.find('.activity-goal__text').text());
+                targetGoal.slideUp();
                 //.slideUp();
             },
 
