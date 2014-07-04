@@ -223,7 +223,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
             },
             setDeckHeight: function(historySwipe, decksContainer){
                 var currentDeck = decksContainer.find('.activity-history__deck:eq(' + historySwipe.getPos() + ')');
-                console.log(currentDeck);
+                // console.log(currentDeck);
                 decksContainer.velocity({
                     'height' : currentDeck.outerHeight(),
                  }, 300 );

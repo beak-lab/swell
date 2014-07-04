@@ -53,7 +53,7 @@ define(function(require) {
         });
 
         App.on('domain:goals', function(model) {
-            App.navigate('/domain/' + model.get('slug') + '/goals');
+            App.navigate('/domain/' + ((typeof model === 'string') ? model : model.get('slug')) + '/goals');
             API.showDomainGoals(model);
         });
 

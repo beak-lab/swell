@@ -23,14 +23,14 @@ define(['app', 'domain_goal_view', 'domain_entity', 'challenge_entity'], functio
                                 var goalset = {};
                                 goalset.name = challenge.get('name');
                                 goalset.goals = ( _.values(c.goal) );
-                                
+
                                 goals.push(goalset);
 
                                 // goals = _.union(goals, _.values(c.goal));
                             }
                         });
 
-                        console.log(goals);
+                        // console.log(goals);
 
                         App.execute('set:back', {
                             route: false,
