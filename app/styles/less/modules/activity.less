@@ -15,6 +15,13 @@
 		height: 5rem;
 		vertical-align: middle;
 	}
+
+	input[type='text']{
+		&:focus, &:active{
+			outline: 0;
+			background: transparent;
+		}
+	}
 	
 	.activity-goal__icon{
 		// &:extend(.checkboxable__checkbox);
@@ -28,7 +35,6 @@
 		width: 2rem;
 		line-height: 0;
 		cursor: pointer;
-
 	}
 }
 
