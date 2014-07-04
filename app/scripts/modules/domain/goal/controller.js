@@ -5,7 +5,6 @@ define(['app', 'domain_goal_view', 'domain_entity', 'challenge_entity'], functio
         Goal.Controller = {
             show: function(model) {
                 var modelId = (typeof model === 'string') ? model : model.id;
-
                 var fetchingDomains = App.request('domain:entity', modelId);
                 $.when(fetchingDomains).done(function(domain) {
                     var fetchingChallenges = App.request('challenge:domain:entities', domain.get('id'));
