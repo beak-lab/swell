@@ -1,0 +1,7 @@
+yay
+
+{?goals}
+    {@iterate key=goals}
+        {$value}
+    {/iterate}
+{/goals}
