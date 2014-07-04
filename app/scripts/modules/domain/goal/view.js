@@ -18,6 +18,10 @@ define(['app', 'templates', 'dust', 'dustIterate', 'jquery.velocity'], function(
                 'click #personal-goal-add-form': 'addGoalform',
             },
 
+            initialize : function(){
+                $('body').removeClass('is-domain-list-view');
+            },
+
             appendGoal: function(text) {
 
                 var newgoalDiv = $('<label class="mystuff__goals__goal"><input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" /><div class="activity-goal__text">' + text + '</div></label>');
