@@ -1,14 +1,14 @@
 <h2>{challange.name}</h2>
 
 <div class="mystuff__goals">
-    <h3>Recent Goals</h3>
+    <h3>Challenge Goals</h3>
 
-    <div class="activity__personal-goal__add" id="personal-goal-add-form" data-snap-ignore='true'>
+<!--     <div class="activity__personal-goal__add" id="personal-goal-add-form" data-snap-ignore='true'>
         <div class="activity-goal__icon">+</div>
         <input id='goal_name' placeholder="Add your own" type='text' name='goal' />
-    </div>
+    </div> -->
 
-    <div id='goals'>
+    <div id='goals' class="mystuff__goals__list">
         {?goals.goal}
                 {@iterate key=goals.goal}
                 <label class="mystuff__goals__goal">
@@ -17,6 +17,11 @@
                 </label>
                 {/iterate}
         {/goals.goal}
+    </div>
+
+    <div class="activity__personal-goal__add mystuff__personal-goal__add" id="personal-goal-add">
+        <div class="activity-goal__icon">+</div>
+        <div class="activity-goal__text" name='goal'>See and add all work goals</div>
     </div>
 
 </div>

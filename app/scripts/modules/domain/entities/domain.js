@@ -21,56 +21,56 @@ define(['app'], function(App) {
                 slug: 'personal-meaning',
                 desc: 'What’s the meaning and purpose of my life?',
                 cssClass: 'personal-meaning',
-                goals: Math.round(Math.random()*10) + 1
+                goals: Math.round(Math.random()*4) + 1
             }, {
                 id: 2,
                 name: 'Self-belief',
                 slug: 'self-belief',
                 desc: 'How can I feel better about myself?',
                 cssClass: 'self-belief',
-                goals: Math.round(Math.random()*10) + 1
+                goals: Math.round(Math.random()*4) + 1
             }, {
                 id: 3,
                 name: 'Relationships',
                 slug: 'relationships',
                 desc: 'How can I develop better relationships?',
                 cssClass: 'relationships',
-                goals: Math.round(Math.random()*10) + 1
+                goals: Math.round(Math.random()*4) + 1
             }, {
                 id: 4,
                 name: 'Self-management',
                 slug: 'self-management',
                 desc: 'How can I self-manage my distress?',
                 cssClass: 'self-management',
-                goals: Math.round(Math.random()*10) + 1
+                goals: Math.round(Math.random()*4) + 1
             }, {
                 id: 5,
                 name: 'Work',
                 slug: 'work',
                 desc: 'How can I make a contribution to society?',
                 cssClass: 'work',
-                goals: Math.round(Math.random()*10) + 1
+                goals: Math.round(Math.random()*4) + 1
             }, {
                 id: 6,
                 name: 'Lifestyle',
                 slug: 'lifestyle',
                 desc: 'How can I lead a healthy lifestyle?',
                 cssClass: 'lifestyle',
-                goals: Math.round(Math.random()*10) + 1
+                goals: Math.round(Math.random()*4) + 1
             }, {
                 id: 7,
                 name: 'Services',
                 slug: 'services',
                 desc: 'How can I get what I need from services?',
                 cssClass: 'services',
-                goals: Math.round(Math.random()*10) + 1
+                goals: Math.round(Math.random()*4) + 1
             },{
                 id: 8,
                 name: 'Money',
-                slug: 'Money',
+                slug: 'money',
                 desc: 'How can I manage or grow my income?',
                 cssClass: 'money',
-                goals: Math.round(Math.random()*10) + 1
+                goals: Math.round(Math.random()*4) + 1
             }
             ]);
         };

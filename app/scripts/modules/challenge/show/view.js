@@ -78,8 +78,11 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
 
             events: {
                 'keyup #goal_name': 'addGoalform',
-                'click #personal-goal-add-form' : 'addGoalform',
+                'click #personal-goal-add' : 'gotoGoalsPage',
+            },
 
+            gotoGoalsPage: function(){
+                App.trigger('domain:goals', 'work');
             },
 
             appendGoal: function(text) {
