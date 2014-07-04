@@ -76,6 +76,17 @@ define(['app'], function(App) {
         };
 
         var API = {
+            getDomainEntity: function(slug) {
+                if (undefined === Entities.fakeDomains) {
+                    initializeDomains();
+                }
+
+                var models = Entities.fakeDomains.findWhere({
+                    slug: slug
+                });
+
+                return models;
+            },
             getDomainEntities: function() {
                 App.log('domain:entities event detected', contextName, 2);
 
@@ -112,6 +123,10 @@ define(['app'], function(App) {
             },
 
         };
+
+        App.reqres.setHandler('domain:entity', function(slug) {
+            return API.getDomainEntity(slug);
+        });
 
         App.reqres.setHandler('domain:entities', function() {
             return API.getDomainEntities();

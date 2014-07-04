@@ -4,15 +4,23 @@ define(['app', 'domain_goal_view', 'domain_entity', 'challenge_entity'], functio
     App.module('Domain.Goal', function (Goal, App, Backbone, Marionette, $, _) {
         Goal.Controller = {
             show: function(model) {
+                var fetchingChallenges;
+                var domainId;
 
-                // var fetchingDomain = App.request('domain:entities', model);
+                if (typeof model === 'string') {
+                    var fetchingDomains = App.request('domain:entity', model);
+                    $.when(fetchingDomains).done(function(domain) {
+                        domainId = domain.get('id');
+                        fetchingChallenges = App.request('challenge:domain:entities', domain.get('id'));
+                    });
+                } else {
+                    domainId = model.id;
+                    fetchingChallenges = App.request('challenge:domain:entities', model.id);
+                }
 
-                // var layout = new View.Layout();
-
-                var fetchingChallenges = App.request('challenge:domain:entities', model.id);
                 $.when(fetchingChallenges).done(function(challenges) {
                     var thisDomainsChallenges = challenges.where({
-                        domain: model.id
+                        domain: domainId
                     });
 
                     var goals = [];
