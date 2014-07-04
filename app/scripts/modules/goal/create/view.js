@@ -16,7 +16,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
             appendGoal: function(text) {
                 var total = this.$el.find('.activity__personal-goals__goal').length;
                 var newgoalInput = $('<input type="hidden" name="goal[' + total + ']" value="' + text + '"/>');
-                var newgoalDiv = $('<div class="activity__personal-goals__goal"><div class="activity-goal__icon"></div>' + text + '</div>');
+                var newgoalDiv = $('<div class="activity__personal-goals__goal"><div class="activity-goal__icon"></div><div class="activity-goal__text">' + text + '</div></div>');
                 //newgoalDiv.hide();
                 newgoalDiv.css({'height' :  0, 'min-height' : 0});
 

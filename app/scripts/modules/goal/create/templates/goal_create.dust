@@ -10,7 +10,7 @@
 		{#autoGoals}
 		    <div class='activity__suggested-goal auto_goal'>
 				<div class="activity-goal__icon">+</div>
-		    	{name}
+		    	<div class="activity-goal__text">{name}</div>
 		    </div>
 		{/autoGoals}
 		</div>

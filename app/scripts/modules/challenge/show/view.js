@@ -83,7 +83,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
             },
 
             appendGoal: function(text) {
-                var newgoalDiv = $('<label class="mystuff__goals__goal"><input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />' + text + '</label>');
+                var newgoalDiv = $('<label class="mystuff__goals__goal"><input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" /><div class="activity-goal__text">' + text + '</div></label>');
                 //newgoalDiv.hide();
                 newgoalDiv.css({'height' :  0, 'min-height' : 0});
 

@@ -5,10 +5,11 @@
 	border-bottom: 1px solid fade(@oil, 50%); 
 	min-height: 5rem;
 	overflow: hidden;
-	vertical-align: baseline;
+	// vertical-align: baseline;
+	position: relative;
 	// line-height: 4.5rem;
 	&:before{
-		display: inline-block;
+		// display: inline-block;
 		content: ' ';
 		// background: red;
 		width: 1px;
@@ -22,6 +23,10 @@
 			background: transparent;
 		}
 	}
+	.activity-goal__text{
+		display: inline-block;
+		margin: 1.2rem 0
+	}
 	
 	.activity-goal__icon{
 		// &:extend(.checkboxable__checkbox);
@@ -30,11 +35,14 @@
 		content: ' ';
 		display: inline-block;
 		vertical-align: middle;
-		margin-right: 1rem;
-		margin-left: -1em;
+		margin: 1.2rem 1rem 1.2rem -1em;
+		// margin-right: 1rem;
+		// margin-left: -1em;
 		width: 2rem;
 		line-height: 0;
 		cursor: pointer;
+		position: absolute;
+		top: 1.2rem;
 	}
 }
 
