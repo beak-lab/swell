@@ -3,18 +3,12 @@ define(function(require) {
     var App = require('app');
     var $ = require('jquery');
 
-    // create a new module
     App.module('Domain', {
         startWithParent: false,
-        // only avaiable with object literal def of module;
         initialize: function(options, moduleName, App) { // on prototype chain thus inheritable
             this.name = moduleName;
             App.log('Initalize: ' + App.getCurrentRoute(), this.name, 2);
         },
-        // define: function(Domain, App, Backbone, Marionette, $, _) { // non inheritable
-            // temp stuff for logging
-            // TODO: find a better way to get module name
-        // }
     });
 
     App.Domain.on('start', function() {
@@ -25,21 +19,13 @@ define(function(require) {
         $('body').removeClass('is-domain-module');
     });
 
-    // create a new sub module
     App.module('Routers.Domain', function(DomainRouter, App, Backbone, Marionette) { //, $, _) {
         this.name = 'Routers.Domain';
 
         DomainRouter.Router = Marionette.AppRouter.extend({
-            initialize: function() {
-                // App.log('Before Router', DomainRouter.name);
-                // start ourselves
-                // App.switchApp('Domain', {});
-            },
             appRoutes: {
-                '': 'listDomain',
                 'domains': 'listDomain',
-                // 'domain/create': 'createDomain',
-                // 'domain/:slug' : 'showDomain'
+                'domain/:slug/goals' : 'showDomainGoals'
             }
         });
 
@@ -50,18 +36,26 @@ define(function(require) {
         };
 
         var API = {
-            listDomain : function() {
-                require(['domain_list_controller'], function(ListController) {
-                    App.log('List domain: Controller loaded, requesting domain..', DomainRouter.name, 2);
-                    executeAction(ListController.listDomain);
+            listDomain: function() {
+                require(['domain_list_controller'], function(Controller) {
+                    executeAction(Controller.listDomain);
+                });
+            },
+            showDomainGoals: function(id) {
+                require(['domain_goal_controller'], function(Controller) {
+                    executeAction(Controller.show, id);
                 });
             },
         };
 
-        // also watch for manual events:
         App.on('domain:list', function() {
             App.navigate('/domains');
             API.listDomain();
+        });
+
+        App.on('domain:goals', function(id) {
+            App.navigate('/domain/' + id + '/goals');
+            API.showDomainGoals(id);
         });
 
         App.addInitializer(function() {

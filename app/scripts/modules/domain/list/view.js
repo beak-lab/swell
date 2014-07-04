@@ -41,17 +41,15 @@ define(['app'], function(App) {
         });
 
         View.Domain = Marionette.CompositeView.extend({
-            // tagName: 'div',
-            // className: '',
             template: 'domain_list',
             itemView: View.DomainOne,
             itemViewContainer: '#domain_list',
 
-            onCompositeCollectionRendered: function(){
-                var domains = $('.domain-list__item');
-                domains.each(function(i){
+            onCompositeCollectionRendered: function() {
+                var domains = this.$el.find('.domain-list__item');
+                domains.each(function(i) {
                     var $this = $(this);
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $this.addClass('is-ready');
                     }, i * 50 + 50);
                 });

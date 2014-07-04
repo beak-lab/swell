@@ -16,38 +16,14 @@
     <h2 class="goals__title sidebar-goals__title" ><img src="images/icon-goals-tick.svg"/>My Goals</h2>
 
     <ul class="sidebar-goals__mygoals">
+    {#domains}
 		<li class="sidebar-goals__mygoals__goal">
-			<span class="sidebar-goals__mygoals__goal__count personal-meaning">2</span>
-			Personal meaning
+			<span class="sidebar-goals__mygoals__goal__count {slug}">
+				<script type="text/javascript">document.write(Math.round(Math.random()*10) + 1);</script>
+			</span>
+			{title}
 		</li>
-		<li class="sidebar-goals__mygoals__goal">
-			<span class="sidebar-goals__mygoals__goal__count self-belief">3</span>
-			Self belief
-		</li>
-		<li class="sidebar-goals__mygoals__goal">
-			<span class="sidebar-goals__mygoals__goal__count relationships">2</span>
-			Relationships
-		</li>
-		<li class="sidebar-goals__mygoals__goal">
-			<span class="sidebar-goals__mygoals__goal__count self-management">5</span>
-			Self-management
-		</li>
-		<li class="sidebar-goals__mygoals__goal money">
-			<span class="sidebar-goals__mygoals__goal__count money">1</span>
-			Money
-		</li>
-		<li class="sidebar-goals__mygoals__goal work">
-			<span class="sidebar-goals__mygoals__goal__count work">4</span>
-			Work 
-		</li>
-		<li class="sidebar-goals__mygoals__goal">
-			<span class="sidebar-goals__mygoals__goal__count lifestyle">2</span>
-			Lifestyle
-		</li>
-		<li class="sidebar-goals__mygoals__goal">
-			<span class="sidebar-goals__mygoals__goal__count services">4</span>
-			Services
-		</li>
+    {/domains}
     </ul>
 
 

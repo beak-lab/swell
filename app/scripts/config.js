@@ -40,7 +40,9 @@ requirejs.config({
 
         'domain_list_view'         : 'modules/domain/list/view',
         'domain_list_controller'   : 'modules/domain/list/controller',
-        'domain_entities'          : 'modules/domain/entities/domain',
+        'domain_goal_view'         : 'modules/domain/goal/view',
+        'domain_goal_controller'   : 'modules/domain/goal/controller',
+        'domain_entity'            : 'modules/domain/entities/domain',
 
         'challenge_list_view'      : 'modules/challenge/list/view',
         'challenge_list_controller': 'modules/challenge/list/controller',
