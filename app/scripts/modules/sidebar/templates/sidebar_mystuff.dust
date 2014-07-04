@@ -15,17 +15,8 @@
 <div class="sidebar-goals">
     <h2 class="goals__title sidebar-goals__title" ><img src="images/icon-goals-tick.svg"/>My Goals</h2>
 
-    <ul class="sidebar-goals__mygoals">
-    {#domains}
-		<li class="sidebar-goals__mygoals__goal">
-			<span class="sidebar-goals__mygoals__goal__count {slug}">
-				<script type="text/javascript">document.write(Math.round(Math.random()*10) + 1);</script>
-			</span>
-			{title}
-		</li>
-    {/domains}
+    <ul class="sidebar-goals__mygoals" id="sidebar-goals-list">
     </ul>
-
 
 	<div class="sidebar-goals__share">
 		<span class=" sidebar-goals__share__button btn btn-sm"><img src="images/icon-goals-tick-white.svg"> Share goals with people</span>

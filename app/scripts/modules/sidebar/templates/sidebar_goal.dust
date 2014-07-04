@@ -1,0 +1,6 @@
+<li class="sidebar-goals__mygoals__goal">
+    <span class="sidebar-goals__mygoals__goal__count {slug}">
+        {goals}
+    </span>
+    {name}
+</li>

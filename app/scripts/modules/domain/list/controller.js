@@ -8,6 +8,7 @@ define(['app', 'domain_list_view', 'domain_entity'], function(App, View) {
 
                 var layout = new View.Layout();
                 App.mainRegion.show(layout);
+
                 $.when(fetchingDomain).done(function(domain) {
 
                     var view = new View.Domain({

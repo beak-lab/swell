@@ -25,10 +25,21 @@ define(['app'], function(App) {
             itemViewContainer: '#sidebar-history-list',
         });
 
-        View.Right = Marionette.ItemView.extend({
+        View.GoalItem = Marionette.ItemView.extend({
+            template: 'sidebar_goal',
+
+            triggers: {
+                'click .sidebar-goals__mygoals__goal': 'goalClicked'
+            },
+
+        });
+
+        View.Right = Marionette.CompositeView.extend({
             tagName: 'div',
             className: 'sidebar',
             template: 'sidebar_mystuff',
+            itemView: View.GoalItem,
+            itemViewContainer: '#sidebar-goals-list',
 
             events: {
                 'change .goals__goal__checkbox': 'goalsCheckbox',
@@ -41,12 +52,6 @@ define(['app'], function(App) {
                         $(this).prop('checked', true);
                     });
                 }
-            },
-
-            serializeData: function() {
-                return {
-                    domains: this.options.domains
-                };
             },
         });
 

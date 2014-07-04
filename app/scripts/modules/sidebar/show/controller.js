@@ -15,14 +15,19 @@ define(['app', 'sidebar_view', 'sidebar_entity', 'domain_entity'], function(App,
                     collection: App.request('sidebar:history')
                 });
 
-                var fetchingDomains = App.request('domain:entities');
+                var fetchingDomain = App.request('domain:entities');
 
-                $.when(fetchingDomains, function(domains) {
-                    console.log('done');
-                    console.log(domains);
-                    App.rightRegion.show(new View.Right({
-                        domains: domains
-                    }));
+                $.when(fetchingDomain).done(function(domains) {
+                    var rightView = new View.Right({
+                        collection: domains
+                    });
+
+                    rightView.on('itemview:goalClicked', function(e, object) {
+                        App.snapper.close('right');
+                        App.trigger('domain:goals', object.model.get('slug'));
+                    });
+
+                    App.rightRegion.show(rightView);
                 });
 
                 // Sidebar.Controller.sidebar.on('itemview:navigate', function(childView, model) {
