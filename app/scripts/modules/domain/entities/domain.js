@@ -81,9 +81,18 @@ define(['app'], function(App) {
                     initializeDomains();
                 }
 
-                var models = Entities.fakeDomains.findWhere({
-                    slug: slug
-                });
+                var models;
+
+                if (typeof slug === 'string') {
+                    models = Entities.fakeDomains.findWhere({
+                        slug: slug
+                    });
+                } else {
+                    models = Entities.fakeDomains.findWhere({
+                        // NOTE: this is a gotcha:
+                        id: parseInt(slug)
+                    });
+                }
 
                 return models;
             },
