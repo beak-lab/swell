@@ -45,7 +45,10 @@ define(['app'], function(App) {
             itemView: View.DomainOne,
             itemViewContainer: '#domain_list',
 
+
+
             onCompositeCollectionRendered: function() {
+
                 var domains = this.$el.find('.domain-list__item');
                 domains.each(function(i) {
                     var $this = $(this);
@@ -53,16 +56,11 @@ define(['app'], function(App) {
                         $this.addClass('is-ready');
                     }, i * 50 + 50);
                 });
-            }
+            },
 
-            // initialize: function() {
-            //     this.listenTo(this.collection, 'reset', function() {
-            //         App.log('reset called', 'Domain list view', 1);
-            //         this.appendHtml = function(collectionView, itemView) { //, index) {
-            //             collectionView.$el.append(itemView.el);
-            //         };
-            //     });
-            // },
+            initialize: function() {
+                $('body').addClass('is-domain-list-view');
+            },
 
             // onCompositeCollectionRendered: function() {
             //     App.log('rendered called', 'Domain list view', 1);
