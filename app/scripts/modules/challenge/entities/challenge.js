@@ -137,10 +137,18 @@ define(['app'], function(App) {
                     initializeChallenges();
                 }
 
-                var models = Entities.fakeChallenges.where({
-                    // NOTE: this is a gotcha:
-                    domain: parseInt(domain)
-                });
+                var models;
+
+                if (typeof domain === 'string') {
+                    models = Entities.fakeChallenges.where({
+                        slug: domain
+                    });
+                } else {
+                    models = Entities.fakeChallenges.where({
+                        // NOTE: this is a gotcha:
+                        domain: parseInt(domain)
+                    });
+                }
 
                 return new Entities.ChallengeCollection(models);
             },
