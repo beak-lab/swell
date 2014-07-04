@@ -24,7 +24,7 @@ define(['app', 'sidebar_view', 'sidebar_entity', 'domain_entity'], function(App,
 
                     rightView.on('itemview:goalClicked', function(e, object) {
                         App.snapper.close('right');
-                        App.trigger('domain:goals', object.model.get('slug'));
+                        App.trigger('domain:goals', object.model);
                     });
 
                     App.rightRegion.show(rightView);

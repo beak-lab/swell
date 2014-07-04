@@ -41,9 +41,9 @@ define(function(require) {
                     executeAction(Controller.listDomain);
                 });
             },
-            showDomainGoals: function(id) {
+            showDomainGoals: function(model) {
                 require(['domain_goal_controller'], function(Controller) {
-                    executeAction(Controller.show, id);
+                    executeAction(Controller.show, model);
                 });
             },
         };
@@ -53,9 +53,9 @@ define(function(require) {
             API.listDomain();
         });
 
-        App.on('domain:goals', function(id) {
-            App.navigate('/domain/' + id + '/goals');
-            API.showDomainGoals(id);
+        App.on('domain:goals', function(model) {
+            App.navigate('/domain/' + model.get('slug') + '/goals');
+            API.showDomainGoals(model);
         });
 
         App.addInitializer(function() {
