@@ -3,14 +3,17 @@
 	{?goals}
 		<div class="domain-goals__list" id="goals">
 	    {@iterate key=goals}
-		    <label class="domain-goals__goal">
-                <input class="domain-goals__goal-checkbox checkboxable__checkbox" type="checkbox" />
-                <div class="domain-goals__goal__text">{$value}</div>
-		    </label>
+			<h3>{$value.name}</h3>
+		    {@iterate key=$value.goals}
+			    <label class="domain-goals__goal">
+	                <input class="domain-goals__goal-checkbox checkboxable__checkbox" type="checkbox" />
+	                <div class="domain-goals__goal__text">{$value}</div>
+			    </label>
+		    {/iterate}
 	    {/iterate}
 		</div>
 	{:else}
-		<h3>No goals set yot for this domain</h3>
+		<h3>No goals set for for this domain</h3>
 	{/goals}
 	<!-- lets just HAAAAAX it in there -->
     <div class="activity__personal-goal__add" id="personal-goal-add-form" data-snap-ignore='true'>

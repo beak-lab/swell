@@ -20,9 +20,17 @@ define(['app', 'domain_goal_view', 'domain_entity', 'challenge_entity'], functio
                             // if this challenge has been done and if goals added
                             if (c && c.goal) {
                                 // add all goals from this challenge
-                                goals = _.union(goals, _.values(c.goal));
+                                var goalset = {};
+                                goalset.name = challenge.get('name');
+                                goalset.goals = ( _.values(c.goal) );
+                                
+                                goals.push(goalset);
+
+                                // goals = _.union(goals, _.values(c.goal));
                             }
                         });
+
+                        console.log(goals);
 
                         App.execute('set:back', {
                             route: 'domains',
