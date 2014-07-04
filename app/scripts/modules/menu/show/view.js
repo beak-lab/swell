@@ -23,7 +23,7 @@ define(['app', 'templates', 'dust'], function(App) {
             template: 'menu_back',
 
             events: {
-                'click a.useBackbone': backPressed
+                'click a.useBackbone': 'backPressed'
             },
 
             backPressed: function() {

@@ -1,4 +1,4 @@
-<a class="glb-navbar__back {?route}{:else}useBackbone{/route}" href="#{route}">
+<a class="glb-navbar__back {?route}" href="#{route}"{:else}useBackbone"{/route}>
 	<span class="glb-navbar__back__arrow">
 		<img src="images/icon-back.svg" />
 	</span>
