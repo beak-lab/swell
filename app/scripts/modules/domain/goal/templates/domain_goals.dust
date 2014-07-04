@@ -1,7 +1,20 @@
-yay
+<div class="domain-goals">
+	{?goals}
+		<div class="domain-goals__list">
+	    {@iterate key=goals}
+		    <label class="domain-goals__goal">
+                <input class="domain-goals__goal-checkbox checkboxable__checkbox" type="checkbox" />
+                <div class="domain-goals__goal__text">{$value}</div>
+		    </label>
+	    {/iterate}
+		</div>
+	{:else}
+		<p>No goals set yot for this domain</p>
+	{/goals}
+	<!-- lets just HAAAAAX it in there -->
+    <div class="activity__personal-goal__add" id="personal-goal-add-form" data-snap-ignore='true'>
+        <div class="activity-goal__icon">+</div>
+        <input id='goal_name' placeholder="{?goals}Add another goal{:else}Add some{/goals}" type='text' name='goal' />
+    </div>
 
-{?goals}
-    {@iterate key=goals}
-        {$value}
-    {/iterate}
-{/goals}
+</div>
