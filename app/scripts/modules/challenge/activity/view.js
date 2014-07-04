@@ -18,6 +18,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                     'mouseup   .activity__pagination-next': 'nextUnpressed',
                     'click .activity__pagination-goals': 'goals'
                 }, this._events, this.events);
+                this.clickTime = false;
                 Marionette.ItemView.prototype.constructor.apply(this, arguments);
             },
 
@@ -26,9 +27,18 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
 
             nextPressed: function(e) {
                 e.preventDefault();
+                // if there is an uncleared click event
+                if (this.clickTime) {
+                    // send backwards
+                    this.trigger('prev');
+                    this.clickTime = false;
+                    return;
+                }
+
                 // console.log('Click DOWN');
                 this.$el.find('.activity__pagination-next').addClass('is-pressed');
                 this.clickTime = new Date().getTime();
+
             },
 
             nextUnpressed: function(e) {
@@ -36,11 +46,13 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
                 // console.log('Click UP');
                 this.saveData();
                 this.$el.find('.activity__pagination-next').removeClass('is-pressed');
-                if (new Date().getTime() - this.clickTime > 800) {
+                if ((new Date().getTime() - this.clickTime) > 800) {
                     this.trigger('prev');
                 } else {
                     this.trigger('next');
                 }
+                // clear flag
+                this.clickTime = false;
             },
 
             goals: function() {

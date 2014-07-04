@@ -1,4 +1,5 @@
 'use strict';
+/*globals Swipe*/
 define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap.popover', 'swipejs', 'jquery.velocity'], function(App) {
     App.module('Challenge.Show.View', function(View, App, Backbone, Marionette, $) {
         View.Layout = Marionette.Layout.extend({
@@ -191,16 +192,16 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 // decks.outerHeight(biggestHeight);
 
 
-                
+
                 var _this = this;
                 var historyEl = this.$el.find('#mystuff-history');
                 var decksContainer = historyEl.find('.activity-history__decks');
-                
+
                 var historySwipe = new Swipe(historyEl[0], {
                     continuous: true,
                     callback: function() {
                         //changes the pager
-                        console.log(this);
+                        // console.log(this);
                         var pagers = historyEl.find('.activity-history__pager-item').removeClass('is-active');
                         pagers.filter(function() {
                             return $(this).data('idx') === historySwipe.getPos();
@@ -235,9 +236,9 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 decks.each(function(i) {
                     var li = $('<li/>')
                         .addClass('activity-history__pager-item')
-                        .data('idx', i)
+                        .data('idx', i);
                     li.click(function() {
-                        swipe.slide(i)
+                        swipe.slide(i);
                     });
                     if (i === 0) {
                         li.addClass('is-active');
