@@ -1,6 +1,6 @@
 'use strict';
 define(['app', 'templates', 'dust', 'dustIterate', 'jquery.velocity'], function(App) {
-    App.module('Domain.Show.View', function(View, App, Backbone, Marionette) {
+    App.module('Domain.Show.View', function(View, App, Backbone, Marionette, $) {
         View.Layout = Marionette.Layout.extend({
             template: 'domain_goal_show',
 
@@ -15,22 +15,27 @@ define(['app', 'templates', 'dust', 'dustIterate', 'jquery.velocity'], function(
 
             events: {
                 'keyup #goal_name': 'addGoalform',
-                'click #personal-goal-add-form' : 'addGoalform',
+                'click #personal-goal-add-form': 'addGoalform',
             },
-
 
             appendGoal: function(text) {
 
                 var newgoalDiv = $('<label class="mystuff__goals__goal"><input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" /><div class="activity-goal__text">' + text + '</div></label>');
                 //newgoalDiv.hide();
-                newgoalDiv.css({'height' :  0, 'min-height' : 0});
+                newgoalDiv.css({
+                    'height': 0,
+                    'min-height': 0
+                });
 
                 // this.$el.find('.activity__personal-goals').addClass('has-goals').prepend(newgoalDiv);
                 this.$el.find('#goals').append(newgoalDiv);
                 newgoalDiv.velocity({
-                    'min-height' : '5rem'
-                }, 500).promise().done(function(){
-                    newgoalDiv.css({'height' :  '', 'min-height' : ''});
+                    'min-height': '5rem'
+                }, 500).promise().done(function() {
+                    newgoalDiv.css({
+                        'height': '',
+                        'min-height': ''
+                    });
                 });
                 //newgoalDiv.slideDown();
             },
@@ -41,7 +46,7 @@ define(['app', 'templates', 'dust', 'dustIterate', 'jquery.velocity'], function(
                 if (e.keyCode === 13 || $(e.target).hasClass('activity-goal__icon')) {
                     var input = this.$el.find('#goal_name');
                     console.log(input);
-                    if( input.val().trim() ) {
+                    if (input.val().trim()) {
                         this.appendGoal(input.val());
                         input.val('');
                     }
@@ -50,7 +55,8 @@ define(['app', 'templates', 'dust', 'dustIterate', 'jquery.velocity'], function(
 
             serializeData: function() {
                 return {
-                    goals: this.options.goals
+                    goals: this.options.goals,
+                    domain: this.options.domain
                 };
             },
         });
@@ -58,5 +64,3 @@ define(['app', 'templates', 'dust', 'dustIterate', 'jquery.velocity'], function(
 
     return App.Domain.Show.View;
 });
-
-

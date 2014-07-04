@@ -4,41 +4,40 @@ define(['app', 'domain_goal_view', 'domain_entity', 'challenge_entity'], functio
     App.module('Domain.Goal', function (Goal, App, Backbone, Marionette, $, _) {
         Goal.Controller = {
             show: function(model) {
-                var fetchingChallenges;
-                var domainId;
+                var modelId = (typeof model === 'string') ? model : model.id;
 
-                if (typeof model === 'string') {
-                    var fetchingDomains = App.request('domain:entity', model);
-                    $.when(fetchingDomains).done(function(domain) {
-                        domainId = domain.get('id');
-                        fetchingChallenges = App.request('challenge:domain:entities', domain.get('id'));
+                var fetchingDomains = App.request('domain:entity', modelId);
+                $.when(fetchingDomains).done(function(domain) {
+                    var fetchingChallenges = App.request('challenge:domain:entities', domain.get('id'));
+
+                    $.when(fetchingChallenges).done(function(challenges) {
+                        var thisDomainsChallenges = challenges.where({
+                            domain: domain.get('id')
+                        });
+
+                        var goals = [];
+                        _.each(thisDomainsChallenges, function(challenge) {
+                            var c = JSON.parse(window.localStorage.getItem('goals[' + challenge.id + ']'));
+                            // if this challenge has been done and if goals added
+                            if (c && c.goal) {
+                                // add all goals from this challenge
+                                goals = _.union(goals, _.values(c.goal));
+                            }
+                        });
+
+                        App.execute('set:back', {
+                            route: 'domains',
+                            page: 'Domains'
+                        });
+
+                        var view = new View.Goals({
+                            goals: goals,
+                            domain: domain.get('name')
+                        });
+
+                        App.mainRegion.show(view);
+                        // layout.mainRegion.show(view);
                     });
-                } else {
-                    domainId = model.id;
-                    fetchingChallenges = App.request('challenge:domain:entities', model.id);
-                }
-
-                $.when(fetchingChallenges).done(function(challenges) {
-                    var thisDomainsChallenges = challenges.where({
-                        domain: domainId
-                    });
-
-                    var goals = [];
-                    _.each(thisDomainsChallenges, function(challenge) {
-                        var c = JSON.parse(window.localStorage.getItem('goals[' + challenge.id + ']'));
-                        // if this challenge has been done and if goals added
-                        if (c && c.goal) {
-                            // add all goals from this challenge
-                            goals = _.union(goals, _.values(c.goal));
-                        }
-                    });
-
-                    var view = new View.Goals({
-                        goals: goals
-                    });
-
-                    App.mainRegion.show(view);
-                    // layout.mainRegion.show(view);
                 });
             }
         };
