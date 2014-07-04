@@ -21,6 +21,15 @@ define(['app', 'templates', 'dust'], function(App) {
 
         View.Back = Marionette.ItemView.extend({
             template: 'menu_back',
+
+            events: {
+                'click a.useBackbone': backPressed
+            },
+
+            backPressed: function() {
+                Backbone.history.history.back();
+            },
+
             serializeData: function() {
                 var data = {};
                 data.route = this.options.route;

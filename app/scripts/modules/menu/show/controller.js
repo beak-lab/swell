@@ -36,12 +36,7 @@ define(['app', 'menu_view', 'menu_entity'], function(App, View) {
             },
 
             setBackButtonLink: function(data) {
-                // var back = Show.Controller.back;
-                // Show.Controller.back.options.page = page;
-                // console.log(back);
-
-                // Show.Controller.back.trigger('reset');
-
+                // set the wording and link
                 Show.Controller.back = new View.Back({
                     page: data.page,
                     route: data.route
@@ -49,11 +44,9 @@ define(['app', 'menu_view', 'menu_entity'], function(App, View) {
 
                 var rm = Show.Controller.layout.regionManager;
 
+                // if no data is given, hide it
                 if (undefined === data) {
-                    // console.log(rm.get('nav'));
-                    // if (rm.get('nav')) {
-                        rm.get('nav').hide();
-                    // }
+                    rm.get('nav').hide();
                 } else {
                     rm.get('nav').show(Show.Controller.back);
                 }
