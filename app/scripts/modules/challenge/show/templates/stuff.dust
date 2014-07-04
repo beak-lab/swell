@@ -12,7 +12,8 @@
         {?goals.goal}
                 {@iterate key=goals.goal}
                 <label class="mystuff__goals__goal">
-                        <input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />{$value}
+                        <input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />
+                        <div class="activity-goal__text">{$value}</div>
                 </label>
                 {/iterate}
         {/goals.goal}
