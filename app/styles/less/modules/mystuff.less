@@ -19,6 +19,36 @@
 	// margin-left: -6rem !important;''
 }
 
+.mystuff__goals-button{
+	background: @sky;
+	color: #fff;
+	border-radius: 3em;
+	height: 3em;
+	max-width: 20em;
+	margin: 0 auto;
+	position: relative;
+	padding: 0rem 1em;
+	text-align: center;
+	&:active{
+		box-shadow: inset 0 0 10px darken(@sky, 20%);
+	}
+}
+.mystuff__goals-button__icon{
+		font-size: 2em;
+		font-weight: 500;
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 1rem;
+		width: 2rem;
+		cursor: pointer;
+
+}
+.mystuff__goals-button__text{
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+}
+
 
 .mystuff__share{
 	&:extend(.card);

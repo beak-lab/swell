@@ -19,9 +19,9 @@
         {/goals.goal}
     </div>
 
-    <div class="activity__personal-goal__add mystuff__personal-goal__add" id="personal-goal-add">
-        <div class="activity-goal__icon">+</div>
-        <div class="activity-goal__text" name='goal'>See and add all work goals</div>
+    <div class="mystuff__goals-button" id="personal-goal-add">
+        <div class="mystuff__goals-button__icon">+</div>
+        <div class="mystuff__goals-button__text" name='goal'>See and add more work goals</div>
     </div>
 
 </div>
