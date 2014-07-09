@@ -171,7 +171,7 @@ define(['app'], function(App) {
                     {
                         container: 'ol',
                         cssClass: 'big-ol',
-                        content: '<li>What I learnt from my lived experience that would help me in the job</li><li>What I have learnt about self-managing my condition that will help me in the job.</li><li>The work conditions I thrive under.</li>'
+                        content: '<li>What I learnt from my lived experience that would help me do the job</li><li>What I have learnt about self-managing my condition that will help me in the job.</li><li>The work conditions I thrive under.</li>'
                     },{
                         container: 'h3',
                         content: 'Lets go into more detail...'
