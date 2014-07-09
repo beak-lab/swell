@@ -45,7 +45,7 @@ define(['app'], function(App) {
                     slug: 'work-talents',
                     domain: 5,
                     resources: [1, 2],
-                    activities: [7, 8],
+                    activities: [],
                     icon: 'icon-talents.svg',
                 }, {
                     id: 2,
@@ -54,7 +54,7 @@ define(['app'], function(App) {
                     slug: 'work-business',
                     domain: 5,
                     resources: [1],
-                    activities: [6],
+                    activities: [],
                     icon: 'icon-business.svg',
                 }, {
                     id: 3,
@@ -63,7 +63,7 @@ define(['app'], function(App) {
                     slug: 'work-society',
                     domain: 5,
                     resources: [1, 2, 3, 4],
-                    activities: [4, 5, 6],
+                    activities: [],
                     icon: 'icon-volunteer.svg',
                 }, {
                     id: 4,
@@ -71,7 +71,7 @@ define(['app'], function(App) {
                     desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                     slug: 'work-education',
                     domain: 5,
-                    activities: [7],
+                    activities: [],
                     icon: 'icon-degree.svg',
                 }, {
                     id: 5,
@@ -79,7 +79,7 @@ define(['app'], function(App) {
                     desc: 'A very short description of the challenge. About this many words:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum ut, perferendis temporibus magnam velit qui necessitatibus officia deserunt inventore tempora architecto, illo nemo? Ab.',
                     slug: 'work-unemployment',
                     domain: 5,
-                    activities: [8],
+                    activities: [],
                     icon: 'icon-briefcase.svg',
                 }, {
                     id: 6,

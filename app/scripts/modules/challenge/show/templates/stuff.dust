@@ -1,7 +1,7 @@
 <h2>{challange.name}</h2>
 
 <div class="mystuff__goals">
-    <h3>Challenge Goals</h3>
+    <h3>Work Goals</h3>
 
 <!--     <div class="activity__personal-goal__add" id="personal-goal-add-form" data-snap-ignore='true'>
         <div class="activity-goal__icon">+</div>
