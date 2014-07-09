@@ -90,8 +90,8 @@ define(['app'], function(App) {
                 question: 'When should I disclose (if at all)?',
                 data: [{
                         text: 'I believe my distress will interfere with my ability to do the job',
-                        subtext: 'Disclose before they decide to employ me',
-                        goalText: 'Disclose before they decide to employ you'
+                        subtext: 'Disclose before they decide to employ you',
+                        goalText: 'Disclose before they decide to employ me'
                     }, {
                         text: 'I want to negotiate work conditions related to my distress',
                         subtext: 'Disclose just after they offer you the job',
