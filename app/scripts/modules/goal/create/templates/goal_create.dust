@@ -4,8 +4,9 @@
 	<h2>Now lets set goals or record your decision about disclosure to employers</h2>
 
 	{?autoGoals}
-		<h3>Here are some suggested goals:</h3>
-
+		<h3>
+			{@if cond=" '{autoGoals}'.length" }These are some decisions you've made:{:else}This is a decision you've made:{/if}
+		</h3>
 		<div class="activity__suggested-goals">
 		{#autoGoals}
 		    <div class='activity__suggested-goal auto_goal'>
@@ -15,6 +16,8 @@
 		{/autoGoals}
 		</div>
 	{/autoGoals}
+
+	<!-- {?autoGoals}<p class="activity__goals__pretext">Add another disclosure decision here (if any)</p>{/autoGoals} -->
 
 	<div class="activity__personal-goal__add" id="personal-goal-add-form">
 		<div class="activity-goal__icon">+</div>
