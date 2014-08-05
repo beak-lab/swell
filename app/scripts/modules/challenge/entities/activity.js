@@ -69,7 +69,7 @@ define(['app'], function(App) {
                 weight: 13,
                 type: 'Draggable',
                 title: 'Activity 3: Positive disclosure',
-                question: 'What I learned from <strong>my lived experience</strong> that will help me in the job',
+                question: '1) What I learned from <strong>my lived experience</strong> that will help me in the job',
                 data: {
                     draggable: [{
                         name: 'Resilience'
@@ -112,7 +112,7 @@ define(['app'], function(App) {
                 type: 'Draggable',
                 title: 'Activity 3: Positive disclosure',
                 // description: 'Say what you have learnt from your experience that will help you manage your condition',
-                question: 'What I have learnt about <strong>self-managing my condition</strong> that will help me in the job',
+                question: '2) What I have learnt about <strong>self-managing my condition</strong> that will help me in the job',
                 data: {
                     draggable: [{
                         name: 'Looking after my health'
@@ -127,7 +127,7 @@ define(['app'], function(App) {
                 weight: 15,
                 type: 'Draggable',
                 title: 'Activity 3: Positive disclosure',
-                question: 'The work conditions I thrive under',
+                question: '3) The work conditions I thrive under',
                 data: {
                     draggable: [{
                         name: 'Flexible sick leave'
