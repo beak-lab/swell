@@ -28,7 +28,7 @@ define(['app', 'backbone.picky'], function(App) {
                     icon: 'icon-challenge-complete.svg'
                 },{
                     title: 'Reminders',
-                    text: 'Starting looking for work in October 2014',
+                    text: 'Starting looking for work: 15 October',
                     icon: 'icon-alarmclock.svg'
                 },{
                     title: 'New stuff',
@@ -40,7 +40,7 @@ define(['app', 'backbone.picky'], function(App) {
                     icon: 'icon-buddy.svg'
                 },{
                     title: 'Welcome Aboard',
-                    text: 'Maru O’Hagan got Swell',
+                    text: 'Maru George got Swell',
                     icon: 'icon-star.svg'
                 }
             ]);
