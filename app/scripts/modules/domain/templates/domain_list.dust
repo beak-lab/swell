@@ -1,1 +1,8 @@
+<nav id="glb-nav" class="glb-navbar">
+	<div>
+		<div class="glb-navbar__back ">
+			<span class="glb-navbar__back__text">My life domains</span>
+		</div>
+	</div>
+</nav>
 <div id="domain_list" class="domain-list"> </div>
