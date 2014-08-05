@@ -200,25 +200,30 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 var historyEl = this.$el.find('#mystuff-history');
                 var decksContainer = historyEl.find('.activity-history__decks');
 
-                var historySwipe = new Swipe(historyEl[0], {
-                    continuous: true,
-                    callback: function() {
-                        //changes the pager
-                        // console.log(this);
-                        var pagers = historyEl.find('.activity-history__pager-item').removeClass('is-active');
-                        pagers.filter(function() {
-                            return $(this).data('idx') === historySwipe.getPos();
-                        }).addClass('is-active');
 
-                        // set the height of the slider
-                        _this.setDeckHeight(historySwipe, decksContainer);
+                if(historyEl.length){
+
+                    var historySwipe = new Swipe(historyEl[0], {
+                        continuous: true,
+                        callback: function() {
+                            //changes the pager
+                            // console.log(this);
+                            var pagers = historyEl.find('.activity-history__pager-item').removeClass('is-active');
+                            pagers.filter(function() {
+                                return $(this).data('idx') === historySwipe.getPos();
+                            }).addClass('is-active');
+
+                            // set the height of the slider
+                            _this.setDeckHeight(historySwipe, decksContainer);
 
 
-                    }
-                });
+                        }
+                    });
+                    
+                    this.setDeckHeight(historySwipe, decksContainer);
+                    this.buildHistoryPager(historySwipe);
+                }
 
-                this.setDeckHeight(historySwipe, decksContainer);
-                this.buildHistoryPager(historySwipe);
 
             },
             setDeckHeight: function(historySwipe, decksContainer){
