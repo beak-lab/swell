@@ -95,7 +95,7 @@ define(['app'], function(App) {
                     }, {
                         text: 'I want to negotiate work conditions related to my distress',
                         subtext: 'Disclose just after they offer you the job',
-                        goalText: 'Disclose my experience before I accept a job'
+                        goalText: 'Disclose my experience after I accept a job'
                     }, {
                         text: 'I want to let my employer know when I\'m struggling',
                         subtext: 'Disclose when you start struggling - don\'t wait too long',
