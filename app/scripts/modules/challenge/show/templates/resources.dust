@@ -16,6 +16,10 @@
 			<!-- <video id="id-{id}" class="resource__video__video" controls="true" src="{url}" type="video/mp4"></video> -->
 	        <img src="{poster}" class="resource__video__video" >
 	        <!-- {?description}<p class="resource__video__description">{description}</p>{/description} -->
+	        <div class="resource__video__audio-only">
+				<img src="images/icon-audio.svg" alt=""> 
+	        	Listen to just the audio
+	        </div>
 		</div>
     	{/eq}
 
