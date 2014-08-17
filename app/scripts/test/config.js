@@ -14,7 +14,6 @@ requirejs.config({
         'backbone.picky'           : '../bower_components/backbone.picky.extended/lib/amd/backbone.picky',
         'backbone.wreqr'           : '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
         'backbone.syphon'          : '../bower_components/backbone.syphon/lib/amd/backbone.syphon.min',
-        'backbone.babysitter'      : '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
         'backbone.localstorage'    : '../bower_components/backbone.localstorage/backbone.localStorage-min',
 
         'spin'                     : '../bower_components/spinjs/spin',

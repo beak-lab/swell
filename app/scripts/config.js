@@ -3,9 +3,9 @@
 requirejs.config({
     paths: {
         jquery                     : '../bower_components/jquery/dist/jquery.min',
-        underscore                 : '../bower_components/lodash/dist/lodash',
+        underscore                 : '../bower_components/lodash/dist/lodash.min',
         backbone                   : '../bower_components/backbone/backbone',
-        marionette                 : '../bower_components/marionette/lib/core/amd/backbone.marionette',
+        marionette                 : '../bower_components/marionette/lib/backbone.marionette',
         dust                       : '../bower_components/dustjs-linkedin/lib/dust',
         dustHelpers                : '../bower_components/dustjs-linkedin-helpers/lib/dust-helpers',
         dustMarionette             : '../bower_components/marionette-dust/src/amd/backbone.marionette.dust',
@@ -13,7 +13,6 @@ requirejs.config({
         'backbone.picky'           : '../bower_components/backbone.picky.extended/lib/amd/backbone.picky',
         'backbone.wreqr'           : '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
         'backbone.syphon'          : '../bower_components/backbone.syphon/lib/amd/backbone.syphon.min',
-        'backbone.babysitter'      : '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
         'backbone.localstorage'    : '../bower_components/backbone.localstorage/backbone.localStorage-min',
 
         'spin'                     : '../bower_components/spinjs/spin',
