@@ -1,4 +1,13 @@
 {
+  "asi": false,
+  "expr": true,
+  "loopfunc": true,
+  "curly": false,
+  "white": false,
+  "evil": true,
+  "browser": true,
+  "forin": true,
+
   "node"      : true,
   "esnext"    : true,
   "bitwise"   : true,

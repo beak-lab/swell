@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = {
-    app: [],
-    modules: ['app/scripts/modules/{,*/}test/*.html']
+	options: {
+		'reporter': 'xunit',
+		'output': '<%= settings.app %>/scripts/test/results/result.xml'
+	},
+	dist: ['<%= settings.app %>/scripts/test/index.html'],
 };

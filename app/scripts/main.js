@@ -34,19 +34,7 @@ require([
             $(function() {
                 App.start();
             });
-            // libs.push('//localhost:35729/livereload.js');
         }
-
-        // any extras?
-        App.on('initialize:after', function() {
-            // if (Backbone.history){
-            // Backbone.history.start();
-            // }
-        });
-
-        // Define your master router on the application namespace and trigger all
-        // navigation from this instance.
-        // App.start();
 
         // All navigation that is relative should be passed through the navigate
         // method, to be processed by the router. If the link has a `data-bypass`

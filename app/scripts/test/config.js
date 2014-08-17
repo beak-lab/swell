@@ -1,11 +1,12 @@
 'use strict';
 
 requirejs.config({
+    baseUrl: '../',
     paths: {
         jquery                     : '../bower_components/jquery/dist/jquery.min',
-        underscore                 : '../bower_components/lodash/dist/lodash',
+        underscore                 : '../bower_components/lodash/dist/lodash.min',
         backbone                   : '../bower_components/backbone/backbone',
-        marionette                 : '../bower_components/marionette/lib/core/amd/backbone.marionette',
+        marionette                 : '../bower_components/marionette/lib/backbone.marionette',
         dust                       : '../bower_components/dustjs-linkedin/lib/dust',
         dustHelpers                : '../bower_components/dustjs-linkedin-helpers/lib/dust-helpers',
         dustMarionette             : '../bower_components/marionette-dust/src/amd/backbone.marionette.dust',
@@ -110,5 +111,20 @@ requirejs.config({
         'bootstrap.popover'        : ['bootstrap.tooltip'],
         'jquery.velocity'          : ['jquery'],
     },
-    deps                           : ['main'] // <-- run our app
+    deps                           : ['app'] // <-- run our app
+});
+
+
+var path = 'modules/';
+var specs = [];
+
+var challenge = path + 'challenge/test/spec/';
+specs.push(challenge + 'entities.spec');
+
+require(specs, function() {
+    if (window.mochaPhantomJS) {
+        mochaPhantomJS.run();
+    } else {
+        mocha.run();
+    }
 });
