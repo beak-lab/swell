@@ -1,4 +1,4 @@
-# Swell [![Build Status](https://secure.travis-ci.org/rekarnar/swell.png?branch=master)](https://travis-ci.org/rekarnar/swell)
+# Swell [![Build Status](https://secure.travis-ci.org/beak-lab/swell.png?branch=master)](https://github.com/beak-lab/swell)
 
 > Online well-being platform
 
