@@ -86,7 +86,12 @@ requirejs.config({
             deps                   : ['jquery', 'underscore', 'dust'],
             exports                : 'Backbone'
         },
+        dust: {
+            exports                : 'dust'
+        },
         dustMarionette             : ['backbone'],
+        dustHelpers                : ['dust'],
+        templates                  : ['dust', 'dustMarionette'], // load dust before our compiled templates
         dustIterate                : ['dust'],
         'backbone.picky'           : ['backbone'],
         'jquery-ui/core'           : ['jquery'],
@@ -99,11 +104,6 @@ requirejs.config({
         'bootstrap.tooltip'        : ['jquery'],
         'bootstrap.popover'        : ['bootstrap.tooltip'],
         'jquery.velocity'          : ['jquery'],
-        dust: {
-            exports                : 'dust'
-        },
-        dustHelpers                : ['dust'],
-        templates                  : ['dust', 'dustMarionette'] // load dust before our compiled templates
     },
     deps                           : ['main'] // <-- run our app
 });

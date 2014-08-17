@@ -24,13 +24,13 @@ require([
 
         if (mobileFound) {
             require(unRequiredList, function() {
-                console.log('Init');
+                // console.log('Init');
                 $(function() {
                     App.start();
                 });
             });
         } else {
-            console.log('Init Non Mobile');
+            // console.log('Init Non Mobile');
             $(function() {
                 App.start();
             });
