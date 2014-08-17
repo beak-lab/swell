@@ -1,6 +1,6 @@
 'use strict';
 /*globals Swipe*/
-define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap.popover', 'swipejs', 'jquery.velocity'], function(App) {
+define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap.popover', 'swipejs', 'jquery.velocity', 'picker.date'], function(App) {
     App.module('Challenge.Show.View', function(View, App, Backbone, Marionette, $) {
         View.Layout = Marionette.Layout.extend({
             template: 'challenge_show_layout',
@@ -175,6 +175,23 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 this.$el.find('.mystuff__share-buddy').popover({
                     trigger: 'focus',
                     html: true,
+                });
+                var goals = this.$el.find('.mystuff__goals__goal');
+                goals.each(function(){
+                    var newgoalDiv = $(this);
+                    console.log( this );
+                    var reminder = newgoalDiv.find('.activity-goal__reminder-field')
+                    reminder.pickadate({
+                        format:'Re!min!der: dd mmm',
+                        onSet : function(){
+                            if(this.$node.val() ==='' ){
+                                newgoalDiv.removeClass('has-reminder');
+                            }else{
+                                newgoalDiv.addClass('has-reminder');
+                            }
+                        }
+                    });
+                    
                 });
             },
 

@@ -86,6 +86,8 @@
                 <label class="mystuff__goals__goal">
                         <input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" />
                         <div class="activity-goal__text">{$value}</div>
+                        <input class="activity-goal__reminder-field"></input>
+                        <div class="activity-goal__reminder-icon"></div>
                 </label>
                 {/iterate}
         {/goals.goal}

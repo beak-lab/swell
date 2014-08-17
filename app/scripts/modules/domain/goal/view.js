@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'templates', 'dust', 'dustIterate', 'jquery.velocity'], function(App) {
+define(['app', 'templates', 'dust', 'dustIterate', 'jquery.velocity', 'picker.date'], function(App) {
     App.module('Domain.Show.View', function(View, App, Backbone, Marionette, $) {
         View.Layout = Marionette.Layout.extend({
             template: 'domain_goal_show',
@@ -22,13 +22,45 @@ define(['app', 'templates', 'dust', 'dustIterate', 'jquery.velocity'], function(
                 // custom destroying and cleanup goes here
             },
 
+            onRender: function(){
+                var goals = this.$el.find('.domain-goals__goal');
+                goals.each(function(){
+                    var newgoalDiv = $(this);
+                    console.log( this );
+                    var reminder = newgoalDiv.find('.activity-goal__reminder-field')
+                    reminder.pickadate({
+                        format:'Re!min!der: dd mmm',
+                        onSet : function(){
+                            if(this.$node.val() ==='' ){
+                                newgoalDiv.removeClass('has-reminder');
+                            }else{
+                                newgoalDiv.addClass('has-reminder');
+                            }
+                        }
+                    });   
+                });
+            },
+
             initialize : function(){
                 $('body').removeClass('is-domain-list-view');
             },
 
             appendGoal: function(text) {
                 var newgoalDiv = $('<label class="mystuff__goals__goal"><input class="mystuff__goals__goal-checkbox checkboxable__checkbox" type="checkbox" /><div class="activity-goal__text">' + text + '</div></label>');
-                //newgoalDiv.hide();
+                var reminder = $('<input class="activity-goal__reminder-field" />').appendTo(newgoalDiv);
+                var reminderIcon =  $('<label class="activity-goal__reminder-icon" />').appendTo(newgoalDiv);
+                
+                reminder.pickadate({
+                    format:'Re!min!der: dd mmm',
+                    onSet : function(){
+                        if(this.$node.val() ==='' ){
+                            newgoalDiv.removeClass('has-reminder');
+                        }else{
+                            newgoalDiv.addClass('has-reminder');
+                        }
+                    }
+                });
+
                 newgoalDiv.css({
                     'height': 0,
                     'min-height': 0

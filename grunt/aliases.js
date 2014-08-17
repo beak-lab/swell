@@ -43,6 +43,7 @@ module.exports = {
         'clean:server',
         'newer:dustjs',
         'newer:less:production',
-        'concurrent:server'
+        'connect',
+        'watch'
     ]
 };

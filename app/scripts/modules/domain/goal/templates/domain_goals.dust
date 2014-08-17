@@ -9,6 +9,8 @@
 			    <label class="domain-goals__goal">
 	                <input class="domain-goals__goal-checkbox checkboxable__checkbox" type="checkbox" />
 	                <div class="domain-goals__goal__text">{$value}</div>
+	                <input class="activity-goal__reminder-field"></input>
+                    <div class="activity-goal__reminder-icon"></div>
 	                {done}
 			    </label>
 		    {/iterate}
