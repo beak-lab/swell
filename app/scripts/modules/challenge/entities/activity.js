@@ -69,7 +69,7 @@ define(['app'], function(App) {
                 weight: 13,
                 type: 'Draggable',
                 title: 'Activity 3: Positive disclosure',
-                question: 'What I learned from <strong>my lived experience</strong> that will help me in the job',
+                question: '1) What I learned from <strong>my lived experience</strong> that will help me in the job',
                 data: {
                     draggable: [{
                         name: 'Resilience'
@@ -90,12 +90,12 @@ define(['app'], function(App) {
                 question: 'When should I disclose (if at all)?',
                 data: [{
                         text: 'I believe my distress will interfere with my ability to do the job',
-                        subtext: 'Disclose before they decide to employ me',
-                        goalText: 'Disclose before they decide to employ you'
+                        subtext: 'Disclose before they decide to employ you',
+                        goalText: 'Disclose before they decide to employ me'
                     }, {
                         text: 'I want to negotiate work conditions related to my distress',
                         subtext: 'Disclose just after they offer you the job',
-                        goalText: 'Disclose my experience before I accept a job'
+                        goalText: 'Disclose my experience after I accept a job'
                     }, {
                         text: 'I want to let my employer know when I\'m struggling',
                         subtext: 'Disclose when you start struggling - don\'t wait too long',
@@ -112,7 +112,7 @@ define(['app'], function(App) {
                 type: 'Draggable',
                 title: 'Activity 3: Positive disclosure',
                 // description: 'Say what you have learnt from your experience that will help you manage your condition',
-                question: 'What I have learnt about <strong>self-managing my condition</strong> that will help me in the job',
+                question: '2) What I have learnt about <strong>self-managing my condition</strong> that will help me in the job',
                 data: {
                     draggable: [{
                         name: 'Looking after my health'
@@ -127,7 +127,7 @@ define(['app'], function(App) {
                 weight: 15,
                 type: 'Draggable',
                 title: 'Activity 3: Positive disclosure',
-                question: 'The work conditions I thrive under',
+                question: '3) The work conditions I thrive under',
                 data: {
                     draggable: [{
                         name: 'Flexible sick leave'
@@ -171,7 +171,7 @@ define(['app'], function(App) {
                     {
                         container: 'ol',
                         cssClass: 'big-ol',
-                        content: '<li>What I learnt from my lived experience that would help me in the job</li><li>What I have learnt about self-managing my condition that will help me in the job.</li><li>The work conditions I thrive under.</li>'
+                        content: '<li>What I learnt from my lived experience that would help me do the job</li><li>What I have learnt about self-managing my condition that will help me in the job.</li><li>The work conditions I thrive under.</li>'
                     },{
                         container: 'h3',
                         content: 'Lets go into more detail...'

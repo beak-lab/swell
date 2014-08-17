@@ -1,5 +1,5 @@
 'use strict';
-define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
+define(['app', 'templates', 'dust', 'backbone.syphon', 'picker.date'], function(App) {
     App.module('Goal.Create.View', function(View, App, Backbone, Marionette, $) { // , $, _
 
         View.GoalAdd = Marionette.ItemView.extend({
@@ -16,13 +16,33 @@ define(['app', 'templates', 'dust', 'backbone.syphon'], function(App) {
             appendGoal: function(text) {
                 var total = this.$el.find('.activity__personal-goals__goal').length;
                 var newgoalInput = $('<input type="hidden" name="goal[' + total + ']" value="' + text + '"/>');
-                var newgoalDiv = $('<div class="activity__personal-goals__goal"><div class="activity-goal__icon"></div><div class="activity-goal__text">' + text + '</div></div>');
-                //newgoalDiv.hide();
+                var newgoalDiv = $('<div class="activity__personal-goals__goal"/>');
+                newgoalDiv.append('<div class="activity-goal__icon"/>');
+                newgoalDiv.append('<div class="activity-goal__text">' + text + '</div>');
+                
+                var reminder = $('<input class="activity-goal__reminder-field" />').appendTo(newgoalDiv);
+                var reminderIcon =  $('<label class="activity-goal__reminder-icon" />').appendTo(newgoalDiv);
+                
+                reminder.pickadate({
+                    format:'Re!min!der: dd mmm',
+                    onSet : function(){
+                        if(this.$node.val() ==='' ){
+                            newgoalDiv.removeClass('has-reminder');
+                        }else{
+                            newgoalDiv.addClass('has-reminder');
+                        }
+                    }
+                });
+
+
                 newgoalDiv.css({'height' :  0, 'min-height' : 0});
 
                 this.$el.find('.activity__personal-goals').addClass('has-goals');
                 this.$el.find('#goals').addClass('has-goals').prepend(newgoalDiv);
                 this.$el.find('#goals').prepend(newgoalInput);
+                
+
+
                 //newgoalDiv.slideDown();
                 newgoalDiv.animate({
                     'min-height' : '5rem'

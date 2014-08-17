@@ -25,7 +25,11 @@ requirejs.config({
         'jquery-ui/draggable'      : '../bower_components/jquery.ui/ui/draggable',
         'jquery-ui/droppable'      : '../bower_components/jquery.ui/ui/droppable',
         'jquery-ui/sortable'       : '../bower_components/jquery.ui/ui/sortable',
+        'jquery-ui/datepicker'     : '../bower_components/jquery.ui/ui/datepicker',
         'jquery.touch.punch'       : '../vendor/jquery.ui.touch-punch.min',
+
+        'picker'                   : '../bower_components/pickadate/lib/picker',
+        'picker.date'              : '../bower_components/pickadate/lib/picker.date',
 
         'snapjs'                   : '../bower_components/snapjs/snap.min',
 
@@ -96,6 +100,7 @@ requirejs.config({
         'backbone.picky'           : ['backbone'],
         'jquery-ui/core'           : ['jquery'],
         'jquery-ui/mouse'          : ['jquery-ui/core', 'jquery-ui/widget'],
+        'jquery-ui/datepicker'     : ['jquery-ui/core', 'jquery-ui/widget'],
         'jquery-ui/widget'         : ['jquery-ui/core'],
         'jquery-ui/draggable'      : ['jquery-ui/mouse'],
         'jquery-ui/droppable'      : ['jquery-ui/draggable'],

@@ -20,7 +20,8 @@
     "lesshat": "~3.0.2",
     "backbone.localstorage": "~1.1.9",
     "swipejs": "~2.0.0",
-    "velocity": "~0.4.1"
+    "velocity": "~0.4.1",
+    "pickadate": "~3.5.3"
   },
   "devDependencies": {
     "mocha": "~1.18.0",

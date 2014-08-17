@@ -1,6 +1,6 @@
 'use strict';
 /*globals Swipe*/
-define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap.popover', 'swipejs', 'jquery.velocity'], function(App) {
+define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap.popover', 'swipejs', 'jquery.velocity', 'picker.date'], function(App) {
     App.module('Challenge.Show.View', function(View, App, Backbone, Marionette, $) {
         View.Layout = Marionette.Layout.extend({
             template: 'challenge_show_layout',
@@ -176,6 +176,23 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                     trigger: 'focus',
                     html: true,
                 });
+                var goals = this.$el.find('.mystuff__goals__goal');
+                goals.each(function(){
+                    var newgoalDiv = $(this);
+                    console.log( this );
+                    var reminder = newgoalDiv.find('.activity-goal__reminder-field')
+                    reminder.pickadate({
+                        format:'Re!min!der: dd mmm',
+                        onSet : function(){
+                            if(this.$node.val() ==='' ){
+                                newgoalDiv.removeClass('has-reminder');
+                            }else{
+                                newgoalDiv.addClass('has-reminder');
+                            }
+                        }
+                    });
+                    
+                });
             },
 
             onShow: function() {
@@ -200,25 +217,30 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'dustIterate', 'bootstrap
                 var historyEl = this.$el.find('#mystuff-history');
                 var decksContainer = historyEl.find('.activity-history__decks');
 
-                var historySwipe = new Swipe(historyEl[0], {
-                    continuous: true,
-                    callback: function() {
-                        //changes the pager
-                        // console.log(this);
-                        var pagers = historyEl.find('.activity-history__pager-item').removeClass('is-active');
-                        pagers.filter(function() {
-                            return $(this).data('idx') === historySwipe.getPos();
-                        }).addClass('is-active');
 
-                        // set the height of the slider
-                        _this.setDeckHeight(historySwipe, decksContainer);
+                if(historyEl.length){
+
+                    var historySwipe = new Swipe(historyEl[0], {
+                        continuous: true,
+                        callback: function() {
+                            //changes the pager
+                            // console.log(this);
+                            var pagers = historyEl.find('.activity-history__pager-item').removeClass('is-active');
+                            pagers.filter(function() {
+                                return $(this).data('idx') === historySwipe.getPos();
+                            }).addClass('is-active');
+
+                            // set the height of the slider
+                            _this.setDeckHeight(historySwipe, decksContainer);
 
 
-                    }
-                });
+                        }
+                    });
+                    
+                    this.setDeckHeight(historySwipe, decksContainer);
+                    this.buildHistoryPager(historySwipe);
+                }
 
-                this.setDeckHeight(historySwipe, decksContainer);
-                this.buildHistoryPager(historySwipe);
 
             },
             setDeckHeight: function(historySwipe, decksContainer){

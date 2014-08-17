@@ -17,6 +17,10 @@
 		vertical-align: middle;
 	}
 
+	&.has-reminder{
+		padding-right: 11.5 + 3em;
+	}
+	
 	input[type='text']{
 		&:focus, &:active{
 			outline: 0;
@@ -43,6 +47,32 @@
 		cursor: pointer;
 		position: absolute;
 		top: 1.2rem;
+	}
+
+	.activity-goal__reminder-field{
+		position: absolute;
+		border: 0;
+		top: .5em;
+		right: 0em;
+		padding: 0 3em 0 0;
+		height: 2.5em;
+		z-index: 1;
+		background: transparent;
+		width: 11.5em;
+		color: @grey;
+
+	}
+	.activity-goal__reminder-icon{
+		position: absolute;
+		background:	url(../../images/icon-alarmclock.svg) @ocean 50% 50% no-repeat;
+		background-size: 70%;	
+		border-radius: 50%;
+		width: 0;
+		height: 2.5em;
+		padding: .3em 0 .3em 2.5em;
+		right: .5em;
+		top: .5em;
+		border: 0;
 	}
 }
 
@@ -84,6 +114,10 @@
 		height: 4rem;
 	}
 }
+.activity__goals__pretext{
+	text-align: center;
+	margin: 1em 0;
+}
 
 .activity__goals__subtext{
 	margin: 0;
@@ -109,10 +143,12 @@
 
 .activity__personal-goals__goal{
 	.__activity-goal;
+	padding-right: 3em;
 
 	// padding-bottom: 2rem;
 	.activity-goal__icon{
 		&:extend(.checkboxable__checkbox);
 	}
+
 
 }

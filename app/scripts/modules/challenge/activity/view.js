@@ -200,7 +200,7 @@ define(['app', 'templates', 'dust', 'backbone.syphon', 'jquery-ui/sortable', 'jq
             },
 
             onAddNewMagnet: function() {
-                var name = prompt('Name?');
+                var name = prompt('Enter something');
                 if (name) {
                     var container = this.$el.find('#voteable-container').prepend('<div class="voteable__item is-added" >' + name +' </div>'),
                         item = container.children().first().draggable({

@@ -21,6 +21,7 @@
 }
 
 .slideable__slider{
+	outline: 0;
 	-webkit-appearance: none;
 	appearance: none;
 	// border: 1px solid @ocean;
@@ -33,6 +34,7 @@
 
 .slideable__slider::-webkit-slider-thumb {
     -webkit-appearance: none;
+    .transition( all .2s);
     appearance: none;
     border: 1px solid @sky;
     background: @sky;
@@ -40,4 +42,12 @@
     width: 2rem;
     border-radius: 100%;
     box-shadow: 0 1px 3px fade(@oil, 50%)
+}
+
+.slideable__slider:active,
+.slideable__slider:focus{
+	outline: 0;
+	&::-webkit-slider-thumb{
+		-webkit-transform: scale(2);
+	}
 }

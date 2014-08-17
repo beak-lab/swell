@@ -36,6 +36,17 @@ define([
         // Add as many of these as you like
         App.addInitializer(function() {
 
+            window.localStorage.setItem('goals[1]', JSON.stringify({
+                goal: {
+                    991 : 'Do what colour is your parachute online course',
+                }
+            }));
+            window.localStorage.setItem('goals[5]', JSON.stringify({
+                goal: {
+                    992 : 'Apply for part time jobs in IT',
+                }
+            }));
+
         });
 
         App.navigate = function(route, options) {
