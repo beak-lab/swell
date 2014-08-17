@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "dependencies": {
     "requirejs": "~2.1.4",
-    "marionette": "~2.1.0",
+    "marionette": "~1.6.4",
     "backbone.wreqr": "~1.0.0",
     "backbone.picky.extended": "~0.2.2",
     "backbone.syphon": "~0.4.1",

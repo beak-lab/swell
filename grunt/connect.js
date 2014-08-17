@@ -8,7 +8,6 @@ module.exports = {
             // Change this to '0.0.0.0' to access the server from outside
             hostname: 'localhost',
             base: '<%= settings.app %>'
-
         },
         livereload: {
             options: {
@@ -32,7 +31,7 @@ module.exports = {
         dist: {
             options: {
                 open: true,
-                base: '',
+                base: '<%= settings.dist %>',
                 livereload: false
             }
         }

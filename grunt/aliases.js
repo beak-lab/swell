@@ -12,9 +12,11 @@ module.exports = {
     'dev': [
         'dustjs',    // dust -> js
         'less:development', // less -> css
+        'connect',
+        'watch'
     ],
 
-    'build': [
+    'build': [ // for prod
         'clean:dist',
         'newer:dustjs',    // dust -> js
         'newer:less:production', // less -> css
