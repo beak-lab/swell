@@ -161,7 +161,7 @@ define(['app'], function(App) {
                 id: 9,
                 weight: 12,
                 type: 'Staticable',
-                title: 'Activity 3: When I do disclose',
+                title: 'Activity 3: Positive disclosure',
                 upperDescription: 'When you disclose don\'t be negative or apologetic. Turn it into an opportunity to sell your strengths.',
                 data: [
                     {   
